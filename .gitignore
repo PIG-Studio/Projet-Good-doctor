@@ -2,14 +2,17 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-Good_doctor_v0.0.0/[Ll]ibrary/
-Good_doctor_v0.0.0/[Tt]emp/
-Good_doctor_v0.0.0/[Oo]bj/
-Good_doctor_v0.0.0/[Bb]uild/
-Good_doctor_v0.0.0/[Bb]uilds/
-Good_doctor_v0.0.0/[Ll]ogs/
-Good_doctor_v0.0.0/[Uu]ser[Ss]ettings/
-Good_doctor_v0.0.0/.idea/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+Builds_*/
+.idea/
+*.debug
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -57,10 +60,10 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
-*.apk
-*.aab
-*.unitypackage
-*.app
+#*.apk#
+#*.aab#
+#*.unitypackage#
+#*.app#
 
 # Crashlytics generated file
 crashlytics-build.properties
