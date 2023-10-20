@@ -24,7 +24,7 @@ public class window_Mode_Controller : MonoBehaviour
         }
         
         windowModeDropdown.AddOptions(options);
-        windowModeDropdown.value = 0;
+        windowModeDropdown.value = _windowModes.IndexOf(Screen.fullScreenMode);
         windowModeDropdown.RefreshShownValue();
     }
     
