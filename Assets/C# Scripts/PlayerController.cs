@@ -61,10 +61,10 @@ public class PlayerController : MonoBehaviour
             anims.SetBool("MovingRight", true);
         else 
             anims.SetBool("MovingRight", false);
-        
+
         if (smoothedHorizontalInput < 0)
             anims.SetBool("MovingLeft", true);
-        else 
+        else
             anims.SetBool("MovingLeft", false);
         
         // Move the character horizontally based on the smoothed input
