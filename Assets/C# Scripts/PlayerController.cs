@@ -22,13 +22,13 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Get the raw horizontal input
-        float rawLeftInput = Input.GetAxis("Left");
+        /*float rawLeftInput = Input.GetAxis("Left");
         float rawRightInput = Input.GetAxis("Right");
         float rawUpInput = Input.GetAxis("Up");
-        float rawDownInput = Input.GetAxis("Down");
+        float rawDownInput = Input.GetAxis("Down");*/
         
-        float rawVerticalInput = (rawUpInput - rawDownInput) * moveSpeed;
-        float rawHorizontalInput = (rawRightInput - rawLeftInput) *moveSpeed;
+        float rawVerticalInput = Input.GetAxis("Vertical") * moveSpeed;
+        float rawHorizontalInput = Input.GetAxis("Horizontal") *moveSpeed;
         
         // Smooth the input to reduce jitter
         float smoothedHorizontalInput = Mathf.Lerp(currentInputH, rawHorizontalInput, 10);

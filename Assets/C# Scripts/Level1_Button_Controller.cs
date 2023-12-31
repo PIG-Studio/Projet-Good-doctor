@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Level1_Button_Controller : MonoBehaviour
 {
-    [SerializeField] private string newGameLevel = "Menu";
+    private string newGameLevel = "Menu";
     public void BackToMenuButton()
     {
         SceneManager.LoadScene(newGameLevel);
+    }
+    
+    public void BTN_MapHospital()
+    {
+        SceneManager.LoadScene("MapHospital");
     }
 }

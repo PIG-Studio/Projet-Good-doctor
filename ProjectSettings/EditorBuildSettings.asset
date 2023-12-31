@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Parameters.unity
     guid: ec82649f8d8b3c151b86e504a2af4ab4
   - enabled: 1
-    path: Assets/Scenes/Hospital_Tilemap.unity
+    path: Assets/Scenes/MapHospital.unity
     guid: 861dc0d505f8dcd4c90d747bcb746c56
   m_configObjects: {}
