@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 47111520}
   - component: {fileID: 47111518}
   m_Layer: 5
-  m_Name: Dropdown_window_mode
+  m_Name: DDW_PARAM_WindowMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,8 +286,9 @@ GameObject:
   - component: {fileID: 54400224}
   - component: {fileID: 54400226}
   - component: {fileID: 54400227}
+  - component: {fileID: 54400228}
   m_Layer: 0
-  m_Name: Script_resolution
+  m_Name: ScriptContainerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,52 +347,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f057d945710e00661b491d7ef7b0836c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hertzDropdown: {fileID: 241000041}
---- !u!1 &146551547
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 146551549}
-  - component: {fileID: 146551548}
-  m_Layer: 0
-  m_Name: Level1_Button_Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &146551548
+  _hertzDropdown: {fileID: 241000041}
+--- !u!114 &54400228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146551547}
+  m_GameObject: {fileID: 54400223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f4d42d56535ff176b08138a2ae938be, type: 3}
+  m_Script: {fileID: 11500000, guid: f7b05a102f99c8716a51dc6b2c07d58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameLevel: Menu
---- !u!4 &146551549
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146551547}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150.71368, y: 341.75754, z: 5.1937375}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196686287
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +448,7 @@ GameObject:
   - component: {fileID: 241000043}
   - component: {fileID: 241000041}
   m_Layer: 5
-  m_Name: Dropdown_hertz_rate
+  m_Name: DDW_PARAM_HzRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1865,7 +1833,7 @@ GameObject:
   - component: {fileID: 814653891}
   - component: {fileID: 814653890}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: EventHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2338,7 +2306,7 @@ GameObject:
   - component: {fileID: 1175779560}
   - component: {fileID: 1175779559}
   m_Layer: 0
-  m_Name: Button
+  m_Name: BTN_Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2408,16 +2376,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 146551548}
-        m_TargetAssemblyTypeName: Level1_Button_Controller, Assembly-CSharp
-        m_MethodName: BackToMenuButton
-        m_Mode: 1
+      - m_Target: {fileID: 54400228}
+        m_TargetAssemblyTypeName: CustomSceneManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1175779560
@@ -3255,7 +3223,7 @@ GameObject:
   - component: {fileID: 1560745372}
   - component: {fileID: 1560745371}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: DDW_PARAM_Resolutions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4387,4 +4355,3 @@ SceneRoots:
   - {fileID: 618768621}
   - {fileID: 814653892}
   - {fileID: 54400225}
-  - {fileID: 146551549}

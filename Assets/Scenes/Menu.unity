@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 146163239}
   - component: {fileID: 146163238}
   m_Layer: 0
-  m_Name: menu
+  m_Name: TextureMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 438561223}
   - component: {fileID: 438561222}
   m_Layer: 5
-  m_Name: Button_parameters
+  m_Name: BTN_Parameters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,16 +650,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1278851668}
-        m_TargetAssemblyTypeName: Menu_Button_Controller, Assembly-CSharp
-        m_MethodName: Change_Scene_to_Parameters_Button
-        m_Mode: 1
+      - m_Target: {fileID: 1278851670}
+        m_TargetAssemblyTypeName: CustomSceneManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Parameters
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &438561223
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 921971859}
   - component: {fileID: 921971858}
   m_Layer: 5
-  m_Name: Button_quit
+  m_Name: BTN_Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -783,9 +783,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1278851668}
-        m_TargetAssemblyTypeName: Menu_Button_Controller, Assembly-CSharp
-        m_MethodName: ShutDown
+      - m_Target: {fileID: 1278851670}
+        m_TargetAssemblyTypeName: CustomSceneManager, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -976,28 +976,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278851669}
-  - component: {fileID: 1278851668}
+  - component: {fileID: 1278851670}
   m_Layer: 0
-  m_Name: Menu_Button_Controller
+  m_Name: ScriptContainerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1278851668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278851667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1143f82e5d6107fa9da37d71da69a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newGameLevel: Level 1
-  parameters: Parameters
 --- !u!4 &1278851669
 Transform:
   m_ObjectHideFlags: 0
@@ -1013,6 +999,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278851670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278851667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b05a102f99c8716a51dc6b2c07d58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1321267418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1024,7 @@ GameObject:
   - component: {fileID: 1321267420}
   - component: {fileID: 1321267419}
   m_Layer: 5
-  m_Name: Canvas Boutons
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1130,7 +1128,7 @@ GameObject:
   - component: {fileID: 1789135752}
   - component: {fileID: 1789135751}
   m_Layer: 5
-  m_Name: Button_Level1
+  m_Name: BTN_Desk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,16 +1198,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1278851668}
-        m_TargetAssemblyTypeName: Menu_Button_Controller, Assembly-CSharp
-        m_MethodName: Change_Scene_to_Level1_Button
-        m_Mode: 1
+      - m_Target: {fileID: 1278851670}
+        m_TargetAssemblyTypeName: CustomSceneManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Desk
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1789135752
@@ -1324,6 +1322,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 113171782}
   - {fileID: 1907938334}
-  - {fileID: 1278851669}
   - {fileID: 146163239}
   - {fileID: 1321267422}
+  - {fileID: 1278851669}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour// TODO : heritage de classes
 {
     public float moveSpeed = 1f;
     public int smoothingFactor = 1;
@@ -77,9 +77,8 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(newPosition);
     }
 
-    
-    
-    
+    // TODO : method utilisant template
+    //bool Action<T>()
 
     bool IsColliding(Vector2 newPosition)
     {
