@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
         float rawRightInput = Input.GetAxis("Right");
         float rawUpInput = Input.GetAxis("Up");
         float rawDownInput = Input.GetAxis("Down");*/
-        
         float rawVerticalInput = Input.GetAxis("Vertical") * moveSpeed;
         float rawHorizontalInput = Input.GetAxis("Horizontal") *moveSpeed;
         

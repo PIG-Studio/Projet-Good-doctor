@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 438561224}
   - component: {fileID: 438561223}
   - component: {fileID: 438561222}
+  - component: {fileID: 438561225}
   m_Layer: 5
   m_Name: BTN_Parameters
   m_TagString: Untagged
@@ -700,6 +701,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438561220}
   m_CullTransparentMesh: 1
+--- !u!114 &438561225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438561220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e74b2b2d9484eb3094abdea20e9e50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &921971856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1154,7 @@ GameObject:
   - component: {fileID: 1789135752}
   - component: {fileID: 1789135751}
   m_Layer: 5
-  m_Name: BTN_Desk
+  m_Name: BTN_NewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1214,13 +1227,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1278851671}
         m_TargetAssemblyTypeName: GameVariables, Assembly-CSharp
         m_MethodName: NewGame
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Desk
+          m_StringArgument: Test
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1789135752
