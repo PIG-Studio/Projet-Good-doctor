@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 95490de5043cfa732a48b7a84134f0cf
   - enabled: 1
-    path: Assets/Scenes/DESK_Base.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/DESK_Upgraded.unity
+    guid: f9f437a6f4199272f8df4ec2b407b303
   - enabled: 1
-    path: Assets/Scenes/Parameters.unity
-    guid: ec82649f8d8b3c151b86e504a2af4ab4
+    path: Assets/Scenes/DESK_Base.unity
+    guid: 36c3741ba5415b5eb86f67cb393df52e
   - enabled: 1
     path: Assets/Scenes/MapHospital.unity
     guid: 861dc0d505f8dcd4c90d747bcb746c56
+  - enabled: 1
+    path: Assets/Scenes/Parameters.unity
+    guid: ec82649f8d8b3c151b86e504a2af4ab4
   m_configObjects: {}

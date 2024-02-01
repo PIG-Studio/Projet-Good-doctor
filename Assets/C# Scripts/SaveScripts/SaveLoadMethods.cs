@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SaveLoadMethods : MonoBehaviour
 {
+    // TODO : creer une fonction verifiant la validite des data au loading, si non, ParseData return null 
     public static Dictionary<string, string> ParseData(string saveName)
     {
         StreamReader sr = new StreamReader(PARAM_Values.SavesPath + '/' + saveName);
