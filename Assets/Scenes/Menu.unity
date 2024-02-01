@@ -1339,12 +1339,12 @@ GameObject:
   - component: {fileID: 1321267420}
   - component: {fileID: 1321267419}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Ancien Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1321267419
 MonoBehaviour:
   m_ObjectHideFlags: 0
