@@ -9,6 +9,10 @@ using UnityEngine.UI;
 
 public class UI_Prefab : MonoBehaviour
 {
+    
+    /// <summary>
+    /// Deprecated for now
+    /// </summary>
     public enum UI_Types /* Available types for scripting UI objects                                                    TODO: A REMOVE ? */
     {
         BTN_ChangeScene,
@@ -17,6 +21,7 @@ public class UI_Prefab : MonoBehaviour
     }
     
     /// <summary>
+    /// <value>Working as expected</value>
     /// method creating a text component, so we can create text on button, input fields, ...
     /// </summary>
     /// <param name="textShown">string - Text we want to show in this component</param>
@@ -46,6 +51,17 @@ public class UI_Prefab : MonoBehaviour
         return text;
     }
 
+    
+    /// <summary>
+    /// <value>Working as expected</value>
+    /// Instantiate a GameObject with common parameters for GameObject, like canvas renderer, rect transform, ...
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
     private static GameObject NewUiElementBase(string id, float posX, float posY, float width, float height)
     {
         GameObject button = new GameObject(id, new Type[] { });
@@ -60,6 +76,16 @@ public class UI_Prefab : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// <value>Working as expected</value>
+    /// uses base methods to instantiate a new text input field
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns>Created GameObject</returns>
     private static GameObject NewInputField(string id, float posX, float posY, float width, float height)
     {
         GameObject field = NewUiElementBase("TXTIN_" + id, posX, posY, width, height);
@@ -84,6 +110,18 @@ public class UI_Prefab : MonoBehaviour
         return field;
     }
 
+    /// <summary>
+    /// <value>Working as expected</value>
+    /// uses base methods to instantiate a new button
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="text"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <param name="onClickActon"></param>
+    /// <returns></returns>
     private static GameObject NewButton(string id, string text, float posX, float posY, float width, float height, UnityAction onClickActon)
     {
         GameObject button = NewUiElementBase("BTN_" + id, posX, posY, width, height);
@@ -93,6 +131,18 @@ public class UI_Prefab : MonoBehaviour
 
     }
     
+    /// <summary>
+    /// <value>WIP</value>
+    /// uses base methods to instantiate a new dropdown
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="text"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <param name="onClickActon"></param>
+    /// <returns></returns>
     private static GameObject NewDropdown(string id, string text, float posX, float posY, float width, float height, UnityAction onClickActon)
     {
         GameObject button = NewUiElementBase("BTN_" + id, posX, posY, width, height);
@@ -101,6 +151,13 @@ public class UI_Prefab : MonoBehaviour
         return button;
 
     }
+    
+    /// <summary>
+    /// <value>Working as expected</value>
+    /// Instantiates a new canvas and add components to render 
+    /// </summary>
+    /// <param name="canvasName"></param>
+    /// <param name="dicoUiComponents"></param>
     protected static void Instancier(string canvasName, Dictionary<string, GameObject> dicoUiComponents)
     {
         /* Cree un nouveau canvas et y ajoute les objects du dicoUiComponents */
@@ -119,27 +176,76 @@ public class UI_Prefab : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// <value>Working as expected</value>
+    /// Protected method to create a button that changes to another scene, according to its parameters.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="text"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <param name="newScene"></param>
+    /// <returns></returns>
     protected static GameObject ButtonChangeScene(string id,string text, float posX, float posY, float width, float height, string newScene)
     {
         /* Renvoie un nouveau bouton changent de scene vers le param newScene */ 
         return NewButton( id, text, posX, posY,width, height, () => CustomSceneManager.ChangeScene(newScene)); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
     }
     
+    /// <summary>
+    /// <value>Working as expected</value>
+    /// Protected method to create a button that quit the app.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="text"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
     protected static GameObject ButtonQuit(string id, string text, float posX, float posY, float width, float height)
     {
         return NewButton(id, text, posX, posY, width, height, () => CustomSceneManager.Quit());
     }
 
+    
+    /// <summary>
+    /// <value>Working as expected</value>
+    /// Protected method to create a text input field.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
     protected static GameObject InputField(string id, float posX, float posY, float width, float height)
     {
         return NewInputField(id, posX, posY, width, height);
     }
     
+    /// <summary>
+    /// <value>Working as expected</value>
+    /// Protected method to create a button that launches a new game.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="text"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
     protected static GameObject ButtonNewGame(string id,string text, float posX, float posY, float width, float height)
     {
         return NewButton(id, text, posX, posY,width, height, () => GameVariables.NewGame(GameVariables.SaveName)); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
     }
     
+    
+    /// <summary>
+    /// test method, kinda useless
+    /// </summary>
     public static void test()
     {
         Dictionary<string, GameObject> dicoBTN =
