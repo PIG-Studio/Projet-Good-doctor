@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PARAM_Resolutions : MonoBehaviour
 {
-    [SerializeField] private TMP_Dropdown resolutionDropdown;
+    [SerializeField] public TMP_Dropdown resolutionDropdown;
 
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;

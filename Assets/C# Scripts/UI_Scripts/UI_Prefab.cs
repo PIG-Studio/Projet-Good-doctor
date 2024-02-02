@@ -133,6 +133,7 @@ public class UI_Prefab : MonoBehaviour
     
     /// <summary>
     /// <value>WIP</value>
+    /// Should be private, temporarily on protected for testing purposes
     /// uses base methods to instantiate a new dropdown
     /// </summary>
     /// <param name="id"></param>
@@ -143,13 +144,25 @@ public class UI_Prefab : MonoBehaviour
     /// <param name="height"></param>
     /// <param name="onClickActon"></param>
     /// <returns></returns>
-    private static GameObject NewDropdown(string id, string text, float posX, float posY, float width, float height, UnityAction onClickActon)
+    protected static GameObject NewDropdown(string id, string text, float posX, float posY, float width, float height)
     {
-        GameObject button = NewUiElementBase("BTN_" + id, posX, posY, width, height);
-        TextComponentCreator(text, button);
-        button.AddComponent<Button>().onClick.AddListener(onClickActon);
-        return button;
-
+        GameObject ddw = NewUiElementBase("DDW_" + id, posX, posY, width, height);
+        TextComponentCreator(text, ddw);
+        ddw.AddComponent<TMP_Dropdown>().targetGraphic = ddw.GetComponent<Image>();
+        ddw.AddComponent<PARAM_Resolutions>().resolutionDropdown = ddw.GetComponent<TMP_Dropdown>();
+        
+        GameObject arrow = NewUiElementBase("Arrow", 0, 0, 50, 50);
+        arrow.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/DropdownArrow.psd");
+        arrow.GetComponent<Image>().type = Image.Type.Sliced;
+        arrow.transform.SetParent(ddw.transform);
+        
+        GameObject template = NewUiElementBase("template", 100, 0, 50, 50);
+        
+        template.transform.SetParent(ddw.transform);
+        template.GetComponent<ScrollRect>();
+        
+        ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
+        return ddw;
     }
     
     /// <summary>
