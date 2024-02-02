@@ -16,7 +16,13 @@ public class UI_Prefab : MonoBehaviour
         BTN_NewGame
     }
     
-    
+    /// <summary>
+    /// method creating a text component, so we can create text on button, input fields, ...
+    /// </summary>
+    /// <param name="textShown">string - Text we want to show in this component</param>
+    /// <param name="parent">GameObject - Component's parent, this method links this component with its parent</param>
+    /// <param name="name">string - Component's identifier</param>
+    /// <returns>GameObject - returns instantiated component</returns>
     private static GameObject TextComponentCreator(string textShown, GameObject parent, string name="Text")
     {
         /* Prend un objet parent et lui cree et ajoute un component affichant du texte */
@@ -56,7 +62,7 @@ public class UI_Prefab : MonoBehaviour
 
     private static GameObject NewInputField(string id, float posX, float posY, float width, float height)
     {
-        GameObject field = NewUiElementBase(id, posX, posY, width, height);
+        GameObject field = NewUiElementBase("TXTIN_" + id, posX, posY, width, height);
 
         GameObject textArea = new GameObject("Text Area");
         textArea.AddComponent<RectTransform>();
@@ -80,7 +86,16 @@ public class UI_Prefab : MonoBehaviour
 
     private static GameObject NewButton(string id, string text, float posX, float posY, float width, float height, UnityAction onClickActon)
     {
-        GameObject button = NewUiElementBase(id, posX, posY, width, height);
+        GameObject button = NewUiElementBase("BTN_" + id, posX, posY, width, height);
+        TextComponentCreator(text, button);
+        button.AddComponent<Button>().onClick.AddListener(onClickActon);
+        return button;
+
+    }
+    
+    private static GameObject NewDropdown(string id, string text, float posX, float posY, float width, float height, UnityAction onClickActon)
+    {
+        GameObject button = NewUiElementBase("BTN_" + id, posX, posY, width, height);
         TextComponentCreator(text, button);
         button.AddComponent<Button>().onClick.AddListener(onClickActon);
         return button;
@@ -107,7 +122,7 @@ public class UI_Prefab : MonoBehaviour
     protected static GameObject ButtonChangeScene(string id,string text, float posX, float posY, float width, float height, string newScene)
     {
         /* Renvoie un nouveau bouton changent de scene vers le param newScene */ 
-        return NewButton(id, text, posX, posY,width, height, () => CustomSceneManager.ChangeScene(newScene)); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
+        return NewButton( id, text, posX, posY,width, height, () => CustomSceneManager.ChangeScene(newScene)); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
     }
     
     protected static GameObject ButtonQuit(string id, string text, float posX, float posY, float width, float height)
