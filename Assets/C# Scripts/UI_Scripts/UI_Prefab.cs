@@ -157,9 +157,12 @@ public class UI_Prefab : MonoBehaviour
         arrow.transform.SetParent(ddw.transform);
         
         GameObject template = NewUiElementBase("template", 100, 0, 50, 50);
-        
         template.transform.SetParent(ddw.transform);
-        template.GetComponent<ScrollRect>();
+        template.AddComponent<ScrollRect>();
+        
+        GameObject viewport = NewUiElementBase("viewport", 100, 0, 50, 50);
+        viewport.transform.SetParent(ddw.transform);
+        viewport.GetComponent<ScrollRect>();
         
         ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
         return ddw;
