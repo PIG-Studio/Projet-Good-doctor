@@ -142,7 +142,6 @@ public class UI_Prefab : MonoBehaviour
     /// <param name="posY"></param>
     /// <param name="width"></param>
     /// <param name="height"></param>
-    /// <param name="onClickActon"></param>
     /// <returns></returns>
     protected static GameObject NewDropdown(string id, string text, float posX, float posY, float width, float height)
     {
@@ -151,18 +150,23 @@ public class UI_Prefab : MonoBehaviour
         ddw.AddComponent<TMP_Dropdown>().targetGraphic = ddw.GetComponent<Image>();
         ddw.AddComponent<PARAM_Resolutions>().resolutionDropdown = ddw.GetComponent<TMP_Dropdown>();
         
-        GameObject arrow = NewUiElementBase("Arrow", 0, 0, 50, 50);
-        arrow.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/DropdownArrow.psd");
-        arrow.GetComponent<Image>().type = Image.Type.Sliced;
-        arrow.transform.SetParent(ddw.transform);
         
-        GameObject template = NewUiElementBase("template", 100, 0, 50, 50);
+        GameObject template = NewUiElementBase("template", 0, 0, 50, 50);
+        template.transform.localPosition = new Vector3(0, 0);
         template.transform.SetParent(ddw.transform);
         template.AddComponent<ScrollRect>();
         
-        GameObject viewport = NewUiElementBase("viewport", 100, 0, 50, 50);
+        GameObject viewport = NewUiElementBase("viewport", 0, 0, 50, 50);
+        viewport.transform.localPosition = new Vector3(0, 0);
         viewport.transform.SetParent(ddw.transform);
         viewport.GetComponent<ScrollRect>();
+        
+        GameObject arrow = NewUiElementBase("Arrow", 0, 0, width*0.1f, height);
+        arrow.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
+        arrow.GetComponent<RectTransform>().anchoredPosition = Vector2.right;
+        arrow.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/DropdownArrow.psd");
+        arrow.GetComponent<Image>().type = Image.Type.Sliced;
+        arrow.transform.SetParent(ddw.transform);
         
         ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
         return ddw;
