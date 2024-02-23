@@ -1,9 +1,4 @@
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
-using System.IO;
-using System.Net;
->>>>>>> main
 using UnityEngine;
 
 public class UI_DESK_Base : UI_Prefab
