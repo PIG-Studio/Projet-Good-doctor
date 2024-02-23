@@ -169,7 +169,12 @@ public class UI_Prefab : MonoBehaviour
         
         ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
         ddw.GetComponent<TMP_Dropdown>().captionText = ddw.GetComponentInChildren<TextMeshProUGUI>();
+        
         viewport.GetComponent<Transform>().SetParent(template.GetComponent<Transform>());
+        
+        GameObject scrollbar = NewUiElementBase("scrollbar", 0, 0, 20, 50);
+        scrollbar.AddComponent<Scrollbar>();
+        
         return ddw;
     }
     
