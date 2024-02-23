@@ -104,7 +104,7 @@ public class UI_Prefab : MonoBehaviour
         field.GetComponent<TMP_InputField>().placeholder = placeholder.GetComponent<TextMeshProUGUI>();
         
         field.GetComponent<TMP_InputField>().onSelect.AddListener( (string input) => CustomSceneManager.ChangeSelect() );
-        field.GetComponent<TMP_InputField>().onValueChanged.AddListener( (string input) => GameVariables.SetSaveName( input ) );
+        field.GetComponent<TMP_InputField>().onValueChanged.AddListener( (string input) => SaveData.SetSaveName( input ) );
         field.GetComponent<TMP_InputField>().onDeselect.AddListener( (string input) => CustomSceneManager.ChangeSelect() );
         
         return field;
