@@ -112,4 +112,12 @@ public class SaveLoadMethods : MonoBehaviour
         Debug.Log("saveCreated at " + PARAM_Values.SavesPath + '/' + fileName);
         sw.Close();
     }
+
+    public void Load()
+    {
+        if (File.Exists(PARAM_Values.SavesPath + '/' + GameVariables.SaveName))
+        {
+            
+        }
+    }
 }
