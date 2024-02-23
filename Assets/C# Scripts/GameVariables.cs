@@ -64,6 +64,7 @@ public class GameVariables : MonoBehaviour
         if (SaveLoadMethods.ValidNameToSave(gameName))
         {
             SetVariables(gameName);
+            SaveData.SaveGame();
             UnityEngine.SceneManagement.SceneManager.LoadScene(DesksConvert.ToString(_startingDesk));
         }
     }
