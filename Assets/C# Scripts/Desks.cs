@@ -24,6 +24,11 @@ public static class DesksConvert
             { Desks.BaseDesk, "DESK_Base" },
             { Desks.ChirDesk, "DESK_Chirurgien" }
         };
+    
+    public static bool ValidString(string input)
+    {
+        return DictStringToDesk.ContainsKey(input);
+    }
 
     public static Desks ToDesk(string input)
     {
