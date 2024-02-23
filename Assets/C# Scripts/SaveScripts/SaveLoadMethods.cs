@@ -2,11 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SaveLoadMethods : MonoBehaviour
 {
+    
+    private static string[] ListAllSaves()
+    {
+        string[] res = Directory.GetFiles(PARAM_Values.SavesPath,"*.save");
+        return res;
+    }
 
     private static bool NumbInString(string Madelaine)
     {
@@ -87,17 +94,35 @@ public class SaveLoadMethods : MonoBehaviour
                     return false;
                 }
             }
+
+            if (miettes.Key == "DeskName")
+            {
+                if (DesksConvert.ValidString(miettes.Value) == false)
+                {
+                    return false;
+                }
+            }
+
+            if (miettes.Key == "SceneName")
+            {
+                try
+                {
+                    CustomSceneManager.ChangeScene(miettes.Value);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return false;
+                }
+            }
         }
         return true;
     }
-    
-    
     public Dictionary<string, string> ListAvailableSaves_Latest()
     {
 
         // TODO : lis tout les fichiers d un dossier, si nom, extension et data du fichier sont a un fornat valide, ajouter le fichier la liste
-        //SARTO
-        
+        //
         return new Dictionary<string, string>();
         
     }
@@ -117,17 +142,29 @@ public class SaveLoadMethods : MonoBehaviour
         string saveName = GameVariables.SaveName;
         // TODO : ecrire les variables dans un fichier .json ?
         string fileName = saveName + "@" + date;
-        File.Create(Directory.GetCurrentDirectory()+ '\\' + fileName).Close();
-        StreamWriter sw = new StreamWriter(PARAM_Values.SavesPath + '/' + fileName);
+        File.Create(Directory.GetCurrentDirectory()+ '\\' + fileName + ".save").Close();
+        StreamWriter sw = new StreamWriter(PARAM_Values.SavesPath + '/' + fileName + ".save");
         foreach (var cle in inputVariables.Keys)
         {
             sw.WriteLine(cle + ':' + inputVariables[cle]);
         }
-        Debug.Log("saveCreated at " + PARAM_Values.SavesPath + '/' + fileName);
+        Debug.Log("saveCreated at " + PARAM_Values.SavesPath + '/' + fileName + ".save");
         sw.Close();
     }
 
     public void Load()
     {
+        string[] SaveFiles = Directory.GetFiles(PARAM_Values.SavesPath);
+        if (SaveFiles.Contains(GameVariables.SaveName))
+        {
+            Dictionary<string, string> SavedContent = ParseData(GameVariables.SaveName);
+            if (CheckData(SavedContent) == false)
+            {
+                Debug.Log("Data Non Valides");
+            }
+
+            GameVariables.SaveName = SavedContent["SaveName"];
+            GameVariables.LatestPos = SavedContent["position"];
+        }
     }
 }

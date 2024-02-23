@@ -8,7 +8,7 @@ public class GameVariables : MonoBehaviour
     private static Desks _startingDesk = Desks.BaseDesk;
     public static string SaveName { get;  set; }
 
-    public static (int, int) LatestPos { get; private set; }
+    public static (int, int) LatestPos { get; set; }
 
     public static string SceneName_Current { get; set; }
     public static string SceneName_Last { get; set; }
