@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class GameVariables : MonoBehaviour
 {
-    public static Desks DeskName { get; private set; }
+    public static Desks DeskName { get; set; }
 
     private static Desks _startingDesk = Desks.BaseDesk;
     public static string SaveName { get;  set; }
 
-    public static (int, int) LatestPos { get; set; }
+    public static (float, float) LatestPos { get; set; }
 
     public static string SceneName_Current { get; set; }
     public static string SceneName_Last { get; set; }

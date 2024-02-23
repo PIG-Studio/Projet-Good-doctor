@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 
 public class SaveLoadMethods : MonoBehaviour
 {
-    
     private static string[] ListAllSaves()
     {
         string[] res = Directory.GetFiles(PARAM_Values.SavesPath,"*.save");
@@ -155,7 +154,15 @@ public class SaveLoadMethods : MonoBehaviour
     public void Load()
     {
         string[] SaveFiles = Directory.GetFiles(PARAM_Values.SavesPath);
-        if (SaveFiles.Contains(GameVariables.SaveName))
+        bool validpath = false;
+        foreach (var Lapin in SaveFiles)
+        {
+            if (Lapin.Contains(GameVariables.SaveName))
+            {
+                validpath = true;
+            }
+        }
+        if (validpath)
         {
             Dictionary<string, string> SavedContent = ParseData(GameVariables.SaveName);
             if (CheckData(SavedContent) == false)
@@ -164,7 +171,19 @@ public class SaveLoadMethods : MonoBehaviour
             }
 
             GameVariables.SaveName = SavedContent["SaveName"];
-            GameVariables.LatestPos = SavedContent["position"];
+            GameVariables.DeskName = DesksConvert.ToDesk(SavedContent["DeskName"]);
+            GameVariables.SceneName_Current = SavedContent["SceneName"];
+            string[] DemiCanard = SavedContent["Position"].Split(' ');
+            DemiCanard[0] = DemiCanard[0].Remove(0, 1);
+            DemiCanard[0] = DemiCanard[0].Remove(DemiCanard[0].Length - 1, 1);
+            DemiCanard[1] = DemiCanard[1].Remove(DemiCanard[1].Length - 1, 1);
+            GameVariables.LatestPos = (float.Parse(DemiCanard[0]), (float.Parse(DemiCanard[1])));
+            Debug.Log("Partie Chargée Avec Succès");
+
+        }
+        else
+        {
+            Debug.Log("Erreur De Sauvegarde");
         }
     }
 }
