@@ -150,7 +150,6 @@ public class UI_Prefab : MonoBehaviour
         ddw.AddComponent<TMP_Dropdown>().targetGraphic = ddw.GetComponent<Image>();
         ddw.AddComponent<PARAM_Resolutions>().resolutionDropdown = ddw.GetComponent<TMP_Dropdown>();
         
-        
         GameObject template = NewUiElementBase("template", 0, 0, 50, 50);
         template.transform.localPosition = new Vector3(0, 0);
         template.transform.SetParent(ddw.transform);
@@ -159,7 +158,7 @@ public class UI_Prefab : MonoBehaviour
         GameObject viewport = NewUiElementBase("viewport", 0, 0, 50, 50);
         viewport.transform.localPosition = new Vector3(0, 0);
         viewport.transform.SetParent(ddw.transform);
-        viewport.GetComponent<ScrollRect>();
+        viewport.AddComponent<ScrollRect>();
         
         GameObject arrow = NewUiElementBase("Arrow", 0, 0, width*0.1f, height);
         arrow.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
@@ -169,6 +168,8 @@ public class UI_Prefab : MonoBehaviour
         arrow.transform.SetParent(ddw.transform);
         
         ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
+        ddw.GetComponent<TMP_Dropdown>().captionText = ddw.GetComponentInChildren<TextMeshProUGUI>();
+        viewport.GetComponent<Transform>().SetParent(template.GetComponent<Transform>());
         return ddw;
     }
     
