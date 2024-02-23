@@ -38,7 +38,7 @@ public class GameVariables : MonoBehaviour
         Dictionary<string, string> saveData = SaveLoadMethods.ParseData(saveName);
         if (saveData != null) // TODO : check if save data is valid
         {
-            DeskName = DesksConvert.StringToDesk(saveData["DeskName"]);
+            DeskName = DesksConvert.ToDesk(saveData["DeskName"]);
             SetVariables(saveData["SaveName"]);
             SetVariables(saveData["SceneName"]);
             CustomSceneManager.ChangeScene(SceneName_Current);
@@ -64,7 +64,8 @@ public class GameVariables : MonoBehaviour
         if (SaveLoadMethods.ValidNameToSave(gameName))
         {
             SetVariables(gameName);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(DesksConvert.DeskToString(_startingDesk));
+            SaveData.SaveGame();
+            UnityEngine.SceneManagement.SceneManager.LoadScene(DesksConvert.ToString(_startingDesk));
         }
     }
     
