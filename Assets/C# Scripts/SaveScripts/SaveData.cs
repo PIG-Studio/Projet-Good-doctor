@@ -12,8 +12,6 @@ public class SaveData : MonoBehaviour
         //ublic float playerHealth;
         //public int playerScore;
         //public (float,float) position;
-        //
-        
         
         /// <summary>
         /// met GameVariables.SaveName a 'input' si le nom est valide
@@ -42,7 +40,9 @@ public class SaveData : MonoBehaviour
                 input["DeskName"] = DesksConvert.DeskToString(GameVariables.DeskName);
                 input["SaveName"] = GameVariables.SaveName;
                 input["SceneName"] = GameVariables.SceneName_Current;
-
+                string pos = GameVariables.LatestPos.Item1.ToString() + " , " +
+                             GameVariables.LatestPos.Item2.ToString();
+                input["Position"] = pos;
                 SaveLoadMethods.WriteSaveGame(input);
         }
         
