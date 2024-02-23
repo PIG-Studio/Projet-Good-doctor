@@ -24,7 +24,7 @@ public class SaveLoadMethods : MonoBehaviour
     public static bool ValidNameToSave(string testStr)
     {
         bool retour = true;
-        if (testStr.Length < 3)
+        if (testStr.Length < 3 || testStr.Length > 15)
             retour = false;
         else
         {
@@ -63,29 +63,34 @@ public class SaveLoadMethods : MonoBehaviour
         return retour;
     }
     
-    public static Dictionary<string, string> ParseSave(string saveName)
+    public static bool CheckData(Dictionary<string,string> ParsedData)
     {
-        string AllFiles = PARAM_Values.SavesPath + '/';
-        return new Dictionary<string, string>();
-    }
-
-    public static bool CheckData(Dictionary<string, string> ParsedData)
-    {
-        foreach (var elts in ParsedData)
+        foreach (var miettes in ParsedData)
         {
-            if (elts.Key == "SaveName" && ValidNameToSave(elts.Value) == false)
+            if (miettes.Key == "SaveName")
             {
-                return false;
+                if (File.Exists(PARAM_Values.SavesPath + '/' + miettes.Value))
+                {
+                    return false;
+                }
+
+                if (ValidNameToSave(miettes.Value) == false)
+                {
+                    return false;
+                }
             }
 
-            if (elts.Key == "Position" && NumbInString(elts.Value))
+            if (miettes.Key == "Position")
             {
-                return false;
+                if (NumbInString(miettes.Value) == false)
+                {
+                    return false;
+                }
             }
         }
-
         return true;
     }
+    
     
     public Dictionary<string, string> ListAvailableSaves_Latest()
     {
@@ -105,11 +110,14 @@ public class SaveLoadMethods : MonoBehaviour
   
     public static void WriteSaveGame(Dictionary<string, string> inputVariables)
     {
-        string date = DateTime.Now.ToString("O");
+        string date = DateTime.Now.ToString("G");
+        date = date.Replace(':', '.');
+        date = date.Replace('/', '_');
+        Debug.Log(date);
         string saveName = GameVariables.SaveName;
         // TODO : ecrire les variables dans un fichier .json ?
-        string fileName = saveName + '@' + date;
-        File.Create(PARAM_Values.SavesPath + '/' + fileName).Close();
+        string fileName = saveName + "@" + date;
+        File.Create(Directory.GetCurrentDirectory()+ '\\' + fileName).Close();
         StreamWriter sw = new StreamWriter(PARAM_Values.SavesPath + '/' + fileName);
         foreach (var cle in inputVariables.Keys)
         {
@@ -121,9 +129,5 @@ public class SaveLoadMethods : MonoBehaviour
 
     public void Load()
     {
-        if (File.Exists(PARAM_Values.SavesPath + '/' + GameVariables.SaveName))
-        {
-            
-        }
     }
 }
