@@ -10,6 +10,7 @@ public enum Desks
 
 public static class DesksConvert
 {
+    private static Desks value { get; set; }
     private static Dictionary<string, Desks> DictStringToDesk { get; set; } =
         new Dictionary<string, Desks>()
         {
@@ -24,14 +25,16 @@ public static class DesksConvert
             { Desks.ChirDesk, "DESK_Chirurgien" }
         };
 
-    public static Desks StringToDesk(string input)
+    public static Desks ToDesk(string input)
     {
-        return DictStringToDesk[input];
+        var retour =DictStringToDesk[input];
+        Debug.Log("Desk.ToDesk : " + retour);
+        return retour;
     }
     
-    public static string DeskToString(Desks input)
+    public new static string ToString(Desks desk)
     {
-        return DictDeskToString[input];
+        return DictDeskToString[desk];
     }
 
 
