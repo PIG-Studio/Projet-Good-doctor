@@ -36,10 +36,10 @@ public class SaveData : MonoBehaviour
         /// create a dictionary with values needed to save a game, and passes it to SaveLoadMethods.WriteSaveGame
         /// </summary>
         /// <returns>void</returns>
-        public void SaveGame()
+        public static void SaveGame()
         {
                 Dictionary<string, string> input = new Dictionary<string, string>();
-                input["DeskName"] = DesksConvert.DeskToString(GameVariables.DeskName);
+                input["DeskName"] = DesksConvert.ToString(GameVariables.DeskName);
                 input["SaveName"] = GameVariables.SaveName;
                 input["SceneName"] = GameVariables.SceneName_Current;
 
