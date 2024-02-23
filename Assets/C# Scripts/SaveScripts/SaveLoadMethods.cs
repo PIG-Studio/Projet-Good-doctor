@@ -62,6 +62,12 @@ public class SaveLoadMethods : MonoBehaviour
         sr.Close();
         return retour;
     }
+    
+    public static Dictionary<string, string> ParseSave(string saveName)
+    {
+        string AllFiles = PARAM_Values.SavesPath + '/';
+        return new Dictionary<string, string>();
+    }
 
     public static bool CheckData(Dictionary<string, string> ParsedData)
     {
