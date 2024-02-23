@@ -37,7 +37,7 @@ public class SaveData : MonoBehaviour
         public static void SaveGame()
         {
                 Dictionary<string, string> input = new Dictionary<string, string>();
-                input["DeskName"] = DesksConvert.DeskToString(GameVariables.DeskName);
+                input["DeskName"] = DesksConvert.ToString(GameVariables.DeskName);
                 input["SaveName"] = GameVariables.SaveName;
                 input["SceneName"] = GameVariables.SceneName_Current;
                 string pos = GameVariables.LatestPos.Item1.ToString() + " , " +
