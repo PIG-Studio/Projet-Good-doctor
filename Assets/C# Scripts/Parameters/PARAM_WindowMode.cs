@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PARAM_WindowMode: MonoBehaviour
+public class PARAM_WindowMode: MonoBehaviour, IDropdownadble
 {
     [SerializeField] private TMP_Dropdown windowModeDropdown;
     private List<FullScreenMode> _windowModes = new List<FullScreenMode>();
-    private void Start()
+    public void Start()
     /*
      methode appele des que le bouton est rendu pour la 1e fois,
      on y verifie quelles options sont affichables selon l'OS
@@ -34,5 +34,10 @@ public class PARAM_WindowMode: MonoBehaviour
     public void SetWindowMode(int WindowIndex)
     {
         Screen.SetResolution(Screen.width, Screen.height, _windowModes[WindowIndex], Screen.currentResolution.refreshRateRatio);
+    }
+    
+    public void SetDropdown(TMP_Dropdown dropdown)
+    {
+        windowModeDropdown = dropdown;
     }
 }
