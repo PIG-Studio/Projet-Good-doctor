@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2e498d1c8094910479dc3e1b768306a4
 <<<<<<< HEAD
 timeCreated: 1484171803
@@ -9,6 +10,12 @@ NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
 >>>>>>> main
+=======
+guid: a8dc600b056da944797f8c257222e482
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+>>>>>>> 1ad9907 (save)
   userData: 
   assetBundleName: 
   assetBundleVariant: 

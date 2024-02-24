@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 731f1baa9d144a9897cb1d341c2092b8
 folderAsset: yes
 <<<<<<< HEAD
@@ -9,6 +10,12 @@ DefaultImporter:
 DefaultImporter:
   externalObjects: {}
 >>>>>>> main
+=======
+guid: 913f74bc43281e24c9b577faae76a1aa
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+>>>>>>> 1ad9907 (save)
   userData: 
   assetBundleName: 
   assetBundleVariant: 
