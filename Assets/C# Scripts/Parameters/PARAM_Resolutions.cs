@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PARAM_Resolutions : MonoBehaviour
+public class PARAM_Resolutions : MonoBehaviour, IDropdownadble
 {
-    [SerializeField] public TMP_Dropdown resolutionDropdown;
+    [SerializeField] public TMP_Dropdown dropdown;
 
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
@@ -12,12 +12,12 @@ public class PARAM_Resolutions : MonoBehaviour
     private int currentResolutionIndex = 0;
     
 
-    private void Start()
+    public void Start()
     {
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
 
-        resolutionDropdown.ClearOptions();
+        dropdown.ClearOptions();
 
         for (int i = 0; i < resolutions.Length; i++)
         {
@@ -36,14 +36,19 @@ public class PARAM_Resolutions : MonoBehaviour
             }
         }
         
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        dropdown.AddOptions(options);
+        dropdown.value = currentResolutionIndex;
+        dropdown.RefreshShownValue();
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = filteredResolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, Screen.currentResolution.refreshRateRatio);
+    }
+    
+    public void SetDropdown(TMP_Dropdown inDropdown)
+    {
+        dropdown = inDropdown;
     }
 }
