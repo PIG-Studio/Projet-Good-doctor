@@ -150,7 +150,6 @@ public class UI_Prefab : MonoBehaviour
         ddw.AddComponent<TMP_Dropdown>().targetGraphic = ddw.GetComponent<Image>();
         ddw.AddComponent<PARAM_Resolutions>().resolutionDropdown = ddw.GetComponent<TMP_Dropdown>();
         
-        
         GameObject template = NewUiElementBase("template", 0, 0, 50, 50);
         template.transform.localPosition = new Vector3(0, 0);
         template.transform.SetParent(ddw.transform);
@@ -159,7 +158,7 @@ public class UI_Prefab : MonoBehaviour
         GameObject viewport = NewUiElementBase("viewport", 0, 0, 50, 50);
         viewport.transform.localPosition = new Vector3(0, 0);
         viewport.transform.SetParent(ddw.transform);
-        viewport.GetComponent<ScrollRect>();
+        viewport.AddComponent<ScrollRect>();
         
         GameObject arrow = NewUiElementBase("Arrow", 0, 0, width*0.1f, height);
         arrow.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
@@ -169,6 +168,13 @@ public class UI_Prefab : MonoBehaviour
         arrow.transform.SetParent(ddw.transform);
         
         ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
+        ddw.GetComponent<TMP_Dropdown>().captionText = ddw.GetComponentInChildren<TextMeshProUGUI>();
+        
+        viewport.GetComponent<Transform>().SetParent(template.GetComponent<Transform>());
+        
+        GameObject scrollbar = NewUiElementBase("scrollbar", 0, 0, 20, 50);
+        scrollbar.AddComponent<Scrollbar>();
+        
         return ddw;
     }
     
@@ -262,6 +268,21 @@ public class UI_Prefab : MonoBehaviour
         return NewButton(id, text, posX, posY,width, height, () => GameVariables.NewGame(GameVariables.SaveName)); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
     }
     
+    /// <summary>
+    /// <value>WIP</value>
+    /// Protected method to create a button create a save.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="text"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
+    protected static GameObject ButtonSave(string id,string text, float posX, float posY, float width, float height)
+    {
+        return NewButton(id, text, posX, posY,width, height, () => SaveData.SaveGame()); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
+    }
     
     /// <summary>
     /// test method, kinda useless
