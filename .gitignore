@@ -13,7 +13,6 @@
 Builds_*/
 .idea/
 *.debug
-*.meta
 *@*
 *.blob
 
