@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/C# Scripts/Interfaces/UI Input management/UI_MenuInputManagement.cs.meta
 guid: 1d6052756bfedb67e90e6bf52ddd714a
+=======
+guid: 7194da50b0eec284d95028ed3e45579d
+>>>>>>> 1ad9907 (save):Assets/C# Scripts/UI Input management/UI_MenuInputManagement.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

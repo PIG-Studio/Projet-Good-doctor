@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6e59c59b81ab47f9b6ec5781fa725d2c
 <<<<<<< HEAD
 timeCreated: 1484171296
@@ -8,6 +9,11 @@ TextScriptImporter:
 TextScriptImporter:
   externalObjects: {}
 >>>>>>> main
+=======
+guid: cca7255d136380840b1b946a9e9106c2
+TextScriptImporter:
+  externalObjects: {}
+>>>>>>> 1ad9907 (save)
   userData: 
   assetBundleName: 
   assetBundleVariant: 
