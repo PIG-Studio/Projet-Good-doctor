@@ -11,10 +11,7 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
     public float maxSpeed = 0.15f;
     private Rigidbody2D rb;           // Reference to the Rigidbody2D component
     public Animator anims;
-    public PolygonCollider2D characterColliderUp;
-    public PolygonCollider2D characterColliderDown;
-    public PolygonCollider2D characterColliderUpTrigger;
-    public PolygonCollider2D characterColliderDownTrigger;
+
     
     void Start()
     {
@@ -56,16 +53,7 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
         if (smoothedVerticalInput < 0)
         {
             anims.SetBool("MovingDown", true);
-            characterColliderDown.enabled = false;
-            if (!characterColliderUpTrigger.IsTouchingLayers(LayerMask.GetMask("Walls")) &&
-                !characterColliderUpTrigger.IsTouchingLayers(LayerMask.GetMask("Obstacles")))
-            {
-                characterColliderUp.enabled = true;
-            }
-            else
-            {
-                characterColliderUp.enabled = false;
-            }
+   
         }
         else
             anims.SetBool("MovingDown", false);
@@ -73,16 +61,7 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
         if (smoothedVerticalInput > 0)
         {
             anims.SetBool("MovingUp", true);
-            characterColliderUp.enabled = false;
-            if (!characterColliderDownTrigger.IsTouchingLayers(LayerMask.GetMask("Walls")) &&
-                !characterColliderDownTrigger.IsTouchingLayers(LayerMask.GetMask("Obstacles")))
-            {
-                characterColliderDown.enabled = true;
-            }
-            else
-            {
-                characterColliderDown.enabled = false;
-            }
+           
         }
         else
         {
