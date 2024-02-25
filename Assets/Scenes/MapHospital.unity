@@ -5123,6 +5123,7 @@ GameObject:
   - component: {fileID: 576277831}
   - component: {fileID: 576277833}
   - component: {fileID: 576277834}
+  - component: {fileID: 576277837}
   - component: {fileID: 576277835}
   - component: {fileID: 576277836}
   m_Layer: 0
@@ -5326,6 +5327,69 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &576277837
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576277830}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.71875, y: 1.71875}
+    newSize: {x: 0.71875, y: 1.71875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.19927007, y: 0.25633633}
+      - {x: 0.25556743, y: 0.3931918}
+      - {x: 0.26881725, y: 0.671636}
+      - {x: 0.20213062, y: 0.76100504}
+      - {x: -0.028238058, y: 0.86265266}
+      - {x: -0.14103124, y: 0.8637177}
+      - {x: -0.26855782, y: 0.69382155}
+      - {x: -0.28678063, y: 0.3905022}
+      - {x: -0.20445731, y: 0.2474016}
+    - - {x: 0.19, y: 0.25633633}
+      - {x: 0.25556743, y: 0.3931918}
+      - {x: 0.26881725, y: 0.671636}
+      - {x: 0.20213062, y: 0.76100504}
+      - {x: -0.028238058, y: 0.86265266}
+      - {x: -0.14103124, y: 0.8637177}
+      - {x: -0.26855782, y: 0.69382155}
+      - {x: -0.28678063, y: 0.3905022}
+      - {x: -0.20445731, y: 0.2474016}
+  m_UseDelaunayMesh: 0
 --- !u!213 &584646178
 Sprite:
   m_ObjectHideFlags: 0
@@ -21678,7 +21742,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 36
-      m_TileSpriteIndex: 127
+      m_TileSpriteIndex: 188
       m_TileMatrixIndex: 0
       m_TileColorIndex: 47
       m_TileObjectToInstantiateIndex: 65535
@@ -21738,7 +21802,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 16
-      m_TileSpriteIndex: 174
+      m_TileSpriteIndex: 187
       m_TileMatrixIndex: 0
       m_TileColorIndex: 58
       m_TileObjectToInstantiateIndex: 65535
@@ -21748,7 +21812,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 175
+      m_TileSpriteIndex: 186
       m_TileMatrixIndex: 0
       m_TileColorIndex: 59
       m_TileObjectToInstantiateIndex: 65535
@@ -21798,7 +21862,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 33
-      m_TileSpriteIndex: 167
+      m_TileSpriteIndex: 185
       m_TileMatrixIndex: 0
       m_TileColorIndex: 50
       m_TileObjectToInstantiateIndex: 65535
@@ -22487,8 +22551,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 25232465}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 2122131032}
   - m_RefCount: 0
@@ -22567,8 +22631,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 135333455}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 2
@@ -22581,10 +22645,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 836314742}
-  - m_RefCount: 1
-    m_Data: {fileID: 1541357436}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 3
@@ -22603,14 +22667,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 135333455}
+  - m_RefCount: 1
+    m_Data: {fileID: 1541357436}
+  - m_RefCount: 1
+    m_Data: {fileID: 836314742}
+  - m_RefCount: 1
+    m_Data: {fileID: 25232465}
   - m_RefCount: 1
     m_Data: {fileID: 1998734774, guid: f293198769d4b53d089b232d796bc4d1, type: 3}
   - m_RefCount: 3
