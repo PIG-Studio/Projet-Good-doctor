@@ -178,7 +178,7 @@ TextureImporter:
         width: 48
         height: 80
       alignment: 9
-      pivot: {x: 0.125, y: 0.125}
+      pivot: {x: 0.165, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,15 +254,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_5
+      name: porte
       rect:
         serializedVersion: 2
         x: 192
         y: 208
         width: 32
         height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.25, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -338,13 +338,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_9
+      name: potGrand
       rect:
         serializedVersion: 2
         x: 0
-        y: 146
-        width: 144
-        height: 94
+        y: 160
+        width: 96
+        height: 24
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,15 +359,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_10
+      name: lavabo
       rect:
         serializedVersion: 2
-        x: 161
-        y: 225
-        width: 14
-        height: 14
-      alignment: 6
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -380,15 +380,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_11
+      name: vent
       rect:
         serializedVersion: 2
-        x: 177
-        y: 225
-        width: 14
-        height: 12
-      alignment: 6
-      pivot: {x: 0, y: 0}
+        x: 176
+        y: 224
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -447,9 +447,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 273
-        y: 0
+        y: 193
         width: 239
-        height: 208
+        height: 53
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -464,13 +464,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_15
+      name: pot
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 96
-        width: 30
-        height: 29
+        width: 32
+        height: 32
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -485,13 +485,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_16
+      name: potFleur
       rect:
         serializedVersion: 2
-        x: 34
+        x: 33
         y: 96
-        width: 30
-        height: 35
+        width: 32
+        height: 36
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -506,13 +506,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_17
+      name: pot2
       rect:
         serializedVersion: 2
         x: 64
-        y: 112
+        y: 113
         width: 32
-        height: 23
+        height: 24
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -527,13 +527,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_18
+      name: plante
       rect:
         serializedVersion: 2
-        x: 98
+        x: 96
         y: 112
-        width: 29
-        height: 13
+        width: 32
+        height: 16
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -548,13 +548,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_19
+      name: fleur
       rect:
         serializedVersion: 2
-        x: 131
+        x: 129
         y: 112
-        width: 29
-        height: 19
+        width: 32
+        height: 24
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -577,7 +577,7 @@ TextureImporter:
         width: 64
         height: 36
       alignment: 9
-      pivot: {x: 0.25, y: 0.5}
+      pivot: {x: 0.125, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -598,7 +598,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.25, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -619,7 +619,7 @@ TextureImporter:
         width: 32
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.25, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -640,7 +640,7 @@ TextureImporter:
         width: 16
         height: 56
       alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -648,6 +648,132 @@ TextureImporter:
       bones: []
       spriteID: ae9d3dd2936ea004990bd63e72b245a9
       internalID: -400520599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundLightLarge
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 32
+        width: 48
+        height: 32
+      alignment: 9
+      pivot: {x: 0.165, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9bc79334b4b6b381ba47f461935b664
+      internalID: -1676475437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundLight1
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 24
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11cd11e01954d2397a46fdd205c00db8
+      internalID: -868357009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundLight2
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 0
+        width: 24
+        height: 32
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355fce2a428e7d400bc89d37cad24c0c
+      internalID: 891482039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floorTile
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 31
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243e70da999950129b9d3a232ee27ca7
+      internalID: -196572764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wallCornerLDarkBlue
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 16
+        height: 112
+      alignment: 9
+      pivot: {x: 0.5, y: 0.071428575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f56557c2aa74f7aa9ce7d6379c8eca1
+      internalID: 1388791207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wallCyan
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 0
+        width: 80
+        height: 112
+      alignment: 9
+      pivot: {x: 0.1, y: 0.071428575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c151f2a408065be2a94a61cfe1381937
+      internalID: 979940400
       vertices: []
       indices: 
       edges: []
@@ -668,25 +794,31 @@ TextureImporter:
       bed1: 1998734774
       drawerDouble: 981433073
       drawerSimple: 2075354145
-      inside_10: -889111778
-      inside_11: -1370864799
+      fleur: -154337767
+      floorTile: -196572764
+      groundLight1: -868357009
+      groundLight2: 891482039
+      groundLightLarge: -1676475437
       inside_12: 1851417081
       inside_13: -170919808
       inside_14: 2001043426
-      inside_15: 582660085
-      inside_16: 1316891632
-      inside_17: -342194474
-      inside_18: 1035556837
-      inside_19: -154337767
       inside_2: -701539423
       inside_3: -342665203
       inside_4: -765009663
-      inside_5: -439764276
       inside_6: 289169501
       inside_7: -795767235
       inside_8: -1349881675
-      inside_9: -1516133194
+      lavabo: -889111778
       piedPerfusion: -400520599
+      plante: 1035556837
+      porte: -439764276
+      pot: 582660085
+      pot2: -342194474
+      potFleur: 1316891632
+      potGrand: -1516133194
+      vent: -1370864799
+      wallCornerLDarkBlue: 1388791207
+      wallCyan: 979940400
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
