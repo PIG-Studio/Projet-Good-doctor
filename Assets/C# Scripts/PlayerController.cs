@@ -10,13 +10,15 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
     private float currentInputV = 0f;
     public float maxSpeed = 0.15f;
     private Rigidbody2D rb;           // Reference to the Rigidbody2D component
-    PolygonCollider2D characterCollider; // Reference to the character's PolygonCollider2D component
     public Animator anims;
+    public PolygonCollider2D characterColliderUp;
+    public PolygonCollider2D characterColliderDown;
+    public PolygonCollider2D characterColliderUpTrigger;
+    public PolygonCollider2D characterColliderDownTrigger;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        characterCollider = GetComponent<PolygonCollider2D>(); // Get the character's PolygonCollider2D
     }
 
     private void Update()
@@ -27,14 +29,14 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
         float rawUpInput = Input.GetAxis("Up");
         float rawDownInput = Input.GetAxis("Down");*/
         float rawVerticalInput = Input.GetAxis("Vertical") * moveSpeed;
-        float rawHorizontalInput = Input.GetAxis("Horizontal") *moveSpeed;
-        
+        float rawHorizontalInput = Input.GetAxis("Horizontal") * moveSpeed;
+
         // Smooth the input to reduce jitter
         float smoothedHorizontalInput = Mathf.Lerp(currentInputH, rawHorizontalInput, 10);
         float smoothedVerticalInput = Mathf.Lerp(currentInputV, rawVerticalInput, 10);
-        
 
-        if (smoothedVerticalInput > maxSpeed) 
+
+        if (smoothedVerticalInput > maxSpeed)
             smoothedVerticalInput = maxSpeed;
         if (smoothedHorizontalInput > maxSpeed)
             smoothedHorizontalInput = maxSpeed;
@@ -44,21 +46,48 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
             smoothedHorizontalInput = -maxSpeed;
 
         // Store the smoothed input for the next frame
-        
+
         Vector2 movementH = new Vector2(smoothedHorizontalInput, 0);
         Vector2 movementV = new Vector2(0, smoothedVerticalInput);
-        
+
         currentInputH = smoothedHorizontalInput;
         currentInputV = smoothedVerticalInput;
-        
+
         if (smoothedVerticalInput < 0)
+        {
             anims.SetBool("MovingDown", true);
-        else 
+            characterColliderDown.enabled = false;
+            if (!characterColliderUpTrigger.IsTouchingLayers(LayerMask.GetMask("Walls")) &&
+                !characterColliderUpTrigger.IsTouchingLayers(LayerMask.GetMask("Obstacles")))
+            {
+                characterColliderUp.enabled = true;
+            }
+            else
+            {
+                characterColliderUp.enabled = false;
+            }
+        }
+        else
             anims.SetBool("MovingDown", false);
+
         if (smoothedVerticalInput > 0)
+        {
             anims.SetBool("MovingUp", true);
-        else 
+            characterColliderUp.enabled = false;
+            if (!characterColliderDownTrigger.IsTouchingLayers(LayerMask.GetMask("Walls")) &&
+                !characterColliderDownTrigger.IsTouchingLayers(LayerMask.GetMask("Obstacles")))
+            {
+                characterColliderDown.enabled = true;
+            }
+            else
+            {
+                characterColliderDown.enabled = false;
+            }
+        }
+        else
+        {
             anims.SetBool("MovingUp", false);
+        }
         
         if (smoothedHorizontalInput > 0)
             anims.SetBool("MovingRight", true);
@@ -79,7 +108,7 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
     // TODO : method utilisant template
     //bool Action<T>()
 
-    bool IsColliding(Vector2 newPosition)
+    /*bool IsColliding(Vector2 newPosition)
     {
         PolygonCollider2D characterCollider = GetComponent<PolygonCollider2D>(); // Get the character's PolygonCollider2D
 
@@ -93,6 +122,6 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
 
         // Check if there is a collision
         return count > 0;
-    }
+    }*/
 
 }
