@@ -69,7 +69,7 @@ public class UI_Prefab : MonoBehaviour
         button.AddComponent<RectTransform>().sizeDelta = new Vector2(width, height);
         button.transform.localPosition = new Vector3(posX, posY);
         button.AddComponent<CanvasRenderer>();
-        button.AddComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
+        button.AddComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/UISprite.psd");
         button.GetComponent<Image>().type = Image.Type.Sliced;
         
         return button;
@@ -180,13 +180,13 @@ public class UI_Prefab : MonoBehaviour
         viewport.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
         viewport.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
         viewport.GetComponent<RectTransform>().pivot = new Vector2(0f, 1f);
-        viewport.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UIMask.psd");
+        viewport.GetComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/UIMask.psd");
         viewport.GetComponent<RectTransform>().right = new Vector3(0, 0, 0);
-        //viewport.AddComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UIMask.psd");
+        //viewport.AddComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/UIMask.psd");
         
         GameObject arrow = NewUiElementBase("Arrow", 0, 0, width/4, width/4);
         
-        arrow.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/DropdownArrow.psd");
+        arrow.GetComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/DropdownArrow.psd");
         arrow.GetComponent<Image>().type = Image.Type.Simple;
         arrow.transform.SetParent(ddw.transform);
         arrow.GetComponent<RectTransform>().transform.localPosition = new Vector3(-width/8f, 0);
@@ -235,7 +235,7 @@ public class UI_Prefab : MonoBehaviour
         itemCheckmark.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0.5f);
         itemCheckmark.GetComponent<RectTransform>().anchorMax = new Vector2(0, 0.5f);
         itemCheckmark.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-        itemCheckmark.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Checkmark.psd");
+        itemCheckmark.GetComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/Checkmark.psd");
         itemCheckmark.GetComponent<Image>().type = Image.Type.Simple;
         itemCheckmark.GetComponent<RectTransform>().offsetMax = new Vector2(width/10f, width/5f);
         itemCheckmark.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
@@ -264,7 +264,7 @@ public class UI_Prefab : MonoBehaviour
         scrollbar.GetComponent<Scrollbar>().direction = Scrollbar.Direction.BottomToTop;
         scrollbar.GetComponent<Scrollbar>().value = 1;
         scrollbar.GetComponent<Scrollbar>().size = 1f;
-        scrollbar.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
+        scrollbar.GetComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/Background.psd");
         scrollbar.GetComponent<RectTransform>().anchorMin = new Vector2(1, 0);
         scrollbar.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
         scrollbar.GetComponent<RectTransform>().pivot = new Vector2(1f, 1f);
@@ -310,7 +310,7 @@ public class UI_Prefab : MonoBehaviour
     /// </summary>
     /// <param name="canvasName"></param>
     /// <param name="dicoUiComponents"></param>
-    protected static void Instancier(string canvasName, Dictionary<string, GameObject> dicoUiComponents)
+    protected static GameObject Instancier(string canvasName, Dictionary<string, GameObject> dicoUiComponents)
     {
         /* Cree un nouveau canvas et y ajoute les objects du dicoUiComponents */
         
@@ -327,6 +327,8 @@ public class UI_Prefab : MonoBehaviour
             GameObject temp = dicoUiComponents[cle];
             temp.transform.SetParent(canvas.transform, false);
         }
+
+        return canvas;
     }
     
     /// <summary>
