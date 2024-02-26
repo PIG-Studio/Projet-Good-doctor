@@ -169,7 +169,12 @@ public class UI_Prefab : MonoBehaviour
         
         ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
         ddw.GetComponent<TMP_Dropdown>().captionText = ddw.GetComponentInChildren<TextMeshProUGUI>();
+        
         viewport.GetComponent<Transform>().SetParent(template.GetComponent<Transform>());
+        
+        GameObject scrollbar = NewUiElementBase("scrollbar", 0, 0, 20, 50);
+        scrollbar.AddComponent<Scrollbar>();
+        
         return ddw;
     }
     
@@ -263,6 +268,21 @@ public class UI_Prefab : MonoBehaviour
         return NewButton(id, text, posX, posY,width, height, () => GameVariables.NewGame(GameVariables.SaveName)); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
     }
     
+    /// <summary>
+    /// <value>WIP</value>
+    /// Protected method to create a button create a save.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="text"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
+    protected static GameObject ButtonSave(string id,string text, float posX, float posY, float width, float height)
+    {
+        return NewButton(id, text, posX, posY,width, height, () => SaveData.SaveGame()); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
+    }
     
     /// <summary>
     /// test method, kinda useless
