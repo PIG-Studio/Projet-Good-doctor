@@ -18,6 +18,7 @@ public class PARAM_HzRate : MonoBehaviour, IDropdownadble
      On peut donc choisir une combinaison taux/res pas encore cree mais pas impossible, donc on peut choisir librement le taux voulu.
      */
     {
+        _hertzDropdown.onValueChanged.AddListener(SetRefreshRate);
         _allResolutions = new List<Resolution>();
         for (int i = 0; i < Screen.resolutions.Length; i++)
         {
