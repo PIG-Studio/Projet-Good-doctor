@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class PARAM_Resolutions : MonoBehaviour, IDropdownadble
 
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
-    
+    private bool manuel = false;
     private int currentResolutionIndex = 0;
     
 
@@ -18,6 +19,7 @@ public class PARAM_Resolutions : MonoBehaviour, IDropdownadble
         filteredResolutions = new List<Resolution>();
 
         dropdown.ClearOptions();
+        
 
         for (int i = 0; i < resolutions.Length; i++)
         {
@@ -30,15 +32,17 @@ public class PARAM_Resolutions : MonoBehaviour, IDropdownadble
             string resolutionOption = filteredResolutions[i].width +
                                       "x" + filteredResolutions[i].height;
             options.Add(resolutionOption);
-            if (filteredResolutions[i].width == Screen.width && filteredResolutions[i].height == Screen.height)
+            if (filteredResolutions[i].width == Screen.currentResolution.width  && filteredResolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
+                Debug.Log($"Set currentResolutionIndex to {currentResolutionIndex}");
             }
         }
         
         dropdown.AddOptions(options);
         dropdown.value = currentResolutionIndex;
         dropdown.RefreshShownValue();
+        dropdown.onValueChanged.AddListener(SetResolution);
     }
 
     public void SetResolution(int resolutionIndex)
