@@ -67,7 +67,7 @@ public class GameVariables : MonoBehaviour
         {
             SetVariables(gameName);//, roomMenu:new GameObject("RoomMenu").AddComponent<RoomMenu>());
             SaveData.SaveGame();
-            UnityEngine.SceneManagement.SceneManager.LoadScene(DesksConvert.ToString(_startingDesk));
+            CustomSceneManager.ChangeScene(DesksConvert.ToString(_startingDesk));
         }
     }
     
