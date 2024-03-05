@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Alteruna;
 using UnityEngine;
 
 public class GameVariables : MonoBehaviour
