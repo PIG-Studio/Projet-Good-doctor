@@ -23,7 +23,7 @@ public class multiPlayerController : NetworkBehaviour// TODO : heritage de class
 
     private void Update()
     {
-        if (IsOwner)
+        if (IsOwner && GameVariables.SceneName_Current == "MapHospital")
         {
             // Get the raw horizontal input
             /*float rawLeftInput = Input.GetAxis("Left");
@@ -88,6 +88,10 @@ public class multiPlayerController : NetworkBehaviour// TODO : heritage de class
             Vector2 newPosition = rb.position + movement;
             rb.MovePosition(newPosition);
         }
+        /*else if (GameVariables.SceneName_Current == "MapHospital")
+        {
+            sprite.enabled = true;
+        }*/
     }
 
     // TODO : method utilisant template
