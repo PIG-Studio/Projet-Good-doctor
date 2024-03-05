@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2723109243
+  GlobalObjectIdHash: 2635429764
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
@@ -212,9 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c701c1547836fe57098f23f0d408f8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  moveSpeed: 1
   smoothingFactor: 2
-  maxSpeed: 0.15
+  maxSpeed: 0.2
   anims: {fileID: 1747219443038663151}
 --- !u!95 &1747219443038663151
 Animator:
@@ -251,3 +251,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 5948473160762187358}
   anims: {fileID: 1747219443038663151}
+  rb: {fileID: 8738992393412992031}
