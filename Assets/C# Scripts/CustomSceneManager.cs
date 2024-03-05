@@ -7,9 +7,8 @@ public class CustomSceneManager: MonoBehaviour
     public static void ChangeScene(string newScene)
     {
         GameVariables.SceneName_Last = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(newScene);
         GameVariables.SceneName_Current = newScene;
-        
+        SceneManager.LoadScene(newScene);
     }
     public static void Quit()
     {
