@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -13,18 +15,21 @@ public class multiPlayerController : NetworkBehaviour// TODO : heritage de class
     public float maxSpeed = 0.15f;
     private Rigidbody2D rb;           // Reference to the Rigidbody2D component
     public Animator anims;
+    public GameObject vcam;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         //if (GameVariables.SceneName_Current != "MapHospital"){ gameObject.SetActive(false);}
         /*else {*/ gameObject.SetActive(true); //}
         DontDestroyOnLoad(gameObject);
+        
     }
 
     private void Update()
     {
         if (IsOwner && GameVariables.SceneName_Current == "MapHospital")
         {
+            vcam.SetActive(true);
             // Get the raw horizontal input
             /*float rawLeftInput = Input.GetAxis("Left");
             float rawRightInput = Input.GetAxis("Right");
@@ -85,9 +90,17 @@ public class multiPlayerController : NetworkBehaviour// TODO : heritage de class
 
             // Move the character horizontally based on the smoothed input
             Vector2 movement = new Vector2(smoothedHorizontalInput, smoothedVerticalInput);
+            float vTot = Math.Abs(movement.x) + Math.Abs(movement.y);
+            float coefR = maxSpeed / vTot;
+            if(vTot > maxSpeed)
+            {
+                movement.x *= coefR;
+                movement.y *= coefR;
+            }
             Vector2 newPosition = rb.position + movement;
             rb.MovePosition(newPosition);
         }
+        else {vcam.SetActive(false);}
         /*else if (GameVariables.SceneName_Current == "MapHospital")
         {
             sprite.enabled = true;
