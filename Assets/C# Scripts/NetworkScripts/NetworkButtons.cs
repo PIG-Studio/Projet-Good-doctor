@@ -29,7 +29,10 @@ public class NetworkButtons : MonoBehaviour
                 GUILayout.Label($"ID: {NetworkManager.Singleton.LocalClientId}");
                 GUILayout.Label($"IP : {NetworkManager.Singleton.ConnectedHostname}");
                 GUILayout.Label($"Connected : {NetworkManager.Singleton.ConnectedClients.Count}");
-                if (GUILayout.Button("Shutdown")) {NetworkManager.Singleton.Shutdown(); soloPlayer.SetActive(true);}
+                
+                if (GUILayout.Button("Shutdown")) {NetworkManager.Singleton.Shutdown(); 
+                    soloPlayer.transform.position = NetworkManager.Singleton.ConnectedClients[0].PlayerObject.transform.position; 
+                    soloPlayer.SetActive(true);}
             }
             else if (NetworkManager.Singleton.IsClient)
             {
