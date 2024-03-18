@@ -1,23 +1,25 @@
 using System.Collections.Generic;
+using System.Net;
 using TMPro;
 using UnityEngine;
 
-public class PARAM_Resolutions : MonoBehaviour
+public class PARAM_Resolutions : MonoBehaviour, IDropdownadble
 {
-    [SerializeField] public TMP_Dropdown resolutionDropdown;
+    [SerializeField] public TMP_Dropdown dropdown;
 
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
-    
+    private bool manuel = false;
     private int currentResolutionIndex = 0;
     
 
-    private void Start()
+    public void Start()
     {
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
 
-        resolutionDropdown.ClearOptions();
+        dropdown.ClearOptions();
+        
 
         for (int i = 0; i < resolutions.Length; i++)
         {
@@ -30,20 +32,27 @@ public class PARAM_Resolutions : MonoBehaviour
             string resolutionOption = filteredResolutions[i].width +
                                       "x" + filteredResolutions[i].height;
             options.Add(resolutionOption);
-            if (filteredResolutions[i].width == Screen.width && filteredResolutions[i].height == Screen.height)
+            if (filteredResolutions[i].width == Screen.currentResolution.width  && filteredResolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
+                Debug.Log($"Set currentResolutionIndex to {currentResolutionIndex}");
             }
         }
         
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        dropdown.AddOptions(options);
+        dropdown.value = currentResolutionIndex;
+        dropdown.RefreshShownValue();
+        dropdown.onValueChanged.AddListener(SetResolution);
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = filteredResolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, Screen.currentResolution.refreshRateRatio);
+    }
+    
+    public void SetDropdown(TMP_Dropdown inDropdown)
+    {
+        dropdown = inDropdown;
     }
 }
