@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PARAM_HzRate : MonoBehaviour
+public class PARAM_HzRate : MonoBehaviour, IDropdownadble
 {
     [SerializeField] TMP_Dropdown _hertzDropdown;
     
@@ -11,14 +11,14 @@ public class PARAM_HzRate : MonoBehaviour
 
     private int _currentResolutionIndex;
     
-
-    private void Start()
+    public void Start()
     /*
      methode appele des que le bouton est rendu pour la 1e fois,
      on y verifie quels taux sont dispo, quelle que soit la resolution, et les affiche dans la liste.
      On peut donc choisir une combinaison taux/res pas encore cree mais pas impossible, donc on peut choisir librement le taux voulu.
      */
     {
+        _hertzDropdown.onValueChanged.AddListener(SetRefreshRate);
         _allResolutions = new List<Resolution>();
         for (int i = 0; i < Screen.resolutions.Length; i++)
         {
@@ -56,5 +56,10 @@ public class PARAM_HzRate : MonoBehaviour
     {
         float rate = _allRates[rateIndex];
         Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, Screen.fullScreenMode, (int)rate);
+    }
+    
+    public void SetDropdown(TMP_Dropdown dropdown)
+    {
+        _hertzDropdown = dropdown;
     }
 }
