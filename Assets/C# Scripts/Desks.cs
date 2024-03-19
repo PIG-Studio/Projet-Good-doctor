@@ -17,7 +17,7 @@ public static class DesksConvert
             { "DESK_Base", Desks.BaseDesk },
             { "DESK_Chirurgien", Desks.ChirDesk }
         };
-    
+
     private static Dictionary<Desks, string> DictDeskToString { get; set; } =
         new Dictionary<Desks, string>()
         {
@@ -36,7 +36,7 @@ public static class DesksConvert
 
     public static Desks ToDesk(string input)
     {
-        var retour =DictStringToDesk[input];
+        var retour = DictStringToDesk[input];
         Debug.Log("Desk.ToDesk : " + retour);
         return retour;
     }
