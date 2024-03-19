@@ -413,6 +413,22 @@ public class UI_Prefab : MonoBehaviour
         return NewButton(id, text, posX, posY,width, height, () => SaveData.SaveGame()); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
     }
     
+    /// <summary>
+    /// <value>WIP</value>
+    /// Protected method to create a button create a save.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="text"></param>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
+    protected static GameObject ButtonLoad(string id,string text, float posX, float posY, float width, float height)
+    {
+        return NewButton(id, text, posX, posY,width, height, () => SaveLoadMethods.LoadSpecSave()); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
+    }
+    
     
     /// <summary>
     /// test method, kinda useless
