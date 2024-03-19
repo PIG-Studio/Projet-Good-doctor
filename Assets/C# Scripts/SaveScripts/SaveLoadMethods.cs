@@ -47,7 +47,8 @@ public class SaveLoadMethods : MonoBehaviour
     // TODO : creer une fonction verifiant la validite des data au loading, si non, ParseData return null
     public static Dictionary<string, string> ParseData(string saveName)
     {
-        StreamReader sr = new StreamReader(PARAM_Values.SavesPath + '/' + saveName);
+        string[] sepa = saveName.Split('@');
+        StreamReader sr = new StreamReader(PARAM_Values.SavesPath + '/' + sepa[0] + saveName);
         string line = sr.ReadLine();
         string cle, valeur;
         string[] lineSplitted;
@@ -141,17 +142,34 @@ public class SaveLoadMethods : MonoBehaviour
         string saveName = GameVariables.SaveName;
         // TODO : ecrire les variables dans un fichier .json ?
         string fileName = saveName + "@" + date;
-        File.Create(Directory.GetCurrentDirectory()+ '\\' + fileName + ".save").Close();
-        StreamWriter sw = new StreamWriter(PARAM_Values.SavesPath + '/' + fileName + ".save");
+        if (Directory.Exists(PARAM_Values.SavesPath +
+        '/' + saveName) == false)
+        {
+            Directory.CreateDirectory(PARAM_Values.SavesPath
+                                                                      + '/' + saveName);
+            File.Create(PARAM_Values.SavesPath + '/' + 
+                        saveName + '/' + fileName + ".save").Close();
+        }
+        else
+        {
+            File.Create(PARAM_Values.SavesPath + '/' +
+                        saveName + '/' + fileName + ".save").Close();
+        }
+        string lol = Directory.GetLastWriteTime(PARAM_Values.SavesPath).ToString("G");
+        lol = lol.Replace(':', '.');
+        lol = lol.Replace('/', '_');
+        File.Create(PARAM_Values.SavesPath + '/' +
+                    saveName + '/' + lol).Close();
+        StreamWriter sw = new StreamWriter(PARAM_Values.SavesPath + '/' + saveName + '/' + fileName + ".save");
         foreach (var cle in inputVariables.Keys)
         {
             sw.WriteLine(cle + ':' + inputVariables[cle]);
         }
-        Debug.Log("saveCreated at " + PARAM_Values.SavesPath + '/' + fileName + ".save");
+        Debug.Log("saveCreated at " + PARAM_Values.SavesPath + '/' + saveName + '/' + fileName + ".save");
         sw.Close();
     }
 
-    public void Load()
+    public void Load(string SaveName) //
     {
         string[] SaveFiles = Directory.GetFiles(PARAM_Values.SavesPath);
         bool validpath = false;
@@ -164,16 +182,16 @@ public class SaveLoadMethods : MonoBehaviour
         }
         if (validpath)
         {
-            Dictionary<string, string> SavedContent = ParseData(GameVariables.SaveName);
-            if (CheckData(SavedContent) == false)
+            Dictionary<string, string> savedContent = ParseData(GameVariables.SaveName);
+            if (CheckData(savedContent) == false)
             {
                 Debug.Log("Data Non Valides");
             }
 
-            GameVariables.SaveName = SavedContent["SaveName"];
-            GameVariables.DeskName = DesksConvert.ToDesk(SavedContent["DeskName"]);
-            GameVariables.SceneName_Current = SavedContent["SceneName"];
-            string[] DemiCanard = SavedContent["Position"].Split(' ');
+            GameVariables.SaveName = savedContent["SaveName"];
+            GameVariables.DeskName = DesksConvert.ToDesk(savedContent["DeskName"]);
+            GameVariables.SceneName_Current = savedContent["SceneName"];
+            string[] DemiCanard = savedContent["Position"].Split(' ');
             DemiCanard[0] = DemiCanard[0].Remove(0, 1);
             DemiCanard[0] = DemiCanard[0].Remove(DemiCanard[0].Length - 1, 1);
             DemiCanard[1] = DemiCanard[1].Remove(DemiCanard[1].Length - 1, 1);
