@@ -169,9 +169,9 @@ public class SaveLoadMethods : MonoBehaviour
         sw.Close();
     }
 
-    public void Load(string SaveName) //
+    public void Load(string SaveName) //Savename = nom du dir + nom de la save
     {
-        string[] SaveFiles = Directory.GetFiles(PARAM_Values.SavesPath);
+        string[] SaveFiles = Directory.GetFiles(PARAM_Values.SavesPath + SaveName.Split('/')[0]);
         bool validpath = false;
         foreach (var Lapin in SaveFiles)
         {
