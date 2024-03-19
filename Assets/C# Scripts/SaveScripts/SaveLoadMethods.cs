@@ -159,12 +159,6 @@ public class SaveLoadMethods : MonoBehaviour
             File.Create(PARAM_Values.SavesPath + '/' +
                         saveName + '/' + fileName + ".save").Close();
         }
-
-        string lol = Directory.GetLastWriteTime(PARAM_Values.SavesPath).ToString("G");
-        lol = lol.Replace(':', '.');
-        lol = lol.Replace('/', '_');
-        File.Create(PARAM_Values.SavesPath + '/' +
-                    saveName + '/' + lol).Close();
         StreamWriter sw = new StreamWriter(PARAM_Values.SavesPath + '/' + saveName + '/' + fileName + ".save");
         foreach (var cle in inputVariables.Keys)
         {
@@ -175,7 +169,7 @@ public class SaveLoadMethods : MonoBehaviour
         sw.Close();
     }
 
-    public void LoadSpecSave(string SaveName) //Savename = nom du dir + specifique sav
+    public static void LoadSpecSave(string SaveName) //Savename = nom du dir + specifique sav
     {
         if (File.Exists(SaveName))
         {

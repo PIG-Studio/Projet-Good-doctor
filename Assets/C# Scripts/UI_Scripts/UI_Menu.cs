@@ -13,7 +13,7 @@ public class UI_Menu : UI_Prefab
         dicoRender["Quit"] = ButtonQuit("Quit", "Quit", -300f, -100f, 150f, 50f);
         dicoRender["InputGameName"] = InputField("input", 300f, -100f, 150f, 50f);
         dicoRender["NewGame"] = ButtonNewGame("NewGame", "New Game", 300f, 100f, 150f, 50f);
-        dicoRender["LoadGame"] = ButtonLoad("LoadGame", "Load Game", 300f, 0f, 150f, 50f);
+        dicoRender["LoadGame"] = NewDropdown<LastSave>("LoadGame", "Load Game", 300f, 0f, 150f, 50f);
         Instancier("UI_MenuCanvas", dicoRender);
     }
 
