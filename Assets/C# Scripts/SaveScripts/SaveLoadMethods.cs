@@ -10,7 +10,7 @@ public class SaveLoadMethods : MonoBehaviour
 {
     private static string[] ListAllSaves()
     {
-        string[] res = Directory.GetFiles(PARAM_Values.SavesPath,"*.save");
+        string[] res = Directory.GetFiles(PARAM_Values.SavesPath, "*.save");
         return res;
     }
 
@@ -26,7 +26,7 @@ public class SaveLoadMethods : MonoBehaviour
 
         return false;
     }
-    
+
     public static bool ValidNameToSave(string testStr)
     {
         bool retour = true;
@@ -40,10 +40,11 @@ public class SaveLoadMethods : MonoBehaviour
                     retour = false;
             }
         }
+
         Debug.Log($"Save name valid : {retour} ({testStr}");
         return retour;
     }
-    
+
     // TODO : creer une fonction verifiant la validite des data au loading, si non, ParseData return null
     public static Dictionary<string, string> ParseData(string saveName)
     {
@@ -57,20 +58,21 @@ public class SaveLoadMethods : MonoBehaviour
         while (line != null)
         {
             lineSplitted = line.Split(':');
-            (cle, valeur) = (lineSplitted[0], lineSplitted[1]);//valeur est un gamevariable
+            (cle, valeur) = (lineSplitted[0], lineSplitted[1]); //valeur est un gamevariable
             retour[cle] = valeur;
             if (lineSplitted.Length != 2)
             {
                 return null;
             }
+
             line = sr.ReadLine();
         }
-        
+
         sr.Close();
         return retour;
     }
-    
-    public static bool CheckData(Dictionary<string,string> ParsedData)
+
+    public static bool CheckData(Dictionary<string, string> ParsedData)
     {
         foreach (var miettes in ParsedData)
         {
@@ -116,23 +118,25 @@ public class SaveLoadMethods : MonoBehaviour
                 }
             }
         }
+
         return true;
     }
+
     public Dictionary<string, string> ListAvailableSaves_Latest()
     {
 
         // TODO : lis tout les fichiers d un dossier, si nom, extension et data du fichier sont a un fornat valide, ajouter le fichier la liste
         //
         return new Dictionary<string, string>();
-        
+
     }
-    
+
     public Dictionary<string, string> ListAvailableSaves_Detailled()
     {
         // TODO : lis tout les fichiers d un dossier, si nom, extension et data du fichier sont a un fornat valide, ajouter le fichier la liste
         return new Dictionary<string, string>();
     }
-  
+
     public static void WriteSaveGame(Dictionary<string, string> inputVariables)
     {
         string date = DateTime.Now.ToString("G");
@@ -143,11 +147,11 @@ public class SaveLoadMethods : MonoBehaviour
         // TODO : ecrire les variables dans un fichier .json ?
         string fileName = saveName + "@" + date;
         if (Directory.Exists(PARAM_Values.SavesPath +
-        '/' + saveName) == false)
+                             '/' + saveName) == false)
         {
             Directory.CreateDirectory(PARAM_Values.SavesPath
-                                                                      + '/' + saveName);
-            File.Create(PARAM_Values.SavesPath + '/' + 
+                                      + '/' + saveName);
+            File.Create(PARAM_Values.SavesPath + '/' +
                         saveName + '/' + fileName + ".save").Close();
         }
         else
@@ -155,6 +159,7 @@ public class SaveLoadMethods : MonoBehaviour
             File.Create(PARAM_Values.SavesPath + '/' +
                         saveName + '/' + fileName + ".save").Close();
         }
+
         string lol = Directory.GetLastWriteTime(PARAM_Values.SavesPath).ToString("G");
         lol = lol.Replace(':', '.');
         lol = lol.Replace('/', '_');
@@ -165,22 +170,14 @@ public class SaveLoadMethods : MonoBehaviour
         {
             sw.WriteLine(cle + ':' + inputVariables[cle]);
         }
+
         Debug.Log("saveCreated at " + PARAM_Values.SavesPath + '/' + saveName + '/' + fileName + ".save");
         sw.Close();
     }
 
-    public void Load(string SaveName) //Savename = nom du dir + nom de la save
+    public void LoadSpecSave(string SaveName) //Savename = nom du dir + specifique sav
     {
-        string[] SaveFiles = Directory.GetFiles(PARAM_Values.SavesPath + SaveName.Split('/')[0]);
-        bool validpath = false;
-        foreach (var Lapin in SaveFiles)
-        {
-            if (Lapin.Contains(GameVariables.SaveName))
-            {
-                validpath = true;
-            }
-        }
-        if (validpath)
+        if (File.Exists(SaveName))
         {
             Dictionary<string, string> savedContent = ParseData(GameVariables.SaveName);
             if (CheckData(savedContent) == false)
@@ -199,9 +196,11 @@ public class SaveLoadMethods : MonoBehaviour
             Debug.Log("Partie Chargée Avec Succès");
 
         }
+
         else
         {
             Debug.Log("Erreur De Sauvegarde");
         }
     }
 }
+
