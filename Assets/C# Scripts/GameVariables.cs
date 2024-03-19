@@ -8,6 +8,8 @@ public class GameVariables : MonoBehaviour
 
     private static Desks _startingDesk = Desks.BaseDesk;
     public static string SaveName { get;  set; }
+    
+    public static string LoadName { get; set; }
 
     public static (float, float) LatestPos { get; set; }
 
@@ -27,6 +29,7 @@ public class GameVariables : MonoBehaviour
     {
         DeskName = deskName;
         SaveName = saveName;
+        LoadName = null;
     }
 
 
