@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Hospital_Tilemap_Assets/tiles_unity/WallBottom.asset.meta
+<<<<<<< HEAD
+guid: 6162a795d6763a64daa565edc4a1d0d5
+=======
+guid: 4a0131dc08759f56c8d649ef6b5e6478
+>>>>>>> main
+=======
 guid: 07229028d284b5f5a8090ace12a5e224
+>>>>>>> main:Assets/Hospital_Tilemap_Assets/FurnituresPalette/bedUp.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

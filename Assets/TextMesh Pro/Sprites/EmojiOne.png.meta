@@ -179,7 +179,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+<<<<<<< HEAD
+    buildTarget: Android
+=======
     buildTarget: iPhone
+>>>>>>> main
     maxTextureSize: 2048
 >>>>>>> main
     resizeAlgorithm: 0
@@ -199,7 +203,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+<<<<<<< HEAD
+    buildTarget: Windows Store Apps
+=======
     buildTarget: Android
+>>>>>>> main
     maxTextureSize: 2048
 >>>>>>> main
     resizeAlgorithm: 0
