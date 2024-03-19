@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour// TODO : heritage de classes
+public class soloPlayerController : MonoBehaviour// TODO : heritage de classes
 {
     public float moveSpeed = 1f;
     public int smoothingFactor = 1;
@@ -11,11 +14,13 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
     public float maxSpeed = 0.15f;
     private Rigidbody2D rb;           // Reference to the Rigidbody2D component
     public Animator anims;
+    public CinemachineVirtualCamera vcam;
 
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anims = GetComponent<Animator>();
     }
 
     private void Update()
@@ -80,6 +85,13 @@ public class PlayerController : MonoBehaviour// TODO : heritage de classes
         
         // Move the character horizontally based on the smoothed input
         Vector2 movement = new Vector2(smoothedHorizontalInput , smoothedVerticalInput);
+        float vTot = Math.Abs(movement.x) + Math.Abs(movement.y);
+        float coefR = maxSpeed / vTot;
+        if(vTot > maxSpeed)
+        {
+            movement.x *= coefR;
+            movement.y *= coefR;
+        }
         Vector2 newPosition = rb.position + movement ;
         rb.MovePosition(newPosition);
     }

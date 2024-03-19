@@ -27,6 +27,10 @@ public static class DesksConvert
     
     public static bool ValidString(string input)
     {
+        if (input == null)
+        {
+            return false;
+        }
         return DictStringToDesk.ContainsKey(input);
     }
 

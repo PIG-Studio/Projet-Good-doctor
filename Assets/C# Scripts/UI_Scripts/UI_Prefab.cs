@@ -69,7 +69,7 @@ public class UI_Prefab : MonoBehaviour
         button.AddComponent<RectTransform>().sizeDelta = new Vector2(width, height);
         button.transform.localPosition = new Vector3(posX, posY);
         button.AddComponent<CanvasRenderer>();
-        button.AddComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
+        button.AddComponent<Image>().sprite = Resources.Load<Sprite>("Button/Blue gradient");
         button.GetComponent<Image>().type = Image.Type.Sliced;
         
         return button;
@@ -142,39 +142,165 @@ public class UI_Prefab : MonoBehaviour
     /// <param name="posY"></param>
     /// <param name="width"></param>
     /// <param name="height"></param>
+    /// <param name="heightOption"></param>
     /// <returns></returns>
-    protected static GameObject NewDropdown(string id, string text, float posX, float posY, float width, float height)
+    protected static GameObject NewDropdown<T>(string id, string text, float posX, float posY, float width, float height, float heightOption = 0) where T : MonoBehaviour, IDropdownadble
     {
+        
+        if (heightOption == 0)
+        {
+            heightOption = height / 3f;
+        }
         GameObject ddw = NewUiElementBase("DDW_" + id, posX, posY, width, height);
-        TextComponentCreator(text, ddw);
+        GameObject label = TextComponentCreator(text, ddw);
+        label.GetComponent<TextMeshProUGUI>().fontSize = height / 3f;
+        label.GetComponent<RectTransform>().anchoredPosition = new Vector2(-width/12f, 0);
         ddw.AddComponent<TMP_Dropdown>().targetGraphic = ddw.GetComponent<Image>();
-        ddw.AddComponent<PARAM_Resolutions>().resolutionDropdown = ddw.GetComponent<TMP_Dropdown>();
+        ddw.AddComponent<T>().SetDropdown(ddw.GetComponent<TMP_Dropdown>());                    // TODO : a passer en parametre de la methode, pour pouvoir changer le script associe
         
-        GameObject template = NewUiElementBase("template", 0, 0, 50, 50);
-        template.transform.localPosition = new Vector3(0, 0);
+        GameObject template = NewUiElementBase("Template", 0, 0, 50, 50);
         template.transform.SetParent(ddw.transform);
+        
         template.AddComponent<ScrollRect>();
+        template.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        template.GetComponent<RectTransform>().anchorMax = new Vector2(1, 0);
+        template.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
+        template.GetComponent<RectTransform>().offsetMax = new Vector2(0, height*3);
+        template.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        template.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
         
-        GameObject viewport = NewUiElementBase("viewport", 0, 0, 50, 50);
-        viewport.transform.localPosition = new Vector3(0, 0);
+        GameObject viewport = NewUiElementBase("Viewport", 0, 0, 0, 0);
         viewport.transform.SetParent(ddw.transform);
-        viewport.AddComponent<ScrollRect>();
+        viewport.GetComponent<Transform>().SetParent(template.GetComponent<Transform>());
+        viewport.AddComponent<Mask>();
+        viewport.GetComponent<Mask>().showMaskGraphic = false;
+        viewport.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+        viewport.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+        viewport.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+        viewport.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        viewport.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        viewport.GetComponent<RectTransform>().pivot = new Vector2(0f, 1f);
+        viewport.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Blue gradient");
+        viewport.GetComponent<RectTransform>().right = new Vector3(0, 0, 0);
+        //viewport.AddComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/UIMask.psd");
         
-        GameObject arrow = NewUiElementBase("Arrow", 0, 0, width*0.1f, height);
-        arrow.GetComponent<RectTransform>().transform.localPosition = new Vector3(0, 0);
-        arrow.GetComponent<RectTransform>().anchoredPosition = Vector2.right;
-        arrow.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/DropdownArrow.psd");
-        arrow.GetComponent<Image>().type = Image.Type.Sliced;
+        GameObject arrow = NewUiElementBase("Arrow", 0, 0, width/4, width/4);
+        
+        arrow.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Green gradient");
+        arrow.GetComponent<Image>().type = Image.Type.Simple;
         arrow.transform.SetParent(ddw.transform);
+        arrow.GetComponent<RectTransform>().transform.localPosition = new Vector3(-width/8f, 0);
+        arrow.GetComponent<RectTransform>().anchorMin = new Vector2(1, 0.5f);
+        arrow.GetComponent<RectTransform>().anchorMax = new Vector2(1, 0.5f);
         
         ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
         ddw.GetComponent<TMP_Dropdown>().captionText = ddw.GetComponentInChildren<TextMeshProUGUI>();
         
-        viewport.GetComponent<Transform>().SetParent(template.GetComponent<Transform>());
-        
-        GameObject scrollbar = NewUiElementBase("scrollbar", 0, 0, 20, 50);
+        GameObject scrollbar = NewUiElementBase("Scrollbar", 0, 0, 20, 50);
         scrollbar.AddComponent<Scrollbar>();
+        scrollbar.transform.SetParent(template.transform);
+
+        GameObject content = new GameObject("Content");
+        content.AddComponent<RectTransform>();
+        content.transform.SetParent(viewport.transform);
+        content.transform.localPosition = new Vector3(0, 0, 0);
+        content.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+        content.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        content.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
+        content.GetComponent<RectTransform>().offsetMax = new Vector2(0, heightOption);
+        content.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        content.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
         
+        GameObject item = new GameObject("Item");
+        item.transform.SetParent(content.transform);
+        item.AddComponent<RectTransform>().anchorMin = new Vector2(0f, 0.5f);
+        item.GetComponent<RectTransform>().anchorMax = new Vector2(1f, 0.5f);
+        item.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+        item.GetComponent<RectTransform>().offsetMax = new Vector2(0, heightOption);
+        item.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        item.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+        
+        GameObject itemBackground = NewUiElementBase("Item Background", 0, 0, 20, heightOption);
+        itemBackground.transform.SetParent(item.transform);
+        itemBackground.GetComponent<Image>().sprite = null;
+        itemBackground.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        itemBackground.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        itemBackground.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+        itemBackground.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        itemBackground.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+        
+        GameObject itemCheckmark = NewUiElementBase("Item Checkmark", 0, 0, 20, heightOption);
+        itemCheckmark.transform.SetParent(item.transform);
+        
+        itemCheckmark.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0.5f);
+        itemCheckmark.GetComponent<RectTransform>().anchorMax = new Vector2(0, 0.5f);
+        itemCheckmark.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+        itemCheckmark.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Orange gradient");
+        itemCheckmark.GetComponent<Image>().type = Image.Type.Simple;
+        itemCheckmark.GetComponent<RectTransform>().offsetMax = new Vector2(width/10f, width/5f);
+        itemCheckmark.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        itemCheckmark.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(width/10f, 0, 0);
+        
+        GameObject slidingArea = new GameObject("Sliding Area");
+        slidingArea.AddComponent<RectTransform>();
+        slidingArea.transform.SetParent(scrollbar.transform);
+        slidingArea.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        slidingArea.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        slidingArea.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+        slidingArea.GetComponent<RectTransform>().offsetMin = new Vector2(20, 20);
+        slidingArea.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+        
+        GameObject handle = NewUiElementBase("Handle", 0, 0, 20, height);
+        handle.transform.SetParent(slidingArea.transform);
+        handle.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        handle.GetComponent<RectTransform>().anchorMax = new Vector2(1, 0.2f);
+        handle.GetComponent<RectTransform>().offsetMax = new Vector2(20, 20);
+        handle.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        handle.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+        
+        
+        scrollbar.GetComponent<Scrollbar>().handleRect = handle.GetComponent<RectTransform>();
+        scrollbar.GetComponent<Scrollbar>().targetGraphic = handle.GetComponent<Image>();
+        scrollbar.GetComponent<Scrollbar>().direction = Scrollbar.Direction.BottomToTop;
+        scrollbar.GetComponent<Scrollbar>().value = 1;
+        scrollbar.GetComponent<Scrollbar>().size = 1f;
+        scrollbar.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Orange gradient");
+        scrollbar.GetComponent<RectTransform>().anchorMin = new Vector2(1, 0);
+        scrollbar.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        scrollbar.GetComponent<RectTransform>().pivot = new Vector2(1f, 1f);
+        scrollbar.GetComponent<RectTransform>().offsetMax = new Vector2(20, 0);
+        scrollbar.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        scrollbar.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+        
+
+        GameObject itemLabel = new GameObject("Item Label");
+        itemLabel.AddComponent<RectTransform>();
+        itemLabel.AddComponent<CanvasRenderer>();
+        itemLabel.AddComponent<TextMeshProUGUI>().color = new Color(0.2f, 0.2f, 0.2f, 1f);
+        itemLabel.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        itemLabel.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        itemLabel.transform.SetParent(item.transform);
+        itemLabel.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+        itemLabel.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        itemLabel.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+        itemLabel.GetComponent<TextMeshProUGUI>().fontSize = height / 4f; 
+        itemLabel.GetComponent<TextMeshProUGUI>().verticalAlignment = VerticalAlignmentOptions.Middle;
+        itemLabel.GetComponent<TextMeshProUGUI>().horizontalAlignment = HorizontalAlignmentOptions.Center;
+        
+        template.GetComponent<ScrollRect>().content = content.GetComponent<RectTransform>();
+        template.GetComponent<ScrollRect>().horizontal = false;
+        template.GetComponent<ScrollRect>().vertical = true;
+        template.GetComponent<ScrollRect>().movementType = ScrollRect.MovementType.Clamped;
+        template.GetComponent<ScrollRect>().viewport = viewport.GetComponent<RectTransform>();
+        template.GetComponent<ScrollRect>().verticalScrollbar = scrollbar.GetComponent<Scrollbar>();
+        template.GetComponent<ScrollRect>().verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHideAndExpandViewport;
+        template.GetComponent<ScrollRect>().verticalScrollbarSpacing = -3;
+        
+        item.AddComponent<Toggle>().targetGraphic = itemBackground.GetComponent<Image>();
+        item.GetComponent<Toggle>().graphic = itemCheckmark.GetComponent<Image>();
+        item.GetComponent<Toggle>().isOn = true;
+        template.SetActive(false);
+        ddw.GetComponent<TMP_Dropdown>().itemText = itemLabel.GetComponent<TextMeshProUGUI>();
         return ddw;
     }
     
@@ -184,7 +310,7 @@ public class UI_Prefab : MonoBehaviour
     /// </summary>
     /// <param name="canvasName"></param>
     /// <param name="dicoUiComponents"></param>
-    protected static void Instancier(string canvasName, Dictionary<string, GameObject> dicoUiComponents)
+    protected static GameObject Instancier(string canvasName, Dictionary<string, GameObject> dicoUiComponents)
     {
         /* Cree un nouveau canvas et y ajoute les objects du dicoUiComponents */
         
@@ -192,7 +318,8 @@ public class UI_Prefab : MonoBehaviour
         canvas.AddComponent<RectTransform>();
         canvas.transform.position = new Vector3(0, 0);
         canvas.AddComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.AddComponent<CanvasScaler>();
+        canvas.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        canvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1920, 1080);
         canvas.AddComponent<GraphicRaycaster>();
         
         foreach (var cle in dicoUiComponents.Keys)
@@ -200,6 +327,8 @@ public class UI_Prefab : MonoBehaviour
             GameObject temp = dicoUiComponents[cle];
             temp.transform.SetParent(canvas.transform, false);
         }
+
+        return canvas;
     }
     
     /// <summary>
@@ -283,6 +412,7 @@ public class UI_Prefab : MonoBehaviour
     {
         return NewButton(id, text, posX, posY,width, height, () => SaveData.SaveGame()); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
     }
+    
     
     /// <summary>
     /// test method, kinda useless

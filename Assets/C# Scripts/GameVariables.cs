@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GameVariables : MonoBehaviour
@@ -20,6 +21,7 @@ public class GameVariables : MonoBehaviour
     /// </summary>
     /// <param name="saveName">new save name, validity have to tested beforehand</param>
     /// <param name="deskName">defaults to starting desk</param>
+    /// <param name="multiRoom">defaults to null</param>
     /// <returns> void</returns>
     public static void SetVariables(string saveName, Desks deskName = Desks.BaseDesk)
     {
@@ -63,9 +65,9 @@ public class GameVariables : MonoBehaviour
     {
         if (SaveLoadMethods.ValidNameToSave(gameName))
         {
-            SetVariables(gameName);
+            SetVariables(gameName);//, roomMenu:new GameObject("RoomMenu").AddComponent<RoomMenu>());
             SaveData.SaveGame();
-            UnityEngine.SceneManagement.SceneManager.LoadScene(DesksConvert.ToString(_startingDesk));
+            CustomSceneManager.ChangeScene(DesksConvert.ToString(_startingDesk));
         }
     }
     
