@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PARAM_HzRate : MonoBehaviour, IDropdownadble
+public class PARAM_HzRate : MonoBehaviour, IDropdownable
 {
     [SerializeField] TMP_Dropdown _hertzDropdown;
     
