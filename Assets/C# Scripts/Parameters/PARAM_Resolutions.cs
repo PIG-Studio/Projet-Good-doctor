@@ -3,7 +3,7 @@ using System.Net;
 using TMPro;
 using UnityEngine;
 
-public class PARAM_Resolutions : MonoBehaviour, IDropdownadble
+public class PARAM_Resolutions : MonoBehaviour, IDropdownable
 {
     [SerializeField] public TMP_Dropdown dropdown;
 

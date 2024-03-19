@@ -144,7 +144,7 @@ public class UI_Prefab : MonoBehaviour
     /// <param name="height"></param>
     /// <param name="heightOption"></param>
     /// <returns></returns>
-    protected static GameObject NewDropdown<T>(string id, string text, float posX, float posY, float width, float height, float heightOption = 0) where T : MonoBehaviour, IDropdownadble
+    protected static GameObject NewDropdown<T>(string id, string text, float posX, float posY, float width, float height, float heightOption = 0) where T : MonoBehaviour, IDropdownable
     {
         
         if (heightOption == 0)
