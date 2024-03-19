@@ -424,10 +424,11 @@ public class UI_Prefab : MonoBehaviour
     /// <param name="width"></param>
     /// <param name="height"></param>
     /// <returns></returns>
-    protected static GameObject ButtonLoad(string id,string text, float posX, float posY, float width, float height)
+    /*protected static GameObject ButtonLoad(string id,string text, float posX, float posY, float width, float height)
     {
         return NewButton(id, text, posX, posY,width, height, () => SaveLoadMethods.LoadSpecSave()); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
-    }
+        onclick saveloadMethods.loadspecSave(SavedeMenuesValues) + custome scene manager change scene
+    }*/
     
     
     /// <summary>
