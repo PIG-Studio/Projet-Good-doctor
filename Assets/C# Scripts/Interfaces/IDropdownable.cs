@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public interface IDropdownadble
+public interface IDropdownable
 {
     void Start();
 
