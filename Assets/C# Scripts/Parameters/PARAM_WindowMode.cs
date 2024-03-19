@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PARAM_WindowMode: MonoBehaviour, IDropdownadble
+public class PARAM_WindowMode: MonoBehaviour, IDropdownable
 {
     [SerializeField] private TMP_Dropdown windowModeDropdown;
     private List<FullScreenMode> _windowModes = new List<FullScreenMode>();
