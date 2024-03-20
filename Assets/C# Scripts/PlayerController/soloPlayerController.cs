@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class soloPlayerController : MonoBehaviour// TODO : heritage de classes
 {
+    public static bool Created = false;
     public float moveSpeed = 1f;
     public int smoothingFactor = 1;
     private float currentInputH = 0f;
@@ -19,6 +20,11 @@ public class soloPlayerController : MonoBehaviour// TODO : heritage de classes
     
     void Start()
     {
+        if(Created)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         rb = GetComponent<Rigidbody2D>();
         anims = GetComponent<Animator>();
     }
@@ -33,7 +39,7 @@ public class soloPlayerController : MonoBehaviour// TODO : heritage de classes
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             CustomSceneManager.ChangeScene("Menu");
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
         
         float rawVerticalInput = Input.GetAxis("Vertical") * moveSpeed;
