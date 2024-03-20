@@ -30,6 +30,12 @@ public class soloPlayerController : MonoBehaviour// TODO : heritage de classes
         float rawRightInput = Input.GetAxis("Right");
         float rawUpInput = Input.GetAxis("Up");
         float rawDownInput = Input.GetAxis("Down");*/
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CustomSceneManager.ChangeScene("Menu");
+            Destroy(this.gameObject);
+        }
+        
         float rawVerticalInput = Input.GetAxis("Vertical") * moveSpeed;
         float rawHorizontalInput = Input.GetAxis("Horizontal") * moveSpeed;
 
