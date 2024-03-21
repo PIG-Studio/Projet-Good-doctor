@@ -382,11 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56a152a157c1c24ea5c13a4b4b6ffb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  smoothingFactor: 2
-  maxSpeed: 0.2
-  anims: {fileID: 118144723}
-  vcam: {fileID: 431995801}
+  vcam: {fileID: 431995800}
 --- !u!212 &118144727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1808,7 +1804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278851669}
-  - component: {fileID: 1278851671}
+  - component: {fileID: 1278851670}
   m_Layer: 0
   m_Name: ScriptContainerObject
   m_TagString: Untagged
@@ -1831,7 +1827,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1278851671
+--- !u!114 &1278851670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2206,7 +2202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1278851671}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameVariables, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 5

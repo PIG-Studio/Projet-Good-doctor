@@ -1,40 +1,30 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
-using Unity.Netcode;
 using UnityEngine;
 
-public class multiPlayerController : NetworkBehaviour// TODO : heritage de classes
+namespace PlayerController_Base
 {
-    
-    public float moveSpeed = 1f;
-    public int smoothingFactor = 1;
-    private float currentInputH = 0f;
-    private float currentInputV = 0f;
-    public float maxSpeed = 0.15f;
-    private Rigidbody2D rb;           // Reference to the Rigidbody2D component
-    public Animator anims;
-    public GameObject vcam;
-    void Start()
+    public class PlayerController : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>();
-        //if (GameVariables.SceneName_Current != "MapHospital"){ gameObject.SetActive(false);}
-        /*else {*/ gameObject.SetActive(true); //}
-        DontDestroyOnLoad(gameObject);
+        public float moveSpeed = 1f;
+        public int smoothingFactor = 1;
+        private float currentInputH;
+        private float currentInputV;
+        public float maxSpeed = 0.15f;
+        private Rigidbody2D rb;           // Reference to the Rigidbody2D component
+        public Animator anims;
+        public GameObject vcam;
         
-    }
-
-    private void Update()
-    {
-        if (IsOwner && GameVariables.SceneName_Current == "MapHospital")
+        public void StartBase(GameObject vcamIn, GameObject player)
         {
-            vcam.SetActive(true);
-            // Get the raw horizontal input
-            /*float rawLeftInput = Input.GetAxis("Left");
-            float rawRightInput = Input.GetAxis("Right");
-            float rawUpInput = Input.GetAxis("Up");
-            float rawDownInput = Input.GetAxis("Down");*/
+            rb = player.GetComponent<Rigidbody2D>();
+            anims = player.GetComponent<Animator>();
+            vcam = vcamIn;
+            currentInputH = 0f;
+            currentInputV = 0f;
+        }
+
+        public void UpdateBase()
+        {
             float rawVerticalInput = Input.GetAxis("Vertical") * moveSpeed;
             float rawHorizontalInput = Input.GetAxis("Horizontal") * moveSpeed;
 
@@ -62,31 +52,36 @@ public class multiPlayerController : NetworkBehaviour// TODO : heritage de class
 
             if (smoothedVerticalInput < 0)
             {
+                anims.SetBool("MovingUp", false);
                 anims.SetBool("MovingDown", true);
-
             }
-            else
-                anims.SetBool("MovingDown", false);
-
-            if (smoothedVerticalInput > 0)
+            else if (smoothedVerticalInput > 0)
             {
                 anims.SetBool("MovingUp", true);
-
+                anims.SetBool("MovingDown", false);
             }
             else
             {
                 anims.SetBool("MovingUp", false);
+                anims.SetBool("MovingDown", false);
             }
 
             if (smoothedHorizontalInput > 0)
+            {
                 anims.SetBool("MovingRight", true);
-            else
-                anims.SetBool("MovingRight", false);
-
-            if (smoothedHorizontalInput < 0)
-                anims.SetBool("MovingLeft", true);
-            else
                 anims.SetBool("MovingLeft", false);
+            }
+            else if(smoothedHorizontalInput < 0)
+            {
+                anims.SetBool("MovingRight", false);
+                anims.SetBool("MovingLeft", true);
+            }
+            else
+            {
+                anims.SetBool("MovingRight", false);
+                anims.SetBool("MovingLeft", false);
+            }
+            
 
             // Move the character horizontally based on the smoothed input
             Vector2 movement = new Vector2(smoothedHorizontalInput, smoothedVerticalInput);
@@ -100,30 +95,5 @@ public class multiPlayerController : NetworkBehaviour// TODO : heritage de class
             Vector2 newPosition = rb.position + movement;
             rb.MovePosition(newPosition);
         }
-        else {vcam.SetActive(false);}
-        /*else if (GameVariables.SceneName_Current == "MapHospital")
-        {
-            sprite.enabled = true;
-        }*/
     }
-
-    // TODO : method utilisant template
-    //bool Action<T>()
-
-    /*bool IsColliding(Vector2 newPosition)
-    {
-        PolygonCollider2D characterCollider = GetComponent<PolygonCollider2D>(); // Get the character's PolygonCollider2D
-
-        // Create a temporary collider for overlap check
-        Collider2D[] results = new Collider2D[1];
-        ContactFilter2D contactFilter = new ContactFilter2D();
-        contactFilter.layerMask = LayerMask.GetMask("Walls");
-
-        // Check for overlap with obstacles using Physics2D.OverlapCollider
-        int count = characterCollider.OverlapCollider(contactFilter, results);
-
-        // Check if there is a collision
-        return count > 0;
-    }*/
-
 }
