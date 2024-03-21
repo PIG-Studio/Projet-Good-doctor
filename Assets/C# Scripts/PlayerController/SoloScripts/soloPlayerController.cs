@@ -5,18 +5,11 @@ using PlayerController_Base;
 
 public class soloPlayerController : MonoBehaviour// TODO : heritage de classes
 {
-    public static bool Created = false;
     public GameObject vcam;
     private PlayerController _playerController = new ();
    
     void Start()
     {
-        if(Created)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Created = true;
         _playerController.StartBase(vcam, gameObject);
     }
 

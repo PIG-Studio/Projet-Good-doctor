@@ -7,20 +7,20 @@ namespace PlayerController_Base
     {
         public float moveSpeed = 1f;
         public int smoothingFactor = 1;
-        private float currentInputH;
-        private float currentInputV;
+        private float _currentInputH;
+        private float _currentInputV;
         public float maxSpeed = 0.15f;
-        private Rigidbody2D rb;           // Reference to the Rigidbody2D component
-        public Animator anims;
+        private Rigidbody2D _rb;           // Reference to the Rigidbody2D component
+        private Animator _anims;
         public GameObject vcam;
         
         public void StartBase(GameObject vcamIn, GameObject player)
         {
-            rb = player.GetComponent<Rigidbody2D>();
-            anims = player.GetComponent<Animator>();
+            _rb = player.GetComponent<Rigidbody2D>();
+            _anims = player.GetComponent<Animator>();
             vcam = vcamIn;
-            currentInputH = 0f;
-            currentInputV = 0f;
+            _currentInputH = 0f;
+            _currentInputV = 0f;
         }
 
         public void UpdateBase()
@@ -29,8 +29,8 @@ namespace PlayerController_Base
             float rawHorizontalInput = Input.GetAxis("Horizontal") * moveSpeed;
 
             // Smooth the input to reduce jitter
-            float smoothedHorizontalInput = Mathf.Lerp(currentInputH, rawHorizontalInput, 10);
-            float smoothedVerticalInput = Mathf.Lerp(currentInputV, rawVerticalInput, 10);
+            float smoothedHorizontalInput = Mathf.Lerp(_currentInputH, rawHorizontalInput, 10);
+            float smoothedVerticalInput = Mathf.Lerp(_currentInputV, rawVerticalInput, 10);
 
 
             if (smoothedVerticalInput > maxSpeed)
@@ -47,39 +47,39 @@ namespace PlayerController_Base
             Vector2 movementH = new Vector2(smoothedHorizontalInput, 0);
             Vector2 movementV = new Vector2(0, smoothedVerticalInput);
 
-            currentInputH = smoothedHorizontalInput;
-            currentInputV = smoothedVerticalInput;
+            _currentInputH = smoothedHorizontalInput;
+            _currentInputV = smoothedVerticalInput;
 
             if (smoothedVerticalInput < 0)
             {
-                anims.SetBool("MovingUp", false);
-                anims.SetBool("MovingDown", true);
+                _anims.SetBool("MovingUp", false);
+                _anims.SetBool("MovingDown", true);
             }
             else if (smoothedVerticalInput > 0)
             {
-                anims.SetBool("MovingUp", true);
-                anims.SetBool("MovingDown", false);
+                _anims.SetBool("MovingUp", true);
+                _anims.SetBool("MovingDown", false);
             }
             else
             {
-                anims.SetBool("MovingUp", false);
-                anims.SetBool("MovingDown", false);
+                _anims.SetBool("MovingUp", false);
+                _anims.SetBool("MovingDown", false);
             }
 
             if (smoothedHorizontalInput > 0)
             {
-                anims.SetBool("MovingRight", true);
-                anims.SetBool("MovingLeft", false);
+                _anims.SetBool("MovingRight", true);
+                _anims.SetBool("MovingLeft", false);
             }
             else if(smoothedHorizontalInput < 0)
             {
-                anims.SetBool("MovingRight", false);
-                anims.SetBool("MovingLeft", true);
+                _anims.SetBool("MovingRight", false);
+                _anims.SetBool("MovingLeft", true);
             }
             else
             {
-                anims.SetBool("MovingRight", false);
-                anims.SetBool("MovingLeft", false);
+                _anims.SetBool("MovingRight", false);
+                _anims.SetBool("MovingLeft", false);
             }
             
 
@@ -92,8 +92,8 @@ namespace PlayerController_Base
                 movement.x *= coefR;
                 movement.y *= coefR;
             }
-            Vector2 newPosition = rb.position + movement;
-            rb.MovePosition(newPosition);
+            Vector2 newPosition = _rb.position + movement;
+            _rb.MovePosition(newPosition);
         }
     }
 }
