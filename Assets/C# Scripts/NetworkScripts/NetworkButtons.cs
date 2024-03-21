@@ -10,8 +10,6 @@ public class NetworkButtons : MonoBehaviour
         GUILayout.BeginArea(new Rect(10, 10, 300, 300));
         if (!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsServer)
         {
-            Debug.Log(DesksConvert.ValidString(GameVariables.SceneName_Current));
-            Debug.Log(GameVariables.SceneName_Current);
             if (DesksConvert.ValidString(GameVariables.SceneName_Current)) // Si la scene actuelle est le bureau
             {
                 if (GUILayout.Button("Host")) {NetworkManager.Singleton.StartHost();soloPlayer.SetActive(false);}
