@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UI_Prefab;
 
-public class UI_Test : UI_Prefab
+public class UI_Test 
 {
     // Start is called before the first frame update
     void Start()
     {
-        test();
+        UI_Prefabs.test();
     }
 
 }
