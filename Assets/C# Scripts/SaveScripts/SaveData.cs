@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
+using GameCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using static GameCore.Variables;
 
 [System.Serializable]
 public class SaveData : MonoBehaviour
@@ -22,10 +22,10 @@ public class SaveData : MonoBehaviour
         {
         
                 bool valid = SaveLoadMethods.ValidNameToSave(input);// TODO : && nom pas en doublon 
-                if (valid) { GameVariables.SaveName = input; }
-                else { GameVariables.SaveName = ""; }
+                if (valid) { SaveName = input; }
+                else { SaveName = ""; }
         
-                Debug.Log("GameVariables.SaveName = " + GameVariables.SaveName + " (FROM : GameVariables, apres modif de la valeur");
+                Debug.Log("GameVariables.SaveName = " + SaveName + " (FROM : GameVariables, apres modif de la valeur");
         
                 return valid; 
         }
@@ -37,11 +37,10 @@ public class SaveData : MonoBehaviour
         public static void SaveGame()
         {
                 Dictionary<string, string> input = new Dictionary<string, string>();
-                input["DeskName"] = DesksConvert.ToString(GameVariables.DeskName);
-                input["SaveName"] = GameVariables.SaveName;
-                input["SceneName"] = GameVariables.SceneName_Current;
-                string pos = GameVariables.LatestPos.Item1.ToString() + " , " +
-                             GameVariables.LatestPos.Item2.ToString();
+                input["DeskName"] = Variables.Desk.SceneName;
+                input["SaveName"] = SaveName;
+                input["SceneName"] = SceneName_Current;
+                string pos = LatestPos.Item1 + " , " + LatestPos.Item2;
                 input["Position"] = pos;
                 SaveLoadMethods.WriteSaveGame(input);
         }

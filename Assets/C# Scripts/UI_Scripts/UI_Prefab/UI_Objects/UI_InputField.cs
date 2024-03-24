@@ -2,8 +2,9 @@ using TMPro;
 using UI_Base;
 using UnityEngine;
 using UnityEngine.UI;
+using static CustomScenes.Manager;
 
-namespace UI_Objects
+namespace UI_Prefab.UI_Objects
 {
     public class UI_InputField : IUI_Create
     {
@@ -39,10 +40,10 @@ namespace UI_Objects
             field.GetComponent<TMP_InputField>().textComponent = textCompo.GetComponent<TextMeshProUGUI>();
             field.GetComponent<TMP_InputField>().placeholder = placeholder.GetComponent<TextMeshProUGUI>();
 
-            field.GetComponent<TMP_InputField>().onSelect.AddListener((string input) => CustomSceneManager.ChangeSelect());
+            field.GetComponent<TMP_InputField>().onSelect.AddListener((string input) => ChangeSelect());
             field.GetComponent<TMP_InputField>().onValueChanged.AddListener((string input) => SaveData.SetSaveName(input));
             field.GetComponent<TMP_InputField>().onDeselect
-                .AddListener((string input) => CustomSceneManager.ChangeSelect());
+                .AddListener((string input) => ChangeSelect());
 
             return field;
         }

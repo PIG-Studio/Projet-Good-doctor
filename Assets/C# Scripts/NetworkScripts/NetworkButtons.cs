@@ -1,6 +1,8 @@
-using System;
+using GameCore;
 using Unity.Netcode;
 using UnityEngine;
+using static GameCore.Variables;
+using static CustomScenes.Manager;
 
 public class NetworkButtons : MonoBehaviour
 {
@@ -10,13 +12,13 @@ public class NetworkButtons : MonoBehaviour
         GUILayout.BeginArea(new Rect(10, 10, 300, 300));
         if (!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsServer)
         {
-            if (DesksConvert.ValidString(GameVariables.SceneName_Current)) // Si la scene actuelle est le bureau
+            if (SceneName_Current.IsDesk()) // Si la scene actuelle est le bureau
             {
                 if (GUILayout.Button("Host")) {NetworkManager.Singleton.StartHost();soloPlayer.SetActive(false);}
                 //if (GUILayout.Button("Server")) NetworkManager.Singleton.StartServer();
                 if (GUILayout.Button("Client")) {NetworkManager.Singleton.StartClient();soloPlayer.SetActive(false);}
             }
-            if (GameVariables.SceneName_Current == "MapHospital") {soloPlayer.SetActive(true);}
+            if (SceneName_Current == "MapHospital") {soloPlayer.SetActive(true);}
             else { soloPlayer.SetActive(false); }
         }
         else
@@ -38,7 +40,7 @@ public class NetworkButtons : MonoBehaviour
             {
                 GUILayout.Label("Client");
                 GUILayout.Label($"ID: {NetworkManager.Singleton.LocalClientId}");
-                if (GUILayout.Button("Disconnect")) {NetworkManager.Singleton.Shutdown();CustomSceneManager.ChangeScene("Menu");}
+                if (GUILayout.Button("Disconnect")) {NetworkManager.Singleton.Shutdown();ChangeScene("Menu");}
             }
             
         }

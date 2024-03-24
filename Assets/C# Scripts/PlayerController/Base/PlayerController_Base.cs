@@ -1,19 +1,21 @@
 using System;
 using UnityEngine;
+using static GameCore.Constantes;
 
-namespace PlayerController_Base
+namespace PlayerController
 {
-    public class PlayerController : MonoBehaviour
+    /// <summary>
+    /// Base pour les classes de contrôle des movements des joueurs
+    /// </summary>
+    public class PlayerController_Base : MonoBehaviour
     {
-        public float moveSpeed = 1f;
         public int smoothingFactor = 1;
         private float _currentInputH;
         private float _currentInputV;
-        public float maxSpeed = 0.15f;
-        private Rigidbody2D _rb;           // Reference to the Rigidbody2D component
+        private Rigidbody2D _rb; // Reference to the Rigidbody2D component
         private Animator _anims;
         public GameObject vcam;
-        
+
         public void StartBase(GameObject vcamIn, GameObject player)
         {
             _rb = player.GetComponent<Rigidbody2D>();
@@ -23,16 +25,20 @@ namespace PlayerController_Base
             _currentInputV = 0f;
         }
 
+        /// <summary>
+        /// Met à jour la position de l'objet
+        /// </summary>
         public void UpdateBase()
         {
-            float rawVerticalInput = Input.GetAxis("Vertical") * moveSpeed;
-            float rawHorizontalInput = Input.GetAxis("Horizontal") * moveSpeed;
+            // On recupere les entrees de l'utilisateur
+            float rawVerticalInput = Input.GetAxis("Vertical") * MoveSpeed;
+            float rawHorizontalInput = Input.GetAxis("Horizontal") * MoveSpeed;
 
-            // Smooth the input to reduce jitter
+            // Smooth the input to reduce jitter Formule chelou mais qui marche je crois, donne un niveau un peu graduel au movement
             float smoothedHorizontalInput = Mathf.Lerp(_currentInputH, rawHorizontalInput, 10);
             float smoothedVerticalInput = Mathf.Lerp(_currentInputV, rawVerticalInput, 10);
 
-
+            /*// On limite la vitesse de deplacement sur chacun des axes
             if (smoothedVerticalInput > maxSpeed)
                 smoothedVerticalInput = maxSpeed;
             if (smoothedHorizontalInput > maxSpeed)
@@ -40,16 +46,9 @@ namespace PlayerController_Base
             if (smoothedVerticalInput < -maxSpeed)
                 smoothedVerticalInput = -maxSpeed;
             if (smoothedHorizontalInput < -maxSpeed)
-                smoothedHorizontalInput = -maxSpeed;
-
-            // Store the smoothed input for the next frame
-
-            Vector2 movementH = new Vector2(smoothedHorizontalInput, 0);
-            Vector2 movementV = new Vector2(0, smoothedVerticalInput);
-
-            _currentInputH = smoothedHorizontalInput;
-            _currentInputV = smoothedVerticalInput;
-
+                smoothedHorizontalInput = -maxSpeed;TODO : remove if useless*/
+            
+            // On actualise l'animation en fonction de la direction
             if (smoothedVerticalInput < 0)
             {
                 _anims.SetBool("MovingUp", false);
@@ -71,7 +70,7 @@ namespace PlayerController_Base
                 _anims.SetBool("MovingRight", true);
                 _anims.SetBool("MovingLeft", false);
             }
-            else if(smoothedHorizontalInput < 0)
+            else if (smoothedHorizontalInput < 0)
             {
                 _anims.SetBool("MovingRight", false);
                 _anims.SetBool("MovingLeft", true);
@@ -81,17 +80,22 @@ namespace PlayerController_Base
                 _anims.SetBool("MovingRight", false);
                 _anims.SetBool("MovingLeft", false);
             }
-            
 
-            // Move the character horizontally based on the smoothed input
-            Vector2 movement = new Vector2(smoothedHorizontalInput, smoothedVerticalInput);
-            float vTot = Math.Abs(movement.x) + Math.Abs(movement.y);
-            float coefR = maxSpeed / vTot;
-            if(vTot > maxSpeed)
+
+            // On limite la vitesse de deplacement
+            float vTot = Math.Abs(smoothedHorizontalInput) + Math.Abs(smoothedVerticalInput);
+            float coeffR = MaxSpeed / vTot;
+            if (vTot > MaxSpeed)
             {
-                movement.x *= coefR;
-                movement.y *= coefR;
+                smoothedHorizontalInput *= coeffR;
+                smoothedVerticalInput *= coeffR;
             }
+
+            // Store the smoothed input for the next frame
+            _currentInputH = smoothedHorizontalInput;
+            _currentInputV = smoothedVerticalInput;
+            
+            Vector2 movement = new Vector2(smoothedHorizontalInput, smoothedVerticalInput);
             Vector2 newPosition = _rb.position + movement;
             _rb.MovePosition(newPosition);
         }

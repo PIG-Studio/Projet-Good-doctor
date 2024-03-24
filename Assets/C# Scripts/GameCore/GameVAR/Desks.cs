@@ -1,0 +1,44 @@
+using System;
+using JetBrains.Annotations;
+using UnityEngine;
+
+namespace GameCore
+{
+    /// <summary>
+    /// Ce scipt DOIT etre dans l'objet du menu afin que les bureaux soit initialiser lorsau'on lance le jeu ou qu'on change de partie
+    /// </summary>
+    public class Desks : MonoBehaviour
+    {
+        public static Desk Desk_Base { get; set; }
+        public static Desk Desk_Upgraded { get; set; }
+        
+        public void Start()
+        {
+            Desk_Base = new Desk("DESK_Base");
+            Desk_Upgraded = new Desk("DESK_Upgraded");
+        }
+    }
+    public static class DesksConvert
+    {
+        [CanBeNull]
+        public static Desk ToDesk(this string str)
+        {
+            return Desk.ToDeskDict[str];
+        }
+        
+        [NotNull]
+        public static bool IsDesk(this string str)
+        {
+            try
+            {
+                if (str.ToDesk() != null)
+                    return true;
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+}
