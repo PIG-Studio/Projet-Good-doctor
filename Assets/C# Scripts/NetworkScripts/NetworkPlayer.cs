@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Unity.Netcode;
 using UnityEngine;
+using static GameCore.Variables;
 
 public class NetworkPlayer : NetworkBehaviour
 {
@@ -23,7 +20,7 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (IsOwner)
         {
-            if (GameVariables.SceneName_Current == "MapHospital")
+            if (SceneName_Current == "MapHospital")
             {
                 _pos.Value = transform.position;
                 isOnMapScene.Value = true;
