@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace UI_Objects
+namespace UI_Prefab.UI_Objects
 {
     public class UI_Button : IUI_Create
     {

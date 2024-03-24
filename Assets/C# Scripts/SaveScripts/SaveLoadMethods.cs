@@ -1,10 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using GameCore;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using static CustomScenes.Manager;
+using static GameCore.Variables;
 
 public class SaveLoadMethods : MonoBehaviour
 {
@@ -99,7 +99,7 @@ public class SaveLoadMethods : MonoBehaviour
 
             if (miettes.Key == "DeskName")
             {
-                if (DesksConvert.ValidString(miettes.Value) == false)
+                if (miettes.Value.IsDesk() == false)
                 {
                     return false;
                 }
@@ -109,7 +109,7 @@ public class SaveLoadMethods : MonoBehaviour
             {
                 try
                 {
-                    CustomSceneManager.ChangeScene(miettes.Value);
+                    ChangeScene(miettes.Value);
                 }
                 catch (Exception e)
                 {
@@ -143,7 +143,7 @@ public class SaveLoadMethods : MonoBehaviour
         date = date.Replace(':', '.');
         date = date.Replace('/', '_');
         Debug.Log(date);
-        string saveName = GameVariables.SaveName;
+        string saveName = SaveName;
         // TODO : ecrire les variables dans un fichier .json ?
         string fileName = saveName + "@" + date;
         if (Directory.Exists(PARAM_Values.SavesPath +
@@ -173,20 +173,20 @@ public class SaveLoadMethods : MonoBehaviour
     {
         if (File.Exists(SaveName))
         {
-            Dictionary<string, string> savedContent = ParseData(GameVariables.SaveName);
+            Dictionary<string, string> savedContent = ParseData(SaveName);
             if (CheckData(savedContent) == false)
             {
                 Debug.Log("Data Non Valides");
             }
-
-            GameVariables.SaveName = savedContent["SaveName"];
-            GameVariables.DeskName = DesksConvert.ToDesk(savedContent["DeskName"]);
-            GameVariables.SceneName_Current = savedContent["SceneName"];
+            
+            SaveName = savedContent["SaveName"];
+            Variables.Desk = DesksConvert.ToDesk(savedContent["DeskName"]);
+            SceneName_Current = savedContent["SceneName"];
             string[] DemiCanard = savedContent["Position"].Split(' ');
             DemiCanard[0] = DemiCanard[0].Remove(0, 1);
             DemiCanard[0] = DemiCanard[0].Remove(DemiCanard[0].Length - 1, 1);
             DemiCanard[1] = DemiCanard[1].Remove(DemiCanard[1].Length - 1, 1);
-            GameVariables.LatestPos = (float.Parse(DemiCanard[0]), (float.Parse(DemiCanard[1])));
+            LatestPos = (float.Parse(DemiCanard[0]), (float.Parse(DemiCanard[1])));
             Debug.Log("Partie Chargée Avec Succès");
 
         }

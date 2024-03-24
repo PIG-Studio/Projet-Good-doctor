@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameCore;
 using UI_Prefab;
 using UnityEngine;
 
@@ -23,5 +24,16 @@ public class UI_DESK_Base : MonoBehaviour
         
         GameObject canv = UI_Prefabs.Render("UI_DESK_BaseCanvas", dicoRender);
         // Affichage des elements
+        
+        Update();
     }
+    
+    private void Update()
+    {
+        // On ne met a jour que si le bureau a change
+        if (Desks.Desk_Base.HasChanged)
+        {
+            
+        }
+    } 
 }

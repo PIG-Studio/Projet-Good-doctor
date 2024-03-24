@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UI_Objects;
+using UI_Prefab.UI_Objects;
+using static GameCore.Methods;
+using static GameCore.Variables;
+using static CustomScenes.Manager;
 
 namespace UI_Prefab
 {
@@ -49,7 +52,7 @@ namespace UI_Prefab
         {
             /* Renvoie un nouveau bouton changent de scene vers le param newScene */
             return UI_Button.Create(id, text, posX, posY, width, height,
-                () => CustomSceneManager.ChangeScene(newScene),
+                () => ChangeScene(newScene),
                 resourcePath);
         }
 
@@ -67,7 +70,7 @@ namespace UI_Prefab
         public static GameObject BTN_Quit(string id, string text, float posX, float posY, float width,
             float height)
         {
-            return UI_Button.Create(id, text, posX, posY, width, height, () => CustomSceneManager.Quit());
+            return UI_Button.Create(id, text, posX, posY, width, height, () => Quit());
         }
 
 
@@ -101,8 +104,7 @@ namespace UI_Prefab
             float height, string resourcePath = "")
         {
             return UI_Button.Create(id, text, posX, posY, width, height,
-                () => GameVariables.NewGame(GameVariables
-                    .SaveName), resourcePath); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
+                () => NewGame(SaveName), resourcePath); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
         }
 
         /// <summary>
