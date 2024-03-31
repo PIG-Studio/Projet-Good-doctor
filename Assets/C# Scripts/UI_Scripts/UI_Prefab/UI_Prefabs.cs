@@ -159,6 +159,39 @@ namespace UI_Prefab
             //onclick saveloadMethods.loadspecSave(SavedeMenuesValues) + custome scene manager change scene
             return new GameObject();// TODO : A DEGAGER QUAND FINI
         }
+        
+        
+        /// <summary>
+        /// <value>WIP</value>
+        /// Cree un slot d'inventaire.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="text"></param>
+        /// <param name="posX"></param>
+        /// <param name="posY"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        public static GameObject INV_Slot(Sprite sprite, uint index, bool empty = false)
+        {
+            return UI_Slot.Create(sprite, index, empty);
+        }
+        
+        /// <summary>
+        /// <value>WIP</value>
+        /// Cree un slot d'inventaire.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="text"></param>
+        /// <param name="posX"></param>
+        /// <param name="posY"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        public static GameObject INV_Inventory(Sprite sprite, string id, float posX, float posY, float width, float height)
+        {
+            return UI_Inventory.Create(posX, posY, width, height, sprite, id);
+        }
 
         
         /// <summary>

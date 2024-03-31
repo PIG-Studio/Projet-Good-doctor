@@ -1,5 +1,6 @@
 using System;
 using JetBrains.Annotations;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace GameCore
@@ -14,16 +15,18 @@ namespace GameCore
         
         public void Start()
         {
+            Desk.SceneDeskDict = new System.Collections.Generic.Dictionary<string, Desk>();
             Desk_Base = new Desk("DESK_Base");
             Desk_Upgraded = new Desk("DESK_Upgraded");
         }
     }
+    
     public static class DesksConvert
     {
         [CanBeNull]
         public static Desk ToDesk(this string str)
         {
-            return Desk.ToDeskDict[str];
+            return Desk.SceneDeskDict[str];
         }
         
         [NotNull]
