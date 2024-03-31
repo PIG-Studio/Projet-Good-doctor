@@ -15,4 +15,28 @@ public class Inventory : IInventory
         }
         Slots = obj;
     }
+    
+    public void AddItem(IObject item)
+    {
+        for (int i = 0; i < Invetory_Size; i++)
+        {
+            if (Slots[i] == null)
+            {
+                Slots[i].AddItem(item);
+                break;
+            }
+        }
+    }
+    
+    public void RemoveItem()
+    {
+        for (int i = 0; i < Invetory_Size; i++)
+        {
+            if (Slots[i] != null)
+            {
+                Slots[i].RemoveItem();
+                break;
+            }
+        }
+    }
 }

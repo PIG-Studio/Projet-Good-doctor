@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using Interfaces;
+using Unity.Netcode;
 using UnityEngine;
-
 
 public class Desk
 {
     public string SceneName { get; }
     public Inventory Inventory { get; }
-    public static Dictionary<string, Desk> ToDeskDict { get; private set; }
+    public static Dictionary<string, Desk> SceneDeskDict { get; set; }
 
     public bool HasChanged { get; set; }
     
@@ -15,8 +15,8 @@ public class Desk
     {
         SceneName = sceneName;
         Inventory = new Inventory();
-        ToDeskDict = new Dictionary<string, Desk>();
-        ToDeskDict.Add(sceneName, this);
+        SceneDeskDict.Add(sceneName, this);
+        Debug.Log("ADDED 1 DESK");
         HasChanged = true;
     }
 
