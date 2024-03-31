@@ -4,13 +4,14 @@ using UnityEngine;
 
 namespace Network
 {
-    public class Variables : NetworkBehaviour
+    [GenerateSerializationForGenericParameter(0)]
+    public class Variables<T> : NetworkBehaviour where T : Desk
     {
         private readonly NetworkVariable<Desk> inv = new(writePerm:NetworkVariableWritePermission.Owner);
 
         void Update()
         {
-            if (IsOwner)
+            if (!NetworkManager.Singleton.IsClient)
             {
                 inv.Value = Desks.Desk_Base;
             }
@@ -18,7 +19,7 @@ namespace Network
             {
                 Desks.Desk_Base = inv.Value;
             }
-            Debug.Log(Desks.Desk_Base.Inventory.Slots.Length);
+            Debug.Log(Desks.Desk_Base.Inventory.Slots[0].Amount);
         }
 
 

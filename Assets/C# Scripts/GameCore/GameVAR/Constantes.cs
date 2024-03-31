@@ -1,4 +1,5 @@
 using System.Numerics;
+using Interfaces;
 
 namespace GameCore
 {
@@ -26,15 +27,25 @@ namespace GameCore
         /// Bureau initial
         /// </summary>
         public static readonly Desk StartingDesk = Desks.Desk_Base;
-
+        
         /// <summary>
-        /// Taille de l'inventaire
+        /// Capacite de l'inventaire
         /// </summary>
         public const int Invetory_Size = 10;
         
         /// <summary>
-        /// Taille d'un slot de l'inventaire
+        /// Capacite d'un slot de l'inventaire
         /// </summary>
         public const int Invetory_Slot_Size = 3;
+        
+        /// <summary>
+        /// Largeur d'un slot de l'inventaire
+        /// </summary>
+        public const int Invetory_Slot_Width = 10;
+        
+        /// <summary>
+        /// Position du 1er slot de l'inventaire
+        /// </summary>
+        public static readonly Vector2 Invetory_Slot_Pos = new Vector2(10f, 10f);
     }
 }

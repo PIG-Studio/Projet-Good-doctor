@@ -40,5 +40,7 @@ namespace GameCore
         /// </summary>
         /// <returns>type: string</returns>
         public static string SceneName_Last { get; set; }
+        
+        public static Desk[] Desks { get; set; }
     }
 }
