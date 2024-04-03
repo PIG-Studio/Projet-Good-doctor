@@ -4,14 +4,12 @@ using static GameCore.Variables;
 
 public class NetworkPlayer : NetworkBehaviour
 {
-    
     private readonly NetworkVariable<Vector2> _pos = new(writePerm:NetworkVariableWritePermission.Owner);
     public readonly NetworkVariable<bool> isOnMapScene = new(writePerm:NetworkVariableWritePermission.Owner);
     private readonly NetworkVariable<bool> _movingUp = new(writePerm:NetworkVariableWritePermission.Owner);
     private readonly NetworkVariable<bool> _movingDown = new(writePerm:NetworkVariableWritePermission.Owner);
     private readonly NetworkVariable<bool> _movingLeft = new(writePerm:NetworkVariableWritePermission.Owner);
     private readonly NetworkVariable<bool> _movingRight = new(writePerm:NetworkVariableWritePermission.Owner);
-    private readonly NetworkVariable<Vector2> _posRB = new(writePerm:NetworkVariableWritePermission.Owner);
     public SpriteRenderer sprite;
     public Animator anims;
     public Rigidbody2D rb;
@@ -29,7 +27,6 @@ public class NetworkPlayer : NetworkBehaviour
                 _movingDown.Value = anims.GetBool("MovingDown");
                 _movingLeft.Value = anims.GetBool("MovingLeft");
                 _movingRight.Value = anims.GetBool("MovingRight");
-                _posRB.Value = rb.position;
             }
             else
             {
@@ -48,7 +45,6 @@ public class NetworkPlayer : NetworkBehaviour
                 anims.SetBool("MovingDown", _movingDown.Value);
                 anims.SetBool("MovingLeft", _movingLeft.Value);
                 anims.SetBool("MovingRight", _movingRight.Value);
-                rb.position = _posRB.Value;
             }
         }
         
