@@ -18,7 +18,7 @@ namespace GameCore
         /// <returns> void</returns>
         public static void SetVariables(string saveName, Desk deskName = null)
         {
-            Variables.Desk = deskName ?? StartingDesk;
+            Variables.Desk = deskName ?? Desk_Base;
             SaveName = saveName;
             LoadName = null;
         }
@@ -34,7 +34,7 @@ namespace GameCore
             {
                 SetVariables(gameName);
                 SaveData.SaveGame();
-                ChangeScene(StartingDesk.SceneName);
+                ChangeScene(Desk_Base.SceneName);
             }
         }
 

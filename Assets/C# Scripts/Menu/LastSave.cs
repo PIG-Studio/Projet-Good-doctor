@@ -1,16 +1,13 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using UnityEngine.Serialization;
 
 public class LastSave: MonoBehaviour, IDropdownable
 {
-    [SerializeField] private TMP_Dropdown SavesDropDown;
-    private List<string> _SavesName = new List<string>();
+    [FormerlySerializedAs("SavesDropDown")] [SerializeField] private TMP_Dropdown savesDropDown;
+    private List<string> _savesName = new List<string>();
     
     public void Start()
         /*
@@ -18,26 +15,26 @@ public class LastSave: MonoBehaviour, IDropdownable
          on y verifie quelles options sont affichables selon l'OS
          */
     {
-        SavesDropDown.onValueChanged.AddListener(SetSaves);
-        string[] AllSaves = Directory.GetDirectories(PARAM_Values.SavesPath);
+        savesDropDown.onValueChanged.AddListener(SetSaves);
+        string[] allSaves = Directory.GetDirectories(PARAM_Values.SavesPath);
         int index = 0;
-        Debug.Log("LAST SAVE:" + AllSaves[0]);
-        while (index < 10 && index < AllSaves.Length  )
+        Debug.Log("LAST SAVE:" + allSaves[0]);
+        while (index < 10 && index < allSaves.Length  )
         {
-            _SavesName.Add(AllSaves[index].Remove(0,PARAM_Values.SavesPath.Length+1));
+            _savesName.Add(allSaves[index].Remove(0,PARAM_Values.SavesPath.Length+1));
             index++;
         }
-        Debug.Log("LASTSAVE2:" + _SavesName[0]);
-        SavesDropDown.AddOptions(_SavesName);
+        Debug.Log("LASTSAVE2:" + _savesName[0]);
+        savesDropDown.AddOptions(_savesName);
     }
     
-    public void SetSaves(int Save)
+    public void SetSaves(int save)
     {
-        SaveLoadMethods.LoadSpecSave(_SavesName[Save]);
+        SaveLoadMethods.LoadSpecSave(_savesName[save]);
     }
     
     public void SetDropdown(TMP_Dropdown dropdown)
     {
-        SavesDropDown = dropdown;
+        savesDropDown = dropdown;
     }
 }
