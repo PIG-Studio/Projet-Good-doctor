@@ -1,3 +1,4 @@
+using GameCore;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using static GameCore.Variables;
@@ -27,6 +28,12 @@ namespace CustomScenes
             SceneName_Last = SceneManager.GetActiveScene().name;
             SceneName_Current = newScene;
             Debug.Log($"CustomSceneManager.ChangeScene() : {SceneName_Last} -> {SceneName_Current}");
+
+            // On actualise le bureau actuel
+            if (SceneName_Current.IsDesk())
+            { 
+                CurrentlyRenderedDesk = SceneName_Current.ToDesk();
+            }
 
             // On charge la nouvelle scene
             SceneManager.LoadScene(newScene);

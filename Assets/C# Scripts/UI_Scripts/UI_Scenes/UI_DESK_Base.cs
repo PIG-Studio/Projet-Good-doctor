@@ -11,29 +11,20 @@ public class UI_DESK_Base : MonoBehaviour
     // Start est appele des l'arrivee sur la scene
     private void Start()
     {
+        // Initialisation du dictionnaire des elements a afficher
         Dictionary<string, GameObject> dicoRender =
             new Dictionary<string, GameObject>
                 () { };
-        // Initialisation du dictionnaire
         
-        dicoRender["Parametres"] = UI_Prefabs.BTN_ChangeScene("Parameters", "Parametres", -300f, 100f, 150f, 50f, "Parameters");
-        dicoRender["Menu"] = UI_Prefabs.BTN_ChangeScene("Menu", "Menu", -300f, -100f, 150f, 50f, "Menu");
-        dicoRender["SaveGame"] = UI_Prefabs.BTN_Save("SaveGame", "Save Game", 300f, 100f, 150f, 50f);
-        dicoRender["Map"] = UI_Prefabs.BTN_ChangeScene("Map", "Map", 300f, -100f, 150f, 50f, "MapHospital");
         // Ajout des elements a afficher
+        dicoRender["Parametres"] = UI_Prefabs.BTN_ChangeScene("Parameters", "Parametres", -300f, 100f, 150f, 50f, Scenes.PARAM);
+        dicoRender["Menu"] = UI_Prefabs.BTN_ChangeScene("Menu", "Menu", -300f, -100f, 150f, 50f, Scenes.MENU);
+        dicoRender["SaveGame"] = UI_Prefabs.BTN_Save("SaveGame", "Save Game", 300f, 100f, 150f, 50f);
+        dicoRender["Map"] = UI_Prefabs.BTN_ChangeScene("Map", "Map", 300f, -100f, 150f, 50f, Scenes.MAP);
         
-        GameObject canv = UI_Prefabs.Render("UI_DESK_BaseCanvas", dicoRender);
         // Affichage des elements
+        UI_Prefabs.Render("UI_DESK_BaseCanvas", dicoRender);
         
-        Update();
     }
-    
-    private void Update()
-    {
-        // On ne met a jour que si le bureau a change
-        if (Desks.Desk_Base.HasChanged)
-        {
-            
-        }
-    } 
+
 }

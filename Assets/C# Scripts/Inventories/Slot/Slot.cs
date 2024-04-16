@@ -1,5 +1,5 @@
 using Interfaces;
-using UnityEditor;
+using JetBrains.Annotations;
 using UnityEngine;
 using static GameCore.Constantes;
 
@@ -7,31 +7,49 @@ namespace Inventories
 {
     public class Slot : IInventory
     {
-        private IObject[] Item { get; }
-        public Sprite Image { get; private set; }
-        public int Amount = 0;
+        // La liste des objets dans le slot
+        [NotNull] private IObject[] Item { get; }
+        
+        // Le spinner de l'objet
+        [CanBeNull] public Sprite Image { get; private set; }
+        
+        // Le type de l'objet
+        [CanBeNull] public System.Type Type;
+        
+        // Le nombre d'objet(s) dans le slot
+        [NotNull] public int Amount;
+        
+        // Le GameObject du slot
+        [CanBeNull] public GameObject Object { get; set; }
+        
+        // Bool si on doit actualiser l'UI
+        [NotNull]public bool HasChanged { get; set; }
 
         public Slot()
         {
             Item = new IObject[Invetory_Slot_Size];
+            Amount = 0;
         }
         
+        /// <summary>
+        /// Methode pour ajouter un item dans le slot 
+        /// </summary>
+        /// <param name="item">Objet implementant IObject</param>
         public void AddItem(IObject item)
         {
             for (int i = 0; i < Invetory_Slot_Size; i++)
-            {
-                if (Item[i] == null)
+            {Debug.Log($"{Type} et {item.GetType()} donne {Type == item.GetType()}");
+                if (Type == null || (Type == item.GetType() && Item[i] == null))
                 {
                     Item[i] = item;
                     Amount++;
+                    HasChanged = true;
+                    Type = item.GetType();
+                    Image = item.Image;
                     break;
                 }
             }
-            
-            if (Amount >= 1 && Amount < Invetory_Slot_Size)
-            {
-                Image = item.Image;
-            }
+            Debug.Log($"Used {Amount} out of 3 slots");
         }
         
         public void RemoveItem()
@@ -42,6 +60,7 @@ namespace Inventories
                 {
                     Item[i] = null;
                     Amount--;
+                    HasChanged = true;
                     break;
                 }
             }
@@ -49,7 +68,14 @@ namespace Inventories
             if (Amount == 0)
             {
                 Image = null;
+                Type = null;
             }
+        }
+        
+        public bool CanAdd(IObject item)
+        {
+            if (Amount < Invetory_Slot_Size && (Type == null || Type == item.GetType())) { return true; }
+            return false;
         }
         
     }

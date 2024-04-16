@@ -1,5 +1,6 @@
 using static CustomScenes.Manager;
 using UnityEngine;
+using GameCore;
 
 namespace PlayerController
 {
@@ -20,6 +21,10 @@ namespace PlayerController
             {
                 ChangeScene("Menu");
                 gameObject.SetActive(false);
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {   
+                Variables.Desk_Base.Inventory.AddItem(Medicaments.CYAMURE(1));
             }
 
             _playerController.UpdateBase();
