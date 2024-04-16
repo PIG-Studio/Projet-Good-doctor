@@ -24,7 +24,7 @@ namespace GameCore
         public static string LoadName { get; set; }
 
         /// <summary>
-        /// La derniere positon du joueur, actualise lorsque le joueur sort de la map ou va dans le menu pause, utile pour sauvegarder la position 
+        /// La derniere positon du joueur, actualisee lorsque le joueur sort de la map ou va dans le menu pause, utile pour sauvegarder la position 
         /// </summary>
         /// <returns>type: (float, float)</returns>
         public static (float, float) LatestPos { get; set; }
@@ -41,6 +41,21 @@ namespace GameCore
         /// <returns>type: string</returns>
         public static string SceneName_Last { get; set; }
         
+        
+        ///////////////////// Variables des bureux, variables car nouvel objet si retoiur au menu //////////////////////
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Desk Desk_Base { get; set; }
+        public static Desk Desk_Upgraded { get; set; }
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public static Desk[] Desks { get; set; }
+        
+        public static Desk CurrentlyRenderedDesk { get; set; }
     }
 }

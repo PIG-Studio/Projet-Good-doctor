@@ -8,16 +8,9 @@ namespace UI_Prefab.UI_Objects
     {
         public static GameObject Create(Sprite sprite, uint index, bool empty)
         {
-            GameObject slot = UI_BaseObject.Create("SLOT_" + index, Invetory_Slot_Pos.X + Invetory_Slot_Size*index, Invetory_Slot_Pos.Y+ Invetory_Slot_Size*index,
+            GameObject slot = UI_BaseWithoutImage.Create("SLOT_" + index, Invetory_Slot_Pos.X + Invetory_Slot_Size*index, Invetory_Slot_Pos.Y,
                 Invetory_Slot_Width, Invetory_Slot_Width);
-            if (empty)
-            {
-                slot.AddComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-            }
-            else
-            {
-                slot.AddComponent<SpriteRenderer>().sprite = sprite;
-            }
+            slot.AddComponent<SpriteRenderer>().sprite = empty ? null : sprite;
             slot.GetComponent<SpriteRenderer>().sortingLayerName = "UI";
         
             return slot;

@@ -11,13 +11,13 @@ public class NetworkVariables : NetworkBehaviour
     {
         if (!NetworkManager.Singleton.IsClient)
         {
-            inv.Value = Desks.Desk_Base;
+            inv.Value = Variables.Desk_Base;
         }
         else
         {
-            Desks.Desk_Base = inv.Value;
+            Variables.Desk_Base = inv.Value;
         }
-        Debug.Log(Desks.Desk_Base.Inventory.Slots[0].Amount);
+        Debug.Log(Variables.Desk_Base.Inventory.Slots[0].Amount);
     }
 
 
