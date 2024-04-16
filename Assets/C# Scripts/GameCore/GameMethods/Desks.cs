@@ -2,16 +2,15 @@ using System;
 using JetBrains.Annotations;
 using Unity.Netcode;
 using UnityEngine;
+using static GameCore.Variables;
 
 namespace GameCore
 {
     /// <summary>
-    /// Ce scipt DOIT etre dans l'objet du menu afin que les bureaux soit initialiser lorsau'on lance le jeu ou qu'on change de partie
+    /// Ce scipt DOIT etre dans l'objet du menu afin que les bureaux soient initialises lorsau'on lance le jeu ou qu'on change de partie
     /// </summary>
     public class Desks : MonoBehaviour
     {
-        public static Desk Desk_Base { get; set; }
-        public static Desk Desk_Upgraded { get; set; }
         
         public void Start()
         {

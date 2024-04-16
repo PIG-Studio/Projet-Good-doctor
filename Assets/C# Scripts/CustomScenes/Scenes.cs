@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+/// <summary>
+/// Classe statique listant les scenes du jeu
+/// </summary>
 public static class Scenes
 {
     public static readonly string MENU = "Menu";

@@ -22,11 +22,6 @@ namespace GameCore
         /// Facteur de vitesse de déplacement du joueur
         /// </summary>
         public const float MoveSpeed = 1f;
-
-        /// <summary>
-        /// Bureau initial
-        /// </summary>
-        public static readonly Desk StartingDesk = Desks.Desk_Base;
         
         /// <summary>
         /// Capacite de l'inventaire
@@ -47,5 +42,6 @@ namespace GameCore
         /// Position du 1er slot de l'inventaire
         /// </summary>
         public static readonly Vector2 Invetory_Slot_Pos = new Vector2(10f, 10f);
+        
     }
 }
