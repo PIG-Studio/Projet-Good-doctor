@@ -6,7 +6,7 @@ using UnityEngine;
 public class Desk
 {
     public string SceneName { get; }
-    public Inventory Inventory { get; }
+    public Inventory Inventory { get; set; }
     public static Dictionary<string, Desk> SceneDeskDict { get; set; }
 
     public bool HasChanged { get; set; }
@@ -15,6 +15,7 @@ public class Desk
     {
         SceneName = sceneName;
         Inventory = new Inventory();
+        Debug.LogError("ADDED "+sceneName+" DESK");
         SceneDeskDict.Add(sceneName, this);
         Debug.Log("ADDED 1 DESK");
         HasChanged = true;

@@ -1,24 +1,23 @@
 using GameCore;
+using Inventories;
 using Unity.Netcode;
 using UnityEngine;
 
-[GenerateSerializationForType(typeof(Desk))]
+[GenerateSerializationForType(typeof(Inventory))]
 public class NetworkVariables : NetworkBehaviour
 {
-    private readonly NetworkVariable<Desk> inv = new(writePerm:NetworkVariableWritePermission.Owner);
+    private readonly NetworkVariable<int> score1 = new(writePerm: NetworkVariableWritePermission.Server);
 
     void Update()
     {
-        if (!NetworkManager.Singleton.IsClient)
+        if (NetworkManager.Singleton.IsHost)
         {
-            inv.Value = Variables.Desk_Base;
+            score1.Value = Variables.ScoreJ1;
         }
-        else
+        
+        else if (NetworkManager.Singleton.IsClient)
         {
-            Variables.Desk_Base = inv.Value;
+            Variables.ScoreJ1 = score1.Value;
         }
-        Debug.Log(Variables.Desk_Base.Inventory.Slots[0].Amount);
     }
-
-
 }
