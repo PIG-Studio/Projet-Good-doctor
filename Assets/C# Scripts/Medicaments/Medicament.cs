@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 public abstract class Medicament : IMedicament
-{
+{// les médicaments ont tous les meme propriétés
     public string Name { get; set; }
     public delegate void Action();
     public uint Amount { get; set; }
