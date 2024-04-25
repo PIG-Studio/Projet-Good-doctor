@@ -10,7 +10,7 @@ namespace C__Scripts.Maladie
         public bool NormalADN { get; set; }
         
         public (uint, uint) Depression { get; set; }
-
+        
         public Maladie(string name, (uint, uint) freqcar, (uint,uint) temp, bool normalADN, (uint, uint) depression)
         {
             Name = name;
