@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using GameCore;
+using GameCore.TypeExpand;
 using UnityEngine;
 using static CustomScenes.Manager;
 using static GameCore.Variables;
@@ -180,7 +181,7 @@ public class SaveLoadMethods : MonoBehaviour
             }
             
             SaveName = savedContent["SaveName"];
-            Variables.Desk = DesksConvert.ToDesk(savedContent["DeskName"]);
+            Variables.Desk = savedContent["DeskName"].ToDesk();
             SceneName_Current = savedContent["SceneName"];
             string[] DemiCanard = savedContent["Position"].Split(' ');
             DemiCanard[0] = DemiCanard[0].Remove(0, 1);
