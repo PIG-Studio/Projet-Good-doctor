@@ -17,13 +17,13 @@ namespace Inventories
         [CanBeNull] public System.Type Type;
         
         // Le nombre d'objet(s) dans le slot
-        [NotNull] public int Amount;
+        public int Amount;
         
         // Le GameObject du slot
         [CanBeNull] public GameObject Object { get; set; }
         
         // Bool si on doit actualiser l'UI
-        [NotNull]public bool HasChanged { get; set; }
+        public bool HasChanged { get; set; }
 
         public Slot()
         {
@@ -38,7 +38,9 @@ namespace Inventories
         public void AddItem(IObject item)
         {
             for (int i = 0; i < Invetory_Slot_Size; i++)
-            {Debug.Log($"{Type} et {item.GetType()} donne {Type == item.GetType()}");
+            {
+                
+                Debug.Log($"{Type} et {item.GetType()} donne {Type == item.GetType()}");
                 if (Type == null || (Type == item.GetType() /*&& Item[i] == null*/))
                 {
                     //Item[i] = item;
@@ -49,6 +51,7 @@ namespace Inventories
                     break;
                 }
             }
+            
             Debug.Log($"Used {Amount} out of 3 slots");
         }
         
@@ -71,6 +74,11 @@ namespace Inventories
             }
         }
         
+        /// <summary>
+        /// Methode verifiant si place pour ajouter objet
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns>booleen</returns>
         public bool CanAdd(IObject item)
         {
             if (Amount < Invetory_Slot_Size && (Type == null || Type == item.GetType())) { return true; }
