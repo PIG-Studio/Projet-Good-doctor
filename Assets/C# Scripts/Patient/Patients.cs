@@ -1,4 +1,4 @@
-namespace C__Scripts.Patient
+namespace Patient
 {
     public class Patients
     {

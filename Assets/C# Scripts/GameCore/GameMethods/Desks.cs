@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using static GameCore.Variables;
 
@@ -13,8 +12,8 @@ namespace GameCore
         public void Start()
         {
             Desk.SceneDeskDict = new System.Collections.Generic.Dictionary<string, Desk>();
-            Desk_Base = new Desk("DESK_Base");
-            Desk_Upgraded = new Desk("DESK_Upgraded");
+            DeskBase = new Desk("DESK_Base");
+            DeskUpgraded = new Desk("DESK_Upgraded");
         }
     }
 }

@@ -1,6 +1,6 @@
 using UI_Prefab;
 
-public class UI_Test 
+public class UITest 
 {
     // Start is called before the first frame update
     void Start()

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UI_Prefab.UI_Objects;
+using UIPrefab.UIObjects;
 using static GameCore.Methods;
 using static GameCore.Variables;
 using static CustomScenes.Manager;
@@ -51,7 +51,7 @@ namespace UI_Prefab
             float height, string newScene, string resourcePath = "")
         {
             /* Renvoie un nouveau bouton changent de scene vers le param newScene */
-            return UI_Button.Create(id, text, posX, posY, width, height,
+            return UIButton.Create(id, text, posX, posY, width, height,
                 () => ChangeScene(newScene),
                 resourcePath);
         }
@@ -70,7 +70,7 @@ namespace UI_Prefab
         public static GameObject BTN_Quit(string id, string text, float posX, float posY, float width,
             float height)
         {
-            return UI_Button.Create(id, text, posX, posY, width, height, () => Quit());
+            return UIButton.Create(id, text, posX, posY, width, height, () => Quit());
         }
 
 
@@ -86,7 +86,7 @@ namespace UI_Prefab
         /// <returns></returns>
         public static GameObject INSTR_Default(string id, float posX, float posY, float width, float height)
         {
-            return UI_InputField.Create(id, posX, posY, width, height);
+            return UIInputField.Create(id, posX, posY, width, height);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace UI_Prefab
         public static GameObject BTN_NewGame(string id, string text, float posX, float posY, float width,
             float height, string resourcePath = "")
         {
-            return UI_Button.Create(id, text, posX, posY, width, height,
+            return UIButton.Create(id, text, posX, posY, width, height,
                 () => NewGame(SaveName), resourcePath); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
         }
 
@@ -121,7 +121,7 @@ namespace UI_Prefab
         public static GameObject BTN_Save(string id, string text, float posX, float posY, float width,
             float height)
         {
-            return UI_Button.Create(id, text, posX, posY, width, height,
+            return UIButton.Create(id, text, posX, posY, width, height,
                 () => SaveData.SaveGame()); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
         }
 
@@ -139,7 +139,7 @@ namespace UI_Prefab
         public static GameObject DDW_Default<T>(string id, string text, float posX, float posY, float width,
             float height) where T : MonoBehaviour, IDropdownable
         {
-            return UI_Dropdown.Create<T>(id, text, posX, posY, width, height); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
+            return UIDropdown.Create<T>(id, text, posX, posY, width, height); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
         }
         
         /// <summary>
@@ -174,7 +174,7 @@ namespace UI_Prefab
         /// <returns></returns>
         public static GameObject INV_Slot(Sprite sprite, uint index, bool empty = false)
         {
-            return UI_Slot.Create(sprite, index, empty);
+            return UISlot.Create(sprite, index, empty);
         }
         
         /// <summary>
@@ -190,7 +190,7 @@ namespace UI_Prefab
         /// <returns></returns>
         public static GameObject INV_Inventory(Sprite sprite, string id, float posX, float posY, float width, float height)
         {
-            return UI_Inventory.Create(posX, posY, width, height, sprite, id);
+            return UIInventory.Create(posX, posY, width, height, sprite, id);
         }
 
         

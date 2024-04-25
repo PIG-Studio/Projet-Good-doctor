@@ -3,7 +3,6 @@ using Inventories;
 using Unity.Netcode;
 using UnityEngine;
 using static GameCore.Constantes;
-using static GameCore.Variables;
 
 public class Inventory : NetworkBehaviour, IInventory
 {
@@ -13,8 +12,8 @@ public class Inventory : NetworkBehaviour, IInventory
     public uint Amount { get; private set; }    
     public Inventory()
     { 
-        Slot[] obj = new Slot[Invetory_Size];
-        for (int i = 0; i < Invetory_Size; i++)
+        Slot[] obj = new Slot[InventorySize];
+        for (int i = 0; i < InventorySize; i++)
         {
             obj[i] = new Slot();
         }
@@ -24,7 +23,7 @@ public class Inventory : NetworkBehaviour, IInventory
     
     public void AddItem(IObject item)
     {
-        for (int i = 0; i < Invetory_Size; i++)
+        for (int i = 0; i < InventorySize; i++)
         {
             if (Slots[i].CanAdd(item))
             {
@@ -38,7 +37,7 @@ public class Inventory : NetworkBehaviour, IInventory
     
     public void RemoveItem()
     {
-        for (int i = 0; i < Invetory_Size; i++)
+        for (int i = 0; i < InventorySize; i++)
         {
             if (Slots[i] != null)
             {
@@ -52,7 +51,7 @@ public class Inventory : NetworkBehaviour, IInventory
     
     public bool CanAdd(IObject item)
     {
-        for (int i = 0; i < Invetory_Size; i++)
+        for (int i = 0; i < InventorySize; i++)
         {
             if (Slots[i].CanAdd(item))
             {

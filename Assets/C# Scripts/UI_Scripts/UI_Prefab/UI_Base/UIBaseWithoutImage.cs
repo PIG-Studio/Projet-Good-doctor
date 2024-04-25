@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace UI_Base
+namespace UIBase
 {
-    public class UI_BaseWithoutImage
+    public class UIBaseWithoutImage
     {
 
             /// <summary>

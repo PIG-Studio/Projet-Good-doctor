@@ -1,7 +1,5 @@
 using GameCore;
-using Inventories;
 using Unity.Netcode;
-using UnityEngine;
 
 [GenerateSerializationForType(typeof(Inventory))]
 public class NetworkVariables : NetworkBehaviour
