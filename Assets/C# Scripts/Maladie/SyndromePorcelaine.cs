@@ -2,8 +2,7 @@
 {
     public class SyndromePorcelaine : Maladie
     {
-        public SyndromePorcelaine(string "Syndrome de Porcelaine", (uint, uint) freqcar, (uint, uint) temp, bool normalADN, (uint, uint) depression) : base(name, freqcar, temp, normalADN, depression)
-        {
-        }
+        public SyndromePorcelaine() : base("Sundrome de Porcelaine", (60,80),(32,34), true, (10,19))
+        { }
     }
 }
