@@ -1,10 +1,8 @@
-using UnityEngine;
-
-namespace C__Scripts.Interfaces
+namespace Interfaces
 {
     public interface IPatient
     {
-        public bool Is_lying { get; set; }
+        public bool IsLying { get; set; }
         
         // public Maladie Sickness {get;set;}
         

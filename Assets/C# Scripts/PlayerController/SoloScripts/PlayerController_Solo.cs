@@ -24,7 +24,7 @@ namespace PlayerController
             }
             if (Input.GetKeyDown(KeyCode.E))
             {   
-                Variables.Desk_Base.Inventory.AddItem(Medicaments.CYAMURE(1));
+                Variables.DeskBase.Inventory.AddItem(Medicaments.CYAMURE(1));
             }
 
             _playerController.UpdateBase();

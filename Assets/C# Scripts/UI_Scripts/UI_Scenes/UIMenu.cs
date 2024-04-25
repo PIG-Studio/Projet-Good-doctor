@@ -5,7 +5,7 @@ using UI_Prefab;
 /// <summary>
 /// A utiliser pour afficher les boutons et ui du menu
 /// </summary>
-public class UI_Menu : MonoBehaviour
+public class UIMenu : MonoBehaviour
 {
     // Start est appele des l'arrivee sur la scene
     void Start()

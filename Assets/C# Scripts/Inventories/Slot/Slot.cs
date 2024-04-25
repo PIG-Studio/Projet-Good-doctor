@@ -37,7 +37,7 @@ namespace Inventories
         /// <param name="item">Objet implementant IObject</param>
         public void AddItem(IObject item)
         {
-            for (int i = 0; i < Invetory_Slot_Size; i++)
+            for (int i = 0; i < InventorySlotSize; i++)
             {
                 
                 Debug.Log($"{Type} et {item.GetType()} donne {Type == item.GetType()}");
@@ -57,7 +57,7 @@ namespace Inventories
         
         public void RemoveItem()
         {
-            for (int i = Invetory_Slot_Size-1; i >= 0; i--)
+            for (int i = InventorySlotSize-1; i >= 0; i--)
             {
                 if (Type != null)
                 {
@@ -81,7 +81,7 @@ namespace Inventories
         /// <returns>booleen</returns>
         public bool CanAdd(IObject item)
         {
-            if (Amount < Invetory_Slot_Size && (Type == null || Type == item.GetType())) { return true; }
+            if (Amount < InventorySlotSize && (Type == null || Type == item.GetType())) { return true; }
             return false;
         }
         

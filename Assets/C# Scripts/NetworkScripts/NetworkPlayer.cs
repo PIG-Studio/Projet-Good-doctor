@@ -18,7 +18,7 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (IsOwner)
         {
-            if (SceneName_Current == "MapHospital")
+            if (SceneNameCurrent == "MapHospital")
             {
                 _pos.Value = transform.position;
                 isOnMapScene.Value = true;

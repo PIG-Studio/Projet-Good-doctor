@@ -1,4 +1,3 @@
-using C__Scripts.Medicaments;
 using Interfaces;
 using UnityEngine;
 

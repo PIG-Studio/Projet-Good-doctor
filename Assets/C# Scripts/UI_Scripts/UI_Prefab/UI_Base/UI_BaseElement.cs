@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI_Base
+namespace UIBase
 {
-    public class UI_BaseObject : IUI_Create
+    public class UIBaseObject : IUI_Create
     {
         /// <summary>
         /// <value>Working as expected</value>

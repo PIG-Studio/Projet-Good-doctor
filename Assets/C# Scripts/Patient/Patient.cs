@@ -1,11 +1,10 @@
 using System;
-using System.ComponentModel;
-using C__Scripts.Interfaces;
+using Interfaces;
 using UnityEngine;
 
-namespace C__Scripts.PNJ
+namespace Patient
 {
-    public class Patient : MonoBehaviour , Ipnj , IPatient
+    public class Patient : MonoBehaviour , IPnj , IPatient
     {
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
         public void Spawn()
@@ -13,7 +12,7 @@ namespace C__Scripts.PNJ
             Instantiate(Resources.Load<GameObject>("Patient"));
         }
         
-        public bool Is_lying { get; set; }
+        public bool IsLying { get; set; }
         
         // public Maladie Sickness {get;set;}
         
@@ -41,7 +40,7 @@ namespace C__Scripts.PNJ
             Temperature = temperature;
             FreqCar = freqCar;
             CatchPhrase = catchPhrase;
-            Is_lying = lie;
+            IsLying = lie;
             if (Mood < 0 || Mood > 100)
             {
                 throw new ArgumentException();
