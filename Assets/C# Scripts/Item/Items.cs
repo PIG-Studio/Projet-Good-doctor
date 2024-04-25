@@ -15,11 +15,19 @@ public static class Items
     [NotNull]
     public static Madeleine MADELEINE()
     {
+        if (Madeleine.Nbr == 60)
+        {
+            throw new NotImplementedException("la maladie de quand tu manges trop de madeline");
+        }
         return new Madeleine(1);
     }
 
     public static Chevre CHEVRE()
     {
+        if (Chevre.Nbr == 50)
+        {
+            throw new NotImplementedException("trop de chevre le joueur est mort pietiné par les chevres");
+        }
         return new Chevre(1);
     }
 
