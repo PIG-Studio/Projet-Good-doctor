@@ -6,18 +6,18 @@ using UnityEngine;
 [GenerateSerializationForType(typeof(Inventory))]
 public class NetworkVariables : NetworkBehaviour
 {
-    private readonly NetworkVariable<int> score1 = new(writePerm: NetworkVariableWritePermission.Server);
+    private readonly NetworkVariable<int> Score1 = new(writePerm: NetworkVariableWritePermission.Server);
 
     void Update()
     {
         if (NetworkManager.Singleton.IsHost)
         {
-            score1.Value = Variables.ScoreJ1;
+            Score1.Value = Variables.ScoreJ1;
         }
         
         else if (NetworkManager.Singleton.IsClient)
         {
-            Variables.ScoreJ1 = score1.Value;
+            Variables.ScoreJ1 = Score1.Value;
         }
     }
 }

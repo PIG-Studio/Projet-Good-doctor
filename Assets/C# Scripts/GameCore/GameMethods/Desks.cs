@@ -17,28 +17,4 @@ namespace GameCore
             Desk_Upgraded = new Desk("DESK_Upgraded");
         }
     }
-    
-    public static class DesksConvert
-    {
-        [CanBeNull]
-        public static Desk ToDesk(this string str)
-        {
-            return Desk.SceneDeskDict[str];
-        }
-        
-        [NotNull]
-        public static bool IsDesk(this string str)
-        {
-            try
-            {
-                if (str.ToDesk() != null)
-                    return true;
-                return false;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-    }
 }
