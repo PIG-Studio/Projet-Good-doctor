@@ -8,10 +8,10 @@ namespace Inventories
     public class Slot : IInventory
     {
         // La liste des objets dans le slot
-        [NotNull] private IObject[] Item { get; }
+        //[NotNull] public IObject[] Item { get; }
         
         // Le spinner de l'objet
-        [CanBeNull] public Sprite Image { get; private set; }
+        [CanBeNull] public Sprite Image { get; set; }
         
         // Le type de l'objet
         [CanBeNull] public System.Type Type;
@@ -27,7 +27,7 @@ namespace Inventories
 
         public Slot()
         {
-            Item = new IObject[Invetory_Slot_Size];
+            //Item = new IObject[Invetory_Slot_Size];
             Amount = 0;
         }
         
@@ -39,9 +39,9 @@ namespace Inventories
         {
             for (int i = 0; i < Invetory_Slot_Size; i++)
             {Debug.Log($"{Type} et {item.GetType()} donne {Type == item.GetType()}");
-                if (Type == null || (Type == item.GetType() && Item[i] == null))
+                if (Type == null || (Type == item.GetType() /*&& Item[i] == null*/))
                 {
-                    Item[i] = item;
+                    //Item[i] = item;
                     Amount++;
                     HasChanged = true;
                     Type = item.GetType();
@@ -56,9 +56,8 @@ namespace Inventories
         {
             for (int i = Invetory_Slot_Size-1; i >= 0; i--)
             {
-                if (Item[i] != null)
+                if (Type != null)
                 {
-                    Item[i] = null;
                     Amount--;
                     HasChanged = true;
                     break;
