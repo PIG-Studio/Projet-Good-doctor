@@ -11,7 +11,6 @@ namespace GameCore.TypeExpand
                 return Desk.SceneDeskDict[str];
             }
         
-            [NotNull]
             public static bool IsDesk(this string str)
             {
                 try
@@ -26,5 +25,18 @@ namespace GameCore.TypeExpand
                 }
             }
         
+            [CanBeNull]
+            public static int? ToInt(this string str)
+            {
+                int result = 0;
+                foreach (var chara in str)
+                {
+                    if (chara is < '0' or > '9')
+                        return null;
+                    result = result * 10 + chara - '0';
+                }
+
+                return result;
+            }
     }
 }

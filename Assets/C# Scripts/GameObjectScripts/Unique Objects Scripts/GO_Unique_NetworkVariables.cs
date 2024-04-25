@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GO_Unique_NetworkVariables : MonoBehaviour
 {
-    private static bool _created = false;
+    private static bool _created;
 
     private void Start()
     {

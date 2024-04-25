@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using Interfaces;
-using Unity.Netcode;
 using UnityEngine;
 
 public class Desk
