@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Playables;
 
 /// <summary>
 /// Interface pour les classes qui creent des objets UI
