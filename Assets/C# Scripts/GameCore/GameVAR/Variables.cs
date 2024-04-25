@@ -57,5 +57,7 @@ namespace GameCore
         public static Desk[] Desks { get; set; }
         
         public static Desk CurrentlyRenderedDesk { get; set; }
+        
+        public static int ScoreJ1 { get; set; }
     }
 }

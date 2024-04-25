@@ -21,6 +21,11 @@ public class NetworkButtons : MonoBehaviour
             if (SceneName_Current.IsDesk()) 
             {
                 if (GUILayout.Button("Host")) {NetworkManager.Singleton.StartHost();soloPlayer.SetActive(false);}
+                if (GUILayout.Button("Client"))
+                {
+                    NetworkManager.Singleton.StartClient();
+                    soloPlayer.SetActive(false);
+                }
             }
             
             // Si on est dans le menu, on a acces au bouton pour etre client

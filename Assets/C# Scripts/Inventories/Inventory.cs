@@ -1,15 +1,16 @@
 using Interfaces;
 using Inventories;
+using Unity.Netcode;
 using UnityEngine;
 using static GameCore.Constantes;
 using static GameCore.Variables;
 
-public class Inventory : IInventory
+public class Inventory : NetworkBehaviour, IInventory
 {
-    public Slot[] Slots { get; }
+    public Slot[] Slots { get; set; }
     public GameObject Object { get; set; }
     public bool HasChanged { get; set; }
-    
+    public uint Amount { get; private set; }    
     public Inventory()
     { 
         Slot[] obj = new Slot[Invetory_Size];
@@ -18,6 +19,7 @@ public class Inventory : IInventory
             obj[i] = new Slot();
         }
         Slots = obj;
+        Amount = 0;
     }
     
     public void AddItem(IObject item)
@@ -28,6 +30,7 @@ public class Inventory : IInventory
             {
                 Slots[i].AddItem(item);
                 HasChanged = true;
+                Amount++;
                 break;
             }
         }
@@ -41,6 +44,7 @@ public class Inventory : IInventory
             {
                 Slots[i].RemoveItem();
                 HasChanged = true;
+                Amount--;
                 break;
             }
         }
