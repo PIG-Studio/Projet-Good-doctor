@@ -25,6 +25,7 @@ namespace C__Scripts.PNJ
         public string ADN { get; set; }
         public bool ADNormal { get; set; }
         public bool IsAlive { get; set; }
+        public uint Depression { get; set; }
         public void Kill()
         {
             throw new NotImplementedException();
@@ -36,16 +37,20 @@ namespace C__Scripts.PNJ
         
         public Vector2 Position { get; set; }
 
-        public Patient(uint temperature ,uint freqCar ,string catchPhrase ,bool lie, int mood, string phrase , Sprite skin , string name , Vector2 position)
+        public Patient(string adn, bool adNormal , uint depression,uint temperature ,uint freqCar ,string catchPhrase ,bool lie, int mood, string phrase , Sprite skin , string name , Vector2 position)
         {
-            Temperature = temperature;
-            FreqCar = freqCar;
-            CatchPhrase = catchPhrase;
-            Is_lying = lie;
             if (Mood < 0 || Mood > 100)
             {
                 throw new ArgumentException();
             }
+            Depression = depression;
+            IsAlive = true;
+            ADNormal = adNormal;
+            ADN = adn;
+            Temperature = temperature;
+            FreqCar = freqCar;
+            CatchPhrase = catchPhrase;
+            Is_lying = lie;
             Mood = mood;
             CatchPhrase = phrase;
             Name = name;
@@ -62,6 +67,5 @@ namespace C__Scripts.PNJ
         {
             throw new NotImplementedException();
         }
-        
     }
 }
