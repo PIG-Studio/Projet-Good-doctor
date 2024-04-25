@@ -3,7 +3,6 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
-
 public class LastSave: MonoBehaviour, IDropdownable
 {
     [FormerlySerializedAs("SavesDropDown")] [SerializeField] private TMP_Dropdown savesDropDown;
