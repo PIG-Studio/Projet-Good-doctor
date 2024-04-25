@@ -1,7 +1,8 @@
+using C__Scripts.PNJ;
     using UnityEngine;
 
-    public class PNJ
-    {
+public class PNJ 
+{
         public Vector2 Position { get; private set; }
         public string Name { get; private set; }
         
