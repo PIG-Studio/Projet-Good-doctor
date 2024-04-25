@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using C__Scripts.Medicaments;
+=======
+>>>>>>> dev_Alex
 using JetBrains.Annotations;
 
 
@@ -6,7 +9,11 @@ using JetBrains.Annotations;
 /// Classe listant les methodes pour creer des medicaments 
 /// </summary>
 public static class Medicaments
+<<<<<<< HEAD
 {// permet de créeer des nouveaux médicamnents
+=======
+{
+>>>>>>> dev_Alex
     
     /// <summary>
     /// methode creant une nouvelle instance de cyamure
@@ -18,6 +25,7 @@ public static class Medicaments
     {
         return new Cyamure(qte);
     }
+<<<<<<< HEAD
     
     public static Ananadvil ANANADVIL(uint qte)
     {
@@ -51,4 +59,6 @@ public static class Medicaments
     {
         return new Oxycodatte(qte);
     }
+=======
+>>>>>>> dev_Alex
 }

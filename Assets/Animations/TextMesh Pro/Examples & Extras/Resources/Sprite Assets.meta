@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 3952e0d2fa726f64ea5114617f610cf6
 =======
 guid: 53aab061c06dc5d0c97d39cb0207ad64
 >>>>>>> main
+=======
+guid: 53aab061c06dc5d0c97d39cb0207ad64
+=======
+guid: 3952e0d2fa726f64ea5114617f610cf6
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

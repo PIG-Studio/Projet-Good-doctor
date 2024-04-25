@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 775da4a119040a64f8e32c67b301efc7
 =======
 guid: 4e7e8b702b5ef4030995eda6f2e204c3
 >>>>>>> main
+=======
+guid: 4e7e8b702b5ef4030995eda6f2e204c3
+=======
+guid: 775da4a119040a64f8e32c67b301efc7
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -112,10 +119,17 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
 <<<<<<< HEAD
+<<<<<<< HEAD
     buildTarget: Android
 =======
     buildTarget: iPhone
 >>>>>>> main
+=======
+    buildTarget: iPhone
+=======
+    buildTarget: Android
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -129,10 +143,17 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
 <<<<<<< HEAD
+<<<<<<< HEAD
     buildTarget: Windows Store Apps
 =======
     buildTarget: Android
 >>>>>>> main
+=======
+    buildTarget: Android
+=======
+    buildTarget: Windows Store Apps
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
