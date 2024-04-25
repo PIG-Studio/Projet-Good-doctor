@@ -1,5 +1,6 @@
 using System;
 using GameCore;
+using GameCore.TypeExpand;
 using Inventories;
 using JetBrains.Annotations;
 using UnityEngine;

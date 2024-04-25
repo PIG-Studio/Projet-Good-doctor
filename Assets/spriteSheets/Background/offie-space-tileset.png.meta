@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 6351ee8486a84bb4bb0ec7ba7981a5d4
 =======
 guid: 4a284e7c49b65ee10b4ca7da1cf9b1a9
 >>>>>>> main
+=======
+guid: 4a284e7c49b65ee10b4ca7da1cf9b1a9
+=======
+guid: 6351ee8486a84bb4bb0ec7ba7981a5d4
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -86,7 +93,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> dev_Alex
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -100,7 +110,12 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+<<<<<<< HEAD
 >>>>>>> main
+=======
+=======
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -115,7 +130,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> dev_Alex
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -142,7 +160,12 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+<<<<<<< HEAD
 >>>>>>> main
+=======
+=======
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0

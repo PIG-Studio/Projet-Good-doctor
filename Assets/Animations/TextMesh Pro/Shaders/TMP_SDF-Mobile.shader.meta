@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 3ff570d25e9573d468fef670f5f007c6
 =======
 guid: 17791a65f3a59880f8ba9513bc635958
 >>>>>>> main
+=======
+guid: 17791a65f3a59880f8ba9513bc635958
+=======
+guid: 3ff570d25e9573d468fef670f5f007c6
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
 ShaderImporter:
   externalObjects: {}
   defaultTextures: []

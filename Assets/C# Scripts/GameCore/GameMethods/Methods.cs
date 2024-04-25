@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CustomScenes;
+using GameCore.TypeExpand;
 using UnityEngine;
 using static GameCore.Constantes;
 using static GameCore.Variables;
