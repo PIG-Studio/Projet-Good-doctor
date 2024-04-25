@@ -31,6 +31,6 @@ namespace C__Scripts.Patient
             {
                 int i = rnd.Next(0, Maladie.Maladies.Maladiess.Length - 1);
             }
-        }
+        }   
     }
 }
