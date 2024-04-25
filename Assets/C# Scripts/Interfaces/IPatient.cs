@@ -6,7 +6,7 @@ namespace C__Scripts.Interfaces
     {
         public bool Is_lying { get; set; }
         
-        // public Maladie Sickness {get;set;}
+        public Maladie.Maladie Sickness {get;set;}
         
         public int Mood { get; set; }
         
