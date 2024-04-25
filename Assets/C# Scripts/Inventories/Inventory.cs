@@ -3,7 +3,6 @@ using Inventories;
 using Unity.Netcode;
 using UnityEngine;
 using static GameCore.Constantes;
-using static GameCore.Variables;
 
 public class Inventory : NetworkBehaviour, IInventory
 {
