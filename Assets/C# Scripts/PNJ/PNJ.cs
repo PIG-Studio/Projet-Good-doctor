@@ -1,14 +1,8 @@
-<<<<<<< HEAD
+using C__Scripts.PNJ;
     using UnityEngine;
 
-    public class PNJ
-=======
-    using C__Scripts.PNJ;
-    using UnityEngine;
-
-    public class PNJ 
->>>>>>> dev_Alex
-    {
+public class PNJ 
+{
         public Vector2 Position { get; private set; }
         public string Name { get; private set; }
         

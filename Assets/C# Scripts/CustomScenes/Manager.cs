@@ -1,4 +1,5 @@
 using GameCore;
+using GameCore.TypeExpand;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using static GameCore.Variables;
