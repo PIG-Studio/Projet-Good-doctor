@@ -1,9 +1,17 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 6d8aed02ff23a1a4d92c0a1aa409e7cd
 =======
 guid: a4a67b1c9d29f2d5c93ca3ff61cdabd2
 >>>>>>> main
+=======
+<<<<<<< HEAD:Assets/C# Scripts/Interfaces/UI Input management/UI_DeskInputManagement.cs.meta
+guid: a4a67b1c9d29f2d5c93ca3ff61cdabd2
+=======
+guid: 6d8aed02ff23a1a4d92c0a1aa409e7cd
+>>>>>>> 1ad9907 (save):Assets/C# Scripts/UI Input management/UI_DeskInputManagement.cs.meta
+>>>>>>> dev_Alex
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
