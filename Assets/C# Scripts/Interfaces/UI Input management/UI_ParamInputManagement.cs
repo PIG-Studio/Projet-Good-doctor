@@ -6,7 +6,7 @@ public class UI_ParamInputManagement : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown(PARAM_Values.EscapeKey) && !PARAM_Values.TextInput)
-            ChangeScene(SceneName_Last);
+        if (Input.GetKeyDown(PARAMValues.EscapeKey) && !PARAMValues.TextInput)
+            ChangeScene(SceneNameLast);
     }
 }

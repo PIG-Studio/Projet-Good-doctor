@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class PARAM_HzRate : MonoBehaviour, IDropdownable
+public class PARAMHzRate : MonoBehaviour, IDropdownable
 {
-    [SerializeField] TMP_Dropdown _hertzDropdown;
+    [FormerlySerializedAs("_hertzDropdown")] [SerializeField] TMP_Dropdown hertzDropdown;
     
     private List<Resolution> _allResolutions;
     private List<float> _allRates = new List<float>();
@@ -18,13 +19,13 @@ public class PARAM_HzRate : MonoBehaviour, IDropdownable
      On peut donc choisir une combinaison taux/res pas encore cree mais pas impossible, donc on peut choisir librement le taux voulu.
      */
     {
-        _hertzDropdown.onValueChanged.AddListener(SetRefreshRate);
+        hertzDropdown.onValueChanged.AddListener(SetRefreshRate);
         _allResolutions = new List<Resolution>();
         for (int i = 0; i < Screen.resolutions.Length; i++)
         {
             _allResolutions.Add(Screen.resolutions[i]);
         }
-        _hertzDropdown.ClearOptions();
+        hertzDropdown.ClearOptions();
 
         for (int i = 0; i < _allResolutions.Count; i++)
         {
@@ -47,19 +48,23 @@ public class PARAM_HzRate : MonoBehaviour, IDropdownable
             }
         }
         
-        _hertzDropdown.AddOptions(options);
-        _hertzDropdown.value = _currentResolutionIndex;
-        _hertzDropdown.RefreshShownValue();
+        hertzDropdown.AddOptions(options);
+        hertzDropdown.value = _currentResolutionIndex;
+        hertzDropdown.RefreshShownValue();
     }
 
     public void SetRefreshRate(int rateIndex)
     {
-        float rate = _allRates[rateIndex];
-        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, Screen.fullScreenMode, (int)rate);
+        RefreshRate rate = new RefreshRate
+        {
+            numerator = (uint)_allRates[rateIndex],
+            denominator = 1
+        };
+        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, Screen.fullScreenMode, rate);
     }
     
     public void SetDropdown(TMP_Dropdown dropdown)
     {
-        _hertzDropdown = dropdown;
+        hertzDropdown = dropdown;
     }
 }

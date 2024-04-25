@@ -39,7 +39,7 @@ public class SaveData : MonoBehaviour
                 Dictionary<string, string> input = new Dictionary<string, string>();
                 input["DeskName"] = Variables.Desk.SceneName;
                 input["SaveName"] = SaveName;
-                input["SceneName"] = SceneName_Current;
+                input["SceneName"] = SceneNameCurrent;
                 string pos = LatestPos.Item1 + " , " + LatestPos.Item2;
                 input["Position"] = pos;
                 SaveLoadMethods.WriteSaveGame(input);
