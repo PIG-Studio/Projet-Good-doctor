@@ -1,15 +1,15 @@
 using UnityEngine;
 public class SwitchOnEscape : MonoBehaviour
 {
-        [SerializeField] private GameObject[] _gameObject;
+        [SerializeField] public GameObject[] gameObjects;
         
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                foreach (var eachGO in _gameObject)
+                foreach (var eachGo in gameObjects)
                 {
-                    eachGO.SetActive(!eachGO.activeSelf);
+                    eachGo.SetActive(!eachGo.activeSelf);
                     
                 }
             }

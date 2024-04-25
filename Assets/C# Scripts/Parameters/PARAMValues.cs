@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class PARAM_Values : MonoBehaviour
+public class PARAMValues : MonoBehaviour
 {
     public static string SavesPath { get; private set; } = Directory.GetCurrentDirectory() + "/Saves";
     public static string EscapeKey { get; private set; } = "escape";

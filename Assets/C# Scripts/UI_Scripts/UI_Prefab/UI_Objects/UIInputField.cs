@@ -1,12 +1,12 @@
 using TMPro;
-using UI_Base;
+using UIBase;
 using UnityEngine;
 using UnityEngine.UI;
 using static CustomScenes.Manager;
 
-namespace UI_Prefab.UI_Objects
+namespace UIPrefab.UIObjects
 {
-    public class UI_InputField : IUI_Create
+    public class UIInputField : IUI_Create
     {
         /// <summary>
         /// <value>Working as expected</value>
@@ -20,7 +20,7 @@ namespace UI_Prefab.UI_Objects
         /// <returns>Created GameObject</returns>
         public static GameObject Create(string id, float posX, float posY, float width, float height)
         {
-            GameObject field = UI_BaseObject.Create("INSTR_" + id, posX, posY, width, height);
+            GameObject field = UIBaseObject.Create("INSTR_" + id, posX, posY, width, height);
 
             GameObject textArea = new GameObject("Text Area");
             textArea.AddComponent<RectTransform>().anchorMax = new Vector2(1, 1);
@@ -30,8 +30,8 @@ namespace UI_Prefab.UI_Objects
             textArea.AddComponent<RectMask2D>();
             textArea.transform.SetParent(field.transform, false);
 
-            GameObject placeholder = UI_TextComponent.Create("Enter text...",  "Placeholder");
-            GameObject textCompo = UI_TextComponent.Create("");
+            GameObject placeholder = UITextComponent.Create("Enter text...",  "Placeholder");
+            GameObject textCompo = UITextComponent.Create("");
             placeholder.transform.SetParent(textArea.transform, false);
             textCompo.transform.SetParent(textArea.transform, false);
 

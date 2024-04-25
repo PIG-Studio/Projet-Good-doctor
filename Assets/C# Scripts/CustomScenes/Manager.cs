@@ -26,14 +26,14 @@ namespace CustomScenes
         public static void ChangeScene(string newScene)
         {
             // On change les variables enregistrant la scene actuelle et la scene precedente
-            SceneName_Last = SceneManager.GetActiveScene().name;
-            SceneName_Current = newScene;
-            Debug.Log($"CustomSceneManager.ChangeScene() : {SceneName_Last} -> {SceneName_Current}");
+            SceneNameLast = SceneManager.GetActiveScene().name;
+            SceneNameCurrent = newScene;
+            Debug.Log($"CustomSceneManager.ChangeScene() : {SceneNameLast} -> {SceneNameCurrent}");
 
             // On actualise le bureau actuel
-            if (SceneName_Current.IsDesk())
+            if (SceneNameCurrent.IsDesk())
             { 
-                CurrentlyRenderedDesk = SceneName_Current.ToDesk();
+                CurrentlyRenderedDesk = SceneNameCurrent.ToDesk();
             }
 
             // On charge la nouvelle scene

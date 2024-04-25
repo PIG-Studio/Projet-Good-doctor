@@ -11,7 +11,7 @@ public class SaveLoadMethods : MonoBehaviour
 {
     private static string[] ListAllSaves()
     {
-        string[] res = Directory.GetFiles(PARAM_Values.SavesPath, "*.save");
+        string[] res = Directory.GetFiles(PARAMValues.SavesPath, "*.save");
         return res;
     }
 
@@ -50,7 +50,7 @@ public class SaveLoadMethods : MonoBehaviour
     public static Dictionary<string, string> ParseData(string saveName)
     {
         string[] sepa = saveName.Split('@');
-        StreamReader sr = new StreamReader(PARAM_Values.SavesPath + '/' + sepa[0] + saveName);
+        StreamReader sr = new StreamReader(PARAMValues.SavesPath + '/' + sepa[0] + saveName);
         string line = sr.ReadLine();
         string cle, valeur;
         string[] lineSplitted;
@@ -79,7 +79,7 @@ public class SaveLoadMethods : MonoBehaviour
         {
             if (miettes.Key == "SaveName")
             {
-                if (File.Exists(PARAM_Values.SavesPath + '/' + miettes.Value))
+                if (File.Exists(PARAMValues.SavesPath + '/' + miettes.Value))
                 {
                     return false;
                 }
@@ -147,26 +147,26 @@ public class SaveLoadMethods : MonoBehaviour
         string saveName = SaveName;
         // TODO : ecrire les variables dans un fichier .json ?
         string fileName = saveName + "@" + date;
-        if (Directory.Exists(PARAM_Values.SavesPath +
+        if (Directory.Exists(PARAMValues.SavesPath +
                              '/' + saveName) == false)
         {
-            Directory.CreateDirectory(PARAM_Values.SavesPath
+            Directory.CreateDirectory(PARAMValues.SavesPath
                                       + '/' + saveName);
-            File.Create(PARAM_Values.SavesPath + '/' +
+            File.Create(PARAMValues.SavesPath + '/' +
                         saveName + '/' + fileName + ".save").Close();
         }
         else
         {
-            File.Create(PARAM_Values.SavesPath + '/' +
+            File.Create(PARAMValues.SavesPath + '/' +
                         saveName + '/' + fileName + ".save").Close();
         }
-        StreamWriter sw = new StreamWriter(PARAM_Values.SavesPath + '/' + saveName + '/' + fileName + ".save");
+        StreamWriter sw = new StreamWriter(PARAMValues.SavesPath + '/' + saveName + '/' + fileName + ".save");
         foreach (var cle in inputVariables.Keys)
         {
             sw.WriteLine(cle + ':' + inputVariables[cle]);
         }
 
-        Debug.Log("saveCreated at " + PARAM_Values.SavesPath + '/' + saveName + '/' + fileName + ".save");
+        Debug.Log("saveCreated at " + PARAMValues.SavesPath + '/' + saveName + '/' + fileName + ".save");
         sw.Close();
     }
 
@@ -182,7 +182,7 @@ public class SaveLoadMethods : MonoBehaviour
             
             SaveName = savedContent["SaveName"];
             Variables.Desk = savedContent["DeskName"].ToDesk();
-            SceneName_Current = savedContent["SceneName"];
+            SceneNameCurrent = savedContent["SceneName"];
             string[] DemiCanard = savedContent["Position"].Split(' ');
             DemiCanard[0] = DemiCanard[0].Remove(0, 1);
             DemiCanard[0] = DemiCanard[0].Remove(DemiCanard[0].Length - 1, 1);

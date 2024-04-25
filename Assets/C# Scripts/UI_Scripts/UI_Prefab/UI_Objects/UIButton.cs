@@ -1,11 +1,11 @@
-using UI_Base;
+using UIBase;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace UI_Prefab.UI_Objects
+namespace UIPrefab.UIObjects
 {
-    public class UI_Button : IUI_Create
+    public class UIButton : IUI_Create
     {
         /// <summary>
         /// <value>Working as expected</value>
@@ -24,13 +24,13 @@ namespace UI_Prefab.UI_Objects
         {
             GameObject button;
             if (resourcePath != "")
-                button = UI_BaseObject.Create("BTN_" + id, posX, posY, width, height, resourcePath); 
+                button = UIBaseObject.Create("BTN_" + id, posX, posY, width, height, resourcePath); 
             else 
-                button = UI_BaseObject.Create("BTN_" + id, posX, posY, width, height);
+                button = UIBaseObject.Create("BTN_" + id, posX, posY, width, height);
             // On instancie un nouvel objet qui sera notre bouton
             // avec les parametres donnes
         
-            GameObject label = UI_TextComponent.Create(text);
+            GameObject label = UITextComponent.Create(text);
             label.transform.SetParent(button.transform, false);
             // On ajoute un texte a l'objet
         

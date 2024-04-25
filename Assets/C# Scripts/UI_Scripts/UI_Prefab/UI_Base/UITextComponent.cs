@@ -2,9 +2,9 @@ using TMPro;
 using UnityEngine;
 
 // Les methodes les + basiques pour creer des elements de l'UI
-namespace UI_Base
+namespace UIBase
 {
-    public class UI_TextComponent : IUI_Create
+    public class UITextComponent : IUI_Create
     {
         /// <summary>
         ///  <value>Working as expected</value>

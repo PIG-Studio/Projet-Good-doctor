@@ -16,12 +16,12 @@ public class LastSave: MonoBehaviour, IDropdownable
          */
     {
         savesDropDown.onValueChanged.AddListener(SetSaves);
-        string[] allSaves = Directory.GetDirectories(PARAM_Values.SavesPath);
+        string[] allSaves = Directory.GetDirectories(PARAMValues.SavesPath);
         int index = 0;
         Debug.Log("LAST SAVE:" + allSaves[0]);
         while (index < 10 && index < allSaves.Length  )
         {
-            _savesName.Add(allSaves[index].Remove(0,PARAM_Values.SavesPath.Length+1));
+            _savesName.Add(allSaves[index].Remove(0,PARAMValues.SavesPath.Length+1));
             index++;
         }
         Debug.Log("LASTSAVE2:" + _savesName[0]);

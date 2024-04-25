@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using CustomScenes;
 using GameCore.TypeExpand;
 using UnityEngine;
-using static GameCore.Constantes;
 using static GameCore.Variables;
 using static CustomScenes.Manager;
 
@@ -19,7 +17,7 @@ namespace GameCore
         /// <returns> void</returns>
         public static void SetVariables(string saveName, Desk deskName = null)
         {
-            Variables.Desk = deskName ?? Desk_Base;
+            Variables.Desk = deskName ?? DeskBase;
             SaveName = saveName;
             LoadName = null;
         }
@@ -35,7 +33,7 @@ namespace GameCore
             {
                 SetVariables(gameName);
                 SaveData.SaveGame();
-                ChangeScene(Desk_Base.SceneName);
+                ChangeScene(DeskBase.SceneName);
             }
         }
 
@@ -52,7 +50,7 @@ namespace GameCore
                 Variables.Desk = saveData["DeskName"].ToDesk();
                 SetVariables(saveData["SaveName"]);
                 SetVariables(saveData["SceneName"]);
-                ChangeScene(SceneName_Current);
+                ChangeScene(SceneNameCurrent);
                 Debug.Log("Save data loaded");
             }
             else
