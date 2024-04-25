@@ -1,8 +1,8 @@
-namespace C__Scripts.PNJ
+namespace Interfaces
 {
     using UnityEngine;
     using Interfaces;
-    public interface Ipnj
+    public interface IPnj
     {
         public Sprite Skin { get; set; }
         

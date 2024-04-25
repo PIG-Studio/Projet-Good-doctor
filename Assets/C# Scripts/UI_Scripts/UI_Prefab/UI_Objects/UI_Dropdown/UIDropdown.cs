@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UI_Base;
+using UIBase;
 
-public class UI_Dropdown : IUI_Create
+public class UIDropdown : IUI_Create
 {
     /// <summary>
     /// <value>WIP</value>
@@ -25,8 +25,8 @@ public class UI_Dropdown : IUI_Create
         {
             heightOption = height / 3f;
         }
-        GameObject ddw = UI_BaseObject.Create("DDW_" + id, posX, posY, width, height);
-        GameObject label = UI_TextComponent.Create(text);
+        GameObject ddw = UIBaseObject.Create("DDW_" + id, posX, posY, width, height);
+        GameObject label = UITextComponent.Create(text);
         label.transform.SetParent(ddw.transform);
         label.GetComponent<TextMeshProUGUI>().fontSize = height / 3f;
         
@@ -37,7 +37,7 @@ public class UI_Dropdown : IUI_Create
         ddw.AddComponent<TMP_Dropdown>().targetGraphic = ddw.GetComponent<Image>();
         ddw.AddComponent<T>().SetDropdown(ddw.GetComponent<TMP_Dropdown>());                    // TODO : a passer en parametre de la methode, pour pouvoir changer le script associe
         
-        GameObject template = UI_BaseObject.Create("Template", 0, 0, 50, 50);
+        GameObject template = UIBaseObject.Create("Template", 0, 0, 50, 50);
         template.transform.SetParent(ddw.transform);
         
         template.AddComponent<ScrollRect>();
@@ -48,7 +48,7 @@ public class UI_Dropdown : IUI_Create
         template.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
         template.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
         
-        GameObject viewport = UI_BaseObject.Create("Viewport", 0, 0, 0, 0);
+        GameObject viewport = UIBaseObject.Create("Viewport", 0, 0, 0, 0);
         viewport.transform.SetParent(ddw.transform);
         viewport.GetComponent<Transform>().SetParent(template.GetComponent<Transform>());
         viewport.AddComponent<Mask>();
@@ -63,7 +63,7 @@ public class UI_Dropdown : IUI_Create
         viewport.GetComponent<RectTransform>().right = new Vector3(0, 0, 0);
         //viewport.AddComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/UIMask.psd");
         
-        GameObject arrow = UI_BaseObject.Create("Arrow", 0, 0, width/4, width/4);
+        GameObject arrow = UIBaseObject.Create("Arrow", 0, 0, width/4, width/4);
         
         arrow.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Green gradient");
         arrow.GetComponent<Image>().type = Image.Type.Simple;
@@ -75,7 +75,7 @@ public class UI_Dropdown : IUI_Create
         ddw.GetComponent<TMP_Dropdown>().template = template.GetComponent<RectTransform>();
         ddw.GetComponent<TMP_Dropdown>().captionText = ddw.GetComponentInChildren<TextMeshProUGUI>();
         
-        GameObject scrollbar = UI_BaseObject.Create("Scrollbar", 0, 0, 20, 50);
+        GameObject scrollbar = UIBaseObject.Create("Scrollbar", 0, 0, 20, 50);
         scrollbar.AddComponent<Scrollbar>();
         scrollbar.transform.SetParent(template.transform);
 
@@ -99,7 +99,7 @@ public class UI_Dropdown : IUI_Create
         item.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
         item.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
         
-        GameObject itemBackground = UI_BaseObject.Create("Item Background", 0, 0, 20, heightOption);
+        GameObject itemBackground = UIBaseObject.Create("Item Background", 0, 0, 20, heightOption);
         itemBackground.transform.SetParent(item.transform);
         itemBackground.GetComponent<Image>().sprite = null;
         itemBackground.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
@@ -108,7 +108,7 @@ public class UI_Dropdown : IUI_Create
         itemBackground.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
         itemBackground.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
         
-        GameObject itemCheckmark = UI_BaseObject.Create("Item Checkmark", 0, 0, 20, heightOption);
+        GameObject itemCheckmark = UIBaseObject.Create("Item Checkmark", 0, 0, 20, heightOption);
         itemCheckmark.transform.SetParent(item.transform);
         
         itemCheckmark.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0.5f);
@@ -129,7 +129,7 @@ public class UI_Dropdown : IUI_Create
         slidingArea.GetComponent<RectTransform>().offsetMin = new Vector2(20, 20);
         slidingArea.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
         
-        GameObject handle = UI_BaseObject.Create("Handle", 0, 0, 20, height);
+        GameObject handle = UIBaseObject.Create("Handle", 0, 0, 20, height);
         handle.transform.SetParent(slidingArea.transform);
         handle.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
         handle.GetComponent<RectTransform>().anchorMax = new Vector2(1, 0.2f);

@@ -7,7 +7,7 @@ public class UI_MenuInputManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(PARAM_Values.EscapeKey))
+        if (Input.GetKeyDown(PARAMValues.EscapeKey))
             ChangeScene("Parameters");
     }
 }

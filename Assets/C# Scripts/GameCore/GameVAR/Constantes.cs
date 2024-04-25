@@ -1,5 +1,4 @@
 using System.Numerics;
-using Interfaces;
 
 namespace GameCore
 {
@@ -26,22 +25,22 @@ namespace GameCore
         /// <summary>
         /// Capacite de l'inventaire
         /// </summary>
-        public const int Invetory_Size = 10;
+        public const int InventorySize = 10;
         
         /// <summary>
         /// Capacite d'un slot de l'inventaire
         /// </summary>
-        public const int Invetory_Slot_Size = 3;
+        public const int InventorySlotSize = 3;
         
         /// <summary>
         /// Largeur d'un slot de l'inventaire
         /// </summary>
-        public const int Invetory_Slot_Width = 10;
+        public const int InventorySlotWidth = 10;
         
         /// <summary>
         /// Position du 1er slot de l'inventaire
         /// </summary>
-        public static readonly Vector2 Invetory_Slot_Pos = new Vector2(10f, 10f);
+        public static readonly Vector2 InventorySlotPos = new Vector2(10f, 10f);
         
     }
 }

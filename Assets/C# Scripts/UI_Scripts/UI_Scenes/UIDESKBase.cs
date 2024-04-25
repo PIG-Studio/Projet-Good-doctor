@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// A utiliser pour afficher les boutons et ui du bureau de base
 /// </summary>
-public class UI_DESK_Base : MonoBehaviour
+public class UIDESKBase : MonoBehaviour
 {
     // Start est appele des l'arrivee sur la scene
     private void Start()

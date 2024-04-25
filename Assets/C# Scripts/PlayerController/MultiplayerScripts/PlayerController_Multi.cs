@@ -17,7 +17,7 @@ namespace PlayerController
 
         private void Update()
         {
-            if (IsOwner && SceneName_Current == "MapHospital")
+            if (IsOwner && SceneNameCurrent == "MapHospital")
             {
                 _playerController.vcam.SetActive(true);
                 _playerController.UpdateBase();

@@ -29,7 +29,7 @@ public class RenderInventory : MonoBehaviour
         GameObject inventoryRender = UI_Prefabs.INV_Inventory(Resources.Load<Sprite>("inventory"), "Inventory", 0, 0, 500, 50);
         
         // On recupere le bureau et l inventaire a afficher, NULL REFERENCE si script pas dans un bureau
-        DesktoRender = Variables.SceneName_Current.ToDesk();
+        DesktoRender = Variables.SceneNameCurrent.ToDesk();
         InventorytoRender = DesktoRender.Inventory;
         
         uint i = 0;
@@ -52,7 +52,7 @@ public class RenderInventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {   
-            Variables.Desk_Base.Inventory.AddItem(Medicaments.CYAMURE(1));
+            Variables.DeskBase.Inventory.AddItem(Medicaments.CYAMURE(1));
             Debug.Log("Added CYAMURE to desk inventory");
         }
         if (InventorytoRender.HasChanged)

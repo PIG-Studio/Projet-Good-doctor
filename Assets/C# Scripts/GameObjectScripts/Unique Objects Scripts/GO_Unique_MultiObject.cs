@@ -1,8 +1,8 @@
-    using UnityEngine;
+using UnityEngine;
 
 public class GO_Unique_MultiObject : MonoBehaviour
 {
-    public static bool _created = false;
+    private static bool _created;
     
     private void Start()
     {
