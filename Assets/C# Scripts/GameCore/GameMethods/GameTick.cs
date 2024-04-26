@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace GameCore
+namespace GameCore.GameMethods
 {
     public class GameTick : MonoBehaviour
     {
