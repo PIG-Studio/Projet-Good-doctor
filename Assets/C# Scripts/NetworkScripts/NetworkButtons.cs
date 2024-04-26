@@ -1,8 +1,9 @@
 using GameCore.TypeExpand;
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.Variables;
+using static GameCore.GameVAR.Variables;
 using static CustomScenes.Manager;
+using CustomScenes;
 
 /// <summary>
 /// Classe gerant les boutons lies au multijoueur

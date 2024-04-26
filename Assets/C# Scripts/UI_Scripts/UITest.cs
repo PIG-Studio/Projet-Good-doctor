@@ -1,11 +1,15 @@
-using UI_Prefab;
+using UI_Scripts.UI_Prefab;
+using UnityEngine;
 
-public class UITest 
+namespace UI_Scripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class UITest : MonoBehaviour
     {
-        UI_Prefabs.test();
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            UIPrefabs.Test();
+        }
 
+    }
 }

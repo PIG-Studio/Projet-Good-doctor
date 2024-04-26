@@ -1,6 +1,7 @@
 using System;
 using Interfaces;
 using UnityEngine;
+using Maladies.Base;
 
 namespace Patient
 {
@@ -14,16 +15,22 @@ namespace Patient
         
         public bool IsLying { get; set; }
         
-        // public Maladie Sickness {get;set;}
+        public Maladie Sickness {get;set;}
         
-        public int Mood { get; set; }
+        /*public int Mood { get; set; }*/
         
         public string CatchPhrase { get; set; }
         public uint FreqCar { get; set; }
         public uint Temperature { get; set; }
-        public string ADN { get; set; }
+        public string Adn { get; set; }
         public bool ADNormal { get; set; }
         public bool IsAlive { get; set; }
+        public uint Depression { get; set; }
+        public void Leave()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Kill()
         {
             throw new NotImplementedException();
@@ -34,19 +41,33 @@ namespace Patient
         public string Name { get; set; }
         
         public Vector2 Position { get; set; }
-
-        public Patient(uint temperature ,uint freqCar ,string catchPhrase ,bool lie, int mood, string phrase , Sprite skin , string name , Vector2 position)
+        public void Move()
         {
-            Temperature = temperature;
-            FreqCar = freqCar;
-            CatchPhrase = catchPhrase;
-            IsLying = lie;
+            throw new NotImplementedException();
+        }
+
+        public Patient(IMaladie sickness ,string adn, bool adNormal , uint depression, uint temperature ,
+            uint freqCar ,string catchPhrase ,bool lie /*int mood*/, Sprite skin , string name , Vector2 position)
+        {
+            /*
             if (Mood < 0 || Mood > 100)
             {
                 throw new ArgumentException();
             }
-            Mood = mood;
-            CatchPhrase = phrase;
+            */
+            if (sickness is Maladie)
+            {
+                Sickness = (Maladie)sickness;
+            }
+            Depression = depression;
+            IsAlive = true;
+            ADNormal = adNormal;
+            Adn = adn;
+            Temperature = temperature;
+            FreqCar = freqCar;
+            CatchPhrase = catchPhrase;
+            IsLying = lie;
+            //Mood = mood;
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
@@ -54,13 +75,7 @@ namespace Patient
         }
         public void Talk()
         {
-            throw new NotImplementedException();
+            
         }
-
-        public void Move()
-        {
-            throw new NotImplementedException();
-        }
-        
     }
 }
