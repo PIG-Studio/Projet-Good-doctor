@@ -58,7 +58,7 @@ namespace GameCore.GameVAR
 
         public static readonly string[] PhraseArray = new[]
         {
-            "J'ai faim , t'aurai pas une madelaine ??", "Quoi de neuf docteur",
+            "J'ai faim , t'aurai pas une madelaine ?", "Quoi de neuf docteur",
             "Je suis cancer mais je n'ai pas le cancer pour autant ! *rire*",
             "J'espère que je n'ai rien de grave", "Je suis venu ici pour avoir un arrêt maladie",
             "Pas mal vôtre secrétaire ;)"
