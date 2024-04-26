@@ -1,17 +1,13 @@
-﻿using Interfaces;
+﻿using GameCore.GameVAR;
+using Interfaces;
 
 namespace Interactible
 {
     public class Distributeur : IInteractible
     {
-        public bool CanInteract(IInteractible a_OtherInteractible)
+        public void Interact() // ???????????????
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void Interact(IInteractible a_OtherInteractible)
-        {
-            throw new System.NotImplementedException();
+            Variables.DeskBase.Inventory.AddItem(Items.Acces.MADELEINE());
         }
     }
 }
