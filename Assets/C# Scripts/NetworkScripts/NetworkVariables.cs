@@ -1,9 +1,6 @@
-using GameCore;
-using Inventories;
+using GameCore.GameVAR;
 using Unity.Netcode;
-using UnityEngine;
 
-[GenerateSerializationForType(typeof(Inventory))]
 public class NetworkVariables : NetworkBehaviour
 {
     private readonly NetworkVariable<int> Score1 = new(writePerm: NetworkVariableWritePermission.Server);

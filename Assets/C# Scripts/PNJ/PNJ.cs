@@ -1,5 +1,4 @@
-using C__Scripts.PNJ;
-    using UnityEngine;
+using UnityEngine;
 
 public class PNJ 
 {

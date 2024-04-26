@@ -1,4 +1,6 @@
-namespace GameCore
+using Desks;
+
+namespace GameCore.GameVAR
 {
     /// <summary>
     /// Les variables utiles pour differents scripts qui PEUVENT CHANGER durant l'execution
@@ -33,21 +35,21 @@ namespace GameCore
         /// nom de la scene active
         /// </summary>
         /// <returns>type: string</returns>
-        public static string SceneName_Current { get; set; }
+        public static string SceneNameCurrent { get; set; }
 
         /// <summary>
         /// nom de la derniere scene, utile pour ouvrir les param n'importe quand et revenir sur la scene precedente
         /// </summary>
         /// <returns>type: string</returns>
-        public static string SceneName_Last { get; set; }
+        public static string SceneNameLast { get; set; }
         
         
         ///////////////////// Variables des bureux, variables car nouvel objet si retoiur au menu //////////////////////
         /// <summary>
         /// 
         /// </summary>
-        public static Desk Desk_Base { get; set; }
-        public static Desk Desk_Upgraded { get; set; }
+        public static Desk DeskBase { get; set; }
+        public static Desk DeskUpgraded { get; set; }
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         

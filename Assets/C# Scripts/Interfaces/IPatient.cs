@@ -1,12 +1,12 @@
-using UnityEngine;
+using Maladies.Base;
 
-namespace C__Scripts.Interfaces
+namespace Interfaces
 {
     public interface IPatient
     {
-        public bool Is_lying { get; set; }
+        public bool IsLying { get; set; }
         
-        public Maladie.Maladie Sickness {get;set;}
+        public Maladie Sickness {get;set;}
         
         /*public int Mood { get; set; }*/
         
@@ -16,7 +16,7 @@ namespace C__Scripts.Interfaces
         
         public uint Temperature { get; set; }
         
-        public string ADN { get; set; }
+        public string Adn { get; set; }
         
         public bool ADNormal { get; set; }
         

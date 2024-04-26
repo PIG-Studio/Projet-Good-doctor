@@ -1,6 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.Variables;
+using static GameCore.GameVAR.Variables;
 
 namespace PlayerController
 {
@@ -17,7 +17,7 @@ namespace PlayerController
 
         private void Update()
         {
-            if (IsOwner && SceneName_Current == "MapHospital")
+            if (IsOwner && SceneNameCurrent == "MapHospital")
             {
                 _playerController.vcam.SetActive(true);
                 _playerController.UpdateBase();

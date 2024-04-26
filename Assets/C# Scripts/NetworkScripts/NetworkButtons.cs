@@ -1,9 +1,9 @@
-using GameCore;
 using GameCore.TypeExpand;
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.Variables;
+using static GameCore.GameVAR.Variables;
 using static CustomScenes.Manager;
+using CustomScenes;
 
 /// <summary>
 /// Classe gerant les boutons lies au multijoueur
@@ -19,7 +19,7 @@ public class NetworkButtons : MonoBehaviour
         if (!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsHost)
         {
             // Si on est au bureau, on a acces au bouton pour host 
-            if (SceneName_Current.IsDesk()) 
+            if (SceneNameCurrent.IsDesk()) 
             {
                 if (GUILayout.Button("Host")) {NetworkManager.Singleton.StartHost();soloPlayer.SetActive(false);}
                 if (GUILayout.Button("Client"))
@@ -30,7 +30,7 @@ public class NetworkButtons : MonoBehaviour
             }
             
             // Si on est dans le menu, on a acces au bouton pour etre client
-            if (SceneName_Current == Scenes.MENU)
+            if (SceneNameCurrent == Scenes.MENU)
             {
                 if (GUILayout.Button("Client"))
                 {
@@ -40,7 +40,7 @@ public class NetworkButtons : MonoBehaviour
             }
 
             // On gere l instance du joueur solo, desactive par default
-            if (SceneName_Current == Scenes.MAP) {soloPlayer.SetActive(true);}
+            if (SceneNameCurrent == Scenes.MAP) {soloPlayer.SetActive(true);}
             else { soloPlayer.SetActive(false); }
         }
         else
