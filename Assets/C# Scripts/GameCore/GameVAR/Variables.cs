@@ -1,4 +1,6 @@
-namespace GameCore
+using Desks;
+
+namespace GameCore.GameVAR
 {
     /// <summary>
     /// Les variables utiles pour differents scripts qui PEUVENT CHANGER durant l'execution

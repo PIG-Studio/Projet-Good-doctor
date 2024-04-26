@@ -1,11 +1,12 @@
-using UIBase;
+using Interfaces;
+using UI_Scripts.UI_Prefab.UI_Base;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace UIPrefab.UIObjects
+namespace UI_Scripts.UI_Prefab.UI_Objects
 {
-    public class UIButton : IUI_Create
+    public class UIButton : IUiCreate
     {
         /// <summary>
         /// <value>Working as expected</value>

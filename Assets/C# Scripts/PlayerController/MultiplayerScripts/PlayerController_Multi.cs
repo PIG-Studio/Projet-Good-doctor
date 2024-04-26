@@ -1,6 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.Variables;
+using static GameCore.GameVAR.Variables;
 
 namespace PlayerController
 {

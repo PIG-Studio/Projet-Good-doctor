@@ -1,16 +1,20 @@
 using UnityEngine;
 
-public class GO_Unique_MultiObject : MonoBehaviour
+namespace GameObjectScripts.Unique_Objects_Scripts
 {
-    private static bool _created;
-    
-    private void Start()
+    public class GoUniqueMultiObject : MonoBehaviour
     {
-        if(_created)
+        private static bool _created;
+
+        private void Start()
         {
-            Destroy(gameObject);
-            return;
+            if (_created)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            _created = true;
         }
-        _created = true;
     }
 }
