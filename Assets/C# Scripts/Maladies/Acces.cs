@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Interfaces;
+using Maladies.Implementation;
 
-namespace C__Scripts.Maladie
+namespace Maladies
 {
-    public static class Maladies
+    public static class Acces
     {
         public static BonneSante BONNESANTE() 
         {// Si le patient n'a pas de maladie il est en bonne santé (stat par défaut)
@@ -14,9 +14,12 @@ namespace C__Scripts.Maladie
             return new SyndromePorcelaine();
         }
 
-        public static Maladie[] Maladiess = new[]
+        /// <summary>
+        /// array ne contenant que les maladies
+        /// </summary>
+        public static readonly IMaladie[] Maladies =
         {
-            (PORCELAINE())
+            PORCELAINE()
         };
 
     }

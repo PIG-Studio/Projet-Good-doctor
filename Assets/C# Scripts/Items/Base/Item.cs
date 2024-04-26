@@ -1,7 +1,7 @@
 ﻿using Interfaces.IObjects;
 using UnityEngine;
 
-namespace C__Scripts.Item
+namespace Items.Base
 {
     public abstract class Item : IObject
     {

@@ -1,6 +1,7 @@
 using GameCore.GameVAR;
 using GameCore.TypeExpand;
 using Inventories;
+using Inventories.Slots;
 using JetBrains.Annotations;
 using Medicaments;
 using UnityEngine;
@@ -57,7 +58,7 @@ namespace Desks
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Variables.DeskBase.Inventory.AddItem(Acces.CYAMURE(1));
+                Variables.DeskBase.Inventory.AddItem(Medicaments.Acces.CYAMURE(1));
                 Debug.Log("Added CYAMURE to desk inventory");
             }
 

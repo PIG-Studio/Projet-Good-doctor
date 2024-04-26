@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using static GameCore.GameVAR.Constantes;
 
-namespace Inventories 
+namespace Inventories.Slots 
 {
     public class Slot : IInventory
     {
