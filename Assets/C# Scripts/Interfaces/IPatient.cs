@@ -22,6 +22,8 @@ namespace C__Scripts.Interfaces
         
         public bool IsAlive { get; set; }
 
+        public void Leave();
+
         public void Kill();// quand patient est mort , change son skin , enable la fct de bouger son corps , et lance 
         // un timer pour degager son corps
     }

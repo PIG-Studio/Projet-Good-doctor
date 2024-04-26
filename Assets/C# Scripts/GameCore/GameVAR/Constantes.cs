@@ -69,5 +69,7 @@ namespace GameCore
         {
             "Jean Martin", "Yonas Ali", "John Smith", "Maria Khan", "Anya Ivanova", "Celine Nguyen"
         };
+
+        public const int MaxPatient = 10;
     }
 }
