@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Interfaces;
+using Parameters;
 
 namespace Menu
 {
@@ -21,12 +22,12 @@ namespace Menu
              */
         {
             savesDropDown.onValueChanged.AddListener(SetSaves);
-            string[] allSaves = Directory.GetDirectories(PARAMValues.SavesPath);
+            string[] allSaves = Directory.GetDirectories(Values.SavesPath);
             int index = 0;
             Debug.Log("LAST SAVE:" + allSaves[0]);
             while (index < 10 && index < allSaves.Length)
             {
-                _savesName.Add(allSaves[index].Remove(0, PARAMValues.SavesPath.Length + 1));
+                _savesName.Add(allSaves[index].Remove(0, Values.SavesPath.Length + 1));
                 index++;
             }
 

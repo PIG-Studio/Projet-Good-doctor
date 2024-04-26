@@ -1,5 +1,5 @@
 using GameCore.GameVAR;
-using Medicaments;
+using Parameters;
 using UnityEngine;
 
 namespace Interfaces.UI_Input_management
@@ -8,7 +8,7 @@ namespace Interfaces.UI_Input_management
     {
         void Update()
         {
-            if (Input.GetKeyDown(PARAMValues.EscapeKey))
+            if (Input.GetKeyDown(Values.EscapeKey))
                 foreach (Transform child in transform)
                 {
                     child.gameObject.SetActive(!child.gameObject.activeSelf);
