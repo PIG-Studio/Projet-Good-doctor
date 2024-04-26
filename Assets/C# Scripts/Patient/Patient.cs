@@ -17,7 +17,7 @@ namespace C__Scripts.PNJ
         
         public Maladie.Maladie Sickness {get;set;}
         
-        public int Mood { get; set; }
+        /*public int Mood { get; set; }*/
         
         public string CatchPhrase { get; set; }
         public uint FreqCar { get; set; }
@@ -37,13 +37,16 @@ namespace C__Scripts.PNJ
         
         public Vector2 Position { get; set; }
 
-        public Patient(Maladie.Maladie sickness ,string adn, bool adNormal , uint depression,uint temperature ,uint freqCar ,string catchPhrase ,bool lie, int mood, string phrase , Sprite skin , string name , Vector2 position)
+        public Patient(Maladie.Maladie sickness ,string adn, bool adNormal , uint depression, uint temperature ,
+            uint freqCar ,string catchPhrase ,bool lie /*int mood*/, Sprite skin , string name , Vector2 position)
         {
+            /*
             if (Mood < 0 || Mood > 100)
             {
                 throw new ArgumentException();
             }
-
+            */
+            
             Sickness = sickness;
             Depression = depression;
             IsAlive = true;
@@ -53,8 +56,7 @@ namespace C__Scripts.PNJ
             FreqCar = freqCar;
             CatchPhrase = catchPhrase;
             Is_lying = lie;
-            Mood = mood;
-            CatchPhrase = phrase;
+            /*Mood = mood;*/
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
