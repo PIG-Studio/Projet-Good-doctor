@@ -21,7 +21,7 @@ namespace Patient
         public string CatchPhrase { get; set; }
         public uint FreqCar { get; set; }
         public uint Temperature { get; set; }
-        public string ADN { get; set; }
+        public string Adn { get; set; }
         public bool ADNormal { get; set; }
         public bool IsAlive { get; set; }
         public void Kill()

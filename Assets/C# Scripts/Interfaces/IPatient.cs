@@ -14,7 +14,7 @@ namespace Interfaces
         
         public uint Temperature { get; set; }
         
-        public string ADN { get; set; }
+        public string Adn { get; set; }
         
         public bool ADNormal { get; set; }
         

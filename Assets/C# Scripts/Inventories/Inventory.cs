@@ -1,8 +1,9 @@
 using Interfaces;
+using Interfaces.IObjects;
 using Inventories;
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.Constantes;
+using static GameCore.GameVAR.Constantes;
 
 public class Inventory : NetworkBehaviour, IInventory
 {

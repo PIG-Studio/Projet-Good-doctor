@@ -1,11 +1,10 @@
+using Interfaces.UI_Input_management;
 using UIBase;
 using UnityEngine;
-using UnityEngine.UI;
-using static GameCore.Constantes;
 
-namespace UIPrefab.UIObjects
+namespace UI_Scripts.UI_Prefab.UI_Objects
 {
-    public class UIInventory : IUI_Create
+    public class UIInventory : IUiCreate
     {
         public static GameObject Create(float posX, float posY, float width, float height, Sprite sprite, string id)
         {

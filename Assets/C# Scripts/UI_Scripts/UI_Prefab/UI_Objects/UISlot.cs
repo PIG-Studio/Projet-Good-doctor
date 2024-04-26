@@ -1,10 +1,11 @@
+using Interfaces.UI_Input_management;
 using UIBase;
 using UnityEngine;
-using static GameCore.Constantes;
+using static GameCore.GameVAR.Constantes;
 
-namespace UIPrefab.UIObjects
+namespace UI_Scripts.UI_Prefab.UI_Objects
 {
-    public class UISlot : IUI_Create
+    public class UISlot : IUiCreate
     {
         public static GameObject Create(Sprite sprite, uint index, bool empty)
         {

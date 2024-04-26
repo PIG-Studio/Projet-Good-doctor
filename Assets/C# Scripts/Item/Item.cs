@@ -1,4 +1,4 @@
-﻿using Interfaces;
+﻿using Interfaces.IObjects;
 using UnityEngine;
 
 namespace C__Scripts.Item

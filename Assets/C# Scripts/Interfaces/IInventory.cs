@@ -1,4 +1,5 @@
 using UnityEngine;
+using Interfaces.IObjects;
 
 namespace Interfaces
 {

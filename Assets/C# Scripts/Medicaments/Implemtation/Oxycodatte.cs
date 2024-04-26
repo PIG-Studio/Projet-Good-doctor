@@ -1,7 +1,8 @@
 ﻿using System;
+using Medicaments.Base;
 using UnityEngine;
 
-namespace C__Scripts.Medicaments
+namespace Medicaments.Implemtation
 {
     public class Oxycodatte: Medicament
     {

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using GameCore;
+using GameCore.GameVAR;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static GameCore.Variables;
+using static GameCore.GameVAR.Variables;
 
 [System.Serializable]
 public class SaveData : MonoBehaviour
