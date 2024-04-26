@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 95490de5043cfa732a48b7a84134f0cf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DESK_Upgraded.unity
     guid: f9f437a6f4199272f8df4ec2b407b303
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DESK_Base.unity
     guid: 36c3741ba5415b5eb86f67cb393df52e
   - enabled: 1
@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Parameters.unity
     guid: ec82649f8d8b3c151b86e504a2af4ab4
+  - enabled: 1
+    path: Assets/Scenes/DESK_Base.unity
+    guid: d75a332a310879d41964aebd832f5dcb
+  - enabled: 1
+    path: Assets/Scenes/DESK_Upgraded.unity
+    guid: 1c13f23a3b4785a4c9396b777497a633
   m_configObjects: {}
