@@ -1,7 +1,8 @@
 ﻿using System;
+using Items.Base;
 using UnityEngine;
 
-namespace C__Scripts.Item
+namespace Items.Implementation
 {
     public class PostIt : Item
     {

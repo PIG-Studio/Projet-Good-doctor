@@ -1,8 +1,8 @@
-using Interfaces.UI_Input_management;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UIBase
+namespace UI_Scripts.UI_Prefab.UI_Base
 {
     public class UIBaseObject : IUiCreate
     {

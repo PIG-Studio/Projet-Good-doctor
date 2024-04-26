@@ -1,5 +1,5 @@
-using Interfaces.UI_Input_management;
-using UIBase;
+using Interfaces;
+using UI_Scripts.UI_Prefab.UI_Base;
 using UnityEngine;
 using static GameCore.GameVAR.Constantes;
 

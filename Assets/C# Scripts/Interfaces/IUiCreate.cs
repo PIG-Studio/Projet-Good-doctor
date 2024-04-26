@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Interfaces.UI_Input_management
+namespace Interfaces
 {
     /// <summary>
     /// Interface pour les classes qui creent des objets UI

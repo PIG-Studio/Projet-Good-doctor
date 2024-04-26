@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using Items.Base;
 
-namespace C__Scripts.Item
+namespace Items.Implementation
 {
-    public class Chevre : Item
+    public class Foie : Item
     {
         public static int Nbr;
-
-        public Chevre(uint qte) : base("Chevre", () => { Console.WriteLine("beeeHEHEheheEEe"); }, qte,
+        public Foie(uint qte) : base("Foie", () => { Console.WriteLine("Un foie"); }, qte,
             Resources.Load<Sprite>("Sprites/Medicaments/mure"))
         {
             Nbr++;

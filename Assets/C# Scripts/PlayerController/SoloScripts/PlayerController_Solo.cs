@@ -17,16 +17,13 @@ namespace PlayerController.SoloScripts
 
         private void Update()
         {
-            // TODO : Move this to a manager or smth
+            // TODO : Move this to UI INPUT MANAGEMENT
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 ChangeScene("Menu");
                 gameObject.SetActive(false);
             }
-            if (Input.GetKeyDown(KeyCode.E))
-            {   
-                Variables.DeskBase.Inventory.AddItem(Acces.CYAMURE(1));
-            }
+            
 
             _playerController.UpdateBase();
         }

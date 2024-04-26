@@ -1,6 +1,6 @@
 ﻿using Interfaces;
 
-namespace C__Scripts.Maladie
+namespace Maladies.Base
 {
     public abstract class Maladie : IMaladie
     {

@@ -1,6 +1,6 @@
-using Interfaces.UI_Input_management;
+using Interfaces;
 using TMPro;
-using UIBase;
+using UI_Scripts.UI_Prefab.UI_Base;
 using UnityEngine;
 using UnityEngine.UI;
 using static CustomScenes.Manager;

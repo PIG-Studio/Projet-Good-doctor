@@ -1,64 +1,70 @@
 using Interfaces;
 using Interfaces.IObjects;
-using Inventories;
 using Unity.Netcode;
 using UnityEngine;
 using static GameCore.GameVAR.Constantes;
+using Inventories.Slots;
 
-public class Inventory : NetworkBehaviour, IInventory
+namespace Inventories
 {
-    public Slot[] Slots { get; set; }
-    public GameObject Object { get; set; }
-    public bool HasChanged { get; set; }
-    public uint Amount { get; private set; }    
-    public Inventory()
-    { 
-        Slot[] obj = new Slot[InventorySize];
-        for (int i = 0; i < InventorySize; i++)
-        {
-            obj[i] = new Slot();
-        }
-        Slots = obj;
-        Amount = 0;
-    }
-    
-    public void AddItem(IObject item)
+    public class Inventory : NetworkBehaviour, IInventory
     {
-        for (int i = 0; i < InventorySize; i++)
+        public Slot[] Slots { get; set; }
+        public GameObject Object { get; set; }
+        public bool HasChanged { get; set; }
+        public uint Amount { get; private set; }
+
+        public Inventory()
         {
-            if (Slots[i].CanAdd(item))
+            Slot[] obj = new Slot[InventorySize];
+            for (int i = 0; i < InventorySize; i++)
             {
-                Slots[i].AddItem(item);
-                HasChanged = true;
-                Amount++;
-                break;
+                obj[i] = new Slot();
+            }
+
+            Slots = obj;
+            Amount = 0;
+        }
+
+        public void AddItem(IObject item)
+        {
+            for (int i = 0; i < InventorySize; i++)
+            {
+                if (Slots[i].CanAdd(item))
+                {
+                    Slots[i].AddItem(item);
+                    HasChanged = true;
+                    Amount++;
+                    break;
+                }
             }
         }
-    }
-    
-    public void RemoveItem()
-    {
-        for (int i = 0; i < InventorySize; i++)
+
+        public void RemoveItem()
         {
-            if (Slots[i] != null)
+            for (int i = 0; i < InventorySize; i++)
             {
-                Slots[i].RemoveItem();
-                HasChanged = true;
-                Amount--;
-                break;
+                if (Slots[i] != null)
+                {
+                    Slots[i].RemoveItem();
+                    HasChanged = true;
+                    Amount--;
+                    break;
+                }
             }
         }
-    }
-    
-    public bool CanAdd(IObject item)
-    {
-        for (int i = 0; i < InventorySize; i++)
+
+        public bool CanAdd(IObject item)
         {
-            if (Slots[i].CanAdd(item))
+            for (int i = 0; i < InventorySize; i++)
             {
-                return true;
+                if (Slots[i].CanAdd(item))
+                {
+                    return true;
+                }
             }
+
+            return false;
         }
-        return false;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace C__Scripts.Maladie
+﻿using Maladies.Base;
+
+namespace Maladies.Implementation
 {
     public class SyndromePorcelaine : Maladie
     {

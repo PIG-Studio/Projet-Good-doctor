@@ -1,13 +1,14 @@
 ﻿using System;
 using UnityEngine;
+using Items.Base;
 
-namespace C__Scripts.Item
+namespace Items.Implementation
 {
-    public class TeddyBear : Item
+    public class Coffee: Item
     {
         public static int Nbr;
 
-        public TeddyBear(uint qte) : base("TeddyBear", () => { Console.WriteLine("TeddyBear"); }, qte,
+        public Coffee(uint qte) : base("Ananadvil", () => { Console.WriteLine("Ananadvil"); }, qte,
             Resources.Load<Sprite>("Sprites/Medicaments/mure"))
         {
             Nbr++;
