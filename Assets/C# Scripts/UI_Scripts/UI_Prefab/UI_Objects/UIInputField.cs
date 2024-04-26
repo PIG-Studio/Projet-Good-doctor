@@ -1,12 +1,13 @@
+using Interfaces.UI_Input_management;
 using TMPro;
 using UIBase;
 using UnityEngine;
 using UnityEngine.UI;
 using static CustomScenes.Manager;
 
-namespace UIPrefab.UIObjects
+namespace UI_Scripts.UI_Prefab.UI_Objects
 {
-    public class UIInputField : IUI_Create
+    public class UIInputField : IUiCreate
     {
         /// <summary>
         /// <value>Working as expected</value>

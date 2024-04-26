@@ -1,6 +1,6 @@
 using static CustomScenes.Manager;
 using UnityEngine;
-using static GameCore.Variables;
+using static GameCore.GameVAR.Variables;
 
 public class UI_ParamInputManagement : MonoBehaviour
 {

@@ -1,7 +1,7 @@
+using UnityEngine;
+
 namespace Interfaces
 {
-    using UnityEngine;
-    using Interfaces;
     public interface IPnj
     {
         public Sprite Skin { get; set; }

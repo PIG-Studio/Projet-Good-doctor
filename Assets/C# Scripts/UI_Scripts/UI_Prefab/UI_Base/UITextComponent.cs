@@ -1,10 +1,11 @@
+using Interfaces.UI_Input_management;
 using TMPro;
 using UnityEngine;
 
 // Les methodes les + basiques pour creer des elements de l'UI
 namespace UIBase
 {
-    public class UITextComponent : IUI_Create
+    public class UITextComponent : IUiCreate
     {
         /// <summary>
         ///  <value>Working as expected</value>

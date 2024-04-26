@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UIPrefab.UIObjects;
-using static GameCore.Methods;
-using static GameCore.Variables;
+using UI_Scripts.UI_Prefab.UI_Objects;
+using GameCore.GameMethods;
+using GameCore.GameVAR;
 using static CustomScenes.Manager;
+using Interfaces;
+using UI_Scripts.UI_Prefab.UI_Objects.UI_Dropdown;
 
-namespace UI_Prefab
+namespace UI_Scripts.UI_Prefab
 {
-    public class UI_Prefabs : MonoBehaviour
+    public class UIPrefabs : MonoBehaviour
     {
         /// <summary>
         /// <value>FINI</value>
@@ -46,6 +48,7 @@ namespace UI_Prefab
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <param name="newScene"></param>
+        /// <param name="resourcePath"></param>
         /// <returns></returns>
         public static GameObject BTN_ChangeScene(string id, string text, float posX, float posY, float width,
             float height, string newScene, string resourcePath = "")
@@ -99,12 +102,13 @@ namespace UI_Prefab
         /// <param name="posY"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
+        /// <param name="resourcePath"></param>
         /// <returns></returns>
         public static GameObject BTN_NewGame(string id, string text, float posX, float posY, float width,
             float height, string resourcePath = "")
         {
             return UIButton.Create(id, text, posX, posY, width, height,
-                () => NewGame(SaveName), resourcePath); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
+                () => Methods.NewGame(Variables.SaveName), resourcePath); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
         }
 
         /// <summary>
@@ -165,12 +169,9 @@ namespace UI_Prefab
         /// <value>WIP</value>
         /// Cree un slot d'inventaire.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="text"></param>
-        /// <param name="posX"></param>
-        /// <param name="posY"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
+        /// <param name="sprite"></param>
+        /// <param name="index"></param>
+        /// <param name="empty"></param>
         /// <returns></returns>
         public static GameObject INV_Slot(Sprite sprite, uint index, bool empty = false)
         {
@@ -181,8 +182,8 @@ namespace UI_Prefab
         /// <value>WIP</value>
         /// Cree un slot d'inventaire.
         /// </summary>
+        /// <param name="sprite"></param>
         /// <param name="id"></param>
-        /// <param name="text"></param>
         /// <param name="posX"></param>
         /// <param name="posY"></param>
         /// <param name="width"></param>
@@ -197,13 +198,12 @@ namespace UI_Prefab
         /// <summary>
         /// test method, kinda useless
         /// </summary>
-        public static void test()
+        public static void Test()
         {
-            Dictionary<string, GameObject> dicoBTN =
-                new Dictionary<string, GameObject>
-                    () { };
-            dicoBTN["testBTN"] = BTN_Quit("Quit", "Quit", -300f, -300f, 150f, 75f);
-            Render("testCanv", dicoBTN);
+            Dictionary<string, GameObject> dicoBtn =
+                new Dictionary<string, GameObject>();
+            dicoBtn["testBTN"] = BTN_Quit("Quit", "Quit", -300f, -300f, 150f, 75f);
+            Render("testCanv", dicoBtn);
         }
 
     }

@@ -1,4 +1,4 @@
-using GameCore;
+using GameCore.GameVAR;
 using Unity.Netcode;
 
 [GenerateSerializationForType(typeof(Inventory))]

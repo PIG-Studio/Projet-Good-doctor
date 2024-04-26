@@ -1,10 +1,10 @@
-
+using Interfaces.UI_Input_management;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UIBase
 {
-    public class UIBaseObject : IUI_Create
+    public class UIBaseObject : IUiCreate
     {
         /// <summary>
         /// <value>Working as expected</value>

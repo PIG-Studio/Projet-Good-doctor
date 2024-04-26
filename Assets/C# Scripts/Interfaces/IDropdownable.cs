@@ -1,8 +1,11 @@
 using TMPro;
 
-public interface IDropdownable
+namespace Interfaces
 {
-    void Start();
+    public interface IDropdownable
+    {
+        void Start();
 
-    void SetDropdown(TMP_Dropdown dropdown);
+        void SetDropdown(TMP_Dropdown dropdown);
+    }
 }
