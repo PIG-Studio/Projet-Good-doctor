@@ -1,16 +1,23 @@
+using CustomScenes;
+using GameCore.GameVAR;
+using GameCore.TypeExpand;
+using Patient;
 using UnityEngine;
-namespace GameCore
+namespace GameCore.GameMethods
 {
     public class GameTick : MonoBehaviour
     {
         public void Update()
         {
-            /*  
-            if (Variables.SceneName_Current.IsDesk() || Variables.SceneName_Current == Scenes.MAP)
+            if (Variables.SceneNameCurrent.IsDesk() || Variables.SceneNameCurrent == Scenes.MAP)
             {
-                new Patient()//foutre spawn avant constructeur et constructeur appelle spawn
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    Patients.GenPat();
+                    Debug.Log("Patient a l'entrée de l'hôpital !");
+                }
             }
-            */
+            
         }
     }
 }
