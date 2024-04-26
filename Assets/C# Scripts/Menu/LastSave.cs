@@ -3,38 +3,45 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Interfaces;
 
-public class LastSave: MonoBehaviour, IDropdownable
+namespace Menu
 {
-    [FormerlySerializedAs("SavesDropDown")] [SerializeField] private TMP_Dropdown savesDropDown;
-    private List<string> _savesName = new List<string>();
-    
-    public void Start()
-        /*
-         methode appele des que le bouton est rendu pour la 1e fois,
-         on y verifie quelles options sont affichables selon l'OS
-         */
+    public class LastSave : MonoBehaviour, IDropdownable
     {
-        savesDropDown.onValueChanged.AddListener(SetSaves);
-        string[] allSaves = Directory.GetDirectories(PARAM_Values.SavesPath);
-        int index = 0;
-        Debug.Log("LAST SAVE:" + allSaves[0]);
-        while (index < 10 && index < allSaves.Length  )
+        [FormerlySerializedAs("SavesDropDown")] [SerializeField]
+        private TMP_Dropdown savesDropDown;
+
+        private List<string> _savesName = new List<string>();
+
+        public void Start()
+            /*
+             methode appele des que le bouton est rendu pour la 1e fois,
+             on y verifie quelles options sont affichables selon l'OS
+             */
         {
-            _savesName.Add(allSaves[index].Remove(0,PARAM_Values.SavesPath.Length+1));
-            index++;
+            savesDropDown.onValueChanged.AddListener(SetSaves);
+            string[] allSaves = Directory.GetDirectories(PARAMValues.SavesPath);
+            int index = 0;
+            Debug.Log("LAST SAVE:" + allSaves[0]);
+            while (index < 10 && index < allSaves.Length)
+            {
+                _savesName.Add(allSaves[index].Remove(0, PARAMValues.SavesPath.Length + 1));
+                index++;
+            }
+
+            Debug.Log("LASTSAVE2:" + _savesName[0]);
+            savesDropDown.AddOptions(_savesName);
         }
-        Debug.Log("LASTSAVE2:" + _savesName[0]);
-        savesDropDown.AddOptions(_savesName);
-    }
-    
-    public void SetSaves(int save)
-    {
-        SaveLoadMethods.LoadSpecSave(_savesName[save]);
-    }
-    
-    public void SetDropdown(TMP_Dropdown dropdown)
-    {
-        savesDropDown = dropdown;
+
+        public void SetSaves(int save)
+        {
+            SaveLoadMethods.LoadSpecSave(_savesName[save]);
+        }
+
+        public void SetDropdown(TMP_Dropdown dropdown)
+        {
+            savesDropDown = dropdown;
+        }
     }
 }

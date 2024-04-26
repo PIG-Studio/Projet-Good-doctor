@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IToString
+namespace Interfaces
 {
-    string ToString();
+
+    public interface IToString
+    {
+        string ToString();
+    }
 }

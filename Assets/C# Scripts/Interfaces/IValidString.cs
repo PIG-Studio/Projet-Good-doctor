@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IValidString
+namespace Interfaces
 {
-    bool Valid(string input);
+    public interface IValidString
+    {
+        bool Valid(string input);
+    }
 }

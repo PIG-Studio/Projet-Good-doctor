@@ -1,10 +1,10 @@
-
+using Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI_Base
+namespace UI_Scripts.UI_Prefab.UI_Base
 {
-    public class UI_BaseObject : IUI_Create
+    public class UIBaseObject : IUiCreate
     {
         /// <summary>
         /// <value>Working as expected</value>
