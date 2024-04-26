@@ -8,7 +8,7 @@ namespace C__Scripts.Interfaces
         
         public Maladie.Maladie Sickness {get;set;}
         
-        public int Mood { get; set; }
+        /*public int Mood { get; set; }*/
         
         public string CatchPhrase { get; set; }
         
