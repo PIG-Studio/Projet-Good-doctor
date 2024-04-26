@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using GameCore;
+using GameCore.GameVAR;
 using GameCore.TypeExpand;
 using UnityEngine;
 using static CustomScenes.Manager;
-using static GameCore.Variables;
+using static GameCore.GameVAR.Variables;
 
 public class SaveLoadMethods : MonoBehaviour
 {

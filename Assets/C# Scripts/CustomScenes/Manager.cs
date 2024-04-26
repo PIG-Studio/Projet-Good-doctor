@@ -1,8 +1,7 @@
-using GameCore;
 using GameCore.TypeExpand;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using static GameCore.Variables;
+using static GameCore.GameVAR.Variables;
 
 namespace CustomScenes
 {
@@ -16,7 +15,7 @@ namespace CustomScenes
         /// <summary>
         /// etat potentiellement utile pour avoir l etat de selection des boutons/champs de texte
         /// </summary>
-        private static bool _selected = false;
+        private static bool _selected;
 
 
         /// <summary>
@@ -32,7 +31,7 @@ namespace CustomScenes
 
             // On actualise le bureau actuel
             if (SceneNameCurrent.IsDesk())
-            { 
+            {
                 CurrentlyRenderedDesk = SceneNameCurrent.ToDesk();
             }
 
