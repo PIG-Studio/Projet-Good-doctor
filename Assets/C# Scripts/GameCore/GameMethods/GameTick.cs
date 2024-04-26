@@ -13,7 +13,10 @@ namespace GameCore.GameMethods
             {
                 if (Input.GetKeyDown(KeyCode.P))
                 {
-                    Patients.GenPat();
+                    Patient.Patient guillaume = Patients.GenPatient();
+                    if (guillaume != null)
+                        Debug.Log(guillaume.Name + " " + guillaume.Depression + " " + guillaume.Sickness + " " +
+                                  guillaume.Adn);
                     Debug.Log("Patient a l'entrée de l'hôpital !");
                 }
             }

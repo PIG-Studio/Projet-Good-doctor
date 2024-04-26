@@ -75,7 +75,7 @@ namespace PlayerController
             // On cree un vecteur de deplacement
             Vector2 movement = new Vector2(horizontalInput, verticalInput);
             
-            Debug.Log($"V ABS = {Math.Sqrt(Math.Pow(horizontalInput, 2) + Math.Pow(verticalInput, 2))}");
+            //Debug.Log($"V ABS = {Math.Sqrt(Math.Pow(horizontalInput, 2) + Math.Pow(verticalInput, 2))}");
             
             // On deplace l'objet
             Vector2 newPosition = _rb.position + movement;

@@ -8,9 +8,12 @@ namespace Patient
     public class Patient : MonoBehaviour , IPnj , IPatient
     {
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
+        /// <summary>
+        /// Instantie un patient a l'entrée de l'hôpital
+        /// </summary>
         public void Spawn()
         {
-            Instantiate(Resources.Load<GameObject>("Patient"));
+            Instantiate(Resources.Load<GameObject>("Patient")).name = Name ;
         }
         
         public bool IsLying { get; set; }
@@ -26,25 +29,11 @@ namespace Patient
         public bool ADNormal { get; set; }
         public bool IsAlive { get; set; }
         public uint Depression { get; set; }
-        public void Leave()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Kill()
-        {
-            throw new NotImplementedException();
-        }
-
         public Sprite Skin { get; set; }
         
         public string Name { get; set; }
         
         public Vector2 Position { get; set; }
-        public void Move()
-        {
-            throw new NotImplementedException();
-        }
 
         public Patient(IMaladie sickness ,string adn, bool adNormal , uint depression, uint temperature ,
             uint freqCar ,string catchPhrase ,bool lie /*int mood*/, Sprite skin , string name , Vector2 position)
@@ -77,5 +66,21 @@ namespace Patient
         {
             
         }
+        public void Leave()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Kill()
+        {
+            throw new NotImplementedException();
+        }
+        
+        public void Move()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }
