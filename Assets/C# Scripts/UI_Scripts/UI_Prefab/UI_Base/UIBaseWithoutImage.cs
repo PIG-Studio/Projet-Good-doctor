@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UIBase
+namespace UI_Scripts.UI_Prefab.UI_Base
 {
     public class UIBaseWithoutImage
     {

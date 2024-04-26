@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace GameCore
+namespace GameCore.GameVAR
 {
     /// <summary>
     /// Constantes du jeu, les variables utiles pour differents scripts qui NE CHANGERONT PAS durant l'execution
