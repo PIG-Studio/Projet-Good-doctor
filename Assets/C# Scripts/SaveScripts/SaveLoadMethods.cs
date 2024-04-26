@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using GameCore.GameVAR;
 using GameCore.TypeExpand;
+using Parameters;
 using UnityEngine;
 using static CustomScenes.Manager;
 using static GameCore.GameVAR.Variables;
@@ -11,7 +12,7 @@ public class SaveLoadMethods : MonoBehaviour
 {
     private static string[] ListAllSaves()
     {
-        string[] res = Directory.GetFiles(PARAMValues.SavesPath, "*.save");
+        string[] res = Directory.GetFiles(Values.SavesPath, "*.save");
         return res;
     }
 
@@ -50,7 +51,7 @@ public class SaveLoadMethods : MonoBehaviour
     public static Dictionary<string, string> ParseData(string saveName)
     {
         string[] sepa = saveName.Split('@');
-        StreamReader sr = new StreamReader(PARAMValues.SavesPath + '/' + sepa[0] + saveName);
+        StreamReader sr = new StreamReader(Values.SavesPath + '/' + sepa[0] + saveName);
         string line = sr.ReadLine();
         string cle, valeur;
         string[] lineSplitted;
@@ -79,7 +80,7 @@ public class SaveLoadMethods : MonoBehaviour
         {
             if (miettes.Key == "SaveName")
             {
-                if (File.Exists(PARAMValues.SavesPath + '/' + miettes.Value))
+                if (File.Exists(Values.SavesPath + '/' + miettes.Value))
                 {
                     return false;
                 }
@@ -147,26 +148,26 @@ public class SaveLoadMethods : MonoBehaviour
         string saveName = SaveName;
         // TODO : ecrire les variables dans un fichier .json ?
         string fileName = saveName + "@" + date;
-        if (Directory.Exists(PARAMValues.SavesPath +
+        if (Directory.Exists(Values.SavesPath +
                              '/' + saveName) == false)
         {
-            Directory.CreateDirectory(PARAMValues.SavesPath
+            Directory.CreateDirectory(Values.SavesPath
                                       + '/' + saveName);
-            File.Create(PARAMValues.SavesPath + '/' +
+            File.Create(Values.SavesPath + '/' +
                         saveName + '/' + fileName + ".save").Close();
         }
         else
         {
-            File.Create(PARAMValues.SavesPath + '/' +
+            File.Create(Values.SavesPath + '/' +
                         saveName + '/' + fileName + ".save").Close();
         }
-        StreamWriter sw = new StreamWriter(PARAMValues.SavesPath + '/' + saveName + '/' + fileName + ".save");
+        StreamWriter sw = new StreamWriter(Values.SavesPath + '/' + saveName + '/' + fileName + ".save");
         foreach (var cle in inputVariables.Keys)
         {
             sw.WriteLine(cle + ':' + inputVariables[cle]);
         }
 
-        Debug.Log("saveCreated at " + PARAMValues.SavesPath + '/' + saveName + '/' + fileName + ".save");
+        Debug.Log("saveCreated at " + Values.SavesPath + '/' + saveName + '/' + fileName + ".save");
         sw.Close();
     }
 
