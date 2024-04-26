@@ -13,7 +13,7 @@ namespace UI_Scripts.UI_Scenes
     public class UIDeskBase : MonoBehaviour
     {
         // Start est appele des l'arrivee sur la scene
-        private void Start()
+        public void Start()
         {
             // Initialisation du dictionnaire des elements a afficher
             Dictionary<string, GameObject> dicoRender =
