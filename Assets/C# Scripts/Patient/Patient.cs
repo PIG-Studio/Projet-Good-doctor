@@ -26,6 +26,11 @@ namespace C__Scripts.PNJ
         public bool ADNormal { get; set; }
         public bool IsAlive { get; set; }
         public uint Depression { get; set; }
+        public void Leave()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Kill()
         {
             throw new NotImplementedException();
@@ -36,6 +41,10 @@ namespace C__Scripts.PNJ
         public string Name { get; set; }
         
         public Vector2 Position { get; set; }
+        public void Move()
+        {
+            throw new NotImplementedException();
+        }
 
         public Patient(Maladie.Maladie sickness ,string adn, bool adNormal , uint depression, uint temperature ,
             uint freqCar ,string catchPhrase ,bool lie /*int mood*/, Sprite skin , string name , Vector2 position)
@@ -64,12 +73,7 @@ namespace C__Scripts.PNJ
         }
         public void Talk()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Move()
-        {
-            throw new NotImplementedException();
+            
         }
     }
 }
