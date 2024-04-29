@@ -3,6 +3,7 @@ using GameCore.GameVAR;
 using GameCore.TypeExpand.Int;
 using GameCore.TypeExpand.Value;
 using Interfaces.Maladies;
+using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
 using Interfaces.Patient;
 using JetBrains.Annotations;
