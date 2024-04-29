@@ -32,11 +32,13 @@ namespace Patient
         public IAdn Adn { get; set; }
         public bool AdnSain { get; set; }
         public bool IsAlive { get; set; }
+        public bool AnalyseADN { get; set; }
+        public bool AnalyseDepression { get; set; }
         public IValue Depression { get; set; }
         public Sprite Skin { get; set; }
         
         public string Name { get; set; }
-        
+
         public Vector2 Position { get; set; }
 
         public Patient(IMaladie sickness ,IAdn adn, bool adNormal , IValue depression, IValue temperature ,
@@ -64,12 +66,16 @@ namespace Patient
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
+            AnalyseADN = false;
+            AnalyseDepression = false;
             Spawn();
         }
-        public void Talk()
+        
+        public void talk()
         {
-            throw new NotImplementedException();
+            
         }
+
         public void Leave()
         {
             throw new NotImplementedException();
