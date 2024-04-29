@@ -25,10 +25,22 @@ namespace Interfaces.Patient
         public bool AdnSain { get; set; }
         
         public bool IsAlive { get; set; }
+        
+        public bool AnalyseADN { get; set; }
+        
+        public bool AnalyseDepression { get; set; }
+        
 
+        /// <summary>
+        /// Quand finit de s'occuper du patient va jusqu'à la sortie
+        /// </summary>
         public void Leave();
 
-        public void Kill();// quand patient est mort , change son skin , enable la fct de bouger son corps , et lance 
-        // un timer pour degager son corps
+        
+        
+        /// <summary>
+        /// quand patient est mort , change son skin , enable la fct de bouger son corps , et lance un timer pour degager son corps
+        /// </summary>
+        public void Kill();
     }
 }
