@@ -18675,6 +18675,7 @@ GameObject:
   - component: {fileID: 2023859314}
   - component: {fileID: 2023859316}
   - component: {fileID: 2023859315}
+  - component: {fileID: 2023859317}
   m_Layer: 0
   m_Name: Distributeur
   m_TagString: Untagged
@@ -18726,7 +18727,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -18741,10 +18742,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.9549165, y: 2.5603414}
-      - {x: -0.8852495, y: -0.22910854}
-      - {x: 0.929002, y: -0.24706657}
-      - {x: 0.97233355, y: 2.5430565}
+    - - {x: 1.4048767, y: 0.3068515}
+      - {x: -1.2815845, y: 0.3080561}
+      - {x: -1.4320631, y: -0.44225827}
+      - {x: 1.4261048, y: -0.46021676}
+      - {x: 1.4268277, y: 0.07762024}
   m_UseDelaunayMesh: 0
 --- !u!212 &2023859316
 SpriteRenderer:
@@ -18798,6 +18800,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &2023859317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023859313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5317495833a4ae994305e3a9412ec34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2056045822
 GameObject:
   m_ObjectHideFlags: 0

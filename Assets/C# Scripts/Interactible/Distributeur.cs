@@ -9,16 +9,18 @@ namespace Interactible
     {
         public override void OnTriggerEnter(Collider other)
         {
-            if (Input.GetKeyDown(InteractKey))
+            if (other.CompareTag("Player")) // quand le joueur est dans la zone de colllision
             {
-                Variables.DeskBase.Inventory.AddItem(Items.Acces.MADELEINE());
-                Debug.Log("Vous venez de récupérer un délicieux paquet de madeleine.");
+                if (Input.GetKeyDown(InteractKey))
+                {
+                    Variables.DeskBase.Inventory.AddItem(Items.Acces.MADELEINE());
+                    Debug.Log("Vous venez de récupérer un délicieux paquet de madeleine.");
+                }
+                else
+                {
+                    Debug.Log("Voulez-vous des madeleines ?");
+                }
             }
-            else
-            {
-                Debug.Log("Voulez-vous des madeleines ?");
-            }
-
         }
     }
 }
