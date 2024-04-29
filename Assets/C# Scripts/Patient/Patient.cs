@@ -2,6 +2,7 @@ using System;
 using Interfaces;
 using UnityEngine;
 using Maladies.Base;
+using IPnj = Interfaces.IPnj;
 
 namespace Patient
 {
@@ -64,7 +65,7 @@ namespace Patient
         }
         public void Talk()
         {
-            
+            throw new NotImplementedException();
         }
         public void Leave()
         {
