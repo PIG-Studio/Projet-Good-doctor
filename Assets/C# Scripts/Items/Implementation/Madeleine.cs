@@ -9,7 +9,7 @@ namespace Items.Implementation
         public static int Nbr;
 
         public Madeleine(uint qte) : base("Madeleine", () => { Console.WriteLine("Madeleine"); }, qte,
-            Resources.Load<Sprite>("Sprites/Medicaments/mure"))
+            Resources.Load<Sprite>("Sprites/Items/sachet-madeleinepng.png"))
         {
             Nbr++;
         }

@@ -1,13 +1,24 @@
 ﻿using GameCore.GameVAR;
-using Interfaces;
+using Items.Base;
+using UnityEngine;
+using static GameCore.GameVAR.Constantes;
 
 namespace Interactible
 {
-    public class Distributeur : IInteractible
+    public class Distributeur : InteractionZone
     {
-        public void Interact() // ???????????????
+        public override void OnTriggerEnter(Collider other)
         {
-            Variables.DeskBase.Inventory.AddItem(Items.Acces.MADELEINE());
+            if (Input.GetKeyDown(InteractKey))
+            {
+                Variables.DeskBase.Inventory.AddItem(Items.Acces.MADELEINE());
+                Debug.Log("Vous venez de récupérer un délicieux paquet de madeleine.");
+            }
+            else
+            {
+                Debug.Log("Voulez-vous des madeleines ?");
+            }
+
         }
     }
 }

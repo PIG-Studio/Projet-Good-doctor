@@ -1,4 +1,5 @@
-using System.Numerics;
+using UnityEngine;
+using Vector2 = System.Numerics.Vector2;
 
 namespace GameCore.GameVAR
 {
@@ -70,5 +71,7 @@ namespace GameCore.GameVAR
         };
 
         public const int MaxPatient = 10;
+        
+        public const KeyCode InteractKey = KeyCode.E;
     }
 }
