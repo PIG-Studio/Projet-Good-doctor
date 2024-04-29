@@ -1,10 +1,11 @@
 using Maladies.Base;
+using Maladies.Base.SubTypes;
 
 namespace Maladies.Implementation
 {
-    public class IlaChaud : Maladie
+    public class IlaChaud : Malade
     {
-        public IlaChaud() : base("IlaChaud", (100,120),(39,43), true, (0,9))
+        public IlaChaud() : base("IlaChaud", new TupleValue(100,120),new TupleValue(39,43))
         { }
         
     }
