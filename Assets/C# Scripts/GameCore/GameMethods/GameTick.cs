@@ -11,7 +11,7 @@ namespace GameCore.GameMethods
         {
             if (Variables.SceneNameCurrent.IsDesk() || Variables.SceneNameCurrent == Scenes.MAP)
             {
-                if (Input.GetKeyDown(KeyCode.P))
+                if (UnityEngine.Input.GetKeyDown(KeyCode.P))
                 {
                     Patient.Patient guillaume = Patients.GenPatient();
                     if (guillaume != null)
