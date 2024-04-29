@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class PNJ 
+namespace PNJ
 {
+    public class Pnj
+    {
         public Vector2 Position { get; private set; }
         public string Name { get; private set; }
-        
-        public PNJ(Vector2 position, string name)
+
+        public Pnj(Vector2 position, string name)
         {
             Position = position;
             Name = name;
         }
     }
+}

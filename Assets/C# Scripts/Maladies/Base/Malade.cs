@@ -1,11 +1,11 @@
-﻿using Interfaces.Maladies;
+using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
 using JetBrains.Annotations;
 using Maladies.Base.SubTypes;
 
 namespace Maladies.Base
 {
-    public abstract class Maladie : IMaladie
+    public abstract class Malade : IMaladie
     {
         public string Name { get; }
         public ITupleValue FreqCar { get; }
@@ -15,7 +15,7 @@ namespace Maladies.Base
         public ITupleValue Depression { get; }
 
         
-        public Maladie(string name, [CanBeNull] ITupleValue freqcar = null, [CanBeNull] ITupleValue temperature = null, bool adnSain = true, [CanBeNull] ITupleValue depression = null)
+        public Malade(string name, [CanBeNull] ITupleValue freqcar = null, [CanBeNull] ITupleValue temperature = null, bool adnSain = true, [CanBeNull] ITupleValue depression = null)
         {
             Name = name;
             FreqCar = freqcar ?? new TupleValue(60u, 80u);
@@ -23,6 +23,5 @@ namespace Maladies.Base
             AdnSain = adnSain;
             Depression = depression ?? new TupleValue(0u, 2u);
         }
-
     }
 }
