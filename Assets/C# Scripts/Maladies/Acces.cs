@@ -1,4 +1,4 @@
-﻿using Interfaces;
+﻿using Interfaces.Maladies;
 using Maladies.Implementation;
 
 namespace Maladies

@@ -1,6 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
-
-namespace GameCore.TypeExpand
+namespace GameCore.TypeExpand.Int
 {
     public static class Int
     {
@@ -9,9 +7,9 @@ namespace GameCore.TypeExpand
             return value >= min && value <= max;
         }
         
-        public static bool MortelleFreqCar(this int value)
+        public static int RandomInt(this int value)
         {
-            return !value.EstEntre(10, 150);
+            return UnityEngine.Random.Range(0, value);
         }
     }
 }

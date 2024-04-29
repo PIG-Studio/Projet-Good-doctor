@@ -1,6 +1,8 @@
+using Interfaces.Maladies.Types;
 using Maladies.Base;
+using UnityEngine.UIElements.Experimental;
 
-namespace Interfaces
+namespace Interfaces.Patient
 {
     public interface IPatient
     {
@@ -12,13 +14,15 @@ namespace Interfaces
         
         public string CatchPhrase { get; set; }
         
-        public uint FreqCar { get; set; }
+        public IValue FreqCar { get; set; }
         
-        public uint Temperature { get; set; }
+        public IValue Temperature { get; set; }
         
-        public string Adn { get; set; }
+        public IValue Depression { get; set; }
         
-        public bool ADNormal { get; set; }
+        public IAdn Adn { get; set; }
+        
+        public bool AdnSain { get; set; }
         
         public bool IsAlive { get; set; }
 
