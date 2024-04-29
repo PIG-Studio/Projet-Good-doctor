@@ -1,17 +1,23 @@
 using System;
 using GameCore.GameVAR;
-using Interfaces;
+using GameCore.TypeExpand.Int;
+using GameCore.TypeExpand.Value;
+using Interfaces.Maladies;
+using Interfaces.Maladies.Types;
+using Interfaces.Patient;
 using JetBrains.Annotations;
 using Maladies;
 using Maladies.Base;
+using Maladies.Base.SubTypes;
 using UnityEngine;
 using Random = System.Random;
-using Maladies;
+using Maladies.Base.SubTypes.Symptomes;
+
 namespace Patient
 {
     using static Random;
 
-    public class Patients : Patient
+    public static class Patients 
     {
         // choisis aleatoire maladie , mensonge ou non , pour plus tard Skin/Nom/Catchphrase
         //choisis en randint dans maladie.array[maladies] 
@@ -19,41 +25,40 @@ namespace Patient
         //On Creer (ADN , temp , freq , mood , depression , ADNormale ) en fct des symptomes la maladie (randint des intervalles)
         // on random lying , catchphrase
 
-        private static Random rnd = new Random();
-        public Patients(Maladie sickness, string adn, bool adNormal, uint depression, uint temperature,
-            uint freqCar, string catchPhrase, bool lie /*int mood*/, Sprite skin, 
+        /*public Patients(Maladie sickness, string adn, bool adNormal, uint depression, uint temperature,
+            uint freqCar, string catchPhrase, bool lie /*int mood, Sprite skin, 
             string name, Vector2 position) : 
             base(sickness, adn, adNormal, depression, temperature, 
-                freqCar, catchPhrase, lie /*mood*/,  skin, name, position)
+                freqCar, catchPhrase, lie /*mood,  skin, name, position)
         {
-        }
+        }*/
 
         private static IMaladie RandMaladie()
         {
-            return Acces.Maladies[rnd.Next(0, Acces.Maladies.Length)];
+            return Acces.Maladies[Acces.Maladies.Length.RandomInt()];
         }
-        private static (string,string,uint,uint,uint) PreGenPat(IMaladie maladie)
+        private static (string,string, IValue, IValue, IValue) PreGenPat(IMaladie maladie)
         { 
-            int phraseI = rnd.Next(0, Constantes.PhraseArray.Length);
+            int phraseI = Constantes.PhraseArray.Length.RandomInt();
             string phrase = Constantes.PhraseArray[phraseI];
-            int nameI = rnd.Next(0, Constantes.NameArray.Length);
+            int nameI = Constantes.NameArray.Length.RandomInt();
             string name2 = Constantes.NameArray[nameI];
-            uint depress = (uint)rnd.Next((int)maladie.Depression.Item1, (int)maladie.Depression.Item2);
-            uint temp = (uint)rnd.Next((int)maladie.Temperature.Item1, (int)maladie.Temperature.Item2);
-            uint freq = (uint)rnd.Next((int)maladie.FreqCar.Item1, (int)maladie.FreqCar.Item2);
+            
+            IValue depress = new Value(maladie.Depression.RandomUint());
+            IValue temp = new Value(maladie.Temperature.RandomUint());
+            IValue freq = new Value(maladie.FreqCar.RandomUint());
+            
             return (phrase,name2,depress,temp,freq);
         }
 
-        private static string GenAdn(bool adnValid)
+        private static IAdn GenAdn(bool adnValid)
         {
             if (adnValid)
             {
-                return Constantes.AdnArray[rnd.Next(0, Constantes.AdnArray.Length)];
+                return new Adn(Constantes.AdnArray[Constantes.AdnArray.Length.RandomInt()]);
             }
-            else
-            {
-                return Constantes.AnormalAdnArray[rnd.Next(0, Constantes.AnormalAdnArray.Length)];
-            }
+            return new Adn(Constantes.AnormalAdnArray[Constantes.AnormalAdnArray.Length.RandomInt()]);
+            
         }
 
         [CanBeNull]
@@ -62,7 +67,7 @@ namespace Patient
             if (Variables.NbOfPatients < Constantes.MaxPatient)
             {
                 IMaladie maladie;
-                int lie = rnd.Next(0, 10);
+                int lie = 10.RandomInt();
                 if (lie == 0)
                 {
                     maladie = Acces.BONNESANTE();
@@ -72,10 +77,10 @@ namespace Patient
                     maladie = RandMaladie();
                 }
 
-                (string phrase, string nameTemp, uint depress, uint temp, uint freq) = PreGenPat(maladie);
-                string adn = GenAdn(maladie.NormalAdn);
+                (string phrase, string nameTemp, IValue depress,IValue temp, IValue freq) = PreGenPat(maladie);
+                IAdn adn = GenAdn(maladie.AdnSain);
                 Variables.NbOfPatients += 1;
-                return new Patient(maladie, adn, maladie.NormalAdn, depress, temp, freq, phrase, lie == 0, null, nameTemp,
+                return new Patient(maladie, adn, maladie.AdnSain, depress, temp, freq, phrase, lie == 0, null, nameTemp,
                     new Vector2(3, 6));
             }
 
