@@ -1,13 +1,10 @@
-using Interfaces.Maladies.Symptomes;
+using Interfaces.Maladies.Types;
 
 namespace GameCore.TypeExpand.Value
 {
     public static class Mortel
     {
-        public static bool Mortelle(IValue freqCarPatient)
-        {
-            return !freqCarPatient.Value.EstEntre(10, 150);
-        }
+        
         
     }
 }

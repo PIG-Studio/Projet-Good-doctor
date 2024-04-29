@@ -1,4 +1,4 @@
-namespace Interfaces.Maladies.Symptomes.Maladie
+namespace Interfaces.Maladies.Types
 {
     public interface ITupleValue
     {

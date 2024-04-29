@@ -1,11 +1,13 @@
-﻿namespace Interfaces.Maladies.Base
+﻿using Interfaces.Maladies.Types;
+
+namespace Interfaces.Maladies
 {
     public interface IMaladie
     {
         string Name { get; }
-        (uint, uint) FreqCar { get; }
-        (uint, uint) Temperature { get; }
-        bool NormalAdn { get;  }
-        (uint, uint) Depression { get; }
+        ITupleValue FreqCar { get; }
+        ITupleValue Temperature { get; }
+        bool AdnSain { get;  }
+        ITupleValue Depression { get; }
     }
 }

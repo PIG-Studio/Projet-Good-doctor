@@ -3,9 +3,9 @@ using Maladies.Base;
 
 namespace Maladies.Implementation
 {
-    public class AdnMaladie : BonneSante
+    public class AdnMaladie : Malade
     {
-        public AdnMaladie() : base()
+        public AdnMaladie() : base("ADN KC", adnSain:false)
         { }
     }
     
