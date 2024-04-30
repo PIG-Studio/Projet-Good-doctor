@@ -30,6 +30,8 @@ namespace Patient
         public NavMeshAgent Agent { get; private set; }
 
         /*public int Mood { get; set; }*/
+
+        public static string _phrase;
         
         public string CatchPhrase { get; set; }
         public IValue FreqCar { get; set; }
@@ -71,7 +73,7 @@ namespace Patient
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
-
+            _phrase = CatchPhrase;
             AnalyseADN = false;
             AnalyseDepression = false;
             Id = Name;
@@ -89,10 +91,21 @@ namespace Patient
             this.LinkAnimator();
             InstantiatedObject.AddComponent<Pnj>();
         }
-
+        
+        public static string Phrase()
+        {
+            return _phrase;
+        }
+        
         public void Talk()
         {
-            
+            if (CompareTag("Player"))
+            {
+                if (UnityEngine.Input.GetKeyDown(KeyCode.T))
+                {
+                    Debug.Log(CatchPhrase);
+                }
+            }
         }
 
         public void Leave()
