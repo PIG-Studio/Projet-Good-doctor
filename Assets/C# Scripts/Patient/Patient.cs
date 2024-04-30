@@ -25,6 +25,8 @@ namespace Patient
         public Maladie Sickness {get;set;}
         
         /*public int Mood { get; set; }*/
+
+        public static string _phrase;
         
         public string CatchPhrase { get; set; }
         public IValue FreqCar { get; set; }
@@ -68,12 +70,24 @@ namespace Patient
             Position = position; // entrée hôpital
             AnalyseADN = false;
             AnalyseDepression = false;
+            _phrase = CatchPhrase;
             Spawn();
+        }
+
+        public static string Phrase()
+        {
+            return _phrase;
         }
         
         public void talk()
         {
-            
+            if (CompareTag("Player"))
+            {
+                if (UnityEngine.Input.GetKeyDown(KeyCode.T))
+                {
+                    Debug.Log(CatchPhrase);
+                }
+            }
         }
 
         public void Leave()

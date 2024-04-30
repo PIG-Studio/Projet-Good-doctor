@@ -18,7 +18,7 @@ namespace Patient
 {
     using static Random;
 
-    public static class Patients 
+    public class Patients : MonoBehaviour
     {
         // choisis aleatoire maladie , mensonge ou non , pour plus tard Skin/Nom/Catchphrase
         //choisis en randint dans maladie.array[maladies] 
