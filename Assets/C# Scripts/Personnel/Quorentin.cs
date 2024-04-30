@@ -32,7 +32,7 @@ namespace Personnel
         /// Fonction qui renvoie une phrase
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
-        public void talk()
+        public void Talk()
         {
             throw new System.NotImplementedException();
         }
