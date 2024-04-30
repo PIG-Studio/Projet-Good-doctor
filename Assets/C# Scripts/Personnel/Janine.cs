@@ -27,7 +27,7 @@ namespace Personnel
         /// renvoie une phrase random de Janine
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
-        public void talk()
+        public void Talk()
         {
             throw new NotImplementedException();
         }

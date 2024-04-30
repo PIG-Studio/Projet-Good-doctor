@@ -1,8 +1,5 @@
 using static CustomScenes.Manager;
 using UnityEngine;
-using GameCore.GameVAR;
-using Interaction.Base;
-using Medicaments;
 
 namespace PlayerController.SoloScripts
 {
