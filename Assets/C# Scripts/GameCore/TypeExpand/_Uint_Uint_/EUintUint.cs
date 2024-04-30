@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GameCore.TypeExpand._Uint_Uint_
 {
-    public static class UintUint
+    public static class EUintUint
     {
         public static uint RandomUint(this (uint,uint) input)
         {
