@@ -18,6 +18,7 @@ namespace PNJ
 
         public void Update()
         { 
+            Debug.Log("ifbifi");
             AnimatorComp.UpdateAnim(AgentComp.velocity);
         }
     }
