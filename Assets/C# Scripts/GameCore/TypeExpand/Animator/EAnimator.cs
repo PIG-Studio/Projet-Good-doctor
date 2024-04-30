@@ -1,3 +1,4 @@
+using GameCore.TypeExpand.Float;
 using UnityEngine;
 
 namespace GameCore.TypeExpand.Animator
@@ -33,6 +34,8 @@ namespace GameCore.TypeExpand.Animator
                     animator.SetBool("MovingDown", false);
                     break;
             }
+
+            if (horizontalInput.Abs() > verticalInput.Abs()) { return; }
 
             switch (horizontalInput)
             {
