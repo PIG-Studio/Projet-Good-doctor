@@ -5,24 +5,30 @@ using Interfaces.Maladies.Types;
 using Interfaces.Patient;
 using UnityEngine;
 using Maladies.Base;
+using PNJ;
+using UnityEngine.AI;
 
 namespace Patient
 {
-    public class Patient : MonoBehaviour , IPnj , IPatient
+    public class Patient : MonoBehaviour , IPnj , IPatient, ISpawnableGo
     {
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
         /// <summary>
         /// Instantie un patient a l'entrée de l'hôpital
         /// </summary>
-        public void Spawn()
-        {
-            Instantiate(Resources.Load<GameObject>("Patient")).name = Name ;
-        }
+        public string Id { get; }
         
+        public GameObject Prefab { get; }
+        public GameObject InstantiatedObject { get; set; }
+
         public bool IsLying { get; set; }
         
         public Maladie Sickness {get;set;}
-        
+
+        public Animator AnimatorComponent { get; set; }
+
+        public NavMeshAgent Agent { get; private set; }
+
         /*public int Mood { get; set; }*/
         
         public string CatchPhrase { get; set; }
@@ -63,8 +69,23 @@ namespace Patient
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
+
+            Id = Name;
+            Prefab = Resources.Load<GameObject>("Patient");
+            
             Spawn();
         }
+
+        public void Spawn()
+        {
+            this.Instancier();
+            AnimatorComponent = InstantiatedObject.GetComponent<Animator>();
+            this.AddNavMeshAgent();
+            Agent = InstantiatedObject.GetComponent<NavMeshAgent>();
+            this.LinkAnimator();
+            InstantiatedObject.AddComponent<Pnj>();
+        }
+
         public void Talk()
         {
             
@@ -83,7 +104,6 @@ namespace Patient
         {
             throw new NotImplementedException();
         }
-
-
+        
     }
 }
