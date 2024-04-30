@@ -1,6 +1,6 @@
 namespace GameCore.TypeExpand.Int
 {
-    public static class Int
+    public static class EInt
     {
         private static bool EstEntre(this int value, int min, int max)
         {

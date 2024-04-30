@@ -1,4 +1,5 @@
 using System;
+using GameCore.TypeExpand.Animator;
 using UnityEngine;
 using static GameCore.GameVAR.Constantes;
 
@@ -30,37 +31,7 @@ namespace PlayerController
             float horizontalInput = Input.GetAxis("Horizontal") * MoveSpeed;
 
             // On actualise l'animation en fonction de la direction
-            if (verticalInput < 0)
-            {
-                _anims.SetBool("MovingUp", false);
-                _anims.SetBool("MovingDown", true);
-            }
-            else if (verticalInput > 0)
-            {
-                _anims.SetBool("MovingUp", true);
-                _anims.SetBool("MovingDown", false);
-            }
-            else
-            {
-                _anims.SetBool("MovingUp", false);
-                _anims.SetBool("MovingDown", false);
-            }
-
-            if (horizontalInput > 0)
-            {
-                _anims.SetBool("MovingRight", true);
-                _anims.SetBool("MovingLeft", false);
-            }
-            else if (horizontalInput < 0)
-            {
-                _anims.SetBool("MovingRight", false);
-                _anims.SetBool("MovingLeft", true);
-            }
-            else
-            {
-                _anims.SetBool("MovingRight", false);
-                _anims.SetBool("MovingLeft", false);
-            }
+            _anims.UpdateAnim(new Vector2(horizontalInput, verticalInput));
 
 
             // On limite la vitesse de deplacement
