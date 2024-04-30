@@ -16,8 +16,8 @@ namespace GameCore.TypeExpand.Animator
                 return;   
             }
             
-            float verticalInput = inputs.y;
             float horizontalInput = inputs.x;
+            float verticalInput = inputs.y;
             
             switch (verticalInput)
             {
@@ -35,7 +35,12 @@ namespace GameCore.TypeExpand.Animator
                     break;
             }
 
-            if (horizontalInput.Abs() > verticalInput.Abs()) { return; }
+            if (horizontalInput.Abs() < verticalInput.Abs())
+            {
+                animator.SetBool("MovingRight", false);
+                animator.SetBool("MovingLeft", false);
+                return;
+            }
 
             switch (horizontalInput)
             {
