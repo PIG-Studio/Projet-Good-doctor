@@ -1,7 +1,7 @@
 using System;
+using Inventories;
 using UnityEngine;
 using static GameCore.GameVAR.Constantes;
-
 namespace PlayerController
 {
     /// <summary>
@@ -12,6 +12,7 @@ namespace PlayerController
         private Rigidbody2D _rb; // Reference to the Rigidbody2D component
         private Animator _anims;
         public GameObject vcam;
+        public Inventory _playerInventory { get; set; }
 
         public void StartBase(GameObject vcamIn, GameObject player)
         {
