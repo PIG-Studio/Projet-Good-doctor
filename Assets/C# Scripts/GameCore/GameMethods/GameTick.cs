@@ -20,7 +20,6 @@ namespace GameCore.GameMethods
                     Debug.Log("Patient a l'entrée de l'hôpital !");
                 }
             }
-            
         }
     }
 }
