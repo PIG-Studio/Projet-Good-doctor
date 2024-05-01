@@ -2,6 +2,7 @@ using CustomScenes;
 using GameCore.GameVAR;
 using GameCore.TypeExpand;
 using Patient;
+using TypeExpand.String;
 using UnityEngine;
 namespace GameCore.GameMethods
 {

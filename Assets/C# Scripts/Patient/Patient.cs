@@ -31,7 +31,7 @@ namespace Patient
 
         /*public int Mood { get; set; }*/
 
-        public static string _phrase;
+        public static string Phrase;
         
         public string CatchPhrase { get; set; }
         public IValue FreqCar { get; set; }
@@ -73,7 +73,7 @@ namespace Patient
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
-            _phrase = CatchPhrase;
+            Phrase = CatchPhrase;
             AnalyseADN = false;
             AnalyseDepression = false;
             Id = Name;
@@ -90,11 +90,6 @@ namespace Patient
             Agent = InstantiatedObject.GetComponent<NavMeshAgent>();
             this.LinkAnimator();
             InstantiatedObject.AddComponent<Pnj>();
-        }
-        
-        public static string Phrase()
-        {
-            return _phrase;
         }
         
         public void Talk()
