@@ -1,14 +1,11 @@
-using System;
 using GameCore.GameVAR;
-using GameCore.TypeExpand.Int;
+using TypeExpand.Int;
 using GameCore.TypeExpand.Value;
-using Interfaces.Maladies;
 using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
 using Interfaces.Patient;
 using JetBrains.Annotations;
 using Maladies;
-using Maladies.Base;
 using Maladies.Base.SubTypes;
 using UnityEngine;
 using Random = System.Random;
@@ -16,8 +13,6 @@ using Maladies.Base.SubTypes.Symptomes;
 
 namespace Patient
 {
-    using static Random;
-
     public class Patients : MonoBehaviour
     {
         // choisis aleatoire maladie , mensonge ou non , pour plus tard Skin/Nom/Catchphrase

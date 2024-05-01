@@ -4,6 +4,8 @@ using UnityEngine;
 using GameCore.GameVAR;
 using static CustomScenes.Manager;
 using Desks;
+using SaveScripts;
+using TypeExpand.String;
 
 namespace GameCore.GameMethods
 {

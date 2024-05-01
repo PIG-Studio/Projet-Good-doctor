@@ -1,9 +1,8 @@
 using GameCore.GameVAR;
-using GameCore.TypeExpand;
 using Inventories;
 using Inventories.Slots;
 using JetBrains.Annotations;
-using Medicaments;
+using TypeExpand.String;
 using UnityEngine;
 using UI_Scripts.UI_Prefab;
 
