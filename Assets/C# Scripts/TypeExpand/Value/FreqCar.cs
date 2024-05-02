@@ -1,7 +1,7 @@
 using TypeExpand.UInt;
 using Interfaces.Maladies.Types;
 
-namespace GameCore.TypeExpand.Value
+namespace TypeExpand.Value
 {
     public class FreqCar
     {

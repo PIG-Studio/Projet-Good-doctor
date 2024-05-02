@@ -31,7 +31,7 @@ namespace Personnel
         /// <summary>
         /// Fonction qui renvoie une phrase
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="System.NotImplementedException"></exception>
         public void Talk()
         {
             throw new System.NotImplementedException();
@@ -40,7 +40,7 @@ namespace Personnel
         /// <summary>
         /// spawn Quorentin au debut de la partie dans le labo
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="System.NotImplementedException"></exception>
         public void Spawn()
         {
             throw new System.NotImplementedException();

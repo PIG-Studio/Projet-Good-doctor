@@ -1,4 +1,4 @@
-﻿using Interfaces.IObjects;
+﻿using Interfaces.Objects;
 using UnityEngine;
 
 namespace Items.Base

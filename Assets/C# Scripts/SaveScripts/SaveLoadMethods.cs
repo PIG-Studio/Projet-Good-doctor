@@ -18,19 +18,6 @@ namespace SaveScripts
             return res;
         }
 
-        private static bool NumbInString(string Madelaine)
-        {
-            foreach (var miettes in Madelaine)
-            {
-                if (miettes - '0' >= 0 && miettes - '0' <= 9)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         public static bool ValidNameToSave(string testStr)
         {
             bool retour = true;
@@ -76,9 +63,9 @@ namespace SaveScripts
             return retour;
         }
 
-        public static bool CheckData(Dictionary<string, string> ParsedData)
+        public static bool CheckData(Dictionary<string, string> parsedData)
         {
-            foreach (var miettes in ParsedData)
+            foreach (var miettes in parsedData)
             {
                 if (miettes.Key == "SaveName")
                 {
@@ -95,7 +82,7 @@ namespace SaveScripts
 
                 if (miettes.Key == "Position")
                 {
-                    if (NumbInString(miettes.Value) == false)
+                    if (miettes.Value.HasNbInString() == false)
                     {
                         return false;
                     }
@@ -174,17 +161,17 @@ namespace SaveScripts
             sw.Close();
         }
 
-        public static void LoadSpecSave(string SaveName) //Savename = nom du dir + specifique sav
+        public static void LoadSpecSave(string savePath) //Savename = nom du dir + specifique sav
         {
-            if (File.Exists(SaveName))
+            if (File.Exists(savePath))
             {
-                Dictionary<string, string> savedContent = ParseData(SaveName);
+                Dictionary<string, string> savedContent = ParseData(savePath);
                 if (CheckData(savedContent) == false)
                 {
                     Debug.Log("Data Non Valides");
                 }
 
-                SaveName = savedContent["SaveName"];
+                string saveName = savedContent["SaveName"];
                 Variables.Desk = savedContent["DeskName"].ToDesk();
                 SceneNameCurrent = savedContent["SceneName"];
                 string[] DemiCanard = savedContent["Position"].Split(' ');
