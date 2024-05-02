@@ -30,9 +30,6 @@ namespace Patient
         public NavMeshAgent Agent { get; private set; }
 
         /*public int Mood { get; set; }*/
-
-        public static string _phrase;
-        
         public string CatchPhrase { get; set; }
         public IValue FreqCar { get; set; }
         public IValue Temperature { get; set; }
@@ -73,7 +70,6 @@ namespace Patient
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
-            _phrase = CatchPhrase;
             AnalyseADN = false;
             AnalyseDepression = false;
             Id = Name;
@@ -90,11 +86,7 @@ namespace Patient
             Agent = InstantiatedObject.GetComponent<NavMeshAgent>();
             this.LinkAnimator();
             InstantiatedObject.AddComponent<Pnj>();
-        }
-        
-        public static string Phrase()
-        {
-            return _phrase;
+            InstantiatedObject.AddComponent<DialoguePatient>().Patient = this;
         }
         
         public void Talk()
