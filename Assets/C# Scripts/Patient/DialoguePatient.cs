@@ -1,56 +1,59 @@
+using TMPro;
 using UnityEngine;
-    using TMPro;
 
-    public class DialoguePatient : MonoBehaviour
+namespace Patient
 {
-    public GameObject boiteDialogue; // référence à la boîte de dialogue public static Type Text { get; }
-    public TextMeshProUGUI _Text;
-    public Patient.Patient Patient;
-    private string CatchPhrase;
-    private string Name;
-    private bool Close;
-    private void Awake()
+    public class DialoguePatient : MonoBehaviour
     {
-        Close = false;
-    }
-
-    private void Start()
-    {
-        boiteDialogue = gameObject.transform.GetChild(0).gameObject;
-        _Text = boiteDialogue.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        boiteDialogue.SetActive(false); // le dialogue commence masqué
-        CatchPhrase = Patient.CatchPhrase;
-        Name = Patient.Name;
-        _Text.text = Name;
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        public GameObject boiteDialogue; // référence à la boîte de dialogue public static Type Text { get; }
+        public TextMeshProUGUI text;
+        public Patient patient;
+        private string _catchPhrase;
+        private string _name;
+        private bool _close;
+        private void Awake()
         {
-            Close = true;
-            boiteDialogue.SetActive(true);
+            _close = false;
         }
-    }
+
+        private void Start()
+        {
+            boiteDialogue = gameObject.transform.GetChild(0).gameObject;
+            text = boiteDialogue.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+            boiteDialogue.SetActive(false); // le dialogue commence masqué
+            _catchPhrase = patient.CatchPhrase;
+            _name = patient.Name;
+            text.text = _name;
+        }
+
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                _close = true;
+                boiteDialogue.SetActive(true);
+            }
+        }
     
     
 
-    public void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        public void OnTriggerExit2D(Collider2D other)
         {
-            Close = false; 
-            boiteDialogue.SetActive(false);
-            _Text.text = Name;
+            if (other.CompareTag("Player"))
+            {
+                _close = false; 
+                boiteDialogue.SetActive(false);
+                text.text = _name;
+            }
         }
-    }
 
-    private void Update()
-    {
-        if (Close && UnityEngine.Input.GetKeyDown(KeyCode.T))
+        private void Update()
         {
-            _Text.text = CatchPhrase;
+            if (_close && Input.GetKeyDown(KeyCode.T))
+            {
+                text.text = _catchPhrase;
+            }
         }
     }
 }
