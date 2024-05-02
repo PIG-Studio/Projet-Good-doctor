@@ -2,7 +2,7 @@ using GameCore.GameVAR;
 using Parameters;
 using UnityEngine;
 
-namespace Interfaces.UI_Input_management
+namespace UI_Scripts.UI_Input_management
 {
     public class UIDeskInputManagement : MonoBehaviour
     {

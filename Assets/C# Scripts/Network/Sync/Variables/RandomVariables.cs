@@ -4,7 +4,7 @@ namespace Network.Sync.Variables
 {
     public class RandomVariables : NetworkBehaviour
     {
-        private readonly NetworkVariable<int> _score1 = new(writePerm: NetworkVariableWritePermission.Server);
+        //private readonly NetworkVariable<int> _score1 = new(writePerm: NetworkVariableWritePermission.Server);
 
 
         void Update()

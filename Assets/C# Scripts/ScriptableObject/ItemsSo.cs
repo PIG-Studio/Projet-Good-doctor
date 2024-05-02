@@ -1,19 +1,22 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "item", menuName = "ScriptableObject/Item", order = 1)]
-public class ItemsSo : ScriptableObject
+namespace ScriptableObject
 {
-    public string title;
-    public string description;
-    public Sprite icon;
-    public int amount;
-    public bool isStackable;
-
-    [System.Serializable]
-    public enum Type
+    [CreateAssetMenu(fileName = "item", menuName = "ScriptableObject/Item", order = 1)]
+    public class ItemsSo : UnityEngine.ScriptableObject
     {
-        Commun, Medicament
-    }
+        public string title;
+        public string description;
+        public Sprite icon;
+        public int amount;
+        public bool isStackable;
 
-    public Type type; 
+        [System.Serializable]
+        public enum Type
+        {
+            Commun, Medicament
+        }
+
+        public Type type; 
+    }
 }
