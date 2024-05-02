@@ -1,10 +1,7 @@
 using System.Collections.Generic;
-using System.Net.Mime;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
-using Input = UnityEngine.Windows.Input;
 
 namespace InventoryTwo
 {
@@ -39,10 +36,10 @@ namespace InventoryTwo
                 {
                     slot = Instantiate(prefabs, transform.position, transform.rotation);
                     slot.transform.SetParent(hodlerSlot.transform);
-                    if (inventory[i] != null)
+                    if (inventory[i] is not null)
                     {
                         TextMeshProUGUI amount = slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
-                        UnityEngine.UI.Image img = slot.transform.Find("icon").GetComponent<Image>();
+                        Image img = slot.transform.Find("icon").GetComponent<Image>();
 
                         amount.text = inventory[i].amount.ToString();
                         img.sprite = inventory[i].icon;
@@ -51,7 +48,7 @@ namespace InventoryTwo
             }
             else if (UnityEngine.Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
             {
-                inventoryPanel.SetActive((false));
+                inventoryPanel.SetActive(false);
             }
         }
     }
