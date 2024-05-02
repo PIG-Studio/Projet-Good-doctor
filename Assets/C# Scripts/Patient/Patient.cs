@@ -30,16 +30,13 @@ namespace Patient
         public NavMeshAgent Agent { get; private set; }
 
         /*public int Mood { get; set; }*/
-
-        public static string _phrase;
-        
         public string CatchPhrase { get; set; }
         public IValue FreqCar { get; set; }
         public IValue Temperature { get; set; }
         public IAdn Adn { get; set; }
         public bool AdnSain { get; set; }
         public bool IsAlive { get; set; }
-        public bool AnalyseADN { get; set; }
+        public bool AnalyseAdn { get; set; }
         public bool AnalyseDepression { get; set; }
         public IValue Depression { get; set; }
         public Sprite Skin { get; set; }
@@ -73,8 +70,7 @@ namespace Patient
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
-            _phrase = CatchPhrase;
-            AnalyseADN = false;
+            AnalyseAdn = false;
             AnalyseDepression = false;
             Id = Name;
             Prefab = Resources.Load<GameObject>("Patient");
@@ -90,18 +86,14 @@ namespace Patient
             Agent = InstantiatedObject.GetComponent<NavMeshAgent>();
             this.LinkAnimator();
             InstantiatedObject.AddComponent<Pnj>();
-        }
-        
-        public static string Phrase()
-        {
-            return _phrase;
+            InstantiatedObject.AddComponent<DialoguePatient>().Patient = this;
         }
         
         public void Talk()
         {
             if (CompareTag("Player"))
             {
-                if (UnityEngine.Input.GetKeyDown(KeyCode.T))
+                if (Input.GetKeyDown(KeyCode.T))
                 {
                     Debug.Log(CatchPhrase);
                 }

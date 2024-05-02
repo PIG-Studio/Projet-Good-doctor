@@ -1,5 +1,4 @@
-﻿using GameCore.GameVAR;
-using Interaction.Base;
+﻿using Interaction.Base;
 using UnityEngine;
 using static GameCore.GameVAR.Constantes;
 
@@ -8,9 +7,9 @@ namespace Interaction.Implementation
 {
     public class Distributeur : ObjectInteraction
     {    
-        public void Interact()
+        public void Interagir()
         {
-            if (UnityEngine.Input.GetKeyDown(InteractKey))
+            if (Input.GetKeyDown(InteractKey))
             {
                 Instantiate(Resources.Load<GameObject>("Sprites/Items/sachet-madeleinespng"));
                 Debug.Log("Vous venez de récupérer un délicieux paquet de madeleine.");
