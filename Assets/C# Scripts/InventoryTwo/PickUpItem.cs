@@ -1,4 +1,5 @@
 ﻿using InventoryTwo;
+using ScriptableObject;
 using UnityEngine;
 
 public class PickUpItem : MonoBehaviour

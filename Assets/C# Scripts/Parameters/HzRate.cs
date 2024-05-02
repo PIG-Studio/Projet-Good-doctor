@@ -46,8 +46,8 @@ namespace Parameters
 
                 string resolutionOption = (int)hz + " Hz";
                 options.Add(resolutionOption);
-                if (hz == Screen.currentResolution.refreshRateRatio.numerator /
-                    Screen.currentResolution.refreshRateRatio.denominator)
+                if ((int)hz == (int)(Screen.currentResolution.refreshRateRatio.numerator /
+                    Screen.currentResolution.refreshRateRatio.denominator))
                 {
                     _currentResolutionIndex = _allRates.IndexOf(hz);
                 }

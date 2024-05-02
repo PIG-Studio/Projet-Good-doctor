@@ -1,3 +1,4 @@
+using CustomScenes;
 using Unity.Netcode;
 using UnityEngine;
 using static GameCore.GameVAR.Variables;
@@ -11,13 +12,12 @@ namespace PlayerController.Multi
 
         void Start()
         {
-            gameObject.SetActive(true);
             _playerController.StartBase(vcam, gameObject);
         }
 
         private void Update()
         {
-            if (IsOwner && SceneNameCurrent == "MapHospital")
+            if (IsOwner && SceneNameCurrent == Scenes.MENU)
             {
                 _playerController.vcam.SetActive(true);
                 _playerController.UpdateBase();
