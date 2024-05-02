@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items.Implementation
 {
-    public class TeddyBear : Item
+    public class TeddyBear : Base.Item
     {
         public static int Nbr;
 

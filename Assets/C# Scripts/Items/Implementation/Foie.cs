@@ -4,7 +4,7 @@ using Items.Base;
 
 namespace Items.Implementation
 {
-    public class Foie : Item
+    public class Foie : Base.Item
     {
         public static int Nbr;
         public Foie(uint qte) : base("Foie", () => { Console.WriteLine("Un foie"); }, qte,

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items.Implementation
 {
-    public class Chevre : Item
+    public class Chevre : Base.Item
     {
         public static int Nbr;
 

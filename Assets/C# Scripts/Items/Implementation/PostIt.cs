@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items.Implementation
 {
-    public class PostIt : Item
+    public class PostIt : Base.Item
     {
         public static int Nbr;
 

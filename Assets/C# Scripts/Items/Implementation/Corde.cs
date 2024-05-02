@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items.Implementation
 {
-    public class Corde : Item
+    public class Corde : Base.Item
     {
         public static int Nbr;
 
