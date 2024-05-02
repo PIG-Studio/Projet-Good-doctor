@@ -86,7 +86,7 @@ namespace Patient
             Agent = InstantiatedObject.GetComponent<NavMeshAgent>();
             this.LinkAnimator();
             InstantiatedObject.AddComponent<Pnj>();
-            InstantiatedObject.AddComponent<DialoguePatient>().Patient = this;
+            InstantiatedObject.AddComponent<DialoguePatient>().patient = this;
         }
         
         public void Talk()
