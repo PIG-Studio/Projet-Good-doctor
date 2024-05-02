@@ -4,7 +4,7 @@ using Items.Base;
 
 namespace Items.Implementation
 {
-    public class Coffee: Item
+    public class Coffee: Base.Item
     {
         public static int Nbr;
 

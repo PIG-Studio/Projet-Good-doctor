@@ -22,7 +22,7 @@ namespace Desks
         /// <summary>
         /// L inventaire lie au bureau
         /// </summary>
-        private Inventory InventoryToRender { get; set; }
+        private Inventories.Inventory InventoryToRender { get; set; }
 
 
         public void Start()

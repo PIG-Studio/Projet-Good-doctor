@@ -7,7 +7,7 @@ namespace Desks
     public class Desk
     {
         public string SceneName { get; }
-        public Inventory Inventory { get; set; }
+        public Inventories.Inventory Inventory { get; set; }
         public static Dictionary<string, Desk> SceneDeskDict { get; set; }
 
         public bool HasChanged { get; set; }
@@ -15,7 +15,7 @@ namespace Desks
         public Desk(string sceneName)
         {
             SceneName = sceneName;
-            Inventory = new Inventory();
+            Inventory = new Inventories.Inventory();
             Debug.LogError("ADDED " + sceneName + " DESK");
             SceneDeskDict.Add(sceneName, this);
             Debug.Log("ADDED 1 DESK");

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items.Implementation
 {
-    public class Madeleine : Item
+    public class Madeleine : Base.Item
     {
         public static int Nbr;
 
