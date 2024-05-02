@@ -1,4 +1,4 @@
-namespace DefaultNamespace
+namespace Exceptions
 {
     public class LogicException : System.Exception
     {

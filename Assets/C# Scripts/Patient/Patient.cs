@@ -36,7 +36,7 @@ namespace Patient
         public IAdn Adn { get; set; }
         public bool AdnSain { get; set; }
         public bool IsAlive { get; set; }
-        public bool AnalyseADN { get; set; }
+        public bool AnalyseAdn { get; set; }
         public bool AnalyseDepression { get; set; }
         public IValue Depression { get; set; }
         public Sprite Skin { get; set; }
@@ -70,7 +70,7 @@ namespace Patient
             Name = name;
             Skin = skin;
             Position = position; // entrée hôpital
-            AnalyseADN = false;
+            AnalyseAdn = false;
             AnalyseDepression = false;
             Id = Name;
             Prefab = Resources.Load<GameObject>("Patient");
@@ -93,7 +93,7 @@ namespace Patient
         {
             if (CompareTag("Player"))
             {
-                if (UnityEngine.Input.GetKeyDown(KeyCode.T))
+                if (Input.GetKeyDown(KeyCode.T))
                 {
                     Debug.Log(CatchPhrase);
                 }

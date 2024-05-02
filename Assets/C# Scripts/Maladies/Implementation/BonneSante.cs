@@ -1,5 +1,4 @@
 ﻿using Maladies.Base;
-using Maladies.Base.SubTypes;
 
 namespace Maladies.Implementation
 {
