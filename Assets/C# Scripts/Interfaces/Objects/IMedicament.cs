@@ -1,6 +1,6 @@
-namespace Interfaces.IObjects
+namespace Interfaces.Objects
 {
-    public interface IMedicament :IObject
+    public interface IMedicament : IObject
     {
         
     }

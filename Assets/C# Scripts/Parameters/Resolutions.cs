@@ -11,7 +11,7 @@ namespace Parameters
 
         private Resolution[] _resolutions;
         private List<Resolution> _filteredResolutions;
-        private bool _manuel = false;
+        //private bool _manuel = false;
         private int _currentResolutionIndex;
 
 

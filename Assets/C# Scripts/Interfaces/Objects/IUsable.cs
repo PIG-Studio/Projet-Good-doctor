@@ -1,4 +1,4 @@
-namespace Interfaces.IObjects
+namespace Interfaces.Objects
 {
     public interface IUsable : IObject
     {

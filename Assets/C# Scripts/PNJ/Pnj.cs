@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-using GameCore.TypeExpand.Animator;
+using TypeExpand.Animator;
 
 namespace PNJ
 {
@@ -18,7 +18,6 @@ namespace PNJ
 
         public void Update()
         { 
-            Debug.Log("ifbifi");
             AnimatorComp.UpdateAnim(AgentComp.velocity);
         }
     }

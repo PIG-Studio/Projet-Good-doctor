@@ -34,7 +34,7 @@ namespace Personnel
         /// <exception cref="NotImplementedException"></exception>
         public void Talk()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -43,12 +43,12 @@ namespace Personnel
         /// <exception cref="NotImplementedException"></exception>
         public void Spawn()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void Despawn()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
