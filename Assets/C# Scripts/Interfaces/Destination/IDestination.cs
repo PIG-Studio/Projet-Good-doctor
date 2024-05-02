@@ -11,11 +11,5 @@ namespace Interfaces.Destination
         
         public Vector2 PtArrivee { get; }
         public (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] PtAttente { get; }
-        
-        public uint Add(ICanGoInDestination entity);
-        public void Pop(uint siege);
-        
-        
-        
     }
 }
