@@ -6,7 +6,6 @@ using TypeExpand.String;
 using Parameters;
 using UnityEngine;
 using static CustomScenes.Manager;
-using static GameCore.GameVAR.Variables;
 
 namespace SaveScripts
 {
@@ -134,7 +133,7 @@ namespace SaveScripts
             date = date.Replace(':', '.');
             date = date.Replace('/', '_');
             Debug.Log(date);
-            string saveName = SaveName;
+            string saveName = Variables.SaveName;
             // TODO : ecrire les variables dans un fichier .json ?
             string fileName = saveName + "@" + date;
             if (Directory.Exists(Values.SavesPath +
@@ -173,12 +172,12 @@ namespace SaveScripts
 
                 string saveName = savedContent["SaveName"];
                 Variables.Desk = savedContent["DeskName"].ToDesk();
-                SceneNameCurrent = savedContent["SceneName"];
-                string[] DemiCanard = savedContent["Position"].Split(' ');
-                DemiCanard[0] = DemiCanard[0].Remove(0, 1);
-                DemiCanard[0] = DemiCanard[0].Remove(DemiCanard[0].Length - 1, 1);
-                DemiCanard[1] = DemiCanard[1].Remove(DemiCanard[1].Length - 1, 1);
-                LatestPos = (float.Parse(DemiCanard[0]), (float.Parse(DemiCanard[1])));
+                Variables.SceneNameCurrent = savedContent["SceneName"];
+                string[] positonString = savedContent["Position"].Split(' ');
+                positonString[0] = positonString[0].Remove(0, 1);
+                positonString[0] = positonString[0].Remove(positonString[0].Length - 1, 1);
+                positonString[1] = positonString[1].Remove(positonString[1].Length - 1, 1);
+                Variables.LatestPos = (float.Parse(positonString[0]), (float.Parse(positonString[1])));
                 Debug.Log("Partie Chargée Avec Succès");
 
             }

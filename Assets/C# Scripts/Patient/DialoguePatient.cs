@@ -1,7 +1,7 @@
 using UnityEngine;
     using TMPro;
 
-    public class DialoguePatient : MonoBehaviour
+public class DialoguePatient : MonoBehaviour
 {
     public GameObject boiteDialogue; // référence à la boîte de dialogue public static Type Text { get; }
     public TextMeshProUGUI _Text;
