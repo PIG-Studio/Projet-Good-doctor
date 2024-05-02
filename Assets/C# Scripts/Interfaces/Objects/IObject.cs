@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Interfaces.IObjects
+namespace Interfaces.Objects
 {
     public interface IObject
     {

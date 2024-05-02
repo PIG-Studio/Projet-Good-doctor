@@ -1,5 +1,5 @@
 using Interfaces;
-using Interfaces.IObjects;
+using Interfaces.Objects;
 using Unity.Netcode;
 using UnityEngine;
 using static GameCore.GameVAR.Constantes;
