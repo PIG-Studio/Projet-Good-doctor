@@ -14,7 +14,7 @@ namespace PlayerController.Base
         private Rigidbody2D _rb; // Reference to the Rigidbody2D component
         private Animator _anims;
         public GameObject vcam;
-        public Inventory _playerInventory { get; set; }
+        public Inventory PlayerInventory { get; set; }
 
         public void StartBase(GameObject vcamIn, GameObject player)
         {

@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 using Maladies;
 using Maladies.Base.SubTypes;
 using UnityEngine;
-using Random = System.Random;
 using Maladies.Base.SubTypes.Symptomes;
 
 namespace Patient

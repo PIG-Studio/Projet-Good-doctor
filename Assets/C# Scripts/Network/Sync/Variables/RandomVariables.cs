@@ -1,23 +1,25 @@
-using GameCore.GameVAR;
 using Unity.Netcode;
 
-public class RandomVariables : NetworkBehaviour
+namespace Network.Sync.Variables
 {
-    private readonly NetworkVariable<int> Score1 = new(writePerm: NetworkVariableWritePermission.Server);
-
-
-    void Update()
+    public class RandomVariables : NetworkBehaviour
     {
-        if (NetworkManager.Singleton.IsHost)
-        {
-            Score1.Value = Variables.ScoreJ1;
+        private readonly NetworkVariable<int> _score1 = new(writePerm: NetworkVariableWritePermission.Server);
 
-        }
-        
-        else if (NetworkManager.Singleton.IsClient)
-        {
-            Variables.ScoreJ1 = Score1.Value;
 
+        void Update()
+        {
+            if (NetworkManager.Singleton.IsHost)
+            {
+                //Score1.Value = Variables.ScoreJ1;
+
+            }
+
+            else if (NetworkManager.Singleton.IsClient)
+            {
+                //Variables.ScoreJ1 = Score1.Value;
+
+            }
         }
     }
 }

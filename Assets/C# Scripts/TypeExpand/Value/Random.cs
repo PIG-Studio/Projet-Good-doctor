@@ -1,7 +1,7 @@
 using TypeExpand._Uint_Uint_;
 using Interfaces.Maladies.Types;
 
-namespace GameCore.TypeExpand.Value
+namespace zTypeExpand.Value
 {
     public static class Random
     {

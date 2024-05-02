@@ -39,5 +39,16 @@ namespace TypeExpand.String
 
                 return result;
             }
+            
+            public static bool HasNbInString (this string str)
+            {
+                foreach (var chara in str)
+                {
+                    if (chara is >= '0' and <= '9')
+                        return true;
+                }
+
+                return false;
+            }
     }
 }
