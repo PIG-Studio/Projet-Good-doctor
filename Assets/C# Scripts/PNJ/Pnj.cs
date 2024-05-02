@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-using GameCore.TypeExpand.Animator;
+using TypeExpand.Animator;
 
 namespace PNJ
 {

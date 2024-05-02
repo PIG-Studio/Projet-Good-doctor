@@ -1,9 +1,7 @@
 using GameCore.GameVAR;
-using GameCore.TypeExpand;
 using Inventories;
 using Inventories.Slots;
-using JetBrains.Annotations;
-using Medicaments;
+using TypeExpand.String;
 using UnityEngine;
 using UI_Scripts.UI_Prefab;
 
@@ -15,11 +13,11 @@ namespace Desks
     /// </summary>
     public class RenderInventory : MonoBehaviour
     {
-        /// <summary>
-        /// Field pour savoir quel objet manipuler
-        /// </summary>
-        [NotNull]
-        private Desk DeskToRender { get; set; }
+        // <summary>
+        // Field pour savoir quel objet manipuler
+        // </summary>
+        //[NotNull]
+        //private Desk DeskToRender { get; set; }
 
         /// <summary>
         /// L inventaire lie au bureau
@@ -34,8 +32,7 @@ namespace Desks
                 UIPrefabs.INV_Inventory(Resources.Load<Sprite>("inventory"), "Inventory", 0, 0, 500, 50);
 
             // On recupere le bureau et l inventaire a afficher, NULL REFERENCE si script pas dans un bureau
-            DeskToRender = Variables.SceneNameCurrent.ToDesk()!;
-            InventoryToRender = DeskToRender.Inventory;
+            InventoryToRender = Variables.SceneNameCurrent.ToDesk()!.Inventory;
 
             uint i = 0;
             foreach (Slot vSlot in InventoryToRender.Slots)

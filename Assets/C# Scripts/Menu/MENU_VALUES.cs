@@ -1,4 +1,7 @@
-public class MENU_VALUES
+namespace Menu
 {
-        //SaveName de setSave dans lastSAve
+        public static class Valeurs
+        {
+                //SaveName de setSave dans lastSAve
+        }
 }
