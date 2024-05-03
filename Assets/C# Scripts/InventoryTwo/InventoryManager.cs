@@ -22,7 +22,7 @@ namespace InventoryTwo
         }
         private void Update()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.I) && !inventoryPanel.activeInHierarchy)
+            if (Input.GetKeyDown(KeyCode.I) && !inventoryPanel.activeInHierarchy)
             {
                 inventoryPanel.SetActive(true);
                 if (hodlerSlot.transform.childCount > 0)
@@ -47,7 +47,7 @@ namespace InventoryTwo
                     }
                 }
             }
-            else if (UnityEngine.Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
+            else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
             {
                 inventoryPanel.SetActive(false);
             }
