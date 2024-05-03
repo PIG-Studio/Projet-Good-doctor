@@ -1,15 +1,17 @@
-﻿using InventoryTwo;
-using ScriptableObject;
+﻿using ScriptableObject;
 using UnityEngine;
 
-public class PickUpItem : MonoBehaviour
+namespace InventoryTwo
 {
-    public ItemsSo item;
-    private void OnTriggerEnter2D(Collider2D other)
+    public class PickUpItem : MonoBehaviour
     {
-        if (!CompareTag("Player")) return;
-        InventoryManager.instance.inventory.Add(item);
-        Destroy(gameObject);
+        public ItemsSo item;
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player")) return;
+            InventoryManager.instance.inventory.Add(item);
+            Destroy(gameObject);
+        }
     }
 }
     
