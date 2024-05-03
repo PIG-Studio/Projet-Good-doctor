@@ -1,21 +1,36 @@
 using System;
 using Interfaces;
+using PNJ;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Personnel
 {
-    public class Janine : IPnj , ISpawn
+    public class Janine : IPnj , ISpawnableGo
     {
+        
+        
         public Sprite Skin { get; set; }
         public string Name { get; set; }
         public Vector2 Position { get; set; }
+        public GameObject Prefab { get; }
+        public GameObject InstantiatedObject { get; set; }
+        public Animator AnimatorComponent { get; set; }
+        public NavMeshAgent Agent { get; private set; }
+        
+        public string Id { get; }
+        
+        private string _catchprase;
 
         public Janine()
         {
-            //Skin = Skin de janine
-            // First Name = Janine
-            // Surname = son nom de famille
-            // Position = Derriere son bureau
+            Prefab = Resources.Load<GameObject>("Personnel");
+            Skin = Resources.Load <Sprite> ("Sprites/Player/DinoSprites - vita");
+            Name = "Janine";
+            Position = new Vector2(-6.890f, 5.7358f);
+            _catchprase = "Bonjour docteur ! Comment allez-vous ?";
+            Id = Name;
+            Spawn();
         }
 
         /// <summary>
@@ -39,7 +54,9 @@ namespace Personnel
         /// <exception cref="NotImplementedException"></exception>
         public void Spawn()
         {
-            throw new NotImplementedException();
+            this.Instancier();
+            AnimatorComponent = InstantiatedObject.GetComponent<Animator>();
+            this.LinkAnimator();
         }
 
         public void Despawn()
