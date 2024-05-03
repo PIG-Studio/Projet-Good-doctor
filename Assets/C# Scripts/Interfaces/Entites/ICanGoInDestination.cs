@@ -4,7 +4,7 @@ namespace Interfaces.Entites
 {
     public interface ICanGoInDestination
     {
-        IDeskDestination Destination { get; set; }
+        IDestination Destination { get; set; }
         bool EnAttente { get; set; }
         uint Siege { get; set; }
         
