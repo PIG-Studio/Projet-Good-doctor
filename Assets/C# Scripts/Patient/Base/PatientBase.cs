@@ -34,7 +34,7 @@ namespace Patient.Base
         public GameObject InstantiatedObject { get; set; }
         
         //ICanGOInDestination Implem
-        public IDeskDestination Destination { get; set; } public bool EnAttente { get; set; }
+        public IDestination Destination { get; set; } public bool EnAttente { get; set; }
         
         //ICanGoInDesk Implem
         public Sprite AltSprite { get; set; } public bool DansBureau { get; set; }
@@ -86,6 +86,11 @@ namespace Patient.Base
             }
         }
 
+        /// <summary>
+        /// <value>WIP, bien avance</value>
+        /// Choisit la destination du patient, pour le moment une seule et fixee, + tard aleatoirement
+        /// <remarks> RISQUE DE BOUCLE INFINI SI AUCUNE DESTINATION DISPO, bien regler le nombre de patients max pour eviter ca</remarks>
+        /// </summary>
         public void ChooseDestination()
         {
             Destination = Variables.DeskDestinations[0];
@@ -107,6 +112,7 @@ namespace Patient.Base
         {
             Agent.SetDestination(Destination.PtAttente[Siege].coordonees);
             EnAttente = true;
+            
         }
         
         public void EndWaiting()
