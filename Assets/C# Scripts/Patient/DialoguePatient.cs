@@ -1,7 +1,6 @@
 using GameCore.GameVAR;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Patient.Base;
 
 namespace Patient

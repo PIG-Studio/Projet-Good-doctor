@@ -13,7 +13,7 @@ using UnityEngine.AI;
 
 namespace Patient.Base
 {
-    public class PatientBase : MonoBehaviour , IPnj , IPatient, ISpawnableGo, ICanGoInDesk
+    public class PatientBase : IPnj , IPatient, ISpawnableGo, ICanGoInDesk
     {
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
         /// <summary>
@@ -75,17 +75,6 @@ namespace Patient.Base
             InstantiatedObject.AddComponent<DialoguePatient>().@base = this;
         }
         
-        public void Talk()
-        {
-            if (CompareTag("Player"))
-            {
-                if (Input.GetKeyDown(KeyCode.T))
-                {
-                    Debug.Log(CatchPhrase);
-                }
-            }
-        }
-
         /// <summary>
         /// <value>WIP, bien avance</value>
         /// Choisit la destination du patient, pour le moment une seule et fixee, + tard aleatoirement
