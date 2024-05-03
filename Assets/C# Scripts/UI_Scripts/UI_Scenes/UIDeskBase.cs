@@ -22,10 +22,10 @@ namespace UI_Scripts.UI_Scenes
 
             // Ajout des elements a afficher
             dicoRender["Parametres"] =
-                UIPrefabs.BTN_ChangeScene("Parameters", "Parametres", -300f, 100f, 150f, 50f, Scenes.PARAM);
-            dicoRender["Menu"] = UIPrefabs.BTN_ChangeScene("Menu", "Menu", -300f, -100f, 150f, 50f, Scenes.MENU);
+                UIPrefabs.BTN_ChangeScene("Parameters", "Parametres", -300f, 100f, 150f, 50f, Scenes.Param);
+            dicoRender["Menu"] = UIPrefabs.BTN_ChangeScene("Menu", "Menu", -300f, -100f, 150f, 50f, Scenes.Menu);
             dicoRender["SaveGame"] = UIPrefabs.BTN_Save("SaveGame", "Save Game", 300f, 100f, 150f, 50f);
-            dicoRender["Map"] = UIPrefabs.BTN_ChangeScene("Map", "Map", 300f, -100f, 150f, 50f, Scenes.MAP);
+            dicoRender["Map"] = UIPrefabs.BTN_ChangeScene("Map", "Map", 300f, -100f, 150f, 50f, Scenes.Map);
 
             // Affichage des elements
             UIPrefabs.Render("UI_DESK_BaseCanvas", dicoRender);

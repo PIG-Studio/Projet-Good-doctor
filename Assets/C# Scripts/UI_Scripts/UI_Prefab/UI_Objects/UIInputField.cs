@@ -1,4 +1,5 @@
 using Interfaces;
+using SaveScripts;
 using TMPro;
 using UI_Scripts.UI_Prefab.UI_Base;
 using UnityEngine;
@@ -41,10 +42,10 @@ namespace UI_Scripts.UI_Prefab.UI_Objects
             field.GetComponent<TMP_InputField>().textComponent = textCompo.GetComponent<TextMeshProUGUI>();
             field.GetComponent<TMP_InputField>().placeholder = placeholder.GetComponent<TextMeshProUGUI>();
 
-            field.GetComponent<TMP_InputField>().onSelect.AddListener((string input) => ChangeSelect());
-            field.GetComponent<TMP_InputField>().onValueChanged.AddListener((string input) => SaveData.SetSaveName(input));
+            field.GetComponent<TMP_InputField>().onSelect.AddListener(_ => ChangeSelect());
+            field.GetComponent<TMP_InputField>().onValueChanged.AddListener(input => SaveData.SetSaveName(input));
             field.GetComponent<TMP_InputField>().onDeselect
-                .AddListener((string input) => ChangeSelect());
+                .AddListener((_) => ChangeSelect());
 
             return field;
         }

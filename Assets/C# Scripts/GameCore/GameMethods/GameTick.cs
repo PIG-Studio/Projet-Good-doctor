@@ -1,26 +1,36 @@
+using System;
 using CustomScenes;
 using GameCore.GameVAR;
-using GameCore.TypeExpand;
 using Patient;
+using Personnel;
+using TypeExpand.String;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using Patient.Base;
+
 namespace GameCore.GameMethods
 {
     public class GameTick : MonoBehaviour
     {
+        public void Start()
+        {
+                Janine janine = new Janine();
+            
+        }
+
         public void Update()
         {
-            if (Variables.SceneNameCurrent.IsDesk() || Variables.SceneNameCurrent == Scenes.MAP)
+            if (Variables.SceneNameCurrent.IsDesk() || Variables.SceneNameCurrent == Scenes.Map)
             {
-                if (UnityEngine.Input.GetKeyDown(KeyCode.P))
+                if (Input.GetKeyDown(KeyCode.P))
                 {
-                    Patient.Patient guillaume = Patients.GenPatient();
-                    if (guillaume != null)
+                    PatientBase guillaume = Patients.GenPatient();
+                    if (guillaume is not null)
                         Debug.Log(guillaume.Name + " " + guillaume.Depression + " " + guillaume.Sickness + " " +
                                   guillaume.Adn);
                     Debug.Log("Patient a l'entrée de l'hôpital !");
                 }
             }
-            
         }
     }
 }

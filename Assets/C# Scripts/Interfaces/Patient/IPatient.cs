@@ -1,6 +1,5 @@
 using Interfaces.Maladies.Types;
 using Maladies.Base;
-using UnityEngine.UIElements.Experimental;
 
 namespace Interfaces.Patient
 {
@@ -26,7 +25,7 @@ namespace Interfaces.Patient
         
         public bool IsAlive { get; set; }
         
-        public bool AnalyseADN { get; set; }
+        public bool AnalyseAdn { get; set; }
         
         public bool AnalyseDepression { get; set; }
         
