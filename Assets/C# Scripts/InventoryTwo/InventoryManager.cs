@@ -48,7 +48,7 @@ namespace InventoryTwo
                     }
                 }
             }
-            else if (UnityEngine.Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
+            else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
             {
                 inventoryPanel.SetActive(false);
             }
