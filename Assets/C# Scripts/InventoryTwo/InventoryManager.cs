@@ -37,18 +37,19 @@ namespace InventoryTwo
 
                 for (int i = 0; i < inventoryLenght; i++) //initialise l'inventaire
                 {
-                    if (i <= inventory.Count)
+                    if (i < inventory.Count)
                     {
                         var transform1 = transform;
                         _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
                         _slot.transform.SetParent(hodlerSlot.transform);
-                        TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
-                        _slot.transform.Find("icon").GetComponent<Image>();
-                        _slot.GetComponent<SlotItem>().itemSlot = i;
+                        
+                        TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>(); 
+                        _slot.transform.Find("icon").GetComponent<Image>(); // met le l'icon de l'objet dans inventaire
+                        _slot.GetComponent<SlotItem>().itemSlot = i; 
                         
                         amount.text = inventory[i].amount.ToString(); //remplace la quantité dans le prefab par la quantité du slot actuel
                     }
-                    else if (i > inventory.Count - 1)
+                    else if (i >= inventory.Count) // creer des slots vide dans l'inventaire
                     {
                         var transform1 = transform;
                         _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
