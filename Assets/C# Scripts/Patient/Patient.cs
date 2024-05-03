@@ -89,16 +89,6 @@ namespace Patient
             InstantiatedObject.AddComponent<DialoguePatient>().patient = this;
         }
         
-        public void Talk()
-        {
-            if (CompareTag("Player"))
-            {
-                if (Input.GetKeyDown(KeyCode.T))
-                {
-                    Debug.Log(CatchPhrase);
-                }
-            }
-        }
 
         public void Leave()
         {
@@ -106,11 +96,6 @@ namespace Patient
         }
 
         public void Kill()
-        {
-            throw new NotImplementedException();
-        }
-        
-        public void Move()
         {
             throw new NotImplementedException();
         }

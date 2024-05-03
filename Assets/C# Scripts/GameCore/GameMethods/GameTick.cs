@@ -9,7 +9,7 @@ namespace GameCore.GameMethods
     {
         public void Update()
         {
-            if (Variables.SceneNameCurrent.IsDesk() || Variables.SceneNameCurrent == Scenes.MAP)
+            if (Variables.SceneNameCurrent.IsDesk() || Variables.SceneNameCurrent == Scenes.Map)
             {
                 if (Input.GetKeyDown(KeyCode.P))
                 {
