@@ -42,10 +42,10 @@ namespace UI_Scripts.UI_Prefab.UI_Objects
             field.GetComponent<TMP_InputField>().textComponent = textCompo.GetComponent<TextMeshProUGUI>();
             field.GetComponent<TMP_InputField>().placeholder = placeholder.GetComponent<TextMeshProUGUI>();
 
-            field.GetComponent<TMP_InputField>().onSelect.AddListener(input => ChangeSelect());
+            field.GetComponent<TMP_InputField>().onSelect.AddListener(_ => ChangeSelect());
             field.GetComponent<TMP_InputField>().onValueChanged.AddListener(input => SaveData.SetSaveName(input));
             field.GetComponent<TMP_InputField>().onDeselect
-                .AddListener((input) => ChangeSelect());
+                .AddListener((_) => ChangeSelect());
 
             return field;
         }
