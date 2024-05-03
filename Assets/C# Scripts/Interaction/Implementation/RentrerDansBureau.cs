@@ -1,7 +1,7 @@
-using System;
 using GameCore.GameVAR;
 using CustomScenes;
 using UnityEngine;
+using Parameters;
 
 namespace Interaction.Implementation
 {
@@ -9,9 +9,9 @@ namespace Interaction.Implementation
     {
         public void OnTriggerStay2D(Collider2D other)
         {
-            if (Input.GetKeyDown(KeyCode.E)){Debug.Log("E key was pressed");}
+            if (Input.GetKeyDown(Keys.UseKey)){Debug.Log("E key was pressed");}
             if (other.CompareTag("Player")){Debug.Log("Player touched");}
-            if (Input.GetKeyDown(KeyCode.E) && other.CompareTag("Player"))
+            if (Input.GetKeyDown(Keys.UseKey) && other.CompareTag("Player"))
             {
                 Manager.ChangeScene(Variables.Desk.SceneName);
             }
