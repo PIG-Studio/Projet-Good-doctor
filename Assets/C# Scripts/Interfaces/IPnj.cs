@@ -9,6 +9,5 @@ namespace Interfaces
         public string Name { get; set; }
         
         public Vector2 Position { get; set; }
-        public void Talk();
     }
 }

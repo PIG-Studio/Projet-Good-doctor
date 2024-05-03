@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using UnityEngine;
 using GameCore.GameVAR;
 using static CustomScenes.Manager;
 using Desks;
 using SaveScripts;
-using TypeExpand.String;
 
 namespace GameCore.GameMethods
 {
@@ -39,11 +36,12 @@ namespace GameCore.GameMethods
             }
         }
 
-        /// <summary>
-        /// initialise les valeurs de GameVariables aux valeurs d'un fichier de sauvegarde
-        /// </summary>
-        /// <param name="saveName">nom de la sauvegarde a charger</param>
-        /// <returns>void</returns>
+        /* <summary>
+         initialise les valeurs de GameVariables aux valeurs d'un fichier de sauvegarde
+         <param name="saveName">nom de la sauvegarde a charger</param>
+        <returns>void</returns>*/
+        
+        /*
         private static void LoadGameVariablesFromFile(string saveName)
         {
             Dictionary<string, string> saveData = SaveLoadMethods.ParseData(saveName);
@@ -59,6 +57,7 @@ namespace GameCore.GameMethods
             {
                 Debug.Log("Save corrupted / non-existing");
             }
-        }
+        }*/
     }
+    
 }

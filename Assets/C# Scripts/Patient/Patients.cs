@@ -66,7 +66,7 @@ namespace Patient
                 int lie = 10.RandomInt();
                 if (lie == 0)
                 {
-                    maladie = Acces.BONNESANTE();
+                    maladie = Acces.Bonnesante();
                 }
                 else
                 {

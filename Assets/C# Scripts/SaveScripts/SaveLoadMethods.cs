@@ -11,11 +11,6 @@ namespace SaveScripts
 {
     public class SaveLoadMethods : MonoBehaviour
     {
-        private static string[] ListAllSaves()
-        {
-            string[] res = Directory.GetFiles(Values.SavesPath, "*.save");
-            return res;
-        }
 
         public static bool ValidNameToSave(string testStr)
         {
@@ -170,7 +165,7 @@ namespace SaveScripts
                     Debug.Log("Data Non Valides");
                 }
 
-                string saveName = savedContent["SaveName"];
+                Variables.SaveName = savedContent["SaveName"];
                 Variables.Desk = savedContent["DeskName"].ToDesk();
                 Variables.SceneNameCurrent = savedContent["SceneName"];
                 string[] positonString = savedContent["Position"].Split(' ');
