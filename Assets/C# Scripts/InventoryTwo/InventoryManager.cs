@@ -11,14 +11,14 @@ namespace InventoryTwo
         public List<ItemsSo> inventory;
         public int inventoryLenght = 15;
         public GameObject inventoryPanel, hodlerSlot;
-        private GameObject slot;
+        private GameObject _slot;
         public GameObject prefabs;
 
-        public static InventoryManager instance;
+        public static InventoryManager Instance;
 
         private void Awake()
         {
-            instance = this;
+            Instance = this;
         }
         private void Update()
         {
@@ -35,12 +35,12 @@ namespace InventoryTwo
 
                 for (int i = 0; i < inventory.Count; i++)
                 {
-                    slot = Instantiate(prefabs, transform.position, transform.rotation);
-                    slot.transform.SetParent(hodlerSlot.transform);
+                    _slot = Instantiate(prefabs, transform.position, transform.rotation);
+                    _slot.transform.SetParent(hodlerSlot.transform);
                     if (inventory[i] is not null)
                     {
-                        TextMeshProUGUI amount = slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
-                        Image img = slot.transform.Find("icon").GetComponent<Image>();
+                        TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
+                        Image img = _slot.transform.Find("icon").GetComponent<Image>();
 
                         amount.text = inventory[i].amount.ToString();
                         img.sprite = inventory[i].icon;
