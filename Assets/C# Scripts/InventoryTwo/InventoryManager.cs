@@ -14,9 +14,10 @@ namespace InventoryTwo
         public GameObject inventoryPanel, hodlerSlot; // pour l'UI
         private GameObject slot;
         public GameObject prefabs;
-
+        public GameObject holderDescription;
         public static InventoryManager instance; // acceder partout
-
+        public TextMeshProUGUI title, descriptionObject;
+        public Image iconDescription;
         private void Awake()
         {
             instance = this;
@@ -34,24 +35,45 @@ namespace InventoryTwo
                     }
                 }
 
-                for (int i = 0; i < inventory.Count; i++) //initialise l'inventaire
+                for (int i = 0; i < inventoryLenght; i++) //initialise l'inventaire
                 {
-                    slot = Instantiate(prefabs, transform.position, transform.rotation);
-                    slot.transform.SetParent(hodlerSlot.transform);
-                    if (inventory[i] != null)
+                    
+                    if (i <= inventory.Count)
                     {
+                        slot = Instantiate(prefabs, transform.position, transform.rotation);
+                        slot.transform.SetParent(hodlerSlot.transform);
                         TextMeshProUGUI amount = slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                         Image img = slot.transform.Find("icon").GetComponent<Image>();
-
+                        slot.GetComponent<SlotItem>().itemSlot = i;
+                        
                         amount.text = inventory[i].amount.ToString(); //remplace la quantité dans le prefab par la quantité du slot actuel
                         img.sprite = inventory[i].icon; // sprite du slot
                     }
+                    else if (i > inventory.Count - 1)
+                    {
+                        slot = Instantiate(prefabs, transform.position, transform.rotation);
+                        slot.transform.SetParent(hodlerSlot.transform);
+                        slot.GetComponent<SlotItem>().itemSlot = i;
+                        TextMeshProUGUI amount = slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
+                        amount.gameObject.SetActive(false);
+                        Image img = slot.transform.Find("icon").GetComponent<Image>();
+
+                    }
+                        
                 }
             }
             else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
             {
                 inventoryPanel.SetActive(false);
             }
+        }
+        public void ChargeItem(int i)
+        {
+            holderDescription.SetActive(true);
+            title.text = inventory[i].title;
+            descriptionObject.text = inventory[i].description;
+            iconDescription.sprite = inventory[i].icon;
+            
         }
     }
 }
