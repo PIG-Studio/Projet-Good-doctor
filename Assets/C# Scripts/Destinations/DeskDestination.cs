@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Desks;
 using Exceptions;
@@ -14,7 +13,7 @@ namespace Destinations
         public bool IsFull { get; private set; }
         public uint NbEntites { get; private set; }
         
-        public Vector2 PtArrivee { get; }
+        public Vector2 PtArrivee { get; set; }
         public (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] PtAttente { get; }
         
         public Desk Bureau { get; }
@@ -31,7 +30,7 @@ namespace Destinations
             DeskQueue = new Queue<ICanGoInDesk>();
         }
         
-        public uint Add(ICanGoInDesk entity)
+        public void Add(ICanGoInDesk entity)
         {
             if (IsFull) throw new LogicException("Destination pleine, impossible d'ajouter une entité, il faut verifier si la capacite avant (cote patient)");
 
@@ -41,16 +40,14 @@ namespace Destinations
                 if (PtAttente[i].occupe) continue;
                 PtAttente[i].occupe = true;
                 PtAttente[i].occupant = entity;
+                entity.Siege = (uint)i;
                 entity.StartWaiting();
-                siege = (uint)i;
                 break;
             }
             
             DeskQueue.Enqueue(entity);
             NbEntites++;
             IsFull = NbEntites == Capacite;
-
-            return siege;
         }
 
         public ICanGoInDesk Pop()

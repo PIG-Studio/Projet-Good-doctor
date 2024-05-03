@@ -11,7 +11,7 @@ namespace Destinations
         public bool IsFull { get; private set; }
         public uint NbEntites { get; private set; }
         
-        public Vector2 PtArrivee { get; }
+        public Vector2 PtArrivee { get; set; }
         public (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] PtAttente { get; }
         
         public NormalDestination(uint capacite, Vector2 ptArrivee, (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] ptAttente)

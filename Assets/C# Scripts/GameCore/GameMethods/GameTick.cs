@@ -3,6 +3,8 @@ using GameCore.GameVAR;
 using Patient;
 using TypeExpand.String;
 using UnityEngine;
+using Patient.Base;
+
 namespace GameCore.GameMethods
 {
     public class GameTick : MonoBehaviour
@@ -13,8 +15,8 @@ namespace GameCore.GameMethods
             {
                 if (Input.GetKeyDown(KeyCode.P))
                 {
-                    Patient.Patient guillaume = Patients.GenPatient();
-                    if (guillaume != null)
+                    PatientBase guillaume = Patients.GenPatient();
+                    if (guillaume is not null)
                         Debug.Log(guillaume.Name + " " + guillaume.Depression + " " + guillaume.Sickness + " " +
                                   guillaume.Adn);
                     Debug.Log("Patient a l'entrée de l'hôpital !");

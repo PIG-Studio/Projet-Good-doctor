@@ -5,6 +5,6 @@ namespace Interfaces
 {
     public interface IHasInstantiatedObject
     {
-        [NotNull] GameObject InstantiatedObject { get; set; }
+        [CanBeNull] GameObject InstantiatedObject { get; set; }
     }
 }

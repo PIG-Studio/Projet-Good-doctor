@@ -1,3 +1,5 @@
+using Interfaces.Destination;
+using Interfaces.Entites;
 using UnityEngine;
 using UnityEngine.AI;
 using TypeExpand.Animator;
@@ -9,6 +11,8 @@ namespace PNJ
         public NavMeshAgent AgentComp { get; private set; }
 
         public Animator AnimatorComp { get; private set; }
+        public IDeskDestination Destination { get; set; }
+        public ICanGoInDesk Patient { get; set; }
         
         public void Start()
         {
@@ -19,6 +23,10 @@ namespace PNJ
         public void Update()
         { 
             AnimatorComp.UpdateAnim(AgentComp.velocity);
+            if (!Patient.EnAttente && AgentComp.remainingDistance < 2f)
+            {
+                Destination.Add(Patient);
+            }
         }
     }
 }
