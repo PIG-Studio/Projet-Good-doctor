@@ -16,9 +16,9 @@ namespace Items
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
         [CanBeNull]
-        public static Madeleine MADELEINE()
+        public static Madeleine Madeleine()
         {
-            if (Madeleine.Nbr >= 60)
+            if (Implementation.Madeleine.Nbr >= 60)
             {
                 return null;
                 //throw new NotImplementedException("la maladie de quand tu manges trop de madeline"); BONNE IDEE, MAIS PAS A METTRE ICI
@@ -33,9 +33,9 @@ namespace Items
         /// </summary>
         /// <returns></returns>
         [CanBeNull]
-        public static Chevre CHEVRE()
+        public static Chevre Chevre()
         {
-            if (Chevre.Nbr >= 50)
+            if (Implementation.Chevre.Nbr >= 50)
             {
                 return null;
                 //throw new NotImplementedException("trop de chevre le joueur est mort pietiné par les chevres"); SAME
@@ -50,9 +50,9 @@ namespace Items
         /// </summary>
         /// <returns></returns>
         [CanBeNull]
-        public static Coffee COFFEE()
+        public static Coffee Coffee()
         {
-            if (Coffee.Nbr == 42)
+            if (Implementation.Coffee.Nbr == 42)
             {
                 //throw new NotImplementedException("on peux pas faire mourir le joueur encore");
                 return null;
@@ -67,9 +67,9 @@ namespace Items
         /// </summary>
         /// <returns></returns>
         [CanBeNull]
-        public static Corde CORDE()
+        public static Corde Corde()
         {
-            if (Corde.Nbr == 0)
+            if (Implementation.Corde.Nbr == 0)
             {
                 return new Corde(1);
             }
@@ -83,9 +83,9 @@ namespace Items
         /// </summary>
         /// <returns></returns>
         [CanBeNull]
-        public static Foie FOIE()
+        public static Foie Foie()
         {
-            if (Foie.Nbr == 0)
+            if (Implementation.Foie.Nbr == 0)
             {
                 return new Foie(1);
             }
@@ -99,9 +99,9 @@ namespace Items
         /// </summary>
         /// <returns></returns>
         [CanBeNull]
-        public static Oeil OEIL()
+        public static Oeil Oeil()
         {
-            if (Oeil.Nbr < 2)
+            if (Implementation.Oeil.Nbr < 2)
             {
                 return new Oeil(1);
             }
@@ -115,7 +115,7 @@ namespace Items
         /// </summary>
         /// <returns></returns>
         [CanBeNull]
-        public static PostIt POSTIT()
+        public static PostIt Postit()
         {
             if (PostIt.Nbr == 0)
             {
@@ -131,7 +131,7 @@ namespace Items
         /// </summary>
         /// <returns></returns>
         [CanBeNull]
-        public static TeddyBear TEDDYBEAR()
+        public static TeddyBear Teddybear()
         {
             if (TeddyBear.Nbr == 0)
             {

@@ -39,7 +39,7 @@ namespace Network.UI.Buttons
                 }
 
                 // Si on est dans le menu, on a acces au bouton pour etre client
-                if (SceneNameCurrent == Scenes.MENU)
+                if (SceneNameCurrent == Scenes.Menu)
                 {
                     if (GUILayout.Button("Client"))
                     {
@@ -49,7 +49,7 @@ namespace Network.UI.Buttons
                 }
 
                 // On gere l instance du joueur solo, desactive par default
-                if (SceneNameCurrent == Scenes.MAP)
+                if (SceneNameCurrent == Scenes.Map)
                 {
                     soloPlayer.SetActive(true);
                 }

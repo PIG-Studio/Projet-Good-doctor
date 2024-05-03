@@ -21,7 +21,7 @@ namespace UI_Scripts.UI_Scenes
 
             // Ajout des elements a afficher
             dicoRender["Parametres"] = UIPrefabs.BTN_ChangeScene("Parameters", "", -500f, 300f, 100f, 100f,
-                Scenes.PARAM, "Button/prettyButton/Gear-Default");
+                Scenes.Param, "Button/prettyButton/Gear-Default");
             dicoRender["Quit"] = UIPrefabs.BTN_Quit("Quit", "Quit", -300f, -100f, 150f, 50f);
             dicoRender["InputGameName"] = UIPrefabs.INSTR_Default("input", 300f, -100f, 150f, 50f);
             dicoRender["NewGame"] = UIPrefabs.BTN_NewGame("NewGame", "New Game", 300f, 100f, 150f, 50f);
