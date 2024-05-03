@@ -5,11 +5,11 @@ namespace Maladies
 {
     public static class Acces
     {
-        public static BonneSante BONNESANTE() 
+        public static BonneSante Bonnesante() 
         {// Si le patient n'a pas de maladie il est en bonne santé (stat par défaut)
             return new BonneSante();
         }
-        public static SyndromePorcelaine PORCELAINE()
+        public static SyndromePorcelaine Porcelaine()
         {
             return new SyndromePorcelaine();
         }
@@ -19,7 +19,7 @@ namespace Maladies
         /// </summary>
         public static readonly IMaladie[] Maladies =
         {
-            PORCELAINE()
+            Porcelaine()
         };
 
     }

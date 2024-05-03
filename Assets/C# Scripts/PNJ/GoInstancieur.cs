@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 
-
 namespace PNJ
 {
     public static class GoInstancieur

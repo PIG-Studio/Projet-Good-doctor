@@ -1,24 +1,19 @@
-using System;
 using GameCore.GameVAR;
-using GameCore.TypeExpand.Int;
-using GameCore.TypeExpand.Value;
-using Interfaces.Maladies;
+using TypeExpand.Int;
 using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
 using Interfaces.Patient;
 using JetBrains.Annotations;
 using Maladies;
-using Maladies.Base;
 using Maladies.Base.SubTypes;
 using UnityEngine;
-using Random = System.Random;
 using Maladies.Base.SubTypes.Symptomes;
+using Patient.Base;
+using TypeExpand.Value;
 
 namespace Patient
 {
-    using static Random;
-
-    public static class Patients 
+    public class Patients : MonoBehaviour
     {
         // choisis aleatoire maladie , mensonge ou non , pour plus tard Skin/Nom/Catchphrase
         //choisis en randint dans maladie.array[maladies] 
@@ -63,7 +58,7 @@ namespace Patient
         }
 
         [CanBeNull]
-        public static Patient GenPatient()
+        public static PatientBase GenPatient()
         {
             if (Variables.NbOfPatients < Constantes.MaxPatient)
             {
@@ -71,7 +66,7 @@ namespace Patient
                 int lie = 10.RandomInt();
                 if (lie == 0)
                 {
-                    maladie = Acces.BONNESANTE();
+                    maladie = Acces.Bonnesante();
                 }
                 else
                 {
@@ -81,7 +76,7 @@ namespace Patient
                 (string phrase, string nameTemp, IValue depress,IValue temp, IValue freq) = PreGenPat(maladie);
                 IAdn adn = GenAdn(maladie.AdnSain);
                 Variables.NbOfPatients += 1;
-                return new Patient(maladie, adn, maladie.AdnSain, depress, temp, freq, phrase, lie == 0, null, nameTemp,
+                return new PatientBase(maladie, adn, maladie.AdnSain, depress, temp, freq, phrase, lie == 0, null, nameTemp,
                     new Vector2(3, 6));
             }
 

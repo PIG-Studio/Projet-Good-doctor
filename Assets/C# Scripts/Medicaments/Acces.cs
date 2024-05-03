@@ -16,43 +16,43 @@ namespace Medicaments
         /// <param name="qte">La quantite a creer</param>
         /// <returns></returns>
         [NotNull]
-        public static Cyamure CYAMURE(uint qte)
+        public static Cyamure Cyamure(uint qte)
         {
             return new Cyamure(qte);
         }
 
 
-        public static Ananadvil ANANADVIL(uint qte)
+        public static Ananadvil Ananadvil(uint qte)
         {
             return new Ananadvil(qte);
         }
 
-        public static Chlorocoing CHLOROCOING(uint qte)
+        public static Chlorocoing Chlorocoing(uint qte)
         {
             return new Chlorocoing(qte);
         }
 
-        public static Doliprune DOLIPRUNE(uint qte)
+        public static Doliprune Doliprune(uint qte)
         {
             return new Doliprune(qte);
         }
 
-        public static Ibuprofigue IBUPROFIGUE(uint qte)
+        public static Ibuprofigue Ibuprofigue(uint qte)
         {
             return new Ibuprofigue(qte);
         }
 
-        public static Lisopoirine LISOPOIRINE(uint qte)
+        public static Lisopoirine Lisopoirine(uint qte)
         {
             return new Lisopoirine(qte);
         }
 
-        public static Opiomelon OPIOMELON(uint qte)
+        public static Opiomelon Opiomelon(uint qte)
         {
             return new Opiomelon(qte);
         }
 
-        public static Oxycodatte OXYCODATTE(uint qte)
+        public static Oxycodatte Oxycodatte(uint qte)
         {
             return new Oxycodatte(qte);
         }

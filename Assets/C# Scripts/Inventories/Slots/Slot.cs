@@ -1,8 +1,7 @@
 using Interfaces;
-using Interfaces.IObjects;
+using Interfaces.Objects;
 using JetBrains.Annotations;
 using UnityEngine;
-using static GameCore.GameVAR.Variables;
 using static GameCore.GameVAR.Constantes;
 
 namespace Inventories.Slots 

@@ -1,6 +1,8 @@
+using Interfaces.Destination;
+using Interfaces.Entites;
 using UnityEngine;
 using UnityEngine.AI;
-using GameCore.TypeExpand.Animator;
+using TypeExpand.Animator;
 
 namespace PNJ
 {
@@ -9,6 +11,8 @@ namespace PNJ
         public NavMeshAgent AgentComp { get; private set; }
 
         public Animator AnimatorComp { get; private set; }
+        public IDestination Destination { get; set; }
+        public ICanGoInDesk Patient { get; set; }
         
         public void Start()
         {
@@ -19,6 +23,16 @@ namespace PNJ
         public void Update()
         { 
             AnimatorComp.UpdateAnim(AgentComp.velocity);
+            if (Patient.EnAttente || !(AgentComp.remainingDistance < 2f)) return;
+            switch (Destination)
+            {
+                case IDeskDestination deskDestination:
+                    deskDestination.Add(Patient);
+                    break;
+                case INormalDestination normalDestination:
+                    normalDestination.Add(Patient);
+                    break;
+            }
         }
     }
 }
