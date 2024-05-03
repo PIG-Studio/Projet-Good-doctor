@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GameObjectScripts.Unique_Objects_Scripts
 {
-    public class GoUniquePlayerController : MonoBehaviour
+    public class UniqueGameTick : MonoBehaviour
     {
         private static bool _created;
 
