@@ -6,13 +6,11 @@ namespace InventoryTwo
     public class PickUpItem : MonoBehaviour
     {
         public ItemsSo item;
-        private void OnTriggerEnter2D(Collider2D other)
+        public void OnTriggerEnter2D(Collider2D other)
         {
-            if (CompareTag("Player"))
-            {
-                InventoryManager.instance.inventory.Add(item);
-                Destroy(gameObject);
-            }
+            if (!other.CompareTag("Player")) return;
+            InventoryManager.instance.inventory.Add(item);
+            Destroy(gameObject);
         }
     }
 }
