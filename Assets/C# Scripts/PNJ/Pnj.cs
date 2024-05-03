@@ -11,7 +11,7 @@ namespace PNJ
         public NavMeshAgent AgentComp { get; private set; }
 
         public Animator AnimatorComp { get; private set; }
-        public IDeskDestination Destination { get; set; }
+        public IDestination Destination { get; set; }
         public ICanGoInDesk Patient { get; set; }
         
         public void Start()
@@ -23,9 +23,15 @@ namespace PNJ
         public void Update()
         { 
             AnimatorComp.UpdateAnim(AgentComp.velocity);
-            if (!Patient.EnAttente && AgentComp.remainingDistance < 2f)
+            if (Patient.EnAttente || !(AgentComp.remainingDistance < 2f)) return;
+            switch (Destination)
             {
-                Destination.Add(Patient);
+                case IDeskDestination deskDestination:
+                    deskDestination.Add(Patient);
+                    break;
+                case INormalDestination normalDestination:
+                    normalDestination.Add(Patient);
+                    break;
             }
         }
     }
