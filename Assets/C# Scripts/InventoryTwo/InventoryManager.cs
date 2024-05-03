@@ -3,7 +3,7 @@ using ScriptableObject;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Image = UnityEngine.UI.Image;
+
 
 namespace InventoryTwo
 {
@@ -34,14 +34,14 @@ namespace InventoryTwo
                     }
                 }
 
-                for (int i = 0; i < inventory.Count; i++)//initialise l'inventaire
+                for (int i = 0; i < inventory.Count; i++) //initialise l'inventaire
                 {
                     slot = Instantiate(prefabs, transform.position, transform.rotation);
                     slot.transform.SetParent(hodlerSlot.transform);
                     if (inventory[i] != null)
                     {
-                        TextMeshProUGUI amount = slot.transform.Find("Amount").GetComponent<TextMeshProUGUI>();
-                        Image img = slot.transform.Find("Icon").GetComponent<Image>();
+                        TextMeshProUGUI amount = slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
+                        Image img = slot.transform.Find("icon").GetComponent<Image>();
 
                         amount.text = inventory[i].amount.ToString(); //remplace la quantité dans le prefab par la quantité du slot actuel
                         img.sprite = inventory[i].icon; // sprite du slot
