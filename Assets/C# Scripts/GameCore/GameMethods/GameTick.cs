@@ -6,16 +6,13 @@ using Personnel;
 using TypeExpand.String;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 namespace GameCore.GameMethods
 {
+    
     public class GameTick : MonoBehaviour
-    {
-        public void Start()
-        {
-                Janine janine = new Janine();
-            
-        }
-
+    { 
         public void Update()
         {
             if (Variables.SceneNameCurrent.IsDesk() || Variables.SceneNameCurrent == Scenes.Map)
