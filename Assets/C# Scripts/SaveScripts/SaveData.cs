@@ -45,7 +45,7 @@ namespace SaveScripts
                 public static void SaveGame()
                 {
                         Dictionary<string, string> input = new Dictionary<string, string>();
-                        input["DeskName"] = Variables.Desk.SceneName;
+                        input["DeskName"] = Desk.SceneName;
                         input["SaveName"] = SaveName;
                         input["SceneName"] = SceneNameCurrent;
                         string pos = LatestPos.Item1 + " , " + LatestPos.Item2;

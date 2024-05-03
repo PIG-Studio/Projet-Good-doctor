@@ -8,6 +8,7 @@ using Maladies;
 using Maladies.Base.SubTypes;
 using UnityEngine;
 using Maladies.Base.SubTypes.Symptomes;
+using Patient.Base;
 using TypeExpand.Value;
 
 namespace Patient
@@ -57,7 +58,7 @@ namespace Patient
         }
 
         [CanBeNull]
-        public static Patient GenPatient()
+        public static PatientBase GenPatient()
         {
             if (Variables.NbOfPatients < Constantes.MaxPatient)
             {
@@ -75,7 +76,7 @@ namespace Patient
                 (string phrase, string nameTemp, IValue depress,IValue temp, IValue freq) = PreGenPat(maladie);
                 IAdn adn = GenAdn(maladie.AdnSain);
                 Variables.NbOfPatients += 1;
-                return new Patient(maladie, adn, maladie.AdnSain, depress, temp, freq, phrase, lie == 0, null, nameTemp,
+                return new PatientBase(maladie, adn, maladie.AdnSain, depress, temp, freq, phrase, lie == 0, null, nameTemp,
                     new Vector2(3, 6));
             }
 

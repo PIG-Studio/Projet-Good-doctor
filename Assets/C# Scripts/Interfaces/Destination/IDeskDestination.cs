@@ -10,7 +10,7 @@ namespace Interfaces.Destination
         
         public Queue<ICanGoInDesk> DeskQueue { get; set; }
 
-        public uint Add(ICanGoInDesk patient);
+        public void Add(ICanGoInDesk patient);
         public ICanGoInDesk Pop();
 
     }
