@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Personnel
 {
-    public class Janine : IPnj , ISpawnableGo
+    public class Jeanine : IPnj, ISpawnableGo  
     {
         
         
@@ -22,7 +22,7 @@ namespace Personnel
         
         private string _catchprase;
 
-        public Janine()
+        public Jeanine()
         {
             Prefab = Resources.Load<GameObject>("Personnel");
             Skin = Resources.Load <Sprite> ("Sprites/Player/DinoSprites - vita");
