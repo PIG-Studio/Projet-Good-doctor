@@ -13,7 +13,7 @@ using UnityEngine.AI;
 
 namespace Patient.Base
 {
-    public class PatientBase : MonoBehaviour , IPnj , IPatient, ISpawnableGo, ICanGoInDesk
+    public class PatientBase : IPnj , IPatient, ISpawnableGo, ICanGoInDesk
     {
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
         /// <summary>
@@ -72,18 +72,7 @@ namespace Patient.Base
             this.LinkAnimator();
             InstancePnj = InstantiatedObject.AddComponent<Pnj>();
             InstancePnj.Patient = this;
-            InstantiatedObject.AddComponent<DialoguePatient>().@base = this;
-        }
-        
-        public void Talk()
-        {
-            if (CompareTag("Player"))
-            {
-                if (Input.GetKeyDown(KeyCode.T))
-                {
-                    Debug.Log(CatchPhrase);
-                }
-            }
+            InstantiatedObject.AddComponent<DialoguePatient>().Base = this;
         }
 
         /// <summary>

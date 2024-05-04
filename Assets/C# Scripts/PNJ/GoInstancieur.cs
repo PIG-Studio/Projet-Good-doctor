@@ -18,7 +18,7 @@ namespace PNJ
         public static void Instancier(this ISpawnableGo inputGo)
         {
             inputGo.InstantiatedObject = Object.Instantiate(inputGo.Prefab);
-            inputGo.InstantiatedObject.name = inputGo.Id;
+            inputGo.InstantiatedObject!.name = inputGo.Id;
         }
         
         public static void Despawn(this ISpawnableGo inputGo)
@@ -28,7 +28,7 @@ namespace PNJ
         
         public static void AddNavMeshAgent(this ISpawnableGo inputGo)
         {
-            NavMeshAgent component = inputGo.InstantiatedObject.AddComponent<NavMeshAgent>();
+            NavMeshAgent component = inputGo.InstantiatedObject!.AddComponent<NavMeshAgent>();
             component.angularSpeed = 0;
             component.updateRotation = false;
             component.SetDestination(new Vector3(-10, -11, 0));
