@@ -34,7 +34,6 @@ namespace Destinations
         {
             if (IsFull) throw new LogicException("Destination pleine, impossible d'ajouter une entité, il faut verifier si la capacite avant (cote patient)");
 
-            uint siege = 0;
             for (int i = 0; i < PtAttente.Length; i++)
             {
                 if (PtAttente[i].occupe) continue;

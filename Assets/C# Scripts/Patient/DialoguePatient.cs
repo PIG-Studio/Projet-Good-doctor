@@ -1,7 +1,6 @@
 using GameCore.GameVAR;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Patient.Base;
 
 namespace Patient
@@ -10,7 +9,7 @@ namespace Patient
     {
         public GameObject boiteDialogue; // référence à la boîte de dialogue public static Type Text { get; }
         public TextMeshProUGUI text;
-        public PatientBase @base;
+        public PatientBase Base;
         public Renderer bubble;
         private string _catchPhrase;
         private string _name;
@@ -27,8 +26,8 @@ namespace Patient
             bubble = boiteDialogue.GetComponent<SpriteRenderer>();
             boiteDialogue.SetActive(false); // le dialogue commence masqué
             bubble.enabled = false;
-            _catchPhrase = @base.CatchPhrase;
-            _name = @base.Name;
+            _catchPhrase = Base.CatchPhrase;
+            _name = Base.Name;
             text.text = _name;
             Vector3 pos = boiteDialogue.GetComponent<RectTransform>().position;
             boiteDialogue.GetComponent<RectTransform>().position = new Vector3(pos.x ,pos.y - 1f , pos.z);
