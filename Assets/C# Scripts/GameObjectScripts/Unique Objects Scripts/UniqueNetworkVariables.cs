@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GameObjectScripts.Unique_Objects_Scripts
 {
-    public class GoUniqueNetworkVariables : MonoBehaviour
+    public class UniqueNetworkVariables : MonoBehaviour
     {
         private static bool _created;
 
