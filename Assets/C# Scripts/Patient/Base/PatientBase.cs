@@ -75,6 +75,7 @@ namespace Patient.Base
             InstantiatedObject.AddComponent<DialoguePatient>().Base = this;
         }
 
+
         /// <summary>
         /// <value>WIP, bien avance</value>
         /// Choisit la destination du patient, pour le moment une seule et fixee, + tard aleatoirement
