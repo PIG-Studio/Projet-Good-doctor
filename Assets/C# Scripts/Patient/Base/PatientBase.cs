@@ -57,7 +57,7 @@ namespace Patient.Base
             
             AnalyseAdn = false;                     AnalyseDepression = false;              Skin = skin;
             
-            Position = position! ?? new Vector2(3, 6); // entrée hôpital
+            Position = position ?? new Vector2(3, 6); // entrée hôpital
             
             Spawn();
             ChooseDestination();
