@@ -22,14 +22,26 @@ namespace PNJ
 
         public void Update()
         { 
-            if (Patient.EnAttente || !(AgentComp.remainingDistance < 2f)) return;
+            if (Patient.EnAttente || AgentComp.remainingDistance > 2f) return;
             AnimatorComp.UpdateAnim(AgentComp.velocity);
             switch (Destination)
             {
                 case IDeskDestination deskDestination:
+                    if (deskDestination.IsFull)
+                    {
+                        Debug.Log("Destination pleine, recherche d'une autre destination");
+                        Patient.ChooseDestination();
+                        return;
+                    }
                     deskDestination.Add(Patient);
                     break;
                 case INormalDestination normalDestination:
+                    if (normalDestination.IsFull)
+                    {
+                        Debug.Log("Destination pleine, recherche d'une autre destination");
+                        Patient.ChooseDestination();
+                        return;
+                    }
                     normalDestination.Add(Patient);
                     break;
             }

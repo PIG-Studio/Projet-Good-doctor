@@ -1,4 +1,5 @@
 using System;
+using Exceptions;
 using GameCore.Variables;
 using Interfaces;
 using Interfaces.Destination;
@@ -84,15 +85,19 @@ namespace Patient.Base
         /// </summary>
         public void ChooseDestination()
         {
+            uint i = 0;
             while (true)
             {
-                Destination = Variable.AllDestinations[Variable.DeskDestinations.Length.RandomInt()];
+                Destination = Variable.AllDestinations[(Variable.DeskDestinations.Length-1).RandomInt()];
                 
-                if (Destination.IsFull) { continue; }
-
-                InstancePnj.Destination = Destination;
-                Agent.SetDestination(Destination.PtArrivee);
-                break;
+                i++;
+                if (i > 100) { throw new LogicException("Aucune destination disponible"); }
+                if (!Destination.IsFull) 
+                {
+                    InstancePnj.Destination = Destination;
+                    Agent.SetDestination(Destination.PtArrivee);
+                    break;
+                }
             }
         }
 
