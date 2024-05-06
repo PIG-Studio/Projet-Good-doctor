@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using Destinations;
+using System.Linq;
+using Destinations.Implementation;
 using GameCore.GameVAR;
 using Interfaces.Bureau;
 using Interfaces.Destination;
@@ -38,7 +39,8 @@ namespace Desks
             AssociatedDestination.PtAttente[0].coordonees = new Vector2(-10, -10);
             AssociatedDestination.PtAttente[1].coordonees = new Vector2(-13, -10);
             AssociatedDestination.PtAttente[2].coordonees = new Vector2(-16, -10);
-            
+
+            Variables.AllDestinations.Append(AssociatedDestination);
             Variables.DeskDestinations[CompteDeskDestinations] = AssociatedDestination;
             CompteDeskDestinations++;
         }
