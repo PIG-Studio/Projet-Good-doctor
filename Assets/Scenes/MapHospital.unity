@@ -9974,6 +9974,7 @@ GameObject:
   - component: {fileID: 1525448635}
   - component: {fileID: 1525448634}
   - component: {fileID: 1525448633}
+  - component: {fileID: 1525448636}
   m_Layer: 4
   m_Name: Furnitures
   m_TagString: Walls
@@ -12203,6 +12204,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1525448636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525448631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1541785075
 GameObject:
   m_ObjectHideFlags: 0
