@@ -88,7 +88,7 @@ namespace Patient.Base
             uint i = 0;
             while (true)
             {
-                Destination = Variable.AllDestinations[Variable.AllDestinations.Count.RandomInt()];//RINT NE PREND PAS LA BORNE SUP, Y A @ DEST AU MM ENDROIT CAR BUREAUX HARDCODED
+                Destination = Variable.AllDestinations[Variable.AllDestinations.Count.RandomInt()];//RINT NE PREND PAS LA BORNE SUP, Y A 2 DEST AU MM ENDROIT CAR BUREAUX HARDCODED
                 
                 i++;
                 if (i > 100) { throw new LogicException("Aucune destination disponible"); }

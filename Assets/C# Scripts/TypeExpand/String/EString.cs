@@ -1,5 +1,8 @@
 using JetBrains.Annotations;
 using Desks;
+using Destinations.Lieux.Bureaux;
+using GameCore.Variables;
+using Interfaces.Destination;
 
 namespace TypeExpand.String
 {
@@ -16,9 +19,7 @@ namespace TypeExpand.String
             {
                 try
                 {
-                    if (str.ToDesk() != null)
-                        return true;
-                    return false;
+                    return str.ToDesk() != null;
                 }
                 catch
                 {
@@ -49,6 +50,17 @@ namespace TypeExpand.String
                 }
 
                 return false;
+            }
+
+            [CanBeNull]
+            public static IDeskDestination ToDeskDestination(this string str)
+            {
+                return str switch
+                {
+                    "DESK_Base" => Bureau.DESK_Base(str.ToDesk()),
+                    "DESK_Upgraded" => Bureau.DESK_Upgraded(str.ToDesk()),
+                    _ => null
+                };
             }
     }
 }
