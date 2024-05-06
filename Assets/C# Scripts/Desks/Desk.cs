@@ -12,7 +12,7 @@ namespace Desks
 {
     public class Desk : IHasDestination, ICanReceivePatients
     {
-        public static uint CompteDeskDestinations;
+        private static uint _compteDeskDestinations;
         public string SceneName { get; }
         public Inventory Inventory { get; set; }
         public static Dictionary<string, Desk> SceneDeskDict { get; set; }
