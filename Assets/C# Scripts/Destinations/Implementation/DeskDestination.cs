@@ -32,6 +32,7 @@ namespace Destinations.Implementation
         
         public void Add(ICanGoInDesk entity)
         {
+            Debug.Log("Adding entity "+ (NbEntites+1) +" to desk destination");
             if (IsFull) throw new LogicException("Destination pleine, impossible d'ajouter une entité, il faut verifier si la capacite avant (cote patient)");
 
             for (int i = 0; i < PtAttente.Length; i++)
@@ -40,15 +41,20 @@ namespace Destinations.Implementation
                 PtAttente[i].occupe = true;
                 PtAttente[i].occupant = entity;
                 entity.Siege = (uint)i;
+                DeskQueue.Enqueue(entity);
+                NbEntites++;
+                IsFull = NbEntites == Capacite;
                 entity.StartWaiting();
                 break;
             }
-            
-            DeskQueue.Enqueue(entity);
-            NbEntites++;
-            IsFull = NbEntites == Capacite;
         }
 
+        
+        /// <summary>
+        /// A FINIR TODO
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="LogicException"></exception>
         public ICanGoInDesk Pop()
         {
             if (NbEntites == 0) throw new LogicException("Destination vide");
