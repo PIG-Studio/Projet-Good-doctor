@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+guid: 5751f4238cf1e2847a8a4259598a1881
+=======
+guid: 03f59906fd9bb86ff8687e8f5fdcdc02
+>>>>>>> main
+=======
+guid: 03f59906fd9bb86ff8687e8f5fdcdc02
+=======
+guid: 5751f4238cf1e2847a8a4259598a1881
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
