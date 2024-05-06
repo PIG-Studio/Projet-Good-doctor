@@ -22,8 +22,8 @@ namespace PNJ
 
         public void Update()
         { 
-            AnimatorComp.UpdateAnim(AgentComp.velocity);
             if (Patient.EnAttente || !(AgentComp.remainingDistance < 2f)) return;
+            AnimatorComp.UpdateAnim(AgentComp.velocity);
             switch (Destination)
             {
                 case IDeskDestination deskDestination:

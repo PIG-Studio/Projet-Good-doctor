@@ -1,13 +1,11 @@
-using System.Collections.Generic;
-using Desks;
 using Exceptions;
 using Interfaces.Destination;
 using Interfaces.Entites;
 using UnityEngine;
 
-namespace Destinations
+namespace Destinations.Implementation
 {
-    public class DeskDestination : IDeskDestination
+    public class NormalDestination : INormalDestination
     {
         public uint Capacite { get; }
         public bool IsFull { get; private set; }
@@ -16,50 +14,44 @@ namespace Destinations
         public Vector2 PtArrivee { get; set; }
         public (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] PtAttente { get; }
         
-        public Desk Bureau { get; }
-        public Queue<ICanGoInDesk> DeskQueue { get; set; }
-
-        public DeskDestination(uint capacite, Vector2 ptArrivee, (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] ptAttente, Desk bureau)
+        public NormalDestination(uint capacite, Vector2 ptArrivee, (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] ptAttente)
         {
             Capacite = capacite;
             PtArrivee = ptArrivee;
             PtAttente = ptAttente;
             IsFull = false;
             NbEntites = 0;
-            Bureau = bureau;
-            DeskQueue = new Queue<ICanGoInDesk>();
         }
         
-        public void Add(ICanGoInDesk entity)
+        public uint Add(ICanGoInDestination entity)
         {
             if (IsFull) throw new LogicException("Destination pleine, impossible d'ajouter une entité, il faut verifier si la capacite avant (cote patient)");
 
+            uint siege = 0;
             for (int i = 0; i < PtAttente.Length; i++)
             {
                 if (PtAttente[i].occupe) continue;
                 PtAttente[i].occupe = true;
                 PtAttente[i].occupant = entity;
-                entity.Siege = (uint)i;
                 entity.StartWaiting();
+                siege = (uint)i;
                 break;
             }
             
-            DeskQueue.Enqueue(entity);
             NbEntites++;
             IsFull = NbEntites == Capacite;
-        }
 
-        public ICanGoInDesk Pop()
+            return siege;
+        }
+        
+        public void Pop(uint siegeNb)
         {
             if (NbEntites == 0) throw new LogicException("Destination vide");
 
-            PtAttente[0].occupe = false;
-            PtAttente[0].occupant = null;
+            PtAttente[siegeNb].occupe = false;
+            PtAttente[siegeNb].occupant = null;
             NbEntites--;
             IsFull = false;
-
-            return DeskQueue.Dequeue();
         }
-        
     }
 }

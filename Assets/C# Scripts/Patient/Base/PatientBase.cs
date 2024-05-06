@@ -9,6 +9,7 @@ using Interfaces.Patient;
 using UnityEngine;
 using Maladies.Base;
 using PNJ;
+using TypeExpand.Int;
 using UnityEngine.AI;
 
 namespace Patient.Base
@@ -83,9 +84,16 @@ namespace Patient.Base
         /// </summary>
         public void ChooseDestination()
         {
-            Destination = Variables.DeskDestinations[0];
-            InstancePnj.Destination = Destination;
-            Agent.SetDestination(Destination.PtArrivee);
+            while (true)
+            {
+                Destination = Variables.AllDestinations[Variables.DeskDestinations.Length.RandomInt()];
+                
+                if (Destination.IsFull) { continue; }
+
+                InstancePnj.Destination = Destination;
+                Agent.SetDestination(Destination.PtArrivee);
+                break;
+            }
         }
 
         public void Leave()

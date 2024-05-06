@@ -66,6 +66,7 @@ namespace GameCore.GameVAR
         public static int NbOfPatients;
         
         ///////////////////// Variables des destinations, variables car nouvel objet si retoiur au menu //////////////////////
+        public static IDestination[] AllDestinations { get; set; }
         public static INormalDestination[] NormalDestinations { get; set; }
         public static IDeskDestination[] DeskDestinations { get; set; }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
