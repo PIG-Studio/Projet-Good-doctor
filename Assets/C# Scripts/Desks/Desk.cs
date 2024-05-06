@@ -25,7 +25,6 @@ namespace Desks
             Inventory = new Inventory();
             Debug.LogError("ADDED " + sceneName + " DESK");
             SceneDeskDict.Add(sceneName, this);
-            Debug.Log("ADDED 1 DESK");
             HasChanged = true;
         }
         
