@@ -1,5 +1,5 @@
 using System;
-using GameCore.GameVAR;
+using GameCore.Variables;
 using Interfaces;
 using Interfaces.Destination;
 using Interfaces.Entites;
@@ -86,7 +86,7 @@ namespace Patient.Base
         {
             while (true)
             {
-                Destination = Variables.AllDestinations[Variables.DeskDestinations.Length.RandomInt()];
+                Destination = Variable.AllDestinations[Variable.DeskDestinations.Length.RandomInt()];
                 
                 if (Destination.IsFull) { continue; }
 

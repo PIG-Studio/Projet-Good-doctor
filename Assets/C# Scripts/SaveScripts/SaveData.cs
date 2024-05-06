@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static GameCore.GameVAR.Variables;
+using GameCore.Variables;
 
 namespace SaveScripts
 {
@@ -22,16 +22,9 @@ namespace SaveScripts
                 {
 
                         bool valid = SaveLoadMethods.ValidNameToSave(input); // TODO : && nom pas en doublon 
-                        if (valid)
-                        {
-                                SaveName = input;
-                        }
-                        else
-                        {
-                                SaveName = "";
-                        }
+                        Variable.SaveName = valid ? input : "";
 
-                        Debug.Log("GameVariables.SaveName = " + SaveName +
+                        Debug.Log("GameVariables.SaveName = " + Variable.SaveName +
                                   " (FROM : GameVariables, apres modif de la valeur");
 
                         return valid;
@@ -44,10 +37,10 @@ namespace SaveScripts
                 public static void SaveGame()
                 {
                         Dictionary<string, string> input = new Dictionary<string, string>();
-                        input["DeskName"] = Desk.SceneName;
-                        input["SaveName"] = SaveName;
-                        input["SceneName"] = SceneNameCurrent;
-                        string pos = LatestPos.Item1 + " , " + LatestPos.Item2;
+                        input["DeskName"] = Variable.Desk.SceneName;
+                        input["SaveName"] = Variable.SaveName;
+                        input["SceneName"] = Variable.SceneNameCurrent;
+                        string pos = Variable.LatestPos.Item1 + " , " + Variable.LatestPos.Item2;
                         input["Position"] = pos;
                         SaveLoadMethods.WriteSaveGame(input);
                 }

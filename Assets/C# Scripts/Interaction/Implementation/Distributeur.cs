@@ -1,6 +1,6 @@
 ﻿using Interaction.Base;
 using UnityEngine;
-using static GameCore.GameVAR.Constantes;
+using GameCore.Constantes;
 
 
 namespace Interaction.Implementation
@@ -9,7 +9,7 @@ namespace Interaction.Implementation
     {    
         public void Interagir()
         {
-            if (Input.GetKeyDown(InteractKey))
+            if (Input.GetKeyDown(Constante.InteractKey)) // TODO : CHANGE TO A PARAM VALUE
             {
                 Instantiate(Resources.Load<GameObject>("Sprites/Items/sachet-madeleinespng"));
                 Debug.Log("Vous venez de récupérer un délicieux paquet de madeleine.");

@@ -1,5 +1,5 @@
 using CustomScenes;
-using GameCore.GameVAR;
+using GameCore.Variables;
 using Patient;
 using TypeExpand.String;
 using UnityEngine;
@@ -12,7 +12,7 @@ namespace GameCore.GameMethods
     { 
         public void Update()
         {
-            if (!Variables.SceneNameCurrent.IsDesk() && Variables.SceneNameCurrent != Scenes.Map) return;
+            if (!Variable.SceneNameCurrent.IsDesk() && Variable.SceneNameCurrent != Scenes.Map) return;
             if (!Input.GetKeyDown(KeyCode.P)) return;
             PatientBase guillaume = Patients.GenPatient();
             if (guillaume is null) return;

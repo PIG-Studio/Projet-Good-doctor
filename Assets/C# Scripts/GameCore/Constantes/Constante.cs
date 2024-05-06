@@ -1,12 +1,12 @@
 using UnityEngine;
 using Vector2 = System.Numerics.Vector2;
 
-namespace GameCore.GameVAR
+namespace GameCore.Constantes
 {
     /// <summary>
     /// Constantes du jeu, les variables utiles pour differents scripts qui NE CHANGERONT PAS durant l'execution
     /// </summary>
-    public static class Constantes
+    public static class Constante
     {
         /// <summary>
         /// Point de spawn du joueur

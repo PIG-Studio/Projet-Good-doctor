@@ -1,4 +1,4 @@
-using GameCore.GameVAR;
+using GameCore.Variables;
 using Inventories;
 using Inventories.Slots;
 using TypeExpand.String;
@@ -32,7 +32,7 @@ namespace Desks
                 UIPrefabs.INV_Inventory(Resources.Load<Sprite>("inventory"), "Inventory", 0, 0, 500, 50);
 
             // On recupere le bureau et l inventaire a afficher, NULL REFERENCE si script pas dans un bureau
-            InventoryToRender = Variables.SceneNameCurrent.ToDesk()!.Inventory;
+            InventoryToRender = Variable.SceneNameCurrent.ToDesk()!.Inventory;
 
             uint i = 0;
             foreach (Slot vSlot in InventoryToRender.Slots)
@@ -55,7 +55,7 @@ namespace Desks
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Variables.DeskBase.Inventory.AddItem(Medicaments.Acces.Cyamure(1));
+                Variable.DeskBase.Inventory.AddItem(Medicaments.Acces.Cyamure(1));
                 Debug.Log("Added CYAMURE to desk inventory");
             }
 

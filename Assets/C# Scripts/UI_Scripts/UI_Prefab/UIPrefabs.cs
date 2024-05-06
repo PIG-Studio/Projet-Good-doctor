@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UI_Scripts.UI_Prefab.UI_Objects;
 using GameCore.GameMethods;
-using GameCore.GameVAR;
+using GameCore.Variables;
 using static CustomScenes.Manager;
 using Interfaces;
 using SaveScripts;
@@ -109,7 +109,7 @@ namespace UI_Scripts.UI_Prefab
             float height, string resourcePath = "")
         {
             return UIButton.Create(id, text, posX, posY, width, height,
-                () => Methods.NewGame(Variables.SaveName), resourcePath); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
+                () => Methods.NewGame(Variable.SaveName), resourcePath); //TODO : ON VERRA SI ON SE FAIT CHIER AVEC LES LANGUES
         }
 
         /// <summary>

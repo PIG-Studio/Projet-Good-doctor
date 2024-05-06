@@ -1,4 +1,5 @@
-using GameCore.GameVAR;
+using GameCore.Constantes;
+using GameCore.Variables;
 using TypeExpand.Int;
 using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
@@ -35,10 +36,10 @@ namespace Patient
         }
         private static (string,string, IValue, IValue, IValue) PreGenPat(IMaladie maladie)
         { 
-            int phraseI = Constantes.PhraseArray.Length.RandomInt();
-            string phrase = Constantes.PhraseArray[phraseI];
-            int nameI = Constantes.NameArray.Length.RandomInt();
-            string name2 = Constantes.NameArray[nameI];
+            int phraseI = Constante.PhraseArray.Length.RandomInt();
+            string phrase = Constante.PhraseArray[phraseI];
+            int nameI = Constante.NameArray.Length.RandomInt();
+            string name2 = Constante.NameArray[nameI];
             
             IValue depress = new Value(maladie.Depression.RandomUint());
             IValue temp = new Value(maladie.Temperature.RandomUint());
@@ -51,16 +52,16 @@ namespace Patient
         {
             if (adnValid)
             {
-                return new Adn(Constantes.AdnArray[Constantes.AdnArray.Length.RandomInt()]);
+                return new Adn(Constante.AdnArray[Constante.AdnArray.Length.RandomInt()]);
             }
-            return new Adn(Constantes.AnormalAdnArray[Constantes.AnormalAdnArray.Length.RandomInt()]);
+            return new Adn(Constante.AnormalAdnArray[Constante.AnormalAdnArray.Length.RandomInt()]);
             
         }
 
         [CanBeNull]
         public static PatientBase GenPatient()
         {
-            if (Variables.NbOfPatients < Constantes.MaxPatient)
+            if (Variable.NbOfPatients < Constante.MaxPatient)
             {
                 IMaladie maladie;
                 int lie = 10.RandomInt();
@@ -75,7 +76,7 @@ namespace Patient
 
                 (string phrase, string nameTemp, IValue depress,IValue temp, IValue freq) = PreGenPat(maladie);
                 IAdn adn = GenAdn(maladie.AdnSain);
-                Variables.NbOfPatients += 1;
+                Variable.NbOfPatients += 1;
                 return new PatientBase(maladie, adn, maladie.AdnSain, depress, temp, freq, phrase, lie == 0, null, nameTemp,
                     new Vector2(3, 6));
             }

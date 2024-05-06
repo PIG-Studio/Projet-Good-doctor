@@ -1,7 +1,7 @@
 using TypeExpand.String;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using static GameCore.GameVAR.Variables;
+using GameCore.Variables;
 
 namespace CustomScenes
 {
@@ -25,14 +25,14 @@ namespace CustomScenes
         public static void ChangeScene(string newScene)
         {
             // On change les variables enregistrant la scene actuelle et la scene precedente
-            SceneNameLast = SceneManager.GetActiveScene().name;
-            SceneNameCurrent = newScene;
-            Debug.Log($"CustomSceneManager.ChangeScene() : {SceneNameLast} -> {SceneNameCurrent}");
+            Variable.SceneNameLast = SceneManager.GetActiveScene().name;
+            Variable.SceneNameCurrent = newScene;
+            Debug.Log($"CustomSceneManager.ChangeScene() : {Variable.SceneNameLast} -> {Variable.SceneNameCurrent}");
 
             // On actualise le bureau actuel
-            if (SceneNameCurrent.IsDesk())
+            if (Variable.SceneNameCurrent.IsDesk())
             {
-                CurrentlyRenderedDesk = SceneNameCurrent.ToDesk();
+                Variable.CurrentlyRenderedDesk = Variable.SceneNameCurrent.ToDesk();
             }
 
             // On charge la nouvelle scene
