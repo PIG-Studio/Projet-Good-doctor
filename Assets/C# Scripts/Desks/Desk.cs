@@ -42,6 +42,7 @@ namespace Desks
             Variable.AllDestinations.Add(AssociatedDestination);
             Variable.DeskDestinations[_compteDeskDestinations] = AssociatedDestination;
             _compteDeskDestinations++;
+            Debug.Log($"{_compteDeskDestinations}e destination initialisée");   
         }
 
         public void NextPatient()
