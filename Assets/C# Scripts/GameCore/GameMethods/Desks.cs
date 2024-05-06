@@ -1,5 +1,5 @@
 using UnityEngine;
-using GameCore.GameVAR;
+using GameCore.Variables;
 using Desks;
 using Interfaces.Destination;
 
@@ -13,11 +13,11 @@ namespace GameCore.GameMethods
         
         public void Start()
         {
-            Variables.DeskDestinations = new IDeskDestination[] {null, null, null};
-            Variables.NormalDestinations = new INormalDestination[] {};
+            Variable.DeskDestinations = new IDeskDestination[] {null, null, null};
+            Variable.NormalDestinations = new INormalDestination[] {};
             Desk.SceneDeskDict = new System.Collections.Generic.Dictionary<string, Desk>();
-            Variables.DeskBase = new Desk("DESK_Base");
-            Variables.DeskUpgraded = new Desk("DESK_Upgraded");
+            Variable.DeskBase = new Desk("DESK_Base");
+            Variable.DeskUpgraded = new Desk("DESK_Upgraded");
             
         }
     }

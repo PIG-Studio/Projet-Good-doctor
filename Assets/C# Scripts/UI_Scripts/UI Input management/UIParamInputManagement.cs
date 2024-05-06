@@ -1,7 +1,7 @@
 using Parameters;
 using static CustomScenes.Manager;
 using UnityEngine;
-using static GameCore.GameVAR.Variables;
+using GameCore.Variables;
 
 namespace UI_Scripts.UI_Input_Management
 {
@@ -10,7 +10,7 @@ namespace UI_Scripts.UI_Input_Management
         void Update()
         {
             if (Input.GetKeyDown(Values.EscapeKey) && !Values.TextInput)
-                ChangeScene(SceneNameLast);
+                ChangeScene(Variable.SceneNameLast);
         }
     }
 }

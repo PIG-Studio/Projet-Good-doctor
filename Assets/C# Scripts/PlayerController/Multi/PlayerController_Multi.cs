@@ -1,7 +1,7 @@
 using CustomScenes;
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.GameVAR.Variables;
+using GameCore.Variables;
 
 namespace PlayerController.Multi
 {
@@ -17,7 +17,7 @@ namespace PlayerController.Multi
 
         private void Update()
         {
-            if (IsOwner && SceneNameCurrent == Scenes.Menu)
+            if (IsOwner && Variable.SceneNameCurrent == Scenes.Menu)
             {
                 _playerController.vcam.SetActive(true);
                 _playerController.UpdateBase();

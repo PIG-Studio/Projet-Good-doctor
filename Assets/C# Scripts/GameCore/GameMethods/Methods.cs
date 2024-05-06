@@ -1,4 +1,4 @@
-using GameCore.GameVAR;
+using GameCore.Variables;
 using static CustomScenes.Manager;
 using Desks;
 using SaveScripts;
@@ -16,9 +16,9 @@ namespace GameCore.GameMethods
         /// <returns> void</returns>
         public static void SetVariables(string saveName, Desk deskName = null)
         {
-            Variables.Desk = deskName ?? Variables.DeskBase;
-            Variables.SaveName = saveName;
-            Variables.LoadName = null;
+            Variable.Desk = deskName ?? Variable.DeskBase;
+            Variable.SaveName = saveName;
+            Variable.LoadName = null;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace GameCore.GameMethods
             {
                 SetVariables(gameName);
                 SaveData.SaveGame();
-                ChangeScene(Variables.DeskBase.SceneName);
+                ChangeScene(Variable.DeskBase.SceneName);
             }
         }
 

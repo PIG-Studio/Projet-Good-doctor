@@ -1,4 +1,5 @@
-using GameCore.GameVAR;
+using GameCore.Constantes;
+using GameCore.Variables;
 using Interfaces;
 using TMPro;
 using UnityEngine;

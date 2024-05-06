@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Parameters;
 using UI_Scripts.UI_Prefab;
 using UnityEngine;
-using static GameCore.GameVAR.Variables;
+using GameCore.Variables;
 
 namespace UI_Scripts.UI_Scenes
 {
@@ -20,7 +20,7 @@ namespace UI_Scripts.UI_Scenes
                     ();
 
             // Ajout des elements a afficher
-            dicoRender["Retour"] = UIPrefabs.BTN_ChangeScene("Retour", "Retour", -500f, 300f, 150f, 50f, SceneNameLast);
+            dicoRender["Retour"] = UIPrefabs.BTN_ChangeScene("Retour", "Retour", -500f, 300f, 150f, 50f, Variable.SceneNameLast);
             dicoRender["Resolution"] =
                 UIPrefabs.DDW_Default<Resolutions>("DDW_Resolutions", "Resolutions", -300, 100, 175, 80);
             dicoRender["Windowed"] =

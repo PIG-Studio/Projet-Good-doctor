@@ -1,4 +1,4 @@
-using GameCore.GameVAR;
+using GameCore.Variables;
 using CustomScenes;
 using UnityEngine;
 using Parameters;
@@ -13,7 +13,7 @@ namespace Interaction.Implementation
             if (other.CompareTag("Player")){Debug.Log("Player touched");}
             if (Input.GetKeyDown(Keys.UseKey) && other.CompareTag("Player"))
             {
-                Manager.ChangeScene(Variables.Desk.SceneName);
+                Manager.ChangeScene(Variable.Desk.SceneName);
             }
         }
     }

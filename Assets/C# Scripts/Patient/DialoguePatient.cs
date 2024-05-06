@@ -1,4 +1,4 @@
-using GameCore.GameVAR;
+using GameCore.Constantes;
 using TMPro;
 using UnityEngine;
 using Patient.Base;
@@ -63,7 +63,7 @@ namespace Patient
 
         private void Update()
         {
-            if (_close && Input.GetKeyDown(Constantes.InteractKey) && bubble.enabled == false)
+            if (_close && Input.GetKeyDown(Constante.InteractKey) && bubble.enabled == false)
             {
                 Vector3 pos = boiteDialogue.GetComponent<RectTransform>().position;
                 boiteDialogue.GetComponent<RectTransform>().position = new Vector3(pos.x ,pos.y + 1f , pos.z);

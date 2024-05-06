@@ -1,6 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.GameVAR.Variables;
+using GameCore.Variables;
 using static CustomScenes.Manager;
 using CustomScenes;
 using TypeExpand.String;
@@ -23,7 +23,7 @@ namespace Network.UI.Buttons
             if (!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsHost)
             {
                 // Si on est au bureau, on a acces au bouton pour host 
-                if (SceneNameCurrent.IsDesk())
+                if (Variable.SceneNameCurrent.IsDesk())
                 {
                     if (GUILayout.Button("Host"))
                     {
@@ -39,7 +39,7 @@ namespace Network.UI.Buttons
                 }
 
                 // Si on est dans le menu, on a acces au bouton pour etre client
-                if (SceneNameCurrent == Scenes.Menu)
+                if (Variable.SceneNameCurrent == Scenes.Menu)
                 {
                     if (GUILayout.Button("Client"))
                     {
@@ -49,14 +49,7 @@ namespace Network.UI.Buttons
                 }
 
                 // On gere l instance du joueur solo, desactive par default
-                if (SceneNameCurrent == Scenes.Map)
-                {
-                    soloPlayer.SetActive(true);
-                }
-                else
-                {
-                    soloPlayer.SetActive(false);
-                }
+                soloPlayer.SetActive(Variable.SceneNameCurrent == Scenes.Map);
             }
             else
             {

@@ -1,6 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.GameVAR.Variables;
+using GameCore.Variables;
 
 namespace Network.Sync.Variables
 {
@@ -25,7 +25,7 @@ namespace Network.Sync.Variables
         {
             if (IsOwner)
             {
-                if (SceneNameCurrent == "MapHospital")
+                if (Variable.SceneNameCurrent == "MapHospital")
                 {
                     _pos.Value = transform.position;
                     _isOnMapScene.Value = true;

@@ -3,7 +3,7 @@ using TypeExpand.Animator;
 using Inventories;
           
 using UnityEngine;
-using static GameCore.GameVAR.Constantes;
+using GameCore.Constantes;
 namespace PlayerController.Base
 {
     /// <summary>
@@ -29,8 +29,8 @@ namespace PlayerController.Base
         public void UpdateBase()
         {
             // On recupere les entrees de l'utilisateur
-            float verticalInput = Input.GetAxis("Vertical") * MoveSpeed;
-            float horizontalInput = Input.GetAxis("Horizontal") * MoveSpeed;
+            float verticalInput = Input.GetAxis("Vertical") * Constante.MoveSpeed;
+            float horizontalInput = Input.GetAxis("Horizontal") * Constante.MoveSpeed;
 
             // On actualise l'animation en fonction de la direction
             _anims.UpdateAnim(new Vector2(horizontalInput, verticalInput));
@@ -38,8 +38,8 @@ namespace PlayerController.Base
 
             // On limite la vitesse de deplacement
             float vTot = (float)(Math.Sqrt(Math.Pow(horizontalInput, 2) + Math.Pow(verticalInput, 2)));
-            float coeffR = (MaxSpeed / vTot);
-            if (vTot > MaxSpeed)
+            float coeffR = (Constante.MaxSpeed / vTot);
+            if (vTot > Constante.MaxSpeed)
             {
                 horizontalInput *= coeffR;
                 verticalInput *= coeffR;

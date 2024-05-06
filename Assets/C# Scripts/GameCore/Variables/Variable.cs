@@ -1,12 +1,12 @@
 using Desks;
 using Interfaces.Destination;
 
-namespace GameCore.GameVAR
+namespace GameCore.Variables
 {
     /// <summary>
     /// Les variables utiles pour differents scripts qui PEUVENT CHANGER durant l'execution
     /// </summary>
-    public static class Variables
+    public static class Variable
     {
         /// <summary>
         /// Le bureau actuel du joueur

@@ -2,7 +2,7 @@ using Interfaces;
 using Interfaces.Objects;
 using Unity.Netcode;
 using UnityEngine;
-using static GameCore.GameVAR.Constantes;
+using GameCore.Constantes;
 using Inventories.Slots;
 
 namespace Inventories
@@ -16,8 +16,8 @@ namespace Inventories
 
         public Inventory()
         {
-            Slot[] obj = new Slot[InventorySize];
-            for (int i = 0; i < InventorySize; i++)
+            Slot[] obj = new Slot[Constante.InventorySize];
+            for (int i = 0; i < Constante.InventorySize; i++)
             {
                 obj[i] = new Slot();
             }
@@ -28,7 +28,7 @@ namespace Inventories
 
         public void AddItem(IObject item)
         {
-            for (int i = 0; i < InventorySize; i++)
+            for (int i = 0; i < Constante.InventorySize; i++)
             {
                 if (Slots[i].CanAdd(item))
                 {
@@ -42,7 +42,7 @@ namespace Inventories
 
         public void RemoveItem()
         {
-            for (int i = 0; i < InventorySize; i++)
+            for (int i = 0; i < Constante.InventorySize; i++)
             {
                 if (Slots[i] != null)
                 {
@@ -56,7 +56,7 @@ namespace Inventories
 
         public bool CanAdd(IObject item)
         {
-            for (int i = 0; i < InventorySize; i++)
+            for (int i = 0; i < Constante.InventorySize; i++)
             {
                 if (Slots[i].CanAdd(item))
                 {

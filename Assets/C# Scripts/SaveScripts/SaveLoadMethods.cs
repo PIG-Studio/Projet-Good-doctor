@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using GameCore.GameVAR;
+using GameCore.Variables;
 using TypeExpand.String;
 using Parameters;
 using UnityEngine;
@@ -128,7 +128,7 @@ namespace SaveScripts
             date = date.Replace(':', '.');
             date = date.Replace('/', '_');
             Debug.Log(date);
-            string saveName = Variables.SaveName;
+            string saveName = Variable.SaveName;
             // TODO : ecrire les variables dans un fichier .json ?
             string fileName = saveName + "@" + date;
             if (Directory.Exists(Values.SavesPath +
@@ -165,14 +165,14 @@ namespace SaveScripts
                     Debug.Log("Data Non Valides");
                 }
 
-                Variables.SaveName = savedContent["SaveName"];
-                Variables.Desk = savedContent["DeskName"].ToDesk();
-                Variables.SceneNameCurrent = savedContent["SceneName"];
+                Variable.SaveName = savedContent["SaveName"];
+                Variable.Desk = savedContent["DeskName"].ToDesk();
+                Variable.SceneNameCurrent = savedContent["SceneName"];
                 string[] positonString = savedContent["Position"].Split(' ');
                 positonString[0] = positonString[0].Remove(0, 1);
                 positonString[0] = positonString[0].Remove(positonString[0].Length - 1, 1);
                 positonString[1] = positonString[1].Remove(positonString[1].Length - 1, 1);
-                Variables.LatestPos = (float.Parse(positonString[0]), (float.Parse(positonString[1])));
+                Variable.LatestPos = (float.Parse(positonString[0]), (float.Parse(positonString[1])));
                 Debug.Log("Partie Chargée Avec Succès");
 
             }

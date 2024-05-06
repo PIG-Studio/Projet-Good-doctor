@@ -2,7 +2,7 @@ using Interfaces;
 using Interfaces.Objects;
 using JetBrains.Annotations;
 using UnityEngine;
-using static GameCore.GameVAR.Constantes;
+using GameCore.Constantes;
 
 namespace Inventories.Slots 
 {
@@ -38,7 +38,7 @@ namespace Inventories.Slots
         /// <param name="item">Objet implementant IObject</param>
         public void AddItem(IObject item)
         {
-            for (int i = 0; i < InventorySlotSize; i++)
+            for (int i = 0; i < Constante.InventorySlotSize; i++)
             {
                 
                 Debug.Log($"{Type} et {item.GetType()} donne {Type == item.GetType()}");
@@ -58,7 +58,7 @@ namespace Inventories.Slots
         
         public void RemoveItem()
         {
-            for (int i = InventorySlotSize-1; i >= 0; i--)
+            for (int i = Constante.InventorySlotSize-1; i >= 0; i--)
             {
                 if (Type != null)
                 {
@@ -82,7 +82,7 @@ namespace Inventories.Slots
         /// <returns>booleen</returns>
         public bool CanAdd(IObject item)
         {
-            if (Amount < InventorySlotSize && (Type == null || Type == item.GetType())) { return true; }
+            if (Amount < Constante.InventorySlotSize && (Type == null || Type == item.GetType())) { return true; }
             return false;
         }
         
