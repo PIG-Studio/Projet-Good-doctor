@@ -15,6 +15,7 @@ jobs:
         with:
           targetPlatform: StandaloneWindows
           projectPath: ./
+          unityVersion: 2022.3.16f1 
       - uses: actions/upload-artifact@v3
         with:
           name: Build
