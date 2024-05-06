@@ -2,7 +2,6 @@ using Desks;
 using Destinations.Lieux.Bureaux;
 using Interfaces.Destination;
 using JetBrains.Annotations;
-using TypeExpand.String;
 
 namespace TypeExpand.EDesk
 {
