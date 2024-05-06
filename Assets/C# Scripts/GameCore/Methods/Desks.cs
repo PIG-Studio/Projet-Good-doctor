@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using GameCore.Variables;
 using Desks;
@@ -13,7 +14,8 @@ namespace GameCore.Methods
         
         public void Start()
         {
-            Variable.DeskDestinations = new IDeskDestination[] {null, null, null};
+            Variable.AllDestinations = new List<IDestination>();
+            Variable.DeskDestinations = new IDeskDestination[3];
             Variable.NormalDestinations = new INormalDestination[] {};
             Desk.SceneDeskDict = new System.Collections.Generic.Dictionary<string, Desk>();
             Variable.DeskBase = new Desk("DESK_Base");

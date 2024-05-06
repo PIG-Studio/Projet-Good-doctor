@@ -1,3 +1,4 @@
+using CustomScenes;
 using GameCore.Variables;
 using static CustomScenes.Manager;
 using Desks;
@@ -32,7 +33,7 @@ namespace GameCore.Methods
             {
                 SetVariables(gameName);
                 SaveData.SaveGame();
-                ChangeScene(Variable.DeskBase.SceneName);
+                ChangeScene(Scenes.DBase);
             }
         }
 
