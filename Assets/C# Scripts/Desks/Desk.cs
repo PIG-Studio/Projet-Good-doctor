@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using Destinations.Implementation;
 using Interfaces.Bureau;
 using Interfaces.Destination;
 using Interfaces.Entites;
 using Inventories;
-using TypeExpand.String;
+using TypeExpand.EDesk;
 using UnityEngine;
 
 namespace Desks
@@ -22,7 +21,7 @@ namespace Desks
         {
             SceneName = sceneName;
             CurrentPatient = null;
-            AssociatedDestination = sceneName.ToDeskDestination()!;
+            AssociatedDestination = this.ToDeskDestination()!;
             Inventory = new Inventory();
             Debug.LogError("ADDED " + sceneName + " DESK");
             SceneDeskDict.Add(sceneName, this);
