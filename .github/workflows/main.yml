@@ -18,7 +18,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows
-          projectPath: ./
+          projectPath: /home/runner/work/Projet-Good-doctor/Projet-Good-doctor
           unityVersion: 2022.3.16f1 
       - uses: actions/upload-artifact@v3
         with:
