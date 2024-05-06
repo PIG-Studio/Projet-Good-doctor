@@ -41,8 +41,8 @@ namespace Desks
             AssociatedDestination.PtAttente[2].coordonees = new Vector2(-16, -10);
 
             Variable.AllDestinations.Append(AssociatedDestination);
-            Variable.DeskDestinations[CompteDeskDestinations] = AssociatedDestination;
-            CompteDeskDestinations++;
+            Variable.DeskDestinations[_compteDeskDestinations] = AssociatedDestination;
+            _compteDeskDestinations++;
         }
 
         public void NextPatient()
