@@ -15,9 +15,9 @@ namespace GameCore.Methods
         public void Start()
         {
             Variable.AllDestinations = new List<IDestination>();
-            Variable.DeskDestinations = new IDeskDestination[3];
+            Variable.DeskDestinations = new IDeskDestination[3] {null, null, null};
             Variable.NormalDestinations = new INormalDestination[] {};
-            Desk.SceneDeskDict = new System.Collections.Generic.Dictionary<string, Desk>();
+            Desk.SceneDeskDict = new Dictionary<string, Desk>();
             Variable.DeskBase = new Desk("DESK_Base");
             Variable.DeskUpgraded = new Desk("DESK_Upgraded");
             
