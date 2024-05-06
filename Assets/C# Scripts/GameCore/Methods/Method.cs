@@ -3,10 +3,10 @@ using static CustomScenes.Manager;
 using Desks;
 using SaveScripts;
 
-namespace GameCore.GameMethods
+namespace GameCore.Methods
 {
 
-    public static class Methods
+    public static class Method
     {
         /// <summary>
         /// initialize GameVariables' values to default, unless values are specified

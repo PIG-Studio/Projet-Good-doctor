@@ -5,7 +5,7 @@ using TypeExpand.String;
 using UnityEngine;
 using Patient.Base;
 
-namespace GameCore.GameMethods
+namespace GameCore.Methods
 {
     
     public class GameTick : MonoBehaviour

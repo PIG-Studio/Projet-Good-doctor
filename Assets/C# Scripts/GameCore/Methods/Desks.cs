@@ -3,7 +3,7 @@ using GameCore.Variables;
 using Desks;
 using Interfaces.Destination;
 
-namespace GameCore.GameMethods
+namespace GameCore.Methods
 {
     /// <summary>
     /// Ce scipt DOIT etre dans l'objet du menu afin que les bureaux soient initialises lorsau'on lance le jeu ou qu'on change de partie
