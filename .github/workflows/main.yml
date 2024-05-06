@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
       - run: pwd
         shell: bash
       - run: ls
