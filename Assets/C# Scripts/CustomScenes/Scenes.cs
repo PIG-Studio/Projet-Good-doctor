@@ -5,10 +5,10 @@ namespace CustomScenes{
 
 public static class Scenes
 {
-    public static readonly string Menu = "Menu";
-    public static readonly string DBase = "Desk_Base";
-    public static readonly string DUpgraded = "Desk_Upgraded";
-    public static readonly string Param = "Parameters";
-    public static readonly string Map = "MapHospital";
+    public const string Menu = "Menu";
+    public const string DBase = "DESK_Base";
+    public static readonly string DUpgraded = "DESK_Upgraded";
+    public const string Param = "Parameters";
+    public const string Map = "MapHospital";
 }
 }

@@ -1873,8 +1873,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278851669}
-  - component: {fileID: 1278851670}
   - component: {fileID: 1278851671}
+  - component: {fileID: 1278851670}
   m_Layer: 0
   m_Name: ScriptContainerObject
   m_TagString: Untagged

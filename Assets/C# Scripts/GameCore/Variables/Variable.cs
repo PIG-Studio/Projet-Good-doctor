@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Desks;
 using Interfaces.Destination;
 
@@ -66,7 +67,7 @@ namespace GameCore.Variables
         public static int NbOfPatients;
         
         ///////////////////// Variables des destinations, variables car nouvel objet si retoiur au menu //////////////////////
-        public static IDestination[] AllDestinations { get; set; }
+        public static List<IDestination> AllDestinations { get; set; }
         public static INormalDestination[] NormalDestinations { get; set; }
         public static IDeskDestination[] DeskDestinations { get; set; }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

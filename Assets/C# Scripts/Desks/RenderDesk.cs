@@ -59,7 +59,7 @@ namespace Desks
                 Debug.Log("Added CYAMURE to desk inventory");
             }
 
-            if (InventoryToRender.HasChanged)
+            /*if (InventoryToRender.HasChanged)
             {
                 Debug.Log("Inventory has changed, rendering new inventory...");
                 foreach (Slot vSlot in InventoryToRender.Slots)
@@ -79,7 +79,7 @@ namespace Desks
 
                 InventoryToRender.HasChanged = false;
                 Debug.Log("Inventory rendered");
-            }
+            }*/
         }
     }
 }
