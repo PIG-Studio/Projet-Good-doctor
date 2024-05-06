@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+guid: 8c3ab71b17a40c949b15f27204761427
+=======
+guid: e3c1e6cfc742740fa96895eacf31418a
+>>>>>>> main
+=======
+guid: e3c1e6cfc742740fa96895eacf31418a
+=======
+guid: 8c3ab71b17a40c949b15f27204761427
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

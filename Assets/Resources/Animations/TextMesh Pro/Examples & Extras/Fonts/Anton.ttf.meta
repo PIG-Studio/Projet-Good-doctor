@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+guid: a6cebf72ffc677143a57b86976b82382
+=======
+guid: e5ec7c175c4fd000ab09c9e22a08f47e
+>>>>>>> main
+=======
+guid: e5ec7c175c4fd000ab09c9e22a08f47e
+=======
+guid: a6cebf72ffc677143a57b86976b82382
+>>>>>>> 1ad9907 (save)
+>>>>>>> dev_Alex
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Anton
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
