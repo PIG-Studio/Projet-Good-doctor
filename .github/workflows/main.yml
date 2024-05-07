@@ -2,11 +2,11 @@ name: Build Windows
 
 on:
   push:
-    tags : [ 'release_v*.*.*' ]
+    branch : [ 'main' ]
 
 jobs:
   build:
-    #if: ${{ github.ref == 'refs/heads/main' }}
+    if: startsWith(github.ref, 'refs/tags/release'
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
