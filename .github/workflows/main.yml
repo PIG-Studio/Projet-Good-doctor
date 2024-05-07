@@ -2,7 +2,7 @@ name: Build Windows
 
 on:
   push:
-    tags : [ 'release' ]
+    tags : [ 'release_v.*.*.*' ]
 
 jobs:
   build:
