@@ -1,13 +1,12 @@
 using Interfaces;
 using Interfaces.Objects;
-using Unity.Netcode;
 using UnityEngine;
 using GameCore.Constantes;
 using Inventories.Slots;
 
 namespace Inventories
 {
-    public class Inventory : NetworkBehaviour, IInventory
+    public class Inventory : IInventory
     {
         public Slot[] Slots { get; set; }
         public GameObject Object { get; set; }
