@@ -1,8 +1,4 @@
 using JetBrains.Annotations;
-using Desks;
-using Destinations.Lieux.Bureaux;
-using GameCore.Variables;
-using Interfaces.Destination;
 
 namespace TypeExpand.String
 {
