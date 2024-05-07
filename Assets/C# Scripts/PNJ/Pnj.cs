@@ -31,7 +31,7 @@ namespace PNJ
                     {
                         Debug.Log("Destination pleine, recherche d'une autre destination");
                         Patient.ChooseDestination();
-                        return;
+                        break;
                     }
                     deskDestination.Add(Patient);
                     break;
@@ -40,7 +40,7 @@ namespace PNJ
                     {
                         Debug.Log("Destination pleine, recherche d'une autre destination");
                         Patient.ChooseDestination();
-                        return;
+                        break;
                     }
                     normalDestination.Add(Patient);
                     break;
