@@ -2,14 +2,13 @@ name: Build Windows
 
 on:
   push:
-    branches:
-      - main
     tags : [ 'release' ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions: write-all
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
