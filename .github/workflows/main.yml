@@ -5,7 +5,14 @@ on:
     branch : [ 'main' ]
 
 jobs:
-
+  needData:
+    name: pfff
+    runs-on: ubuntu-latest
+    steps: 
+      - run: pwd
+        shell: bash
+      - run: ls -a
+        shell: bash
   buildForWindowsBasedPlatforms:
     if: startsWith(github.ref, 'refs/tags/release')
     name: Build for ${{ matrix.targetPlatform }}
