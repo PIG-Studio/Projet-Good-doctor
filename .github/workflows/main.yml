@@ -6,8 +6,8 @@ on:
 
 jobs:
 
-  if: startsWith(github.ref, 'refs/tags/release')
   buildForWindowsBasedPlatforms:
+    if: startsWith(github.ref, 'refs/tags/release')
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: windows-2022
     strategy:
@@ -47,7 +47,9 @@ jobs:
         with:
           name: Build
           path: build
-  buildAndTestForLinuxBasedPlatforms:
+  
+  buildForLinuxBasedPlatforms:
+    if: startsWith(github.ref, 'refs/tags/release')
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
     strategy:
