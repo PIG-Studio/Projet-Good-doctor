@@ -23,7 +23,7 @@ namespace Desks
             CurrentPatient = null;
             AssociatedDestination = this.ToDeskDestination()!;
             Inventory = new Inventory();
-            Debug.LogError("ADDED " + sceneName + " DESK");
+            Debug.Log("ADDED " + sceneName + " DESK");
             SceneDeskDict.Add(sceneName, this);
             HasChanged = true;
         }
