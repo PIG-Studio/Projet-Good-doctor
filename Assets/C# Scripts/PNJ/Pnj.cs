@@ -1,3 +1,5 @@
+using CustomScenes;
+using GameCore.Variables;
 using Interfaces.Destination;
 using Interfaces.Entites;
 using UnityEngine;
@@ -13,17 +15,23 @@ namespace PNJ
         public Animator AnimatorComp { get; private set; }
         public IDestination Destination { get; set; }
         public ICanGoInDesk Patient { get; set; }
+        private SpriteRenderer _spriteRenderer;
         
         public void Start()
         {
             AgentComp = gameObject.GetComponent<NavMeshAgent>();
             AnimatorComp = gameObject.GetComponent<Animator>();
+            _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         }
 
         public void Update()
         { 
-            AnimatorComp.UpdateAnim(AgentComp.velocity);
+            if (Variable.SceneNameCurrent == Scenes.Map) 
+            { _spriteRenderer.enabled = true;AnimatorComp.UpdateAnim(AgentComp.velocity);}
+            else { _spriteRenderer.enabled = false; }
+
             if (Patient.EnAttente || AgentComp.remainingDistance > 2f) return;
+            
             switch (Destination)
             {
                 case IDeskDestination deskDestination:
