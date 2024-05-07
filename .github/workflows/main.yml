@@ -28,13 +28,12 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
-          path: ${{ matrix.projectPath }}/Library
+          path: Library
           key:
-            Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{
-            hashFiles(matrix.projectPath) }}
+            Library-${{ matrix.targetPlatform }}-${{
+            hashFiles(Library) }}
           restore-keys: |
-            Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
-            Library-${{ matrix.projectPath }}-
+            Library-${{ matrix.targetPlatform }}-
             Library-
       - uses: game-ci/unity-builder@v4.2.3
         env:
@@ -70,13 +69,12 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
-          path: ${{ matrix.projectPath }}/Library
+          path: Library
           key:
-            Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{
-            hashFiles(matrix.projectPath) }}
+            Library-${{ matrix.targetPlatform }}-${{
+            hashFiles(Library) }}
           restore-keys: |
-            Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
-            Library-${{ matrix.projectPath }}-
+            Library-${{ matrix.targetPlatform }}-
             Library-
       - if: matrix.targetPlatform == 'Android'
         uses: jlumbroso/free-disk-space@v1.2.0
