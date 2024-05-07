@@ -2,7 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-[Ll]ibrary/
+#[Ll]ibrary/ a remettre pour rendu final
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
