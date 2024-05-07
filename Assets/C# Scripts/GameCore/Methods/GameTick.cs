@@ -9,7 +9,7 @@ namespace GameCore.Methods
 {
     
     public class GameTick : MonoBehaviour
-    { 
+    {
         public void Update()
         {
             if (!Variable.SceneNameCurrent.IsDesk() && Variable.SceneNameCurrent != Scenes.Map) return;
