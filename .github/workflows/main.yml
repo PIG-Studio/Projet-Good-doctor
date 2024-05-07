@@ -28,10 +28,10 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
-          path: Library
+          path: ./Library
           key:
             Library-${{ matrix.targetPlatform }}-${{
-            hashFiles(Library) }}
+            hashFiles(./Library) }}
           restore-keys: |
             Library-${{ matrix.targetPlatform }}-
             Library-
@@ -69,10 +69,10 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
-          path: Library
+          path: ./Library
           key:
             Library-${{ matrix.targetPlatform }}-${{
-            hashFiles(Library) }}
+            hashFiles(./Library) }}
           restore-keys: |
             Library-${{ matrix.targetPlatform }}-
             Library-
