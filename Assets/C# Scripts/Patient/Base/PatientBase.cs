@@ -31,8 +31,11 @@ namespace Patient.Base
         /// <summary>
         /// : IHasPrefab, stocke le prefab du patient 
         /// </summary>
-        public GameObject Prefab { get; } = Resources.Load<GameObject>("Patient");
+        public GameObject Prefab { get; } = Resources.Load<GameObject>("Prefabs/Patient");
         
+        /// <summary>
+        /// 
+        /// </summary>
         public GameObject InstantiatedObject { get; set; }
         
         //ICanGOInDestination Implem
