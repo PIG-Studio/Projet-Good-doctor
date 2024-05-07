@@ -27,7 +27,7 @@ namespace PNJ
         public void Update()
         { 
             if (Variable.SceneNameCurrent == Scenes.Map) 
-            { _spriteRenderer.enabled = true;AnimatorComp.UpdateAnim(AgentComp.velocity);}
+            { _spriteRenderer.enabled = true; AnimatorComp.UpdateAnim(AgentComp.velocity); }
             else { _spriteRenderer.enabled = false; }
 
             if (Patient.EnAttente || AgentComp.remainingDistance > 2f) return;
