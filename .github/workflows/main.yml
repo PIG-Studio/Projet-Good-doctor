@@ -13,8 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        projectPath:
-          - ./
+        libraryPath:
+          - ./Library
         targetPlatform:
           - StandaloneWindows # Build a Windows 32-bit standalone.
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
@@ -30,8 +30,7 @@ jobs:
         with:
           path: ./Library
           key:
-            Library-${{ matrix.targetPlatform }}-${{
-            hashFiles(./Library) }}
+            Library-${{ matrix.targetPlatform }}-${{ hashFiles(matrix.libraryPath) }}
           restore-keys: |
             Library-${{ matrix.targetPlatform }}-
             Library-
@@ -54,8 +53,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        projectPath:
-          - ./
+        libraryPath:
+          - ./Library
         targetPlatform:
           - StandaloneLinux64 # Build a Linux 64-bit standalone.
           - iOS # Build an iOS player.
@@ -71,8 +70,7 @@ jobs:
         with:
           path: ./Library
           key:
-            Library-${{ matrix.targetPlatform }}-${{
-            hashFiles(./Library) }}
+            Library-${{ matrix.targetPlatform }}-${{ hashFiles(matrix.libraryPath) }}
           restore-keys: |
             Library-${{ matrix.targetPlatform }}-
             Library-
