@@ -24,7 +24,7 @@ namespace Personnel
 
         public Jeanine()
         {
-            Prefab = Resources.Load<GameObject>("Personnel");
+            Prefab = Resources.Load<GameObject>("Prefabs/Personnel");
             Skin = Resources.Load <Sprite> ("Sprites/Player/DinoSprites - vita");
             Name = "Janine";
             Position = new Vector2(-6.890f, 5.7358f);
