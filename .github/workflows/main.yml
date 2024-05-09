@@ -5,7 +5,22 @@ on:
     branch : [ 'main' ]
 
 jobs:
+<<<<<<< HEAD
 
+=======
+  needData:
+    name: pfff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true 
+      - run: pwd
+        shell: bash
+      - run: ls -a
+        shell: bash
+>>>>>>> main
   buildForWindowsBasedPlatforms:
     if: startsWith(github.ref, 'refs/tags/release')
     name: Build for ${{ matrix.targetPlatform }}
@@ -13,8 +28,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+<<<<<<< HEAD
         projectPath:
           - ./
+=======
+        libraryPath:
+          - ./Library
+>>>>>>> main
         targetPlatform:
           - StandaloneWindows # Build a Windows 32-bit standalone.
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
@@ -28,6 +48,7 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
+<<<<<<< HEAD
           path: ${{ matrix.projectPath }}/Library
           key:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{
@@ -35,6 +56,13 @@ jobs:
           restore-keys: |
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectPath }}-
+=======
+          path: ./Library
+          key:
+            Library-${{ matrix.targetPlatform }}-${{ hashFiles(matrix.libraryPath) }}
+          restore-keys: |
+            Library-${{ matrix.targetPlatform }}-
+>>>>>>> main
             Library-
       - uses: game-ci/unity-builder@v4.2.3
         env:
@@ -55,8 +83,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+<<<<<<< HEAD
         projectPath:
           - ./
+=======
+        libraryPath:
+          - ./Library
+>>>>>>> main
         targetPlatform:
           - StandaloneLinux64 # Build a Linux 64-bit standalone.
           - iOS # Build an iOS player.
@@ -70,6 +103,7 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
+<<<<<<< HEAD
           path: ${{ matrix.projectPath }}/Library
           key:
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-${{
@@ -77,6 +111,13 @@ jobs:
           restore-keys: |
             Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}-
             Library-${{ matrix.projectPath }}-
+=======
+          path: ./Library
+          key:
+            Library-${{ matrix.targetPlatform }}-${{ hashFiles(matrix.libraryPath) }}
+          restore-keys: |
+            Library-${{ matrix.targetPlatform }}-
+>>>>>>> main
             Library-
       - if: matrix.targetPlatform == 'Android'
         uses: jlumbroso/free-disk-space@v1.2.0
