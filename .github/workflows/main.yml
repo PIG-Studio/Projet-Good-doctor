@@ -5,7 +5,18 @@ on:
     branch : [ 'main' ]
 
 jobs:
-
+  needData:
+    name: pfff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true 
+      - run: pwd
+        shell: bash
+      - run: ls -a
+        shell: bash
   buildForWindowsBasedPlatforms:
     if: startsWith(github.ref, 'refs/tags/release')
     name: Build for ${{ matrix.targetPlatform }}
