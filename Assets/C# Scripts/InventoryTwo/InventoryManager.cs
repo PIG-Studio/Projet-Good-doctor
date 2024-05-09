@@ -3,7 +3,7 @@ using ScriptableObject;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Parameters;
 
 namespace InventoryTwo
 {
@@ -12,7 +12,7 @@ namespace InventoryTwo
         public List<ItemsSo> inventory; //liste d'item avec qui on peut interagir
         public int inventoryLenght = 15;
         public GameObject inventoryPanel, hodlerSlot; // pour l'UI
-        private GameObject slot;
+        private GameObject _slot;
         public GameObject prefabs;
         public GameObject holderDescription;
         public static InventoryManager Instance; // acceder partout
@@ -24,7 +24,7 @@ namespace InventoryTwo
         }
         private void Update()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.I) && !inventoryPanel.activeInHierarchy) //quand i est pressé et que l'UI n'est pas activé 
+            if (Input.GetKeyDown(Keys.InventoryKey) && !inventoryPanel.activeInHierarchy) //quand i est pressé et que l'UI n'est pas activé 
             {
                 inventoryPanel.SetActive(true); // ouvre UI
                 if (hodlerSlot.transform.childCount > 0) // si contient des enfants
@@ -37,25 +37,27 @@ namespace InventoryTwo
 
                 for (int i = 0; i < inventoryLenght; i++) //initialise l'inventaire
                 {
-                    if (i <= inventory.Count)
+                    if (i < inventory.Count)
                     {
-                        slot = Instantiate(prefabs, transform.position, transform.rotation);
-                        slot.transform.SetParent(hodlerSlot.transform);
-                        TextMeshProUGUI amount = slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
-                        Image img = slot.transform.Find("icon").GetComponent<Image>();
-                        slot.GetComponent<SlotItem>().itemSlot = i;
+                        var transform1 = transform;
+                        _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
+                        _slot.transform.SetParent(hodlerSlot.transform);
+                        
+                        TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>(); 
+                        _slot.transform.Find("icon").GetComponent<Image>(); // met le l'icon de l'objet dans inventaire
+                        _slot.GetComponent<SlotItem>().itemSlot = i; 
                         
                         amount.text = inventory[i].amount.ToString(); //remplace la quantité dans le prefab par la quantité du slot actuel
                     }
-                    else if (i > inventory.Count - 1)
+                    else if (i >= inventory.Count) // creer des slots vide dans l'inventaire
                     {
-                        slot = Instantiate(prefabs, transform.position, transform.rotation);
-                        slot.transform.SetParent(hodlerSlot.transform);
-                        slot.GetComponent<SlotItem>().itemSlot = i;
-                        TextMeshProUGUI amount = slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
+                        var transform1 = transform;
+                        _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
+                        _slot.transform.SetParent(hodlerSlot.transform);
+                        _slot.GetComponent<SlotItem>().itemSlot = i;
+                        TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                         amount.gameObject.SetActive(false);
-                        Image img = slot.transform.Find("icon").GetComponent<Image>();
-
+                        _slot.transform.Find("icon").GetComponent<Image>();
                     }
                         
                 }
