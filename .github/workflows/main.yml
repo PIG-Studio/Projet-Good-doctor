@@ -2,7 +2,7 @@ name: Builds
 
 on:
   push:
-    branch : [ 'main' ]
+    branch : [ 'pasmain' ]
 
 jobs:
   needData:
