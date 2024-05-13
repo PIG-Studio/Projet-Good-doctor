@@ -2,6 +2,6 @@ namespace Interfaces.GameObjects
 {
     public interface ICallOnSceneChange
     {
-        void OnSceneChange();
+        void OnSceneChange(int index);
     }
 }

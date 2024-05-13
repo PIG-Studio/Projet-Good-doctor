@@ -15,11 +15,11 @@ public class DontDestroyOnLoad : MonoBehaviour, ICallOnSceneChange
         Variable.ListToCallOnSceneChange.Add(this);
     }
 
-    public void OnSceneChange()
+    public void OnSceneChange(int index)
     {
         if (Variable.SceneNameCurrent != Scenes.Menu) return;
         
-        Variable.ListToCallOnSceneChange.Remove(this);
+        Variable.ListToCallOnSceneChange.RemoveAt(index);
         Destroy(_gameObject);
     }
     

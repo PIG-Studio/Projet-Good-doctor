@@ -28,7 +28,12 @@ namespace CustomScenes
             Variable.SceneNameLast = SceneManager.GetActiveScene().name;
             Variable.SceneNameCurrent = newScene;
             Debug.Log($"CustomSceneManager.ChangeScene() : STARTING {Variable.SceneNameLast} -> {Variable.SceneNameCurrent}");
-            Variable.ListToCallOnSceneChange.ForEach(x => x.OnSceneChange());
+            
+            int len = Variable.ListToCallOnSceneChange.Count;
+            for (int i = len - 1; i > 0; i++)
+            {
+                Variable.ListToCallOnSceneChange[i].OnSceneChange(i);
+            }
 
             // On actualise le bureau actuel
             if (Variable.SceneNameCurrent.IsDesk())
