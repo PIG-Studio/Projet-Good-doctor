@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using CustomScenes;
 using GameCore.Variables;
 using static CustomScenes.Manager;
 using Desks;
+using Interfaces.GameObjects;
 using SaveScripts;
 
 namespace GameCore.Methods
@@ -20,6 +22,7 @@ namespace GameCore.Methods
             Variable.Desk = deskName ?? Variable.DeskBase;
             Variable.SaveName = saveName;
             Variable.LoadName = null;
+            Variable.ListToCallOnSceneChange = new List<ICallOnSceneChange>();
         }
 
         /// <summary>

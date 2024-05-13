@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Desks;
 using Interfaces.Destination;
+using Interfaces.GameObjects;
 
 namespace GameCore.Variables
 {
@@ -71,5 +72,7 @@ namespace GameCore.Variables
         public static INormalDestination[] NormalDestinations { get; set; }
         public static IDeskDestination[] DeskDestinations { get; set; }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        public static List<ICallOnSceneChange> ListToCallOnSceneChange { get; set; }
     }
 }

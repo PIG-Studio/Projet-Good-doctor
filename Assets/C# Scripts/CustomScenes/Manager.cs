@@ -27,7 +27,8 @@ namespace CustomScenes
             // On change les variables enregistrant la scene actuelle et la scene precedente
             Variable.SceneNameLast = SceneManager.GetActiveScene().name;
             Variable.SceneNameCurrent = newScene;
-            Debug.Log($"CustomSceneManager.ChangeScene() : {Variable.SceneNameLast} -> {Variable.SceneNameCurrent}");
+            Debug.Log($"CustomSceneManager.ChangeScene() : STARTING {Variable.SceneNameLast} -> {Variable.SceneNameCurrent}");
+            Variable.ListToCallOnSceneChange.ForEach(x => x.OnSceneChange());
 
             // On actualise le bureau actuel
             if (Variable.SceneNameCurrent.IsDesk())
@@ -37,6 +38,7 @@ namespace CustomScenes
 
             // On charge la nouvelle scene
             SceneManager.LoadScene(newScene);
+            Debug.Log($"CustomSceneManager.ChangeScene() : ENDED {Variable.SceneNameLast} -> {Variable.SceneNameCurrent}");
         }
 
         /// <summary>
