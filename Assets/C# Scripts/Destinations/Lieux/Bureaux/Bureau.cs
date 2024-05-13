@@ -3,20 +3,16 @@ using Destinations.Implementation;
 using GameCore.Variables;
 using Interfaces.Destination;
 using Interfaces.Entites;
-using Interfaces.GameObjects;
 using UnityEngine;
 
 namespace Destinations.Lieux.Bureaux
 {
     public class Bureau
     {
-        private static uint _compteDeskDestinations;
-        
         private static void AjustementVariables(IDeskDestination bureauCree)
         {
             Variable.AllDestinations.Add(bureauCree);
             Variable.DeskDestinations[bureauCree.DeskId] = bureauCree;
-            _compteDeskDestinations++;
             Debug.Log($"destination {bureauCree.DeskId} initialisée ({bureauCree.Bureau.SceneName})"); 
         }
         

@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using CustomScenes;
 using GameCore.Variables;
 using static CustomScenes.Manager;
 using Desks;
-using Interfaces.GameObjects;
 using SaveScripts;
 
 namespace GameCore.Methods
