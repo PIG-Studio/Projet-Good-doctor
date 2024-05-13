@@ -26,7 +26,7 @@ namespace SaveScripts
                 }
             }
 
-            Debug.Log($"Save name valid : {retour} ({testStr}");
+            Debug.Log($"ValidNameToSave : {retour} ( \"{testStr}\" )");
             return retour;
         }
 
