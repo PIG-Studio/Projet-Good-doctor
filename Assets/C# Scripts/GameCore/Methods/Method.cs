@@ -22,7 +22,6 @@ namespace GameCore.Methods
             Variable.Desk = deskName ?? Variable.DeskBase;
             Variable.SaveName = saveName;
             Variable.LoadName = null;
-            Variable.ListToCallOnSceneChange = new List<ICallOnSceneChange>();
         }
 
         /// <summary>

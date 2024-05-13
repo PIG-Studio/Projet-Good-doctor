@@ -12,6 +12,7 @@ public class DontDestroyOnLoad : MonoBehaviour, ICallOnSceneChange
     {
         _gameObject = gameObject;
         DontDestroyOnLoad(_gameObject);
+        if (Variable.ListToCallOnSceneChange is null) Variable.ListToCallOnSceneChange = new System.Collections.Generic.List<ICallOnSceneChange>();
         Variable.ListToCallOnSceneChange.Add(this);
     }
 

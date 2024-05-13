@@ -10,17 +10,19 @@ namespace Destinations.Implementation
         public uint Capacite { get; }
         public bool IsFull { get; private set; }
         public uint NbEntites { get; private set; }
+        public uint DeskId { get; }
         
         public Vector2 PtArrivee { get; set; }
         public (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] PtAttente { get; }
         
-        public NormalDestination(uint capacite, Vector2 ptArrivee, (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] ptAttente)
+        public NormalDestination(uint capacite, Vector2 ptArrivee, (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] ptAttente, uint listId)
         {
             Capacite = capacite;
             PtArrivee = ptArrivee;
             PtAttente = ptAttente;
             IsFull = false;
             NbEntites = 0;
+            DeskId = listId;
         }
         
         public uint Add(ICanGoInDestination entity)

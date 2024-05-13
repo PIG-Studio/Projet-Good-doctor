@@ -12,6 +12,7 @@ namespace Destinations.Implementation
         public uint Capacite { get; }
         public bool IsFull { get; private set; }
         public uint NbEntites { get; private set; }
+        public uint DeskId { get; }
         
         public Vector2 PtArrivee { get; set; }
         public (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] PtAttente { get; }
@@ -19,7 +20,7 @@ namespace Destinations.Implementation
         public Desk Bureau { get; }
         public Queue<ICanGoInDesk> DeskQueue { get; set; }
 
-        public DeskDestination(uint capacite, Vector2 ptArrivee, (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] ptAttente, Desk bureau)
+        public DeskDestination(uint capacite, Vector2 ptArrivee, (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] ptAttente, Desk bureau, uint listId)
         {
             Capacite = capacite;
             PtArrivee = ptArrivee;
@@ -28,6 +29,7 @@ namespace Destinations.Implementation
             NbEntites = 0;
             Bureau = bureau;
             DeskQueue = new Queue<ICanGoInDesk>();
+            DeskId = listId;
         }
         
         public void Add(ICanGoInDesk entity)
