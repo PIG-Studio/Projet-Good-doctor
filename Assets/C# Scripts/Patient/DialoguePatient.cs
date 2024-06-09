@@ -1,4 +1,6 @@
+using CustomScenes;
 using GameCore.Constantes;
+using GameCore.Variables;
 using TMPro;
 using UnityEngine;
 using Patient.Base;
@@ -36,7 +38,7 @@ namespace Patient
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag("Player")) return;
+            if (Variable.SceneNameCurrent != Scenes.Map || !other.CompareTag("Player")) return;
             
             _close = true;
             boiteDialogue.SetActive(true);
