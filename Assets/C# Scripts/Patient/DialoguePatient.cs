@@ -23,7 +23,6 @@ namespace Patient
         private void Start()
         {
             boiteDialogue = gameObject.transform.GetChild(0).gameObject;
-            text = boiteDialogue.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
             bubble = boiteDialogue.GetComponent<SpriteRenderer>();
             boiteDialogue.SetActive(false); // le dialogue commence masqué
             bubble.enabled = false;
