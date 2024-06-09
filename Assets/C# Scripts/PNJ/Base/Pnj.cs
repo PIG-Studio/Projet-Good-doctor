@@ -3,6 +3,7 @@ using GameCore.Variables;
 using Super.Abstract;
 using UnityEngine;
 using TypeExpand.Animator;
+using Unity.Netcode;
 
 namespace PNJ.Base
 {
@@ -17,12 +18,16 @@ namespace PNJ.Base
         protected override Animator Anims { get; set; }
         protected override SpriteRenderer Sprite { get; set; }
         
+        
 
         public void Start()
         {
-            Anims = gameObject.GetComponent<Animator>();
-           Sprite = gameObject.GetComponent<SpriteRenderer>();
-           Position = transform.position;
+            Anims = gameObject.GetComponent<Animator>(); 
+            Sprite = gameObject.GetComponent<SpriteRenderer>(); 
+            Position = transform.position;
+            if (!NetworkManager.Singleton.IsHost) return;
+            NetworkObject instanceNetworkObject = gameObject.GetComponent<NetworkObject>();
+            instanceNetworkObject.Spawn();
         }
 
         public void Update()

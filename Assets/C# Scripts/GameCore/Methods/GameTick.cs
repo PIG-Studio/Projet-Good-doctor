@@ -5,6 +5,7 @@ using Patient;
 using TypeExpand.String;
 using UnityEngine;
 using Patient.Base;
+using Unity.Netcode;
 
 namespace GameCore.Methods
 {
@@ -21,6 +22,7 @@ namespace GameCore.Methods
         public void Update()
         {
             Debug.Log(_patient);
+            if (!NetworkManager.Singleton.IsHost) return;
             if (!Variable.SceneNameCurrent.IsDesk() && Variable.SceneNameCurrent != Scenes.Map) return;
             if (!Input.GetKeyDown(KeyCode.P)) return;
             
