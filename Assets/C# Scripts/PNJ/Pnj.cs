@@ -2,11 +2,9 @@ using CustomScenes;
 using GameCore.Variables;
 using Interfaces;
 using Interfaces.Destination;
-using Interfaces.Entites;
 using UnityEngine;
 using UnityEngine.AI;
 using TypeExpand.Animator;
-using Unity.Netcode;
 
 namespace PNJ
 {
