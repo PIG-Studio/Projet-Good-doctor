@@ -1,4 +1,3 @@
-using System;
 using Unity.Netcode;
 using UnityEngine;
 using GameCore.Variables;
@@ -15,9 +14,10 @@ namespace Network.UI.Buttons
     /// </summary>
     public class Show : MonoBehaviour
     {
-        public GameObject soloPlayer; //player to activate when we stop hosting or disconnect
         public UnityTransport transport;
-        private string _ip = "IP";
+        private string _ip = "";
+        private uint _compte;
+        private string _textButton = "Connect";
 
         public void Start()
         {
@@ -55,12 +55,16 @@ namespace Network.UI.Buttons
                     {
                         NetworkManager.Singleton.StartClient();
                     }*/
-                    
+                    GUILayout.TextField("IP");
                     _ip = GUILayout.TextField(_ip, new []{GUILayout.Width(200)});
                     transport.ConnectionData.Address = _ip;
-                    if (GUILayout.Button("Connect"))
+                    if (GUILayout.Button(_textButton))
                     {
-                        // TODO : if is ipv4, else change button text to unvalid try again 
+                        if (_textButton == "Invalid IPv4" && _compte > 500) { _textButton = "Connect"; _compte = 0; }
+                        else if (_textButton == "Invalid IPv4") { _compte++; }
+                        
+                        if (!_ip.IsIpv4()) { _textButton = "Invalid IPv4";}
+                        
                         NetworkManager.Singleton.StartClient();
                         ChangeScene(Scenes.DBase);
                     }

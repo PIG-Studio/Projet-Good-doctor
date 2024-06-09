@@ -362,10 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d24d7473f07b9c9986796fb6b61d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boiteDialogue: {fileID: 6084298944442033513}
-  text: {fileID: 5975937801200756477}
-  patient: {fileID: -6691154926583562992}
-  bubble: {fileID: 657221574257372657}
 --- !u!1 &3918680600613842574
 GameObject:
   m_ObjectHideFlags: 0

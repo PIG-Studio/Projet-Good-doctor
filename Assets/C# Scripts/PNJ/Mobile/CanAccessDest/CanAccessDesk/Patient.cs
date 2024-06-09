@@ -24,7 +24,6 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public IValue Temperature { get; set; }
         public bool AnalyseAdn { get; set; }
         public bool AnalyseDepression { get; set; }
-        public string CatchPhrase { get; set; }
         public IValue FreqCar { get; set; }
         public bool IsAlive { get; set; }
         public bool IsLying { get; set; }
@@ -41,7 +40,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 
             (Sickness, IsLying) = Acces.GenererRandom();
             Adn = Attributs.GenAdn(Sickness.AdnSain);
-            (CatchPhrase, Name, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
+            (Phrase, Name, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
             ChooseDestination();
         }
         

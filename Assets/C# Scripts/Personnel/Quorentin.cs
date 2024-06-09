@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Personnel
 {
-    public class Quorentin : PnjImmobile , ISpawn
+    public class Quorentin : PNJ.Immobile.Personnel , ISpawn
     {
         public Quorentin()
         {

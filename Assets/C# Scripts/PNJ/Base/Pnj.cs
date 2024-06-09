@@ -10,10 +10,12 @@ namespace PNJ.Base
     public class Pnj : APnj
     {
         public override string Name { get; protected set; }
+        public override string Phrase { get; protected set; }
         protected override Sprite Skin { get; set; }
-        public override Vector2 Position { get; protected set; }
+        protected override Vector2 Position { get; set; }
         private Vector2 LastPosition { get; set; }
         private Vector2 Velocity { get; set; }
+        
 
         protected override Animator Anims { get; set; }
         protected override SpriteRenderer Sprite { get; set; }

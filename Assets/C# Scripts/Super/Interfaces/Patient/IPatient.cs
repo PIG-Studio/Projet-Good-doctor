@@ -12,8 +12,6 @@ namespace Interfaces.Patient
         
         /*public int Mood { get; set; }*/
         
-        public string CatchPhrase { get; set; }
-        
         public IValue FreqCar { get; set; }
         
         public IValue Temperature { get; set; }

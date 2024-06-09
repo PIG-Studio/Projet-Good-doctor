@@ -1,11 +1,10 @@
 using System;
 using Interfaces;
 using PNJ.Immobile;
-using UnityEngine;
 
 namespace Personnel
 {
-    public class Corentin : PnjImmobile , ISpawn
+    public class Corentin : PNJ.Immobile.Personnel , ISpawn
     {
         public Corentin()
         {

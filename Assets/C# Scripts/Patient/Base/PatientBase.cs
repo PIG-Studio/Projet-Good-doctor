@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using Exceptions;
 using GameCore.Variables;
 using Interfaces;
@@ -12,7 +12,7 @@ using Maladies.Base;
 using PNJ;
 using TypeExpand.Int;
 using Unity.Netcode;
-using UnityEngine.AI;
+using UnityEngine.AI;*/
 
 namespace Patient.Base
 {

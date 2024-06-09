@@ -47,5 +47,25 @@ namespace TypeExpand.String
 
             return false;
         }
+        
+        
+        public static bool IsIpv4(this string str)
+        {
+            if(str is null || str.Length < 7 || str.Length > 15)
+                return false;
+            
+            var split = str.Split('.');
+            if (split.Length != 4)
+                return false;
+            foreach (var s in split)
+            {
+                if (!s.ToInt().HasValue)
+                    return false;
+                if (s.ToInt() is not (>= 0 and <= 255))
+                    return false;
+            }
+
+            return true;
+        }
     }
 }

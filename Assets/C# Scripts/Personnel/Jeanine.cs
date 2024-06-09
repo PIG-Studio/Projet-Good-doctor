@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace Personnel
 {
-    public class Jeanine : PnjImmobile, ISpawnableGo  
+    public class Jeanine : PNJ.Immobile.Personnel, ISpawnableGo  
     {
         public GameObject Prefab { get; }
         public GameObject InstantiatedObject { get; set; }

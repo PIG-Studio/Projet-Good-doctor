@@ -16,10 +16,9 @@ namespace PNJ.Mobile.CanAccessDest
         protected new void Start()
         {
             base.Start();
-            
             EnAttente = false;
             
-            if (IsHost)
+            if (Unity.Netcode.NetworkManager.Singleton.IsHost)
             {
                 ChooseDestination();
             }

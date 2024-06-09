@@ -1,4 +1,4 @@
-using GameCore.Constantes;
+/*using GameCore.Constantes;
 using GameCore.Variables;
 using TypeExpand.Int;
 using Interfaces.Maladies;
@@ -10,7 +10,7 @@ using Maladies.Base.SubTypes;
 using UnityEngine;
 using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
-using TypeExpand.Value;
+using TypeExpand.Value;*/
 
 namespace Patient
 {

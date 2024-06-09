@@ -1,11 +1,10 @@
 using System;
 using Interfaces;
 using PNJ.Immobile;
-using UnityEngine;
 
 namespace Personnel
 {
-    public class ChefGiovanni : PnjImmobile , ISpawn
+    public class ChefGiovanni : PNJ.Immobile.Personnel , ISpawn
     {
         public ChefGiovanni()
         {
