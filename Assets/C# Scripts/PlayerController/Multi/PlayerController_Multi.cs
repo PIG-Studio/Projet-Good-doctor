@@ -17,7 +17,7 @@ namespace PlayerController.Multi
 
         private void Update()
         {
-            if (IsOwner && Variable.SceneNameCurrent == Scenes.Menu)
+            if (IsOwner && Variable.SceneNameCurrent == Scenes.Map)
             {
                 _playerController.vcam.SetActive(true);
                 _playerController.UpdateBase();
