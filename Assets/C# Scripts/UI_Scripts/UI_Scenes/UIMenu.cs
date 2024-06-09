@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UI_Scripts.UI_Prefab;
 using CustomScenes;
+using GameCore.Variables;
 using Menu;
 
 namespace UI_Scripts.UI_Scenes
@@ -14,6 +15,8 @@ namespace UI_Scripts.UI_Scenes
         // Start est appele des l'arrivee sur la scene
         void Start()
         {
+            Variable.SceneNameCurrent = Scenes.Menu;
+            
             // Initialisation du dictionnaire des elements a afficher
             Dictionary<string, GameObject> dicoRender =
                 new Dictionary<string, GameObject>

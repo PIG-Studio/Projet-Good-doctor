@@ -1,9 +1,11 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 using GameCore.Variables;
 using static CustomScenes.Manager;
 using CustomScenes;
 using TypeExpand.String;
+using Unity.Netcode.Transports.UTP;
 
 
 namespace Network.UI.Buttons
@@ -14,9 +16,17 @@ namespace Network.UI.Buttons
     public class Show : MonoBehaviour
     {
         public GameObject soloPlayer; //player to activate when we stop hosting or disconnect
+        public UnityTransport transport;
+        string temp = "IP";
+
+        public void Start()
+        {
+            transport = GameObject.Find("Multiplayer").GetComponent<UnityTransport>();
+        }
 
         private void OnGUI()
         {
+            
             GUILayout.BeginArea(new Rect(10, 10, 300, 300));
 
             // Si on est pas client ni host
@@ -41,10 +51,16 @@ namespace Network.UI.Buttons
                 // Si on est dans le menu, on a acces au bouton pour etre client
                 if (Variable.SceneNameCurrent == Scenes.Menu)
                 {
-                    if (GUILayout.Button("Client"))
+                    /*if (GUILayout.Button("Client"))
                     {
                         NetworkManager.Singleton.StartClient();
-                        soloPlayer.SetActive(false);
+                    }*/
+                    
+                    temp = GUILayout.TextField(temp, new []{GUILayout.Width(200)});
+                    transport.ConnectionData.Address = temp;
+                    if (GUILayout.Button("Connect"))
+                    {
+                        NetworkManager.Singleton.StartClient();
                     }
                 }
 
@@ -62,12 +78,11 @@ namespace Network.UI.Buttons
                     GUILayout.Label($"Connected : {NetworkManager.Singleton.ConnectedClients.Count}");
 
                     // Bouton pour arreter le serveur
-                    if (GUILayout.Button("Shutdown"))
+                    if (GUILayout.Button("Menu"))
                     {
-                        soloPlayer.transform.position = NetworkManager.Singleton.ConnectedClients[0].PlayerObject
-                            .transform.position;
-                        soloPlayer.SetActive(true);
                         NetworkManager.Singleton.Shutdown();
+                        // TODO : savegame
+                        ChangeScene("Menu");
                     }
                 }
                 // Si on est client
