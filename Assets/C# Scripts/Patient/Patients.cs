@@ -11,10 +11,11 @@ using UnityEngine;
 using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
 using TypeExpand.Value;
+using Unity.Netcode;
 
 namespace Patient
 {
-    public class Patients : MonoBehaviour
+    public class Patients
     {
         // choisis aleatoire maladie , mensonge ou non , pour plus tard Skin/Nom/Catchphrase
         //choisis en randint dans maladie.array[maladies] 

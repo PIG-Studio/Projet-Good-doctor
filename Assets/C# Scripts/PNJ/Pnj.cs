@@ -1,14 +1,16 @@
 using CustomScenes;
 using GameCore.Variables;
+using Interfaces;
 using Interfaces.Destination;
 using Interfaces.Entites;
 using UnityEngine;
 using UnityEngine.AI;
 using TypeExpand.Animator;
+using Unity.Netcode;
 
 namespace PNJ
 {
-    public class Pnj : MonoBehaviour
+    public class Pnj : NetworkBehaviour
     {
         public NavMeshAgent AgentComp { get; private set; }
 
@@ -22,6 +24,7 @@ namespace PNJ
             AgentComp = gameObject.GetComponent<NavMeshAgent>();
             AnimatorComp = gameObject.GetComponent<Animator>();
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            gameObject.AddComponent<NetworkObject>();
         }
 
         public void Update()
