@@ -48,6 +48,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public new void Update()
         {
             base.Update();
+            if (!Unity.Netcode.NetworkManager.Singleton.IsHost) return;
             if (EnAttente || Navigation.remainingDistance > 2f) return;
             
             if (Destination.IsFull)

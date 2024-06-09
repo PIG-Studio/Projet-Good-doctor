@@ -30,7 +30,7 @@ namespace CustomScenes
             Debug.Log($"CustomSceneManager.ChangeScene() : STARTING {Variable.SceneNameLast} -> {Variable.SceneNameCurrent}");
             
             int len = Variable.ListToCallOnSceneChange.Count;
-            for (int i = len - 1; i > 0; i--)
+            for (int i = len - 1; i >= 0; i--)
             {
                 Variable.ListToCallOnSceneChange[i].OnSceneChange(i);
             }

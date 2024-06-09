@@ -20,14 +20,16 @@ namespace PNJ.Base
         {
             Anims = gameObject.GetComponent<Animator>();
            Sprite = gameObject.GetComponent<SpriteRenderer>();
+           Rb = gameObject.GetComponent<Rigidbody2D>();
         }
 
         public void Update()
         { 
-            if (!IsHost) return;
+            Debug.Log("Update from Pnj.cs");
             
+            Debug.Log("IsHost from Pnj.cs");
             if (Variable.SceneNameCurrent == Scenes.Map) 
-            { Sprite.enabled = true; Anims.UpdateAnim(Rb.velocity); }
+            { Sprite.enabled = true; Anims.UpdateAnim(Rb.velocity); Debug.Log("UpdateAnim from Pnj.cs");}
             else 
             { Sprite.enabled = false; }
 

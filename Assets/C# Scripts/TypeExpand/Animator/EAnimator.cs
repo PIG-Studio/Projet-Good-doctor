@@ -14,7 +14,7 @@ namespace TypeExpand.Animator
 
         public static void UpdateAnim(this UnityEngine.Animator animator, Vector2? inputs = null)
         {
-            
+            Debug.Log("UpdateAnim " + inputs);
             if (inputs is null || inputs == Vector2.zero)
             {
                 animator.SetBool(MovingUp, false);
