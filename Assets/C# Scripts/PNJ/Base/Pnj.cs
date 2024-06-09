@@ -11,25 +11,30 @@ namespace PNJ.Base
         public override string Name { get; protected set; }
         protected override Sprite Skin { get; set; }
         public override Vector2 Position { get; protected set; }
+        private Vector2 LastPosition { get; set; }
+        private Vector2 Velocity { get; set; }
 
         protected override Animator Anims { get; set; }
         protected override SpriteRenderer Sprite { get; set; }
-        protected override Rigidbody2D Rb { get; set; }
+        
 
         public void Start()
         {
             Anims = gameObject.GetComponent<Animator>();
            Sprite = gameObject.GetComponent<SpriteRenderer>();
-           Rb = gameObject.GetComponent<Rigidbody2D>();
+           Position = transform.position;
         }
 
         public void Update()
         { 
-            Debug.Log("Update from Pnj.cs");
-            
-            Debug.Log("IsHost from Pnj.cs");
-            if (Variable.SceneNameCurrent == Scenes.Map) 
-            { Sprite.enabled = true; Anims.UpdateAnim(Rb.velocity); Debug.Log("UpdateAnim from Pnj.cs");}
+            if (Variable.SceneNameCurrent == Scenes.Map)
+            {
+                Sprite.enabled = true;
+                LastPosition = Position;
+                Position = transform.position;
+                Velocity = Position - LastPosition;
+                Anims.UpdateAnim(Velocity);
+            }
             else 
             { Sprite.enabled = false; }
 

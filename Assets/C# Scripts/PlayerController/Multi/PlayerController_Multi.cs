@@ -1,30 +1,25 @@
 using CustomScenes;
-using Unity.Netcode;
-using UnityEngine;
 using GameCore.Variables;
 
 namespace PlayerController.Multi
 {
-    public class Multi : NetworkBehaviour
+    public class Multi : Base.PlayerController
     {
-        public GameObject vcam;
-        private Base.Base _playerController = new();
-
-        void Start()
+        new void Start()
         {
-            _playerController.StartBase(vcam, gameObject);
+            base.Start();
         }
 
-        private void Update()
+        private new void Update()
         {
             if (IsOwner && Variable.SceneNameCurrent == Scenes.Map)
             {
-                _playerController.vcam.SetActive(true);
-                _playerController.UpdateBase();
+                vcam.SetActive(true);
+                base.Update();
             }
             else
             {
-                _playerController.vcam.SetActive(false);
+                vcam.SetActive(false);
             }
         }
     }

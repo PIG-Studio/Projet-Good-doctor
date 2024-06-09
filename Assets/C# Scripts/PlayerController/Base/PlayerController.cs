@@ -4,29 +4,30 @@ using Inventories;
           
 using UnityEngine;
 using GameCore.Constantes;
+using Unity.Netcode;
+
 namespace PlayerController.Base
 {
     /// <summary>
     /// Base pour les classes de contrôle des movements des joueurs
     /// </summary>
-    public class Base : MonoBehaviour
+    public class PlayerController : NetworkBehaviour
     {
-        private Rigidbody2D _rb; // Reference to the Rigidbody2D component
-        private Animator _anims;
+        protected Rigidbody2D _rb; // Reference to the Rigidbody2D component
+        protected Animator _anims;
         public GameObject vcam;
-        public Inventory PlayerInventory { get; set; }
+        protected Inventory PlayerInventory { get; set; }
 
-        public void StartBase(GameObject vcamIn, GameObject player)
+        public void Start()
         {
-            _rb = player.GetComponent<Rigidbody2D>();
-            _anims = player.GetComponent<Animator>();
-            vcam = vcamIn;
+            _rb = gameObject.GetComponent<Rigidbody2D>();
+            _anims = gameObject.GetComponent<Animator>();
         }
 
         /// <summary>
         /// Met à jour la position de l'objet
         /// </summary>
-        public void UpdateBase()
+        public void Update()
         {
             // On recupere les entrees de l'utilisateur
             float verticalInput = Input.GetAxis("Vertical") * Constante.MoveSpeed;
