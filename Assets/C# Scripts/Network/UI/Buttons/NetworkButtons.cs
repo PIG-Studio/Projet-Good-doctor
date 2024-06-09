@@ -17,7 +17,7 @@ namespace Network.UI.Buttons
     {
         public GameObject soloPlayer; //player to activate when we stop hosting or disconnect
         public UnityTransport transport;
-        string temp = "IP";
+        private string _ip = "IP";
 
         public void Start()
         {
@@ -56,16 +56,17 @@ namespace Network.UI.Buttons
                         NetworkManager.Singleton.StartClient();
                     }*/
                     
-                    temp = GUILayout.TextField(temp, new []{GUILayout.Width(200)});
-                    transport.ConnectionData.Address = temp;
+                    _ip = GUILayout.TextField(_ip, new []{GUILayout.Width(200)});
+                    transport.ConnectionData.Address = _ip;
                     if (GUILayout.Button("Connect"))
                     {
+                        // TODO : if is ipv4, else change button text to unvalid try again 
                         NetworkManager.Singleton.StartClient();
+                        ChangeScene(Scenes.DBase);
                     }
                 }
 
                 // On gere l instance du joueur solo, desactive par default
-                soloPlayer.SetActive(Variable.SceneNameCurrent == Scenes.Map);
             }
             else
             {

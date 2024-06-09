@@ -24,7 +24,6 @@ namespace PNJ
             AgentComp = gameObject.GetComponent<NavMeshAgent>();
             AnimatorComp = gameObject.GetComponent<Animator>();
             _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-            gameObject.AddComponent<NetworkObject>();
         }
 
         public void Update()
