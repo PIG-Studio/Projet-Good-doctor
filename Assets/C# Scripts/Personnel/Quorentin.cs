@@ -1,14 +1,11 @@
 using Interfaces;
+using PNJ.Immobile;
 using UnityEngine;
 
 namespace Personnel
 {
-    public class Quorentin : APnj , ISpawn
+    public class Quorentin : PnjImmobile , ISpawn
     {
-        public Sprite Skin { get; set; }
-        public string Name { get; set; }
-        public Vector2 Position { get; set; }
-
         public Quorentin()
         {
             //Skin = Skin de Quorentin

@@ -1,18 +1,14 @@
 using System;
 using Interfaces;
 using PNJ;
+using PNJ.Immobile;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Personnel
 {
-    public class Jeanine : APnj, ISpawnableGo  
+    public class Jeanine : PnjImmobile, ISpawnableGo  
     {
-        
-        
-        public Sprite Skin { get; set; }
-        public string Name { get; set; }
-        public Vector2 Position { get; set; }
         public GameObject Prefab { get; }
         public GameObject InstantiatedObject { get; set; }
         public Animator AnimatorComponent { get; set; }

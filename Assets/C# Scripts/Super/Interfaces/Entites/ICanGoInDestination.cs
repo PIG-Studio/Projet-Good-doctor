@@ -6,7 +6,7 @@ namespace Interfaces.Entites
     {
         IDestination Destination { get; }
         bool EnAttente { get; }
-        uint Siege { get; }
+        uint Siege { get; set; }
         
         void ChooseDestination();
         void StartWaiting();

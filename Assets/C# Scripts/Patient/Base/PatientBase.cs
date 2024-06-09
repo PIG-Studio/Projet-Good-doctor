@@ -16,15 +16,15 @@ using UnityEngine.AI;
 
 namespace Patient.Base
 {
-    public class PatientBase :  PNJ.Pnj , IPatient, ISpawnableGo, ICanGoInDesk
-    {
+    public class PatientBase //:  PNJ.Pnj , IPatient, ISpawnableGo, ICanGoInDesk
+    {/*
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
         /// <summary>
         /// Instantie un patient a l'entrée de l'hôpital
         /// </summary>
         public string Id { get; }               public string CatchPhrase { get; set; }
         public bool IsLying { get; set; }       public Maladie Sickness {get;set;}              /*public int Mood { get; set; }*/
-        public IValue FreqCar { get; set; }     public IValue Temperature { get; set; }         public IValue Depression { get; set; }
+        /*public IValue FreqCar { get; set; }     public IValue Temperature { get; set; }         public IValue Depression { get; set; }
         public IAdn Adn { get; set; }           public bool AdnSain { get; set; }               public bool IsAlive { get; set; }
         public bool AnalyseAdn { get; set; }    public bool AnalyseDepression { get; set; }
         public Animator AnimatorComponent { get; set; } 
@@ -52,8 +52,8 @@ namespace Patient.Base
 
 
         public PatientBase(IMaladie sickness ,IAdn adn, bool adNormal , IValue depression, IValue temperature ,
-            IValue freqCar ,string catchPhrase ,bool lie /*int mood*/, Sprite skin , string name , Vector2? position = null)
-        {
+            IValue freqCar ,string catchPhrase ,bool lie /*int mood, //Sprite skin , string name , Vector2? position = null)
+        /*{
             Id = name;                              Name = name;                            CatchPhrase = catchPhrase;
             
             IsLying = lie;      if (sickness is Maladie) { Sickness = (Maladie)sickness; }  //Mood = mood;
@@ -141,6 +141,6 @@ namespace Patient.Base
         public void SortirBureau()
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }

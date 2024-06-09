@@ -1,3 +1,4 @@
+using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
 using Maladies.Base;
 
@@ -7,7 +8,7 @@ namespace Interfaces.Patient
     {
         public bool IsLying { get; set; }
         
-        public Maladie Sickness {get;set;}
+        public IMaladie Sickness {get;set;}
         
         /*public int Mood { get; set; }*/
         
@@ -20,8 +21,6 @@ namespace Interfaces.Patient
         public IValue Depression { get; set; }
         
         public IAdn Adn { get; set; }
-        
-        public bool AdnSain { get; set; }
         
         public bool IsAlive { get; set; }
         

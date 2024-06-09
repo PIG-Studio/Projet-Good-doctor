@@ -1,15 +1,12 @@
 using System;
 using Interfaces;
+using PNJ.Immobile;
 using UnityEngine;
 
 namespace Personnel
 {
-    public class ChefGiovanni : APnj , ISpawn
+    public class ChefGiovanni : PnjImmobile , ISpawn
     {
-        public Sprite Skin { get; set; }
-        public string Name { get; set; }
-        public Vector2 Position { get; set; }
-
         public ChefGiovanni()
         {
             //Skin = Skin de Gio
