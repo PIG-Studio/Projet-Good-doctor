@@ -23,7 +23,7 @@ namespace PNJ.Base
         public void Start()
         {
             Anims = gameObject.GetComponent<Animator>(); 
-            Sprite = gameObject.GetComponent<SpriteRenderer>(); 
+            Sprite = gameObject.GetComponent<SpriteRenderer>();
             Position = transform.position;
             if (!NetworkManager.Singleton.IsHost) return;
             NetworkObject instanceNetworkObject = gameObject.GetComponent<NetworkObject>();
