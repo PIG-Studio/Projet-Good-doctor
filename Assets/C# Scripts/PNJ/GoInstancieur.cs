@@ -1,5 +1,6 @@
 using Interfaces;
 using JetBrains.Annotations;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,8 @@ namespace PNJ
         public static GameObject Spawn(string chemin, string id)
         {
             GameObject go = Object.Instantiate(Resources.Load<GameObject>(chemin));
+            var sync = go.GetComponent<NetworkObject>();
+            sync.Spawn();
             go.name = id;
             return go;
         }
@@ -18,6 +21,9 @@ namespace PNJ
         public static void Instancier(this ISpawnableGo inputGo)
         {
             inputGo.InstantiatedObject = Object.Instantiate(inputGo.Prefab);
+            //TODO : handle null
+            var sync = inputGo.InstantiatedObject!.GetComponent<NetworkObject>();
+            sync.Spawn();
             inputGo.InstantiatedObject!.name = inputGo.Id;
         }
         

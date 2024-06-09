@@ -844,6 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soloPlayer: {fileID: 118144720}
+  transport: {fileID: 0}
 --- !u!114 &1271473158
 MonoBehaviour:
   m_ObjectHideFlags: 0
