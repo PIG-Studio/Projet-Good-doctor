@@ -12,10 +12,12 @@ namespace PNJ
 {
     public class Pnj : APnj
     {
-        protected NavMeshAgent AgentComp { get; set; }
-        protected Animator AnimatorComp { get; set; }
-        public IDestination Destination { get; protected set; }
-        public ICanGoInDesk Patient { get; protected set; }
+        public override string Name { get; protected set; }
+        protected override Sprite Skin { get; set; }
+        public override Vector2 Position { get; protected set; }
+        protected override NavMeshAgent AgentComp { get; set; }
+        protected override Animator AnimatorComp { get; set; }
+        public override IDestination Destination { get; protected set; }
         private SpriteRenderer _spriteRenderer;
         
         public void Start()

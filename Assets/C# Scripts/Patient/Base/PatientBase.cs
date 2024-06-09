@@ -16,18 +16,17 @@ using UnityEngine.AI;
 
 namespace Patient.Base
 {
-    public class PatientBase :  NetworkBehaviour, APnj , IPatient, ISpawnableGo, ICanGoInDesk
+    public class PatientBase :  Pnj , IPatient, ISpawnableGo, ICanGoInDesk
     {
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
         /// <summary>
         /// Instantie un patient a l'entrée de l'hôpital
         /// </summary>
-        public string Id { get; }               public string Name { get; set; }                public string CatchPhrase { get; set; }
+        public string Id { get; }               public string CatchPhrase { get; set; }
         public bool IsLying { get; set; }       public Maladie Sickness {get;set;}              /*public int Mood { get; set; }*/
         public IValue FreqCar { get; set; }     public IValue Temperature { get; set; }         public IValue Depression { get; set; }
         public IAdn Adn { get; set; }           public bool AdnSain { get; set; }               public bool IsAlive { get; set; }
-        public bool AnalyseAdn { get; set; }    public bool AnalyseDepression { get; set; }     public Sprite Skin { get; set; }
-        public Vector2 Position { get; set; }   
+        public bool AnalyseAdn { get; set; }    public bool AnalyseDepression { get; set; }
         public Animator AnimatorComponent { get; set; } 
         public NavMeshAgent Agent { get; private set; }
         /// <summary>
@@ -41,7 +40,6 @@ namespace Patient.Base
         public GameObject InstantiatedObject { get; set; }
         
         //ICanGOInDestination Implem
-        public IDestination Destination { get; set; } 
         public bool EnAttente { get; set; }
         
         //ICanGoInDesk Implem

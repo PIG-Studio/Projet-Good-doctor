@@ -4,9 +4,9 @@ namespace Interfaces.Entites
 {
     public interface ICanGoInDestination
     {
-        IDestination Destination { get; set; }
-        bool EnAttente { get; set; }
-        uint Siege { get; set; }
+        IDestination Destination { get; }
+        bool EnAttente { get; }
+        uint Siege { get; }
         
         void ChooseDestination();
         void StartWaiting();
