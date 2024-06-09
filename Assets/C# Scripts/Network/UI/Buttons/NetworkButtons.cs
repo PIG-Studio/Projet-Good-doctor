@@ -23,7 +23,7 @@ namespace Network.UI.Buttons
             if (!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsHost)
             {
                 // Si on est au bureau, on a acces au bouton pour host 
-                if (Variable.SceneNameCurrent.IsDesk())
+                /*if (Variable.SceneNameCurrent.IsDesk())
                 {
                     if (GUILayout.Button("Host"))
                     {
@@ -36,7 +36,7 @@ namespace Network.UI.Buttons
                         NetworkManager.Singleton.StartClient();
                         soloPlayer.SetActive(false);
                     }
-                }
+                }*/
 
                 // Si on est dans le menu, on a acces au bouton pour etre client
                 if (Variable.SceneNameCurrent == Scenes.Menu)

@@ -3,6 +3,7 @@ using GameCore.Variables;
 using static CustomScenes.Manager;
 using Desks;
 using SaveScripts;
+using Unity.Netcode;
 
 namespace GameCore.Methods
 {
@@ -34,6 +35,7 @@ namespace GameCore.Methods
                 SetVariables(gameName);
                 SaveData.SaveGame();
                 ChangeScene(Scenes.DBase);
+                NetworkManager.Singleton.StartHost();
             }
         }
 
