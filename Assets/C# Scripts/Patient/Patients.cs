@@ -11,7 +11,6 @@ using UnityEngine;
 using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
 using TypeExpand.Value;
-using Unity.Netcode;
 
 namespace Patient
 {
@@ -35,6 +34,7 @@ namespace Patient
         {
             return Acces.Maladies[Acces.Maladies.Length.RandomInt()];
         }
+        
         private static (string,string, IValue, IValue, IValue) PreGenPat(IMaladie maladie)
         { 
             int phraseI = Constante.PhraseArray.Length.RandomInt();
@@ -62,6 +62,7 @@ namespace Patient
         [CanBeNull]
         public static PatientBase GenPatient()
         {
+            //TODO : cette meth fera juste spawn un prefab de patient
             if (Variable.NbOfPatients < Constante.MaxPatient)
             {
                 IMaladie maladie;

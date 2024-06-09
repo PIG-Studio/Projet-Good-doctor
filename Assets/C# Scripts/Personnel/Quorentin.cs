@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Personnel
 {
-    public class Quorentin : IPnj , ISpawn
+    public class Quorentin : APnj , ISpawn
     {
         public Sprite Skin { get; set; }
         public string Name { get; set; }

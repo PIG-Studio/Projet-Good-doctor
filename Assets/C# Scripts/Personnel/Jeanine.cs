@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Personnel
 {
-    public class Jeanine : IPnj, ISpawnableGo  
+    public class Jeanine : APnj, ISpawnableGo  
     {
         
         

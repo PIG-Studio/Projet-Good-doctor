@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Personnel
 {
-    public class Corentin : IPnj , ISpawn
+    public class Corentin : APnj , ISpawn
     {
         public Sprite Skin { get; set; }
         public string Name { get; set; }

@@ -10,13 +10,12 @@ using Unity.Netcode;
 
 namespace PNJ
 {
-    public class Pnj : NetworkBehaviour
+    public class Pnj : APnj
     {
-        public NavMeshAgent AgentComp { get; private set; }
-
-        public Animator AnimatorComp { get; private set; }
-        public IDestination Destination { get; set; }
-        public ICanGoInDesk Patient { get; set; }
+        protected NavMeshAgent AgentComp { get; set; }
+        protected Animator AnimatorComp { get; set; }
+        public IDestination Destination { get; protected set; }
+        public ICanGoInDesk Patient { get; protected set; }
         private SpriteRenderer _spriteRenderer;
         
         public void Start()
@@ -28,33 +27,32 @@ namespace PNJ
 
         public void Update()
         { 
+            if (!IsHost) return;
+            
             if (Variable.SceneNameCurrent == Scenes.Map) 
             { _spriteRenderer.enabled = true; AnimatorComp.UpdateAnim(AgentComp.velocity); }
-            else { _spriteRenderer.enabled = false; }
+            else 
+            { _spriteRenderer.enabled = false; }
 
-            if (Patient.EnAttente || AgentComp.remainingDistance > 2f) return;
+            // Moved to patient
+            /*if (Patient.EnAttente || AgentComp.remainingDistance > 2f) return;
+            
+            if (Destination.IsFull)
+            {
+                Debug.Log("Destination pleine, recherche d'une autre destination");
+                Patient.ChooseDestination();
+                return;
+            }
             
             switch (Destination)
             {
                 case IDeskDestination deskDestination:
-                    if (deskDestination.IsFull)
-                    {
-                        Debug.Log("Destination pleine, recherche d'une autre destination");
-                        Patient.ChooseDestination();
-                        break;
-                    }
                     deskDestination.Add(Patient);
                     break;
                 case INormalDestination normalDestination:
-                    if (normalDestination.IsFull)
-                    {
-                        Debug.Log("Destination pleine, recherche d'une autre destination");
-                        Patient.ChooseDestination();
-                        break;
-                    }
                     normalDestination.Add(Patient);
                     break;
-            }
+            }*/
         }
     }
 }

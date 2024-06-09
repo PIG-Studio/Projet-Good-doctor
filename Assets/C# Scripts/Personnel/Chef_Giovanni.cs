@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Personnel
 {
-    public class ChefGiovanni : IPnj , ISpawn
+    public class ChefGiovanni : APnj , ISpawn
     {
         public Sprite Skin { get; set; }
         public string Name { get; set; }

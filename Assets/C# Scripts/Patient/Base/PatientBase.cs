@@ -11,11 +11,12 @@ using UnityEngine;
 using Maladies.Base;
 using PNJ;
 using TypeExpand.Int;
+using Unity.Netcode;
 using UnityEngine.AI;
 
 namespace Patient.Base
 {
-    public class PatientBase : IPnj , IPatient, ISpawnableGo, ICanGoInDesk
+    public class PatientBase :  NetworkBehaviour, APnj , IPatient, ISpawnableGo, ICanGoInDesk
     {
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
         /// <summary>
@@ -27,7 +28,8 @@ namespace Patient.Base
         public IAdn Adn { get; set; }           public bool AdnSain { get; set; }               public bool IsAlive { get; set; }
         public bool AnalyseAdn { get; set; }    public bool AnalyseDepression { get; set; }     public Sprite Skin { get; set; }
         public Vector2 Position { get; set; }   
-        public Animator AnimatorComponent { get; set; } public NavMeshAgent Agent { get; private set; }
+        public Animator AnimatorComponent { get; set; } 
+        public NavMeshAgent Agent { get; private set; }
         /// <summary>
         /// : IHasPrefab, stocke le prefab du patient 
         /// </summary>
@@ -39,10 +41,12 @@ namespace Patient.Base
         public GameObject InstantiatedObject { get; set; }
         
         //ICanGOInDestination Implem
-        public IDestination Destination { get; set; } public bool EnAttente { get; set; }
+        public IDestination Destination { get; set; } 
+        public bool EnAttente { get; set; }
         
         //ICanGoInDesk Implem
-        public Sprite AltSprite { get; set; } public bool DansBureau { get; set; }
+        public Sprite AltSprite { get; set; } 
+        public bool DansBureau { get; set; }
 
         public uint Siege { get; set; }
         
@@ -66,6 +70,11 @@ namespace Patient.Base
             
             Spawn();
             ChooseDestination();
+        }
+
+        private void Start()
+        {
+            throw new NotImplementedException();
         }
 
         public void Spawn()
@@ -95,12 +104,12 @@ namespace Patient.Base
                 
                 i++;
                 if (i > 100) { throw new LogicException("Aucune destination disponible"); }
-                if (!Destination.IsFull) 
-                {
-                    InstancePnj.Destination = Destination;
-                    Agent.SetDestination(Destination.PtArrivee);
-                    break;
-                }
+
+                if (Destination.IsFull) continue;
+                
+                InstancePnj.Destination = Destination;
+                Agent.SetDestination(Destination.PtArrivee);
+                break;
             }
         }
 
