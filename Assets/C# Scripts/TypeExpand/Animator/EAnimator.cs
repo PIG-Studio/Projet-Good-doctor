@@ -12,9 +12,10 @@ namespace TypeExpand.Animator
         private static readonly int MovingUp = UnityEngine.Animator.StringToHash("MovingUp");
         
 
-        public static void UpdateAnim(this UnityEngine.Animator animator, Vector2 inputs)
+        public static void UpdateAnim(this UnityEngine.Animator animator, Vector2? inputs = null)
         {
-            if (inputs == Vector2.zero)
+            
+            if (inputs is null || inputs == Vector2.zero)
             {
                 animator.SetBool(MovingUp, false);
                 animator.SetBool(MovingDown, false);
@@ -22,9 +23,9 @@ namespace TypeExpand.Animator
                 animator.SetBool(MovingLeft, false);
                 return;
             }
-
-            float horizontalInput = inputs.x;
-            float verticalInput = inputs.y;
+            
+            float horizontalInput = inputs.Value.x;
+            float verticalInput = inputs.Value.y;
 
             if (horizontalInput.Abs() < verticalInput.Abs())
             {
@@ -40,5 +41,6 @@ namespace TypeExpand.Animator
             animator.SetBool(MovingUp, false);
             animator.SetBool(MovingDown, false);
         }
+        
     }
 }

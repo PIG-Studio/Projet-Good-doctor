@@ -1,28 +1,24 @@
 using CustomScenes;
 using GameCore.Variables;
-using Interfaces;
-using Interfaces.Destination;
+using Super.Abstract;
 using UnityEngine;
-using UnityEngine.AI;
 using TypeExpand.Animator;
 
-namespace PNJ
+namespace PNJ.Base
 {
     public class Pnj : APnj
     {
         public override string Name { get; protected set; }
         protected override Sprite Skin { get; set; }
         public override Vector2 Position { get; protected set; }
-        protected override NavMeshAgent AgentComp { get; set; }
-        protected override Animator AnimatorComp { get; set; }
-        public override IDestination Destination { get; protected set; }
-        private SpriteRenderer _spriteRenderer;
-        
+
+        protected override Animator Anims { get; set; }
+        protected override SpriteRenderer Sprite { get; set; }
+
         public void Start()
         {
-            AgentComp = gameObject.GetComponent<NavMeshAgent>();
-            AnimatorComp = gameObject.GetComponent<Animator>();
-            _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            Anims = gameObject.GetComponent<Animator>();
+           Sprite = gameObject.GetComponent<SpriteRenderer>();
         }
 
         public void Update()
@@ -30,9 +26,9 @@ namespace PNJ
             if (!IsHost) return;
             
             if (Variable.SceneNameCurrent == Scenes.Map) 
-            { _spriteRenderer.enabled = true; AnimatorComp.UpdateAnim(AgentComp.velocity); }
+            { Sprite.enabled = true; Anims.UpdateAnim(); }
             else 
-            { _spriteRenderer.enabled = false; }
+            { Sprite.enabled = false; }
 
             // Moved to patient
             /*if (Patient.EnAttente || AgentComp.remainingDistance > 2f) return;

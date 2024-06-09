@@ -16,7 +16,7 @@ using UnityEngine.AI;
 
 namespace Patient.Base
 {
-    public class PatientBase :  Pnj , IPatient, ISpawnableGo, ICanGoInDesk
+    public class PatientBase :  PNJ.Pnj , IPatient, ISpawnableGo, ICanGoInDesk
     {
         // Creer Patient(S) Genere le random et classe les patients en fct de leur maladie et utilise Patient comme Moule
         /// <summary>
@@ -48,7 +48,7 @@ namespace Patient.Base
 
         public uint Siege { get; set; }
         
-        Pnj InstancePnj { get; set; }
+        PNJ.Pnj InstancePnj { get; set; }
 
 
         public PatientBase(IMaladie sickness ,IAdn adn, bool adNormal , IValue depression, IValue temperature ,
@@ -82,7 +82,7 @@ namespace Patient.Base
             this.AddNavMeshAgent();
             Agent = InstantiatedObject.GetComponent<NavMeshAgent>();
             this.LinkAnimator();
-            InstancePnj = InstantiatedObject.AddComponent<Pnj>();
+            InstancePnj = InstantiatedObject.AddComponent<PNJ.Pnj>();
             InstancePnj.Patient = this;
             InstantiatedObject.AddComponent<DialoguePatient>().Base = this;
         }
