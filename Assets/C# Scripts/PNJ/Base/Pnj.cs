@@ -14,6 +14,7 @@ namespace PNJ.Base
 
         protected override Animator Anims { get; set; }
         protected override SpriteRenderer Sprite { get; set; }
+        protected override Rigidbody2D Rb { get; set; }
 
         public void Start()
         {
@@ -26,7 +27,7 @@ namespace PNJ.Base
             if (!IsHost) return;
             
             if (Variable.SceneNameCurrent == Scenes.Map) 
-            { Sprite.enabled = true; Anims.UpdateAnim(); }
+            { Sprite.enabled = true; Anims.UpdateAnim(Rb.velocity); }
             else 
             { Sprite.enabled = false; }
 
