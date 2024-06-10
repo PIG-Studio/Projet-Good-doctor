@@ -1,5 +1,4 @@
-using CustomScenes;
-using GameCore.Variables;
+using System;
 using Super.Abstract;
 using UnityEngine;
 using TypeExpand.Animator;
@@ -20,6 +19,8 @@ namespace PNJ.Base
         protected override Animator Anims { get; set; }
         protected override SpriteRenderer Sprite { get; set; }
         
+        protected Func<bool> ConditionAffichage { get; set; }
+        
         
 
         public void Start()
@@ -34,7 +35,7 @@ namespace PNJ.Base
 
         public void Update()
         { 
-            if (Variable.SceneNameCurrent == Scenes.Map)
+            if (ConditionAffichage())
             {
                 Sprite.enabled = true;
                 LastPosition = Position;

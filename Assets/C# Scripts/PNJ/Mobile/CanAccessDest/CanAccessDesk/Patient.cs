@@ -1,3 +1,5 @@
+using CustomScenes;
+using Desks;
 using GameCore.Constantes;
 using GameCore.Variables;
 using Interfaces.Destination;
@@ -42,17 +44,19 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             Adn = Attributs.GenAdn(Sickness.AdnSain);
             (Phrase, Name, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
             ChooseDestination();
+            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
         }
         
         public new void Update()
         {
             base.Update();
+            
             if (!Unity.Netcode.NetworkManager.Singleton.IsHost) return;
             if (EnAttente || Navigation.remainingDistance > 2f) return;
             
             if (Destination.IsFull)
             {
-                Debug.Log("Destination pleine, recherche d'une autre destination");
+                Debug.Log($"Destination {Destination.DeskId} pleine, recherche d'une autre destination...");
                 ChooseDestination();
                 return;
             }
@@ -80,12 +84,13 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 
         public void SortirBureau()
         {
-            throw new System.NotImplementedException();
+            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
+            ChooseDestination();
         }
 
-        public void GoInDesk()
+        public void EnterDesk()
         {
-            throw new System.NotImplementedException();
+            ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName;
         }
     }
 }

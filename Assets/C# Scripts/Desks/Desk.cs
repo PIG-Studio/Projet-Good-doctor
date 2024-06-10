@@ -30,7 +30,9 @@ namespace Desks
         
         public void NextPatient()
         {
+            CurrentPatient?.SortirBureau();
             CurrentPatient = AssociatedDestination.Pop();
+            CurrentPatient?.EndWaiting();
         }
 
     }
