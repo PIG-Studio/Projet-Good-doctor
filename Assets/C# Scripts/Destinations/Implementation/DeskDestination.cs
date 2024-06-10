@@ -61,7 +61,7 @@ namespace Destinations.Implementation
         {
             if (NbEntites == 0) throw new LogicException("Destination vide");
 
-            for (int i = 0; i < Capacite; i++)
+            for (int i = 0; i < PtAttente.Length; i++)
             {
                 if (!PtAttente[i].occupe) continue;
                 PtAttente[i].occupe = false;
