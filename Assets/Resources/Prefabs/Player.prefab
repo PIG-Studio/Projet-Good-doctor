@@ -433,7 +433,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -33.7}
+  m_AnchoredPosition: {x: -1.0663, y: -27.513}
   m_SizeDelta: {x: 115.5623, y: 77.7282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8341952554165704374
@@ -826,8 +826,8 @@ MonoBehaviour:
   valuesToUse: {fileID: 1255529389848207842}
   _plusButton: {fileID: 5483993017204129992}
   _minusButton: {fileID: 6799416906157011133}
-  useButton: {fileID: 0}
-  removeButton: {fileID: 0}
+  useButton: {fileID: 7119110445593822194}
+  removeButton: {fileID: 8242637954353839387}
   amountToRemove: {fileID: 6698537672365007157}
 --- !u!1 &4434312971129972190
 GameObject:
@@ -1680,7 +1680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3690493629976047137
 RectTransform:
   m_ObjectHideFlags: 0
