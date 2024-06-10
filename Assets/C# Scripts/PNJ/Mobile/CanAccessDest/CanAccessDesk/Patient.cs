@@ -1,3 +1,4 @@
+using System;
 using CustomScenes;
 using Desks;
 using GameCore.Constantes;
@@ -46,7 +47,12 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             ChooseDestination();
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
         }
-        
+
+        public void OnConnectedToServer()
+        {
+            Start();
+        }
+
         public new void Update()
         {
             base.Update();
