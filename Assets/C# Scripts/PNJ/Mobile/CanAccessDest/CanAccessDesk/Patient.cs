@@ -92,8 +92,9 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 
         public void SortirBureau()
         {
-            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
-            ChooseDestination();
+            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value && Navigation.remainingDistance > 2f ;
+            if (NetworkManager.Singleton.IsHost)
+                ChooseDestination();
         }
 
         public void EnterBureau()
