@@ -52,7 +52,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             base.Update();
             
             if (!Unity.Netcode.NetworkManager.Singleton.IsHost) return;
-            if (EnAttente || Navigation.remainingDistance > 2f) return;
+            if (EnAttente || Navigation.remainingDistance > 2f || Destination is null) return;
             
             if (Destination.IsFull)
             {
