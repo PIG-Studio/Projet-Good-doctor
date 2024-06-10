@@ -103,7 +103,6 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         }
         
 
-        [ServerRpc]
         public void EnterBureau()
         {
             DansBureau.Value = true;
