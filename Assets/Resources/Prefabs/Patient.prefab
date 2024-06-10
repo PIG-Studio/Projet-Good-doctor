@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 3785074726205157443}
   - component: {fileID: -6691154926583562992}
   - component: {fileID: 5001603631466240738}
-  - component: {fileID: 3408780856112939285}
+  - component: {fileID: 1298325927003654982}
   m_Layer: 0
   m_Name: Patient
   m_TagString: Patient
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3793422718493585413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffccc7e7faf2bcc328d6d87486cbe555, type: 3}
+  m_Script: {fileID: 11500000, guid: 96d24d7473f07b9c9986796fb6b61d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!195 &5001603631466240738
@@ -350,7 +350,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 2
---- !u!114 &3408780856112939285
+--- !u!114 &1298325927003654982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3793422718493585413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d24d7473f07b9c9986796fb6b61d0f, type: 3}
+  m_Script: {fileID: 11500000, guid: cacf7101a33aadf4598910c02b001ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3918680600613842574
