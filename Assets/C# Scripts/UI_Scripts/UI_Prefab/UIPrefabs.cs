@@ -207,7 +207,6 @@ namespace UI_Scripts.UI_Prefab
         /// <param name="posY"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
-        /// <param name="action"></param>
         /// <returns></returns>
         public static GameObject BTN_NextPatient(string id,string text, float posX, float posY, float width, float height)
         {

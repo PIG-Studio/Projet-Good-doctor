@@ -97,7 +97,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 
         public void EnterBureau()
         {
-            ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName;
+            ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName && Navigation.remainingDistance < 2f;
         }
     }
 }

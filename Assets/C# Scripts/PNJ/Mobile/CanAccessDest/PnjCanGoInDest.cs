@@ -4,6 +4,7 @@ using GameCore.Variables;
 using Interfaces.Destination;
 using Interfaces.Entites;
 using TypeExpand.Int;
+using UnityEngine;
 
 namespace PNJ.Mobile.CanAccessDest
 {
@@ -46,15 +47,11 @@ namespace PNJ.Mobile.CanAccessDest
             Navigation.SetDestination(Destination.PtAttente[Siege].coordonees);
             EnAttente = true;
         }
-        
+
         public void EndWaiting()
         {
             Navigation.SetDestination(Destination.PtArrivee);
-            while (Navigation.remainingDistance > 0.5f) { }
             EnAttente = false;
-            Destination = null;
-            
         }
-        
     }
 }

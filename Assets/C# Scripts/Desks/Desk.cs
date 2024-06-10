@@ -33,8 +33,9 @@ namespace Desks
             if (!(CurrentPatient is null))
             {
                 CurrentPatient.SortirBureau();
+                Debug.Log("Le patient precedent sort du bureau");
             }
-            Debug.Log("Le patient precedent sort du bureau");
+            
             CurrentPatient = AssociatedDestination.Pop();
             if (!(CurrentPatient is null))
             {
