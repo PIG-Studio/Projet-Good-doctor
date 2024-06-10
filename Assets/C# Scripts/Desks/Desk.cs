@@ -46,7 +46,7 @@ namespace Desks
             if (!(CurrentPatient is null))
             {
                 Debug.Log("Le patient suivant entre dans le bureau");
-                CurrentPatient!.EndWaiting();
+                CurrentPatient!.EndWaitingServerRpc();
                 CurrentPatient.EnterBureauServerRpc();
             }
             
