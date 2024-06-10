@@ -276,7 +276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &252105353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,6 +1046,10 @@ PrefabInstance:
     - target: {fileID: 2042635355411234303, guid: 429f815aa7f52c04ab34d88b5fbaa573, type: 3}
       propertyPath: m_Offset.x
       value: -0.006204605
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042635355411234303, guid: 429f815aa7f52c04ab34d88b5fbaa573, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3607842946524221051, guid: 429f815aa7f52c04ab34d88b5fbaa573, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2406,7 +2410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &709822736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3136,7 +3140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1242618389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,7 +3155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: []
   inventoryLenght: 15
-  inventoryPanel: {fileID: 811946866}
+  inventoryPanel: {fileID: 709822735}
   hodlerSlot: {fileID: 1898168125}
   prefabs: {fileID: 6402957478592555235, guid: 0aaf5cf8a5e6d7245a16d825933ba361, type: 3}
   title: {fileID: 1554185035}
@@ -21402,6 +21406,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lisopoirine
       objectReference: {fileID: 0}
+    - target: {fileID: 8024151301592793822, guid: 429f815aa7f52c04ab34d88b5fbaa573, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: c30540082097a0e42989b2486098974f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

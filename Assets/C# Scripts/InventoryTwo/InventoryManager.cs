@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using CustomScenes;
+using GameCore.Variables;
 using Network.Sync.Variables;
 using ScriptableObject;
 using TMPro;
@@ -39,12 +41,12 @@ namespace InventoryTwo
         }
         private void Update()
         {
-            if (Input.GetKeyDown(Keys.InventoryKey) && !inventoryPanel.activeInHierarchy) //quand i est pressé et que l'UI n'est pas activé 
+            if (Input.GetKeyDown(Keys.InventoryKey) && !inventoryPanel.activeInHierarchy && Variable.SceneNameCurrent == Scenes.Map) //quand i est pressé et que l'UI n'est pas activé 
             {
                 inventoryPanel.SetActive(true); // ouvre UI
                 RefreshInventory();
             }
-            else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
+            else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy && Variable.SceneNameCurrent == Scenes.Map)
             {
                 inventoryPanel.SetActive(false);
             }
@@ -74,6 +76,7 @@ namespace InventoryTwo
 
                     amount.text = inventory[i].amount.ToString();
                     img.sprite = inventory[i].icon; //remplace la quantité dans le prefab par la quantité du slot actuel
+                    
                 }
                 else // creer des slots vide dans l'inventaire
                 {
@@ -168,7 +171,7 @@ namespace InventoryTwo
             ItemsSo droped = inventory[i];
             droped.amount = _amountToUse;
             
-            Resources.Load<GameObject>("Prefabs/Inventory/SlotItem1.prefab");
+            Resources.Load<GameObject>("Prefabs/Inventory/Item.prefab");
             Instantiate(droped );
             
             RefreshInventory();

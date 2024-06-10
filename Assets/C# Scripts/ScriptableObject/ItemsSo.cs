@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ScriptableObject
 {
-    [CreateAssetMenu(fileName = "item", menuName = "ScriptableObject/Item", order = 1)]
+    [CreateAssetMenu(fileName = "item", menuName = "../Ressources/Prefabs/Item", order = 1)]
     public class ItemsSo : UnityEngine.ScriptableObject
     {
         public string title;
