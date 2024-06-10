@@ -18,8 +18,8 @@ namespace Parameters
 
         public void Start()
             /*
-             methode appele des que le bouton est rendu pour la 1e fois,
-             on y verifie quels taux sont dispo, quelle que soit la resolution, et les affiche dans la liste.
+             methode appelé des que le bouton est rendu pour la 1e fois,
+             on y vérifie quels taux sont dispo, quelle que soit la resolution, et les affiche dans la liste.
              On peut donc choisir une combinaison taux/res pas encore cree mais pas impossible, donc on peut choisir librement le taux voulu.
              */
         {

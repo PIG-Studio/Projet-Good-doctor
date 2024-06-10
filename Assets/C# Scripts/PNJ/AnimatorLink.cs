@@ -7,8 +7,8 @@ namespace PNJ
     {
         public static void LinkAnimator(this ISpawnableGo input)
         {
-            Animator anims = input.InstantiatedObject.GetComponent<Animator>();
-            input.AnimatorComponent = anims;
+            Animator anims = input.InstantiatedObject.GetComponent<Animator>();// Récupérer le composant Animator
+            input.AnimatorComponent = anims; 
         }
     }
 }

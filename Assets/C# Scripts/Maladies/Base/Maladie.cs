@@ -7,9 +7,13 @@ namespace Maladies.Base
 {
     public abstract class Maladie : IMaladie
     {
+        /// <summary>
+        /// Nom de la maladie 
+        /// </summary>
         public string Name { get; }
         public ITupleValue FreqCar { get; }
         public ITupleValue Temperature { get; }
+        
         public bool AdnSain { get; }
         
         public ITupleValue Depression { get; }

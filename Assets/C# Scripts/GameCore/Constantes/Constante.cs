@@ -43,6 +43,9 @@ namespace GameCore.Constantes
         /// </summary>
         public static readonly Vector2 InventorySlotPos = new Vector2(10f, 10f);
 
+        /// <summary>
+        /// Tableau contenant des séquences d'ADN
+        /// </summary>
         public static readonly string[] AdnArray = new[]
         {
             "ttcagttgtg", "aatgaatgga", "cgtgccaaat",
@@ -51,6 +54,10 @@ namespace GameCore.Constantes
             "ttagttccgt", "tcggttcatt", "cccagttctt"
         };
 
+        
+        /// <summary>
+        /// Tableau contenant des séquences d'ADN anormales
+        /// </summary>
         public static readonly string[] AnormalAdnArray =
         {
             "Its fine", "HELIKOPTER HELIKOPTER", "Your Mom + SKill issue + Ratio",
@@ -59,6 +66,7 @@ namespace GameCore.Constantes
             "En vrai c'est bien les films Asterix"
         };
 
+        // Tableau contenant des phrases
         public static readonly string[] PhraseArray = new[]
         {
             "J'ai faim , t'aurai pas une madelaine ?", "Quoi de neuf docteur ?",
@@ -71,15 +79,16 @@ namespace GameCore.Constantes
             "Vous saviez que la plus courte guerre au monde n'a durée que 38 minutes ?"
         };
 
+        // Tableau contenant des noms
         public static readonly string[] NameArray = new[]
         {
             "Jean Martin", "Yonas Ali", "John Smith", "Maria Khan", "Anya Ivanova", "Celine Nguyen" ,
             "Andrew Bloom" , "Emile Leblanc" , "Grace Kone" , "Valentina Gonzalez" , "Rafi Asham" , "Aleksandr Akmatova",
             "Stefan Schmid" , "Emine Morina" , "Mircalla von Karnstein" ,"Marsha P.Johnson" , "RuPaul Andre Charles"
         };
-
-        public const int MaxPatient = 4;
         
-        public const KeyCode InteractKey = KeyCode.E;
+        public const int MaxPatient = 4;// Nombre max de patients
+        
+        public const KeyCode InteractKey = KeyCode.E; // Touche d'intéraction
     }
 }

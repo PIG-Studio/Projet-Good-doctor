@@ -7,11 +7,25 @@ namespace Maladies.Base
 {
     public abstract class Malade : IMaladie
     {
+        /// <summary>
+        /// Le nom du malade 
+        /// </summary>
         public string Name { get; }
+        /// <summary>
+        ///  Fréquence cardiaque du malade
+        /// </summary>
         public ITupleValue FreqCar { get; }
+        /// <summary>
+        /// Sa température
+        /// </summary>
         public ITupleValue Temperature { get; }
+        /// <summary>
+        /// Son adn sain
+        /// </summary>
         public bool AdnSain { get; }
-        
+        /// <summary>
+        /// Sa dépression
+        /// </summary>
         public ITupleValue Depression { get; }
 
         

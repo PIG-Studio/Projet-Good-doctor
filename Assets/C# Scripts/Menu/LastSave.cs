@@ -14,12 +14,15 @@ namespace Menu
         [FormerlySerializedAs("SavesDropDown")] [SerializeField]
         private TMP_Dropdown savesDropDown;
 
+        /// <summary>
+        /// Liste contenant les noms des sauvegardes
+        /// </summary>
         private List<string> _savesName = new List<string>();
 
         public void Start()
             /*
-             methode appele des que le bouton est rendu pour la 1e fois,
-             on y verifie quelles options sont affichables selon l'OS
+             methode appelé dès que le bouton est rendu pour la 1e fois,
+             on y vérifie quelles options sont affichables selon l'OS
              */
         {
             savesDropDown.onValueChanged.AddListener(SetSaves);
