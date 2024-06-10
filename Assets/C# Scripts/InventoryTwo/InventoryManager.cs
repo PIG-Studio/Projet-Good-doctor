@@ -168,7 +168,7 @@ namespace InventoryTwo
             ItemsSo droped = inventory[i];
             droped.amount = _amountToUse;
             
-            Resources.Load<GameObject>("Assets/UI pack/Prefabs/Inventory/SlotItem1.prefab");
+            Resources.Load<GameObject>("Prefabs/Inventory/SlotItem1.prefab");
             Instantiate(droped );
             
             RefreshInventory();
