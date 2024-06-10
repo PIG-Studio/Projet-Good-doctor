@@ -27,7 +27,6 @@ namespace GameCore.Methods
             _patient = Resources.Load<GameObject>("Prefabs/Patient");
             _tempsEcoulee = 0f;
             Variable.WaitTime = new Random().Next(15,30);
-            Variable.WaitTime = 3;
             Debug.Log(Variable.WaitTime);
 
         }
@@ -40,13 +39,12 @@ namespace GameCore.Methods
             if (!(Variable.SceneNameCurrent == Scenes.Map)) return;
             _tempsEcoulee = Time.time;
             Debug.Log("I m updating");
-            if (Variable.NbOfPatients < Constantes.Constante.MaxPatient)
+            if (_tempsEcoulee - _tempsDernierPatient > Variable.WaitTime &&  
+                Variable.NbOfPatients < Constantes.Constante.MaxPatient)
             {
                 Debug.Log("I m creating a patient");
                 var patient = Instantiate(_patient);
                 _tempsDernierPatient = _tempsEcoulee;
-                Variable.NbOfPatients++;
-
             }
             //if (!Input.GetKeyDown(KeyCode.P)) return;
             //var guillaume = Instantiate(_patient);
