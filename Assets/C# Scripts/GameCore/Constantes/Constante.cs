@@ -61,7 +61,7 @@ namespace GameCore.Constantes
 
         public static readonly string[] PhraseArray = new[]
         {
-            "J'ai faim , t'aurai pas une madelaine ?", "Quoi de neuf docteur",
+            "J'ai faim , t'aurai pas une madelaine ?", "Quoi de neuf docteur ?",
             "Je suis cancer mais je n'ai pas le cancer pour autant ! *rire*",
             "J'espère que je n'ai rien de grave", "Je suis venu ici pour avoir un arrêt maladie",
             "Pas mal vôtre secrétaire ;)" , "Quel est le comble pour un couturier ? Et bien d'être bouche cousue !",
@@ -75,7 +75,7 @@ namespace GameCore.Constantes
         {
             "Jean Martin", "Yonas Ali", "John Smith", "Maria Khan", "Anya Ivanova", "Celine Nguyen" ,
             "Andrew Bloom" , "Emile Leblanc" , "Grace Kone" , "Valentina Gonzalez" , "Rafi Asham" , "Aleksandr Akmatova",
-            "Stefan Schmid" , "Emine Morina"
+            "Stefan Schmid" , "Emine Morina" , "Mircalla von Karnstein" ,"Marsha P.Johnson" , "RuPaul Andre Charles"
         };
 
         public const int MaxPatient = 4;

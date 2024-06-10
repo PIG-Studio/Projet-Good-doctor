@@ -33,8 +33,6 @@ namespace GameCore.Methods
 
         public void Update()
         {
-
-
             if (!NetworkManager.Singleton.IsHost) return;
             if (!(Variable.SceneNameCurrent == Scenes.Map)) return;
             _tempsEcoulee = Time.time;
@@ -52,4 +50,4 @@ namespace GameCore.Methods
             //          guillaume.Adn);
         }
     }
-}   
+}       
