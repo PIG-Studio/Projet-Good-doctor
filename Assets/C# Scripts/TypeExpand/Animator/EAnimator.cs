@@ -12,8 +12,14 @@ namespace TypeExpand.Animator
         private static readonly int MovingUp = UnityEngine.Animator.StringToHash("MovingUp");
         
 
+        /// <summary>
+        /// Met à jour les paramètres d'animation en fonction des entrées de déplacement
+        /// </summary>
+        /// <param name="animator"></param>
+        /// <param name="inputs"></param>
         public static void UpdateAnim(this UnityEngine.Animator animator, Vector2? inputs = null)
         {
+            // Si les entrées sont nulles ou zéro, désactive toutes les animations de déplacement
             if (inputs is null || inputs == Vector2.zero)
             {
                 animator.SetBool(MovingUp, false);

@@ -16,18 +16,26 @@ namespace Maladies
         }
 
         /// <summary>
-        /// array ne contenant que les maladies
+        /// Array ne contenant que les maladies
         /// </summary>
         private static readonly IMaladie[] Maladies =
         {
             Porcelaine()
         };
         
+        /// <summary>
+        /// Méthode pour sélectionner aléatoirement une maladie parmi celles disponibles
+        /// </summary>
+        /// <returns></returns>
         private static IMaladie RandMaladie()
         {
             return Acces.Maladies[Acces.Maladies.Length.RandomInt()];
         }
         
+        /// <summary>
+        /// Méthode pour générer aléatoirement une maladie pour un patient
+        /// </summary>
+        /// <returns></returns>
         public static (IMaladie maladie, bool ment) GenererRandom()
         {
             IMaladie maladie;

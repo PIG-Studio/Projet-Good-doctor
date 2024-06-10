@@ -9,7 +9,7 @@ namespace SaveScripts
         {
 
                 public string sceneName = SceneManager.GetActiveScene().name;
-                //ublic float playerHealth;
+                //public float playerHealth;
                 //public int playerScore;
                 //public (float,float) position;
 

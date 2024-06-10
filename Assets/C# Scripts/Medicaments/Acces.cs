@@ -4,16 +4,16 @@ using JetBrains.Annotations;
 namespace Medicaments
 {
     /// <summary>
-    /// Classe listant les methodes pour creer des medicaments 
+    /// Classe listant les methodes pour créer des médicaments 
     /// </summary>
     public static class Acces
 
     {
 
         /// <summary>
-        /// methode creant une nouvelle instance de cyamure
+        /// méthode créant une nouvelle instance de cyamure
         /// </summary>
-        /// <param name="qte">La quantite a creer</param>
+        /// <param name="qte">La quantité é créer</param>
         /// <returns></returns>
         [NotNull]
         public static Cyamure Cyamure(uint qte)

@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace Desks
 {
+    /// <summary>
+    /// Classe représentant un bureau qui peut recevoir des patients et a une destination associée
+    /// </summary>
     public class Desk : IHasDestination, ICanReceivePatients
     {
         public string SceneName { get; }
@@ -23,13 +26,14 @@ namespace Desks
             CurrentPatient = null;
             AssociatedDestination = this.ToDeskDestination()!;
             Inventory = new Inventory();
-            Debug.Log("ADDED " + sceneName + " DESK");
-            SceneDeskDict.Add(sceneName, this);
+            Debug.Log("ADDED " + sceneName + " DESK"); // Affiche un message de débogage indiquant l'ajout du bureau
+            SceneDeskDict.Add(sceneName, this); // Ajoute ce bureau au dict
             HasChanged = true;
         }
         
-        public void NextPatient()
+        public void NextPatient() // Méthode pour passer au patient suivant
         {
+            // Récupère le prochain patient de la destination associée
             CurrentPatient = AssociatedDestination.Pop();
         }
 

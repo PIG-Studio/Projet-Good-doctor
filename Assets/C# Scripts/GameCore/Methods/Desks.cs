@@ -7,7 +7,7 @@ using Interfaces.Destination;
 namespace GameCore.Methods
 {
     /// <summary>
-    /// Ce scipt DOIT etre dans l'objet du menu afin que les bureaux soient initialises lorsau'on lance le jeu ou qu'on change de partie
+    /// Ce script DOIT etre dans l'objet du menu afin que les bureaux soient initialisés lorsau'on lance le jeu ou qu'on change de partie
     /// </summary>
     public class Desks : MonoBehaviour
     {

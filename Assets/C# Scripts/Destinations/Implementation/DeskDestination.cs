@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace Destinations.Implementation
 {
+    /// <summary>
+    /// Classe représentant une destination de bureau
+    /// </summary>
     public class DeskDestination : IDeskDestination
     {
         public uint Capacite { get; }
@@ -14,7 +17,14 @@ namespace Destinations.Implementation
         public uint NbEntites { get; private set; }
         public uint DeskId { get; }
         
+        /// <summary>
+        /// Position d'arrivée des entités à la destination
+        /// </summary>
         public Vector2 PtArrivee { get; set; }
+    
+        /// <summary>
+        /// Points d'attente des entités avant d'entrer dans la destination
+        /// </summary>
         public (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] PtAttente { get; }
         
         public Desk Bureau { get; }
@@ -32,10 +42,16 @@ namespace Destinations.Implementation
             DeskId = listId;
         }
         
+        
+        /// <summary>
+        /// Méthode pour ajouter une entité à la destination
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <exception cref="LogicException"></exception>
         public void Add(ICanGoInDesk entity)
         {
             Debug.Log("Adding entity "+ (NbEntites+1) +" to desk destination");
-            if (IsFull) throw new LogicException("Destination pleine, impossible d'ajouter une entité, il faut verifier si la capacite avant (cote patient)");
+            if (IsFull) throw new LogicException("Destination pleine, impossible d'ajouter une entité, il faut vérifier si la capacité avant (cote patient)");
 
             for (int i = 0; i < PtAttente.Length; i++)
             {
@@ -53,7 +69,7 @@ namespace Destinations.Implementation
 
         
         /// <summary>
-        /// A FINIR TODO
+        /// Méthode pour retirer une entité de la destination
         /// </summary>
         /// <returns></returns>
         /// <exception cref="LogicException"></exception>

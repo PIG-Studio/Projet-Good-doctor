@@ -4,13 +4,22 @@ namespace TypeExpand.String
 {
     public static class EString
     {
-
+        /// <summary>
+        /// Convertit une chaîne de caractères en un bureau, en utilisant le dictionnaire de bureaux de scène
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         [CanBeNull]
         public static Desks.Desk ToDesk(this string str)
         {
             return Desks.Desk.SceneDeskDict[str];
         }
     
+        /// <summary>
+        /// Vérifie si la chaîne de caractères représente un bureau existant
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static bool IsDesk(this string str)
         {
             try
@@ -23,6 +32,11 @@ namespace TypeExpand.String
             }
         }
     
+        /// <summary>
+        /// Convertit une chaîne de caractères en un entier
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         [CanBeNull]
         public static int? ToInt(this string str)
         {
@@ -37,6 +51,11 @@ namespace TypeExpand.String
             return result;
         }
 
+        /// <summary>
+        /// Vérifie si la chaîne de caractères contient un nombre
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static bool HasNbInString(this string str)
         {
             foreach (var chara in str)
@@ -49,6 +68,11 @@ namespace TypeExpand.String
         }
         
         
+        /// <summary>
+        /// Vérifie si la chaîne de caractères représente une adresse IPv4 valide.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static bool IsIpv4(this string str)
         {
             if(str is null || str.Length < 7 || str.Length > 15)

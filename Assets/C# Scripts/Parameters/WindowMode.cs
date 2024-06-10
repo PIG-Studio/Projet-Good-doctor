@@ -12,8 +12,8 @@ namespace Parameters
 
         public void Start()
             /*
-             methode appele des que le bouton est rendu pour la 1e fois,
-             on y verifie quelles options sont affichables selon l'OS
+             méthode appelé des que le bouton est rendu pour la 1e fois,
+             on y vérifie quelles options sont affichables selon l'OS
              */
         {
             windowModeDropdown.onValueChanged.AddListener(SetWindowMode);

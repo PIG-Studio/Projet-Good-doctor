@@ -7,28 +7,46 @@ using Parameters;
 
 namespace InventoryTwo
 {
+    /// <summary>
+    /// Classe responsable de la gestion de l'inventaire
+    /// </summary>
     public class InventoryManager : MonoBehaviour
     {
-        public List<ItemsSo> inventory; //liste d'item avec qui on peut interagir
+        /// <summary>
+        /// Liste d'item avec qui on peut interagir
+        /// </summary>
+        public List<ItemsSo> inventory;
+        /// <summary>
+        /// Longueur maximale de l'inventaire
+        /// </summary>
         public int inventoryLenght = 15;
-        public GameObject inventoryPanel, hodlerSlot; // pour l'UI
+        /// <summary>
+        /// pour l'UI
+        /// </summary>
+        public GameObject inventoryPanel, hodlerSlot;
         private GameObject _slot;
         public GameObject prefabs;
         public GameObject holderDescription;
         public static InventoryManager Instance; // acceder partout
         public TextMeshProUGUI title, descriptionObject;
         public Image iconDescription;
+        
+        /// <summary>
+        /// Méthode appelée lors du démarrage de l'objet
+        /// </summary>
         private void Awake()
         {
             Instance = this;
         }
         private void Update()
         {
+            // Si la touche pour ouvrir l'inventaire est enfoncée et que le panneau d'inventaire n'est pas déjà ouvert
             if (Input.GetKeyDown(Keys.InventoryKey) && !inventoryPanel.activeInHierarchy) //quand i est pressé et que l'UI n'est pas activé 
             {
                 inventoryPanel.SetActive(true); // ouvre UI
                 if (hodlerSlot.transform.childCount > 0) // si contient des enfants
                 {
+                    // Supprime tous les enfants
                     foreach (Transform item in hodlerSlot.transform)
                     {
                         Destroy(item.gameObject);
@@ -62,11 +80,16 @@ namespace InventoryTwo
                         
                 }
             }
+            // Si la touche pour fermer l'inventaire est enfoncée et que le panneau d'inventaire est ouvert
             else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
             {
-                inventoryPanel.SetActive(false);
+                inventoryPanel.SetActive(false); // Ferme le panneau d'inventaire
             }
         }
+        /// <summary>
+        /// Méthode pour charger les détails d'un item sélectionné
+        /// </summary>
+        /// <param name="i"></param>
         public void ChargeItem(int i)
         {
             holderDescription.SetActive(true);

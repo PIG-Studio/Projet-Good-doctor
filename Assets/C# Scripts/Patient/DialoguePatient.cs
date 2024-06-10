@@ -10,10 +10,27 @@ namespace Patient
 {
     public class DialoguePatient : NetworkBehaviour
     {
+        /// <summary>
+        /// Texte affichant le dialogue du patient
+        /// </summary>
         private TextMeshProUGUI TextArea { get; set; }
+        /// <summary>
+        /// Script représentant le patient
+        /// </summary>
         private APnj Patient { get; set; }
+        
+        /// <summary>
+        /// Canvas contenant le dialogue
+        /// </summary>
         private GameObject ChildCanvas { get; set; }
+        
+        /// <summary>
+        /// Sprite du dialogue
+        /// </summary>
         private SpriteRenderer BubbleRender { get; set; }
+        /// <summary>
+        /// Rectangle du dialogue
+        /// </summary>
         private RectTransform RectDialogue { get; set; }
 
         private void Start()
@@ -33,9 +50,11 @@ namespace Patient
         }
 
 
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("TriggerEnter2D");
+            // Activation du dialogue si le joueur est propriétaire
             if (Variable.SceneNameCurrent != Scenes.Map || !other.CompareTag("Player") || !other.GetComponent<PlayerController.Multi.Multi>().IsOwner) return;
             
             ChildCanvas.SetActive(true);

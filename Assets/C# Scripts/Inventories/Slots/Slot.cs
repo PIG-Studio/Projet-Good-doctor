@@ -11,19 +11,30 @@ namespace Inventories.Slots
         // La liste des objets dans le slot
         //[NotNull] public IObject[] Item { get; }
         
-        // Le spinner de l'objet
+        /// <summary>
+        /// Le spinner de l'objet
+        /// </summary>
+       
         [CanBeNull] public Sprite Image { get; set; }
         
-        // Le type de l'objet
+        /// <summary>
+        /// Le type de l'objet
+        /// </summary>
         [CanBeNull] public System.Type Type;
         
-        // Le nombre d'objet(s) dans le slot
+        /// <summary>
+        /// Le nombre d'objet(s) dans le slot
+        /// </summary>
         public int Amount;
         
-        // Le GameObject du slot
+        /// <summary>
+        /// Le GameObject du slot
+        /// </summary>
         [CanBeNull] public GameObject Object { get; set; }
         
-        // Bool si on doit actualiser l'UI
+       /// <summary>
+       /// Bool si on doit actualiser l'UI
+       /// </summary>
         public bool HasChanged { get; set; }
 
         public Slot()
@@ -56,6 +67,9 @@ namespace Inventories.Slots
             Debug.Log($"Used {Amount} out of 3 slots");
         }
         
+        /// <summary>
+        /// Méthode pour retirer l'item
+        /// </summary>
         public void RemoveItem()
         {
             for (int i = Constante.InventorySlotSize-1; i >= 0; i--)
@@ -76,7 +90,7 @@ namespace Inventories.Slots
         }
         
         /// <summary>
-        /// Methode verifiant si place pour ajouter objet
+        /// Méthode vérifiant si place pour ajouter objet
         /// </summary>
         /// <param name="item"></param>
         /// <returns>booleen</returns>

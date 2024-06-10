@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace Items
 {
     /// <summary>
-    /// Classe listant les methodes pour creer des Items
+    /// Classe listant les méthodes pour créer des Items
     /// </summary>
     public static class Acces
     {
