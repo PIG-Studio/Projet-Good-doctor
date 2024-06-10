@@ -2,13 +2,14 @@ using System;
 using Super.Abstract;
 using UnityEngine;
 using TypeExpand.Animator;
+using Unity.Collections;
 using Unity.Netcode;
 
 namespace PNJ.Base
 {
     public class Pnj : APnj
     {
-        public override string Name { get; protected set; }
+        public override NetworkVariable<FixedString64Bytes> Name { get; protected set; }= new(writePerm: NetworkVariableWritePermission.Owner);
         public override string Phrase { get; protected set; }
         protected override Sprite Skin { get; set; }
         protected override Vector2 Position { get; set; }

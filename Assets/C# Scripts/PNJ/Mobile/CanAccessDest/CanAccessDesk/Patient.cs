@@ -45,7 +45,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             
             (Sickness, IsLying) = Acces.GenererRandom();
             Adn = Attributs.GenAdn(Sickness.AdnSain);
-            (Phrase, Name, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
+            (Phrase, Name.Value, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
             ChooseDestination();
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
         }

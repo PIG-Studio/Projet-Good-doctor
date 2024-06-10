@@ -23,10 +23,10 @@ namespace Personnel
         {
             Prefab = Resources.Load<GameObject>("Prefabs/Personnel");
             Skin = Resources.Load <Sprite> ("Sprites/Player/DinoSprites - vita");
-            Name = "Janine";
+            Name.Value = "Janine";
             Position = new Vector2(-6.890f, 5.7358f);
             _catchprase = "Bonjour docteur ! Comment allez-vous ?";
-            Id = Name;
+            Id = Name.Value.ToString();
             Spawn();
         }
 
