@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Desks;
 using Interfaces.Destination;
 using Interfaces.GameObjects;
+using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace GameCore.Variables
 {
@@ -72,7 +74,9 @@ namespace GameCore.Variables
         public static INormalDestination[] NormalDestinations { get; set; }
         public static IDeskDestination[] DeskDestinations { get; set; }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+
         public static List<ICallOnSceneChange> ListToCallOnSceneChange { get; set; }
+
+        public static int WaitTime { get; set; } = 0;
     }
 }

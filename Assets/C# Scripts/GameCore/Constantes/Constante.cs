@@ -78,7 +78,7 @@ namespace GameCore.Constantes
             "Stefan Schmid" , "Emine Morina"
         };
 
-        public const int MaxPatient = 10;
+        public const int MaxPatient = 4;
         
         public const KeyCode InteractKey = KeyCode.E;
     }
