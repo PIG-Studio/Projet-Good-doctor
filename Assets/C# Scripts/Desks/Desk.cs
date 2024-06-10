@@ -33,6 +33,7 @@ namespace Desks
             CurrentPatient?.SortirBureau();
             CurrentPatient = AssociatedDestination.Pop();
             CurrentPatient?.EndWaiting();
+            CurrentPatient?.EnterBureau();
         }
 
     }

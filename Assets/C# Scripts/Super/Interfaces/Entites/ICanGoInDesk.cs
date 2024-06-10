@@ -7,7 +7,7 @@ namespace Interfaces.Entites
     {
         bool DansBureau { get; set; }
         [CanBeNull] Sprite AltSprite { get; set; }
-        void EnterDesk();
+        void EnterBureau();
         void SortirBureau();
     }
 }
