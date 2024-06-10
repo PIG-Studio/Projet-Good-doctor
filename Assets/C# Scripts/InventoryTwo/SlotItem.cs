@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using InventoryTwo;
+using UnityEngine;
 
-namespace InventoryTwo
+public class SlotItem : MonoBehaviour // va dans dans un componenet de prefab de slotItem
 {
-    public class SlotItem : MonoBehaviour
-    {
-        public int itemSlot;
+    public int itemSlot;
 
-        public void ChargeItem()
-        {
-            InventoryManager.Instance.ChargeItem(itemSlot);
-        }
+    public void ChargeItem()
+    {
+        InventoryManager.Instance.ChargeItem(itemSlot);
     }
 }

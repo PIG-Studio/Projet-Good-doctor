@@ -9,7 +9,18 @@ namespace InventoryTwo
         public void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            InventoryManager.Instance.inventory.Add(item);
+            ItemsSo newItem = new ItemsSo(item.title, item.description, item.icon, item.amount, item.isStackable,
+                item.type);
+            for (int i = 0; i < InventoryManager.Instance.inventory.Count; i++)
+            {
+                if (item.title == InventoryManager.Instance.inventory[i].title && item.isStackable &&
+                    InventoryManager.Instance.inventory.Count > 0)
+                {
+                    newItem.amount += InventoryManager.Instance.inventory[i].amount;
+                    InventoryManager.Instance.inventory.Remove(InventoryManager.Instance.inventory[i]);
+                }
+            }
+            InventoryManager.Instance.inventory.Add(newItem);
             Destroy(gameObject);
         }
     }
