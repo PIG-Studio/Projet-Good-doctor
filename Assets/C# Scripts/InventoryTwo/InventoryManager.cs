@@ -151,32 +151,38 @@ namespace InventoryTwo
             RefreshInventory();
             valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
         }
+
         public void RemoveButton(int i)
         {
-            for (int j = 0; j < _amountToUse; j++)
+            if (_amountToUse > 0)
             {
-                if (inventory[i].amount <= 1)
-                {
-                    inventory.Remove(inventory[i]);
-                    holderDescription.SetActive(false);
-                    _amountToUse = 0;
-                    break;
-                }
-                else
-                {
-                    inventory[i].amount--;
-                }
-            }
 
-            ItemsSo droped = inventory[i];
-            droped.amount = _amountToUse;
-            
-            Resources.Load<GameObject>("Prefabs/Inventory/Item.prefab");
-            Instantiate(droped );
-            
-            RefreshInventory();
-            valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
+                for (int j = 0; j < _amountToUse; j++)
+                {
+                    if (inventory[i].amount <= 1)
+                    {
+                        inventory.Remove(inventory[i]);
+                        holderDescription.SetActive(false);
+                        _amountToUse = 0;
+                        break;
+                    }
+                    else
+                    {
+                        inventory[i].amount--;
+                    }
+                }
+
+                ItemsSo droped = inventory[i];
+                droped.amount = _amountToUse;
+
+                Resources.Load<GameObject>("Prefabs/Inventory/Item.prefab");
+                Instantiate(droped);
+
+                RefreshInventory();
+                valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
+            }
         }
+    
 
         public void PlusButton(int i)
         {

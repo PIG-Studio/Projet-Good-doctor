@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Oeil
   m_EditorClassIdentifier: 
   title: Oeil gauche de papi George
-  description: Papi George a perdu ses yeux . Ce globe oculaire vous regarde droit
-    dans les yeux.
+  description: "Papi George a perdu ses yeux . Ce globe oculaire regarde au plus
+    profond de votre \xE2me.."
   icon: {fileID: 21300000, guid: fe655e95b9904fc478f620de53e19fe1, type: 3}
   amount: 1
   isStackable: 0

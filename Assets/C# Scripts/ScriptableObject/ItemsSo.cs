@@ -1,3 +1,4 @@
+using System.Reflection;
 using UnityEngine;
 
 namespace ScriptableObject
@@ -17,6 +18,16 @@ namespace ScriptableObject
             Quete, Medicament, Nourriture
         }
 
-        public Type type; 
+        public Type type;
+
+        public ItemsSo(string _title, string _description, Sprite _icon, int _amount, bool _isStackable, Type _type)
+        {
+            title = _title;
+            description = _description;
+            icon = _icon;
+            amount = _amount;
+            isStackable = _isStackable;
+            type = _type;
+        }
     }
 }
