@@ -68,7 +68,7 @@ namespace GameCore.Constantes
             "Vous n'allez pas m'avoir avec vos vaccins à la 5G fournit par Microsoft",
             "J'ai vraiment des grosses douleurs à la tête , j'espère être soigné vite ",
             "Je me sens vraiment pas bien" , "Après le diagnostic je files voir mon match , ALLEZ L'OL",
-            "Vous saviez que la plus courte n'a durée que 38 minutes ?"
+            "Vous saviez que la plus courte guerre au monde n'a durée que 38 minutes ?"
         };
 
         public static readonly string[] NameArray = new[]
