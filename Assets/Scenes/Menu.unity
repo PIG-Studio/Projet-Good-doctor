@@ -710,7 +710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 667420696}
   - component: {fileID: 667420695}
-  - component: {fileID: 667420694}
+  - component: {fileID: 667420697}
   m_Layer: 0
   m_Name: GameTick
   m_TagString: Untagged
@@ -718,18 +718,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &667420694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667420693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a07d64bc6ec5e26a8119f61f0932ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &667420695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,6 +745,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &667420697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667420693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91cda533a1586e48a3f2d871f2045ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1271473151
 GameObject:
   m_ObjectHideFlags: 0
