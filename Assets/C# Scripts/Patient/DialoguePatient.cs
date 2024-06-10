@@ -23,7 +23,7 @@ namespace Patient
             Patient = GetComponent<APnj>();
             BubbleRender = ChildCanvas.GetComponent<SpriteRenderer>();
             
-            TextArea.text = Patient.Name;
+            TextArea.text = Patient.Name.Value.ToString();
             BubbleRender.enabled = false;
             
             RectDialogue = ChildCanvas.GetComponent<RectTransform>();
@@ -54,7 +54,7 @@ namespace Patient
                 case true:
                     pos = RectDialogue.position;
                     RectDialogue.position = new Vector3(pos.x ,pos.y + 1f , pos.z);
-                    TextArea.text = Patient.Name;
+                    TextArea.text = Patient.Name.Value.ToString();
                     BubbleRender.enabled = false;
                     break;
             }
@@ -81,7 +81,7 @@ namespace Patient
                 case true:
                 {
                     RectDialogue.position = new Vector3(pos.x, pos.y + 1f, pos.z);
-                    TextArea.text = Patient.Name;
+                    TextArea.text = Patient.Name.Value.ToString();
                     BubbleRender.enabled = false;
                     Debug.Log("Bubble disabled");
                     break;
