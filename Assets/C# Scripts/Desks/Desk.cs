@@ -35,7 +35,7 @@ namespace Desks
         {
             if (!(CurrentPatient is null))
             {
-                CurrentPatient.SortirBureau();
+                CurrentPatient.SortirBureauServerRpc();
                 Debug.Log("Le patient precedent sort du bureau");
             }
             

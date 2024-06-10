@@ -58,7 +58,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         {
             base.Update();
             
-            if (!Unity.Netcode.NetworkManager.Singleton.IsHost) return;
+            if (!NetworkManager.Singleton.IsHost) return;
             if (EnAttente || Navigation.remainingDistance > 2f || Destination is null) return;
             
             if (Destination.IsFull)
@@ -89,13 +89,21 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             throw new System.NotImplementedException();
         }
 
-        public void SortirBureau()
+        [ServerRpc]
+        public void SortirBureauServerRpc()
+        {
+            ChooseDestination();
+            SortirBureauClientRpc();
+        }
+        
+        [ClientRpc]
+        public void SortirBureauClientRpc()
         {
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value && Navigation.remainingDistance > 2f ;
-            if (NetworkManager.Singleton.IsHost)
-                ChooseDestination();
         }
+        
 
+        [ServerRpc]
         public void EnterBureau()
         {
             DansBureau.Value = true;
