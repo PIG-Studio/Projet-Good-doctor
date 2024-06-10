@@ -207,8 +207,9 @@ namespace UI_Scripts.UI_Prefab
         /// <param name="posY"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
+        /// <param name="action"></param>
         /// <returns></returns>
-        public static GameObject BTN_Generic<T>(string id,string text, float posX, float posY, float width, float height, Func<T> action)
+        public static GameObject BTN_Generic(string id,string text, float posX, float posY, float width, float height, Action action)
         {
             return UIButton.Create(id, text, posX, posY, width, height, () => action());
         }
