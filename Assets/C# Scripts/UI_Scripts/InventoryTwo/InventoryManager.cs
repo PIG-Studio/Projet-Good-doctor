@@ -169,7 +169,7 @@ namespace InventoryTwo
             droped.amount = _amountToUse;
             
             Resources.Load<GameObject>("Assets/UI pack/Prefabs/Inventory/SlotItem1.prefab");
-            Instantiate(droped );
+            Instantiate(droped, );
             
             RefreshInventory();
             valuesToUse.text = _amountToUse + "/" + inventory[i].amount;

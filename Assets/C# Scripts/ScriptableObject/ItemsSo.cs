@@ -11,10 +11,10 @@ namespace ScriptableObject
         public int amount;
         public bool isStackable;
 
-        [System.Serializable]
+        [System.Serializable] // pour afficher dans le script
         public enum Type
         {
-            Commun, Medicament
+            Quete, Medicament, Nourriture
         }
 
         public Type type; 

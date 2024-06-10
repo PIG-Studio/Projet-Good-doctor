@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 515ef2f831636f745acf729e2938829d, type: 3}
-  m_Name: Madeleine
+  m_Name: Lisopoirine
   m_EditorClassIdentifier: 
-  title: Madeleine
-  description: miam
-  icon: {fileID: 21300000, guid: 3bf75287d9b87b048acecde022ef76e0, type: 3}
-  amount: 1
+  title: Lisopoirine
+  description: medic
+  icon: {fileID: 21300000, guid: a651348f56de05f459de87e670344ee5, type: 3}
+  amount: 3
   isStackable: 1
   type: 0
