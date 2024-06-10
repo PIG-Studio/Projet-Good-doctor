@@ -814,8 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b216dd4f1e30bd045987169cc204c18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory:
-  - {fileID: 11400000, guid: 69491d890dcd6554b9cd3d537828c0ee, type: 2}
+  inventory: []
   inventoryLenght: 15
   inventoryPanel: {fileID: 7859500748636397286}
   hodlerSlot: {fileID: 5384423838336102579}

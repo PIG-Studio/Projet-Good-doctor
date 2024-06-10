@@ -72,7 +72,7 @@ namespace InventoryTwo
 
                     TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                     Image img = _slot.transform.Find("icon").GetComponent<Image>(); // met le l'icon de l'objet dans inventaire
-                    _slot.GetComponent<SlotItem>().itemSlot = i; //slot c'est quoi ca putain
+                    _slot.GetComponent<SlotItem>().itemSlot = i; 
 
                     amount.text = inventory[i].amount.ToString();
                     img.sprite = inventory[i].icon; //remplace la quantité dans le prefab par la quantité du slot actuel
@@ -83,7 +83,7 @@ namespace InventoryTwo
                     var transform1 = transform;
                     _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
                     _slot.transform.SetParent(hodlerSlot.transform);
-                    _slot.GetComponent<SlotItem>().itemSlot = i; // erreur ici !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    _slot.GetComponent<SlotItem>().itemSlot = i; 
                     TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                     Button butt = _slot.transform.Find("icon").GetComponent<Button>();
                     butt.enabled = false;
