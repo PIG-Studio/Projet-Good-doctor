@@ -9,8 +9,10 @@ namespace Interfaces.Entites
         uint Siege { get; set; }
         
         void ChooseDestination();
-        void StartWaiting();
+        void StartWaitingServerRpc();
+        void StartWaitingClientRpc();
         
-        void EndWaiting();
+        void EndWaitingServerRpc();
+        void EndWaitingClientRpc();
     }
 }

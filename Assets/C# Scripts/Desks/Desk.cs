@@ -47,7 +47,7 @@ namespace Desks
             {
                 Debug.Log("Le patient suivant entre dans le bureau");
                 CurrentPatient!.EndWaiting();
-                CurrentPatient.EnterBureau();
+                CurrentPatient.EnterBureauServerRpc();
             }
             
         }

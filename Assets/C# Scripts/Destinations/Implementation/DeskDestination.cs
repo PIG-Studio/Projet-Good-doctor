@@ -62,7 +62,7 @@ namespace Destinations.Implementation
                 DeskQueue.Enqueue(entity);
                 NbEntites++;
                 IsFull = NbEntites == Capacite;
-                entity.StartWaiting();
+                entity.StartWaitingServerRpc();
                 break;
             }
         }

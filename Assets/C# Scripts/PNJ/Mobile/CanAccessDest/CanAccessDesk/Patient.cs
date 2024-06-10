@@ -102,10 +102,16 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value && Navigation.remainingDistance > 2f ;
         }
         
-
-        public void EnterBureau()
+        [ServerRpc]
+        public void EnterBureauServerRpc()
         {
             DansBureau.Value = true;
+            EnterBureauClientRpc();
+        }
+        
+        [ClientRpc]
+        public void EnterBureauClientRpc()
+        {
             ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
                                        && Navigation.remainingDistance < 2f 
                                        && DansBureau.Value;

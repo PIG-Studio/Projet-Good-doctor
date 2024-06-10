@@ -8,11 +8,14 @@ namespace Interfaces.Entites
     {
         NetworkVariable<bool> DansBureau { get; set; }
         [CanBeNull] Sprite AltSprite { get; set; }
-        void EnterBureau();
+        
+        [ServerRpc]
+        void EnterBureauServerRpc();
+        [ClientRpc]
+        void EnterBureauClientRpc();
         
         [ServerRpc]
         void SortirBureauServerRpc();
-
         [ClientRpc]
         void SortirBureauClientRpc();
     }
