@@ -207,11 +207,17 @@ namespace UI_Scripts.UI_Prefab
         /// <param name="posY"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
-        /// <param name="action"></param>
         /// <returns></returns>
-        public static GameObject BTN_Generic(string id,string text, float posX, float posY, float width, float height, Action action)
+        public static GameObject BTN_NextPatient(string id,string text, float posX, float posY, float width, float height)
         {
-            return UIButton.Create(id, text, posX, posY, width, height, () => action());
+            return UIButton.Create(id, text, posX, posY, width, height, () =>
+            {
+                if (Variable.DeskBase != null)
+                {
+                    Debug.Log(Variable.DeskBase+ " HEYYYYYYYYYYYYYYYYYY");Variable.DeskBase.NextPatient();
+                    
+                }
+            });
         }
         
         

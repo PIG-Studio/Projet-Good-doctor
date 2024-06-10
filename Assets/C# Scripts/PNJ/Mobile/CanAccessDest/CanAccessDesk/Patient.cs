@@ -10,6 +10,7 @@ using Interfaces.Maladies.Types;
 using Interfaces.Patient;
 using Maladies;
 using Patient.Base;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
@@ -19,7 +20,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         // ICanAccessDesk
         public Sprite AltSprite { get; set; }
         public IAdn Adn { get; set; }
-        public bool DansBureau { get; set; }
+        public NetworkVariable<bool> DansBureau { get; set; } = new NetworkVariable<bool>(false);
         
         // IPatient
         public IValue Depression { get; set; }
@@ -40,7 +41,8 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                 Destroy(gameObject);
                 return;
             }
-
+            Variable.NbOfPatients++;
+            
             (Sickness, IsLying) = Acces.GenererRandom();
             Adn = Attributs.GenAdn(Sickness.AdnSain);
             (Phrase, Name, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
@@ -96,7 +98,10 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 
         public void EnterBureau()
         {
-            ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName;
+            DansBureau.Value = true;
+            ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
+                                       && Navigation.remainingDistance < 2f 
+                                       && DansBureau.Value;
         }
     }
 }
