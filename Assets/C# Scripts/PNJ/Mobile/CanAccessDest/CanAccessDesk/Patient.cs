@@ -20,7 +20,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         // ICanAccessDesk
         public Sprite AltSprite { get; set; }
         public IAdn Adn { get; set; }
-        public NetworkVariable<bool> DansBureau { get; set; } = new NetworkVariable<bool>(false);
+        public NetworkVariable<bool> DansBureau { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         
         // IPatient
         public IValue Depression { get; set; }
