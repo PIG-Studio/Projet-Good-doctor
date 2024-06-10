@@ -22,12 +22,12 @@ namespace PNJ.Mobile.CanAccessDest
             
             if (Unity.Netcode.NetworkManager.Singleton.IsHost)
             {
-                ChooseDestination();
+                ChooseDestinationServerRpc();
             }
         }
         
         [ServerRpc]
-        public void ChooseDestination()
+        public void ChooseDestinationServerRpc()
         {
             uint i = 0;
             while (true)

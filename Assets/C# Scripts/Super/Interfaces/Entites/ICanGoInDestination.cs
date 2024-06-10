@@ -8,7 +8,7 @@ namespace Interfaces.Entites
         bool EnAttente { get; }
         uint Siege { get; set; }
         
-        void ChooseDestination();
+        void ChooseDestinationServerRpc();
         void StartWaitingServerRpc();
         void StartWaitingClientRpc();
         

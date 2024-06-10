@@ -46,7 +46,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             (Sickness, IsLying) = Acces.GenererRandom();
             Adn = Attributs.GenAdn(Sickness.AdnSain);
             (Phrase, Name.Value, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
-            ChooseDestination();
+            ChooseDestinationServerRpc();
         }
 
         public void OnConnectedToServer()
@@ -64,7 +64,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             if (Destination.IsFull)
             {
                 Debug.Log($"Destination {Destination.DeskId} pleine, recherche d'une autre destination...");
-                ChooseDestination();
+                ChooseDestinationServerRpc();
                 return;
             }
             
@@ -92,7 +92,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         [ServerRpc]
         public void SortirBureauServerRpc()
         {
-            ChooseDestination();
+            ChooseDestinationServerRpc();
             SortirBureauClientRpc();
         }
         
