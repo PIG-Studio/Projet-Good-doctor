@@ -1,4 +1,6 @@
 using System;
+using CustomScenes;
+using GameCore.Variables;
 using Super.Abstract;
 using UnityEngine;
 using TypeExpand.Animator;
@@ -9,7 +11,7 @@ namespace PNJ.Base
 {
     public class Pnj : APnj
     {
-        public override NetworkVariable<FixedString64Bytes> Name { get; protected set; }= new(writePerm: NetworkVariableWritePermission.Owner);
+        public override NetworkVariable<FixedString64Bytes> Name { get; protected set; }= new(writePerm: NetworkVariableWritePermission.Server);
         public override string Phrase { get; protected set; }
         protected override Sprite Skin { get; set; }
         protected override Vector2 Position { get; set; }
@@ -26,6 +28,7 @@ namespace PNJ.Base
 
         public void Start()
         {
+            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
             Anims = gameObject.GetComponent<Animator>(); 
             Sprite = gameObject.GetComponent<SpriteRenderer>();
             Position = transform.position;
