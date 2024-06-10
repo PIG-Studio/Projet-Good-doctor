@@ -61,10 +61,15 @@ namespace Destinations.Implementation
         {
             if (NbEntites == 0) throw new LogicException("Destination vide");
 
-            PtAttente[0].occupe = false;
-            PtAttente[0].occupant = null;
-            NbEntites--;
-            IsFull = false;
+            for (int i = 0; i < Capacite; i++)
+            {
+                if (!PtAttente[i].occupe) continue;
+                PtAttente[i].occupe = false;
+                PtAttente[i].occupant = null;
+                NbEntites--;
+                IsFull = false;
+                break;
+            }
 
             return DeskQueue.Dequeue();
         }

@@ -40,6 +40,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                 Destroy(gameObject);
                 return;
             }
+            Variable.NbOfPatients++;
 
             (Sickness, IsLying) = Acces.GenererRandom();
             Adn = Attributs.GenAdn(Sickness.AdnSain);
