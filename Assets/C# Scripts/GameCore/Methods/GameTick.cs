@@ -39,8 +39,10 @@ namespace GameCore.Methods
             if (!NetworkManager.Singleton.IsHost) return;
             if (!(Variable.SceneNameCurrent == Scenes.Map)) return;
             _tempsEcoulee = Time.time;
+            Debug.Log("I m updating");
             if (Variable.NbOfPatients < Constantes.Constante.MaxPatient)
             {
+                Debug.Log("I m creating a patient");
                 var patient = Instantiate(_patient);
                 _tempsDernierPatient = _tempsEcoulee;
                 Variable.NbOfPatients++;

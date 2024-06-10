@@ -30,10 +30,17 @@ namespace Desks
         
         public void NextPatient()
         {
-            CurrentPatient?.SortirBureau();
-            CurrentPatient = AssociatedDestination.Pop();
-            CurrentPatient?.EndWaiting();
-            CurrentPatient?.EnterBureau();
+            if (!(CurrentPatient is null))
+            {
+                CurrentPatient.SortirBureau();
+            }
+            if (!(CurrentPatient is null))
+            {
+                CurrentPatient = AssociatedDestination.Pop();
+                CurrentPatient!.EndWaiting();
+                CurrentPatient.EnterBureau();
+            }
+            
         }
 
     }
