@@ -16,6 +16,6 @@ MonoBehaviour:
   description: "Elle ne vous ram\xE8nera peut-\xEAtre pas en enfance, mais elle a
     bon go\xFBt. Meme si  vous l'avez ramass\xE9e par terre."
   icon: {fileID: 21300000, guid: c2263c346c3c2a04881a795948f9fe3d, type: 3}
-  amount: 22
+  amount: 1
   isStackable: 1
   type: 0

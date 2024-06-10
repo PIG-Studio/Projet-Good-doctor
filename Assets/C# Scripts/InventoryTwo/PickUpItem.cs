@@ -17,10 +17,6 @@ namespace InventoryTwo
                     item.amount += InventoryManager.Instance.inventory[i].amount;
                     InventoryManager.Instance.inventory.Remove(InventoryManager.Instance.inventory[i]);
                 }
-                else
-                {
-                    item.amount += InventoryManager.Instance.inventory[i].amount;
-                }
             }
             InventoryManager.Instance.inventory.Add(item);
             Destroy(gameObject);
