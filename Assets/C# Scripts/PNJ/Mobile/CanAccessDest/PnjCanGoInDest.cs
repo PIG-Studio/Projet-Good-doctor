@@ -49,7 +49,11 @@ namespace PNJ.Mobile.CanAccessDest
         
         public void EndWaiting()
         {
-            throw new NotImplementedException();
+            Navigation.SetDestination(Destination.PtArrivee);
+            while (Navigation.remainingDistance > 0.5f) { }
+            EnAttente = false;
+            Destination = null;
+            
         }
         
     }

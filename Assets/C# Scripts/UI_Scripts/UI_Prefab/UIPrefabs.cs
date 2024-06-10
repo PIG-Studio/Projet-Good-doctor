@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -195,6 +196,24 @@ namespace UI_Scripts.UI_Prefab
             return UIInventory.Create(posX, posY, width, height, sprite, id);
         }
 
+        
+        /// <summary>
+        /// <value>WIP</value>
+        /// Cree un bouton qui charge une sauvegarde specifique.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="text"></param>
+        /// <param name="posX"></param>
+        /// <param name="posY"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public static GameObject BTN_Generic(string id,string text, float posX, float posY, float width, float height, Action action)
+        {
+            return UIButton.Create(id, text, posX, posY, width, height, () => action());
+        }
+        
         
         /// <summary>
         /// test method, kinda useless
