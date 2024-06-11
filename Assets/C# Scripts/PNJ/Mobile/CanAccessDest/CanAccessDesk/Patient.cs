@@ -120,6 +120,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             EnterBureauClientRpc();
         }
         
+        
         [ClientRpc]
         public void EnterBureauClientRpc()
         {

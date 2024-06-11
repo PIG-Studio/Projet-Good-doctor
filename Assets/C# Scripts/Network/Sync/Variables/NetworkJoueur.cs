@@ -4,7 +4,7 @@ using GameCore.Variables;
 
 namespace Network.Sync.Variables
 {
-    public class Player : NetworkBehaviour
+    public class NetworkJoueur : NetworkBehaviour
     {
         // Variables pour stocker les données du joueur qui seront synchronisées sur le réseau
         private readonly NetworkVariable<Vector2> _pos = new(writePerm: NetworkVariableWritePermission.Owner);
@@ -17,7 +17,6 @@ namespace Network.Sync.Variables
         // Références aux composants du joueur
         public SpriteRenderer sprite;
         public Animator anims;
-        public Rigidbody2D rb;
         
         // Hash des paramètres d'animation de déplacement pour l'Animator
         private static readonly int MovingDown = Animator.StringToHash("MovingDown");

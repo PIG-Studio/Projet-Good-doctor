@@ -7,6 +7,6 @@ namespace Interfaces.Bureau
     {
         [CanBeNull] public ICanGoInDesk CurrentPatient { get;}
         
-        void NextPatient();
+        void NextPatientServerRpc();
     }
 }

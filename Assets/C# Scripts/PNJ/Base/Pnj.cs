@@ -2,6 +2,7 @@ using System;
 using CustomScenes;
 using GameCore.Variables;
 using Super.Abstract;
+using Super.Interfaces.GameObjects;
 using UnityEngine;
 using TypeExpand.Animator;
 using TypeExpand.Int;
@@ -10,7 +11,7 @@ using Unity.Netcode;
 
 namespace PNJ.Base
 {
-    public class Pnj : APnj
+    public class Pnj : APnj, IConditionAffichage
     {
         /// <summary>
         /// Le nom du Pnj
@@ -56,8 +57,8 @@ namespace PNJ.Base
         /// Sprite en 2d 
         /// </summary>
         protected override SpriteRenderer Sprite { get; set; }
-        
-        protected Func<bool> ConditionAffichage { get; set; }
+
+        public Func<bool> ConditionAffichage { get; protected set; }
         
         
         public void Start()
