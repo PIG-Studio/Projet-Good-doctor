@@ -10,12 +10,13 @@ using Interfaces.Maladies.Types;
 using Interfaces.Patient;
 using Maladies;
 using Patient.Base;
+using Super.Interfaces;
 using Unity.Netcode;
 using UnityEngine;
 
 namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 {
-    public class Patient : PnjCanGoInDest, ICanGoInDesk, IPatient
+    public class Patient : PnjCanGoInDest, ICanGoInDesk, IPatient, ISyncOnConnectRpc
     {
         // ICanAccessDesk
         public Sprite AltSprite { get; set; }
@@ -52,6 +53,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void OnConnectedToServer()
         {
             Start();
+            SyncOnConnectServerRpc();
         }
 
         public new void Update()
@@ -115,6 +117,19 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
                                        && Navigation.remainingDistance < 2f 
                                        && DansBureau.Value;
+        }
+
+        [ServerRpc]
+        public void SyncOnConnectServerRpc()
+        {
+            Debug.Log("SyncOnConnectServerRpc");
+            SyncOnConnectClientRpc(Phrase);
+        }
+        
+        [ClientRpc]
+        public void SyncOnConnectClientRpc(string phrase)
+        {
+            Phrase = phrase;
         }
     }
 }
