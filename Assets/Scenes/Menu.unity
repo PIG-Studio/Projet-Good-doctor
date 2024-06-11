@@ -890,8 +890,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278851669}
-  - component: {fileID: 1278851671}
   - component: {fileID: 1278851670}
+  - component: {fileID: 1278851671}
   m_Layer: 0
   m_Name: ScriptContainerObject
   m_TagString: Untagged
@@ -935,10 +935,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278851667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55da4cb9216c374f90d6a0649ec13a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7722522b784b42c5beb0c083304a4175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bureau: DESK_Base
 --- !u!1 &1907938331
 GameObject:
   m_ObjectHideFlags: 0
