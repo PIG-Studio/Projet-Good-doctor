@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7941498619814139686}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SlotItem, Assembly-CSharp
         m_MethodName: ChargeItem
         m_Mode: 1
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 8718919029975156953}
   - component: {fileID: 3545139103031315534}
   - component: {fileID: 3849374873697270457}
-  - component: {fileID: 7941498619814139686}
+  - component: {fileID: 4317177969160087349}
   m_Layer: 5
   m_Name: SlotItem1
   m_TagString: Untagged
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7941498619814139686
+--- !u!114 &4317177969160087349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6402957478592555235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63bb409862d3d6648b7be894ece69be3, type: 3}
+  m_Script: {fileID: 11500000, guid: 08b2def9a5af980458f07dc045fb4dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemSlot: 0
