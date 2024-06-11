@@ -6,7 +6,7 @@ namespace Super.Interfaces.Joueur
     {
         uint Money { get; }
         int Reputation { get; }
-        uint BureauActuel { get; }
+        uint? BureauActuel { get; }
         
     }
 }

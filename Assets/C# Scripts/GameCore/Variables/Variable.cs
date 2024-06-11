@@ -60,9 +60,13 @@ namespace GameCore.Variables
         /// <summary>
         /// 
         /// </summary>
-        public static Desk[] AllDesks { get; set; } = new Desk[5];
-        public static int DesksNb = 0;
-        
+        public static Desk[] AllDesks { get; set; }
+
+        private static uint _desksNb;
+
+        public static uint DesksNb { get { _desksNb++; return _desksNb - 1; } }
+    
+
         public static Desk CurrentlyRenderedDesk { get; set; }
         
         public static int ScoreJ1 { get; set; }

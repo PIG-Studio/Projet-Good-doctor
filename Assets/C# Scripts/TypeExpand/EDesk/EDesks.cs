@@ -3,6 +3,7 @@ using Exceptions;
 using JetBrains.Annotations;
 using Super.Interfaces.Joueur;
 using Unity.Netcode;
+using UnityEngine;
 
 namespace TypeExpand.EDesk
 {
@@ -25,8 +26,10 @@ namespace TypeExpand.EDesk
         [ServerRpc]
         public static uint TrouverBureauLibreServerRpc(this Desk[] desks)
         {
+            
             for (uint i = 0; i < desks.Length; i++)
             {
+                Debug.Log(i);
                 if (desks[i].Responsable == null)
                 {
                     return i;

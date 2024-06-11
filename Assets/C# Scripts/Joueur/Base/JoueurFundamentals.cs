@@ -1,12 +1,12 @@
 using System;
 using Desks;
-using Exceptions;
 using GameCore.Variables;
 using Super.Interfaces.Entites;
 using Super.Interfaces.GameObjects;
 using Super.Interfaces.Joueur;
 using TypeExpand.EDesk;
 using Unity.Netcode;
+using UnityEngine;
 
 namespace Joueur.Base
 {
@@ -15,14 +15,17 @@ namespace Joueur.Base
         public uint Pv { get; protected set; }
         public uint Money { get; protected set; }
         public int Reputation { get; protected set; }
-        public uint BureauActuel { get; protected set; }
+        public uint? BureauActuel { get; protected set; }
         public Func<bool> ConditionAffichage { get; } = () => true;
-        
-        public NetworkVariable<UnityEngine.Vector2> Position { get; protected set; } = new(writePerm: NetworkVariableWritePermission.Server);
+
+        private NetworkVariable<UnityEngine.Vector2> Position { get; } = new(writePerm: NetworkVariableWritePermission.Server);
 
         private void Start()
         {
-            AssignerBureauLibreServerRpc();
+            if (IsOwner)
+            {
+                AssignerBureauLibreServerRpc();
+            }
         }
 
         
@@ -32,24 +35,30 @@ namespace Joueur.Base
             {
                 UpdatePositionServerRpc(transform.position);
             }
+            else
+            {
+                transform.position = Position.Value;
+            }
             
         }
         [ServerRpc]
-        void UpdatePositionServerRpc(UnityEngine.Vector2 position)
+        public void UpdatePositionServerRpc(UnityEngine.Vector2 position)
         {
             Position.Value = position;
         }
 
-        [ServerRpc(RequireOwnership = false)]
+        [ServerRpc]
         public void AssignerBureauLibreServerRpc()
         {
             uint indexDesk = Variable.AllDesks.TrouverBureauLibreServerRpc();
             Desk desk = Variable.AllDesks[indexDesk];
             if (desk == null)
             {
-                throw new LogicException("Aucun bureau n'a été trouvé.");
+                Debug.LogWarning("Aucun bureau n'a été trouvé.");
+                BureauActuel = null;
+                return;
             }
-            desk.Responsable = this;
+            desk!.Responsable = this;
             BureauActuel = indexDesk;
             AssignerBureauLibreClientRpc(indexDesk);
         }

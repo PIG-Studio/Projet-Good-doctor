@@ -14,6 +14,7 @@ namespace GameCore.Methods
         
         public void Start()
         {
+            Variable.AllDesks = new Desk[2];
             Variable.AllDestinations = new List<IDestination>();
             Variable.DeskDestinations = new IDeskDestination[] {null, null, null};
             Variable.NormalDestinations = new INormalDestination[] {null, null, null};
