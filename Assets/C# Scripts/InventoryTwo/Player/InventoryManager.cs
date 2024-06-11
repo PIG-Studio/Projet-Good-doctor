@@ -234,18 +234,9 @@ namespace InventoryTwo.Player
                     inventory[i].amount--;
                 }
             }
+            InstanceDesk.deskInventory.Add(newItem);
+            InstanceDesk.RefreshInventory();
             
-            for (int j = 0; j < InventoryManager.Instance.inventory.Count; j++)
-            {
-                if (inventory[i].title == InventoryManager.Instance.inventory[i].title && inventory[i].isStackable &&
-                    InventoryManager.Instance.inventory.Count > 0)
-                {
-                    newItem.amount += InventoryManager.Instance.inventory[j].amount;
-                    InventoryManager.Instance.inventory.Remove(InventoryManager.Instance.inventory[j]);
-                }
-            }
-            DeskInventoryManager.InstanceDIM.deskInventory.Add(newItem);
-            DeskInventoryManager.InstanceDIM.RefreshInventory();
             RefreshInventory();
             valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
         }

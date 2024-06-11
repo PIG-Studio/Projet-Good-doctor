@@ -437,7 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b85906e27fd7b4d8d0b8acd084821a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deskInventory: []
+  deskInventory:
+  - {fileID: 11400000, guid: 69491d890dcd6554b9cd3d537828c0ee, type: 2}
   inventoryLenght: 24
   inventoryPanel: {fileID: 1707041758}
   hodlerSlot: {fileID: 266436076}

@@ -1084,6 +1084,7 @@ MonoBehaviour:
   _minusButton: {fileID: 6799416906157011133}
   useButton: {fileID: 7119110445593822194}
   removeButton: {fileID: 8242637954353839387}
+  addInventoryButton: {fileID: 0}
   amountToRemove: {fileID: 6698537672365007157}
 --- !u!1 &4434312971129972190
 GameObject:
@@ -1936,7 +1937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3690493629976047137
 RectTransform:
   m_ObjectHideFlags: 0

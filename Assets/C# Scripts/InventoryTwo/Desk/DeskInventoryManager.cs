@@ -196,8 +196,8 @@ namespace InventoryTwo.Desk
                     InventoryManager.Instance.inventory.Remove(InventoryManager.Instance.inventory[j]);
                 }
             }
-            InventoryManager.Instance.inventory.Add(newItem);
-            InventoryManager.Instance.RefreshInventory();
+            instancePlayer.inventory.Add(newItem);
+            instancePlayer.RefreshInventory();
             RefreshInventory();
             valuesToUse.text = _amountToUse + "/" + deskInventory[i].amount;
         }
