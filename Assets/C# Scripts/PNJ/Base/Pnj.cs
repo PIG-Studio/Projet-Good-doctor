@@ -8,6 +8,7 @@ using TypeExpand.Animator;
 using TypeExpand.Int;
 using Unity.Collections;
 using Unity.Netcode;
+using UnityEditor.Animations;
 
 namespace PNJ.Base
 {
@@ -36,6 +37,22 @@ namespace PNJ.Base
         /// </summary>
         private Vector2 Velocity { get; set; }
         
+        
+        protected override uint _skin { get; set; }
+
+        protected override uint Skin
+        {
+            get
+            {
+                return _skin;
+            }
+            set
+            {
+                _skin = value;
+                Anims.runtimeAnimatorController = Variable.PnjSkin[_skin];
+            } 
+        }
+        
         /// <summary>
         /// Les animations de Pnj
         /// </summary>
@@ -51,14 +68,16 @@ namespace PNJ.Base
         public void Start()
         {
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
-            Anims = gameObject.GetComponent<Animator>(); 
+            Anims = gameObject.GetComponent<Animator>();
+            Debug.Log("anims: " + Anims);
             Sprite = gameObject.GetComponent<SpriteRenderer>();
-            Skin = (uint)Variable.PnjSkin.Length.RandomInt();
+            
             
             
             // Si cette instance n'est pas l'hôte return sinon Spawn
             if (!NetworkManager.Singleton.IsHost) return;
             
+            Skin = (uint)Variable.PnjSkin.Length.RandomInt();
             // Enregistrer la position actuelle de l'objet
             Position.Value = transform.position;
             LastPosition = Position.Value; // Enregistrer la dernière position

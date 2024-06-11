@@ -2,6 +2,7 @@ using GameCore.Variables;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
+using Component = System.ComponentModel.Component;
 
 namespace Super.Abstract
 {
@@ -10,20 +11,9 @@ namespace Super.Abstract
         /// <summary>
         /// Le sprite du Pnj
         /// </summary>
-        private uint _skin;
+        protected abstract uint _skin { get; set; }
 
-        protected uint Skin 
-        {
-            get
-            {
-                return _skin;
-            }
-            set
-            {
-                Anims = Variable.PnjSkin[value];
-                _skin = value;
-            } 
-        }
+        protected abstract uint Skin { get; set; }
         public abstract NetworkVariable<FixedString64Bytes> Name { get; protected set; }
         protected abstract NetworkVariable<Vector2> Position { get; set; }
         public abstract string Phrase { get; protected set; }
