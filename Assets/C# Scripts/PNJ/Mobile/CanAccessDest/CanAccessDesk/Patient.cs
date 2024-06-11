@@ -46,16 +46,21 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             
             (Sickness, IsLying) = Acces.GenererRandom();
             Adn = Attributs.GenAdn(Sickness.AdnSain);
-            (Phrase, Name.Value, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
-            ChooseDestinationServerRpc();
+            string nameTemp;
+            (Phrase, nameTemp, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
+            if (NetworkManager.Singleton.IsHost)
+            {
+                Name.Value = nameTemp;
+                ChooseDestinationServerRpc();
+            }
+            else
+            {
+                SyncOnConnectServerRpc();
+                Debug.Log("Connected to server " + NetworkManager.Singleton.ConnectedHostname);
+            }
+            
         }
 
-        public void OnConnectedToServer()
-        {
-            Debug.Log("Connected to server " + NetworkManager.Singleton.ConnectedHostname);
-            Start();
-            SyncOnConnectServerRpc();
-        }
 
         public new void Update()
         {
