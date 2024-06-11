@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using Desks;
 using Interfaces.Destination;
 using Interfaces.GameObjects;
-using UnityEditor.Animations;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 namespace GameCore.Variables
 {
@@ -80,10 +78,10 @@ namespace GameCore.Variables
 
         public static int WaitTime { get; set; } = 0;
         
-        public static AnimatorController[] PnjSkin { get; } = new[]
+        public static RuntimeAnimatorController[] PnjSkin { get; } = new[]
         {
-            Resources.Load<AnimatorController>("Animations/Player"), 
-            Resources.Load<AnimatorController>("Animations/Player2")
+            Resources.Load<RuntimeAnimatorController>("Animations/Player"), 
+            Resources.Load<RuntimeAnimatorController>("Animations/Player2")
         };
     }
 }
