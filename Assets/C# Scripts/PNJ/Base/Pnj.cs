@@ -1,14 +1,12 @@
 using System;
 using CustomScenes;
 using GameCore.Variables;
-using Maladies.Base.SubTypes.Symptomes;
 using Super.Abstract;
 using UnityEngine;
 using TypeExpand.Animator;
 using TypeExpand.Int;
 using Unity.Collections;
 using Unity.Netcode;
-using UnityEditor.Animations;
 
 namespace PNJ.Base
 {
