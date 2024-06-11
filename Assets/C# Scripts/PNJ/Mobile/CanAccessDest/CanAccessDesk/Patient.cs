@@ -52,6 +52,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 
         public void OnConnectedToServer()
         {
+            Debug.Log("Connected to server " + NetworkManager.Singleton.ConnectedHostname);
             Start();
             SyncOnConnectServerRpc();
         }
@@ -129,6 +130,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         [ClientRpc]
         public void SyncOnConnectClientRpc(string phrase)
         {
+            Debug.Log("SyncOnConnectClientRpc");
             Phrase = phrase;
         }
     }

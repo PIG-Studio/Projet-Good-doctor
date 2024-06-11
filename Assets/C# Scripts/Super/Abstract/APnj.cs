@@ -8,7 +8,7 @@ namespace Super.Abstract
     {
         protected abstract Sprite Skin { get; set; } 
         public abstract NetworkVariable<FixedString64Bytes> Name { get; protected set; }
-        protected abstract Vector2 Position { get; set; }
+        protected abstract NetworkVariable<Vector2> Position { get; set; }
         public abstract string Phrase { get; protected set; }
         
     }

@@ -14,7 +14,7 @@ namespace PNJ.Base
         /// <summary>
         /// Le nom du Pnj
         /// </summary>
-        public override NetworkVariable<FixedString64Bytes> Name { get; protected set; }= new(writePerm: NetworkVariableWritePermission.Server);
+        public override NetworkVariable<FixedString64Bytes> Name { get; protected set;  }= new(writePerm: NetworkVariableWritePermission.Server);
         
         /// <summary>
         /// Les phrases de Pnj (ce qu'il disent)
@@ -27,7 +27,7 @@ namespace PNJ.Base
         /// <summary>
         /// La position du Pnj
         /// </summary>
-        protected override Vector2 Position { get; set; }
+        protected override NetworkVariable<Vector2> Position { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         /// <summary>
         /// La dernière position du Pnj
         /// </summary>
@@ -54,11 +54,14 @@ namespace PNJ.Base
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
             Anims = gameObject.GetComponent<Animator>(); 
             Sprite = gameObject.GetComponent<SpriteRenderer>();
-            // Enregistrer la position actuelle de l'objet
-            Position = transform.position;
+            
             
             // Si cette instance n'est pas l'hôte return sinon Spawn
             if (!NetworkManager.Singleton.IsHost) return;
+            
+            // Enregistrer la position actuelle de l'objet
+            Position.Value = transform.position;
+            LastPosition = Position.Value; // Enregistrer la dernière position
             NetworkObject instanceNetworkObject = gameObject.GetComponent<NetworkObject>();
             instanceNetworkObject.Spawn();
         }
@@ -72,34 +75,21 @@ namespace PNJ.Base
             if (ConditionAffichage())
             {
                 Sprite.enabled = true; // Activer l'affichage du sprite
-                LastPosition = Position; // Enregistrer la dernière position
-                Position = transform.position; // Mettre à jour la position actuelle
+                
+                 // Mettre à jour la position actuelle
+                
                 // Calculer la vélocité en soustrayant la dernière position de la position actuelle
-                Velocity = Position - LastPosition;
+                Velocity = (Vector2)(transform.position) - LastPosition;
+                
+                LastPosition = Position.Value; // Enregistrer la dernière position
+                if (NetworkManager.Singleton.IsHost)
+                    // Mettre à jour la position actuelle
+                    Position.Value = transform.position;
+                
                 Anims.UpdateAnim(Velocity); //Mettre à jour l'animation en fonction de la vélocité
             }
             else 
-            { Sprite.enabled = false; }
-
-            // Moved to patient
-            /*if (Patient.EnAttente || AgentComp.remainingDistance > 2f) return;
-            
-            if (Destination.IsFull)
-            {
-                Debug.Log("Destination pleine, recherche d'une autre destination");
-                Patient.ChooseDestination();
-                return;
-            }
-            
-            switch (Destination)
-            {
-                case IDeskDestination deskDestination:
-                    deskDestination.Add(Patient);
-                    break;
-                case INormalDestination normalDestination:
-                    normalDestination.Add(Patient);
-                    break;
-            }*/
+                Sprite.enabled = false;
         }
     }
 }

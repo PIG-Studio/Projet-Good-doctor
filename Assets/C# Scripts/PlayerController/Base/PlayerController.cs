@@ -13,8 +13,8 @@ namespace PlayerController.Base
     /// </summary>
     public class PlayerController : NetworkBehaviour
     {
-        protected Rigidbody2D _rb; // Reference to the Rigidbody2D component
-        protected Animator _anims;
+        private Rigidbody2D _rb; // Reference to the Rigidbody2D component
+        private Animator _anims;
         public GameObject vcam;
         protected Inventory PlayerInventory { get; set; }
 
