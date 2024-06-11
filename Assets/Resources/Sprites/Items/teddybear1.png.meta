@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 030e500bda5cc134d8b7ff4c76ccab0d
 =======
 guid: 4adfc22acb18e4d228cde9d14b4e2b20
 >>>>>>> Suna
+=======
+guid: 388672468125c064ebe0531fa1283466
+>>>>>>> clem/deskInventory
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

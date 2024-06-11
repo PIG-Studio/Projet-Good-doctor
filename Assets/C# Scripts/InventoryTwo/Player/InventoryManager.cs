@@ -1,17 +1,16 @@
 using System.Collections.Generic;
 using CustomScenes;
 using GameCore.Variables;
+using InventoryTwo.Desk;
 using Network.Sync.Variables;
+using Parameters;
 using ScriptableObject;
 using TMPro;
 using UnityEngine;
-using Parameters;
-using UnityEngine.UIElements;
-using static GameCore.Constantes.Constante;
 using Image = UnityEngine.UI.Image;
 using Button = UnityEngine.UI.Button;
 
-namespace InventoryTwo
+namespace InventoryTwo.Player
 {
     /// <summary>
     /// Classe responsable de la gestion de l'inventaire
@@ -33,7 +32,8 @@ namespace InventoryTwo
         private GameObject _slot;
         public GameObject prefabs;
         
-        public static InventoryManager Instance; // acceder partout
+        public static InventoryManager Instance;
+        public static DeskInventoryManager InstanceDesk; // acceder partout
         public TextMeshProUGUI title, descriptionObject;
         public Image iconDescription;
         
@@ -45,6 +45,7 @@ namespace InventoryTwo
         [SerializeField] private Button _plusButton, _minusButton;
         [SerializeField] private GameObject useButton;
         [SerializeField] private GameObject removeButton;
+        [SerializeField] private GameObject addInventoryButton;
         [SerializeField] private GameObject amountToRemove;
         
         /// <summary>
@@ -53,22 +54,23 @@ namespace InventoryTwo
         private void Awake()
         {
             Instance = this;
+            InstanceDesk = DeskInventoryManager.InstanceDIM;
         }
         private void Update()
         {
-            if (Input.GetKeyDown(Keys.InventoryKey) && !inventoryPanel.activeInHierarchy && Variable.SceneNameCurrent == Scenes.Map) //quand i est pressé et que l'UI n'est pas activé 
+            if (Input.GetKeyDown(Keys.InventoryKey) && !inventoryPanel.activeInHierarchy) //quand i est pressé et que l'UI n'est pas activé 
             {
                 inventoryPanel.SetActive(true); // ouvre UI
                 RefreshInventory();
             }
-            else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy && Variable.SceneNameCurrent == Scenes.Map)
+            else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
             // Si la touche pour fermer l'inventaire est enfoncée et que le panneau d'inventaire est ouvert
             {
                 inventoryPanel.SetActive(false); // Ferme le panneau d'inventaire
             }
         }
 
-        private void RefreshInventory()
+        public void RefreshInventory()
         {
             if (hodlerSlot.transform.childCount > 0) // si contient des enfants
             {
@@ -129,6 +131,10 @@ namespace InventoryTwo
                 removeButton.SetActive(true);
                 amountToRemove.SetActive(true);
             }
+            if (Variable.SceneNameCurrent == Scenes.DBase)
+                addInventoryButton.SetActive(true);
+            else
+                addInventoryButton.SetActive(false);
             
             holderDescription.SetActive(true);
             title.text = inventory[i].title;
@@ -147,6 +153,8 @@ namespace InventoryTwo
             removeButton.GetComponent<Button>().onClick.RemoveAllListeners();
             removeButton.GetComponent<Button>().onClick.AddListener(delegate { RemoveButton(i); });
             
+            addInventoryButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            addInventoryButton.GetComponent<Button>().onClick.AddListener(delegate { AddInventoryButton(i); });
         }
 
         public void UseItem(int i) //i l'endroit dans l'inventaire
@@ -176,7 +184,9 @@ namespace InventoryTwo
         {
             if (_amountToUse > 0)
             {
-
+                ItemsSo newItem = new ItemsSo(inventory[i].title, inventory[i].description, inventory[i].icon, _amountToUse, inventory[i].isStackable,
+                    inventory[i].type);
+                
                 for (int j = 0; j < _amountToUse; j++)
                 {
                     if (inventory[i].amount <= 1)
@@ -192,8 +202,7 @@ namespace InventoryTwo
                     }
                 }
 
-                ItemsSo droped = inventory[i];
-                droped.amount = _amountToUse;
+                ItemsSo droped = newItem; // ca marche pas mais c'est pour drop sur la map
 
                 Resources.Load<GameObject>("Prefabs/Inventory/Item.prefab");
                 Instantiate(droped);
@@ -203,7 +212,36 @@ namespace InventoryTwo
             }
         }
     
+        /// <summary>
+        /// Ajouter un objet a l'autre inventaire
+        /// </summary>
+        /// <param name="i"></param>
+        public void AddInventoryButton(int i) //i l'endroit dans l'inventaire
+        {
+            ItemsSo newItem = new ItemsSo(inventory[i].title, inventory[i].description, inventory[i].icon, _amountToUse, inventory[i].isStackable,
+                inventory[i].type);
+            
+            for (int j = 0; j < _amountToUse; j++)
+            {
+                //action sur le joueur par l'utilisation de inventory[i].attribut;
 
+                if (inventory[i].amount == 1)
+                {
+                    inventory.Remove(inventory[i]);
+                    break;
+                }
+                else
+                {
+                    inventory[i].amount--;
+                }
+            }
+            InstanceDesk.deskInventory.Add(newItem);
+            InstanceDesk.RefreshInventory();
+            
+            RefreshInventory();
+            valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
+        }
+        
         public void PlusButton(int i)
         {
             if (_amountToUse <= inventory[i].amount - 1)
