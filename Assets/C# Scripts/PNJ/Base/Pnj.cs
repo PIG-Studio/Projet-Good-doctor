@@ -4,6 +4,7 @@ using GameCore.Variables;
 using Super.Abstract;
 using UnityEngine;
 using TypeExpand.Animator;
+using TypeExpand.Int;
 using Unity.Collections;
 using Unity.Netcode;
 
@@ -23,7 +24,7 @@ namespace PNJ.Base
         /// <summary>
         /// Le sprite du Pnj
         /// </summary>
-        protected override Sprite Skin { get; set; }
+        protected override Animation[] Skin { get; set; }
         /// <summary>
         /// La position du Pnj
         /// </summary>
@@ -54,6 +55,7 @@ namespace PNJ.Base
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
             Anims = gameObject.GetComponent<Animator>(); 
             Sprite = gameObject.GetComponent<SpriteRenderer>();
+            Skin = Variable.PnjSkin[Variable.PnjSkin.Length.RandomInt()];
             
             
             // Si cette instance n'est pas l'hôte return sinon Spawn

@@ -125,18 +125,19 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                                        && DansBureau.Value;
         }
 
-        [ServerRpc]
+        [ServerRpc(RequireOwnership = false)]
         public void SyncOnConnectServerRpc()
         {
             Debug.Log("SyncOnConnectServerRpc");
-            SyncOnConnectClientRpc(Phrase);
+            SyncOnConnectClientRpc(Phrase, Anims);
         }
         
         [ClientRpc]
-        public void SyncOnConnectClientRpc(string phrase)
+        public void SyncOnConnectClientRpc(string phrase, Animator anims)
         {
             Debug.Log("SyncOnConnectClientRpc");
             Phrase = phrase;
+            Anims = anims;
         }
     }
 }

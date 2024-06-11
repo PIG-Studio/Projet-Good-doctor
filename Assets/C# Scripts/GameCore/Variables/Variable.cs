@@ -78,5 +78,10 @@ namespace GameCore.Variables
         public static List<ICallOnSceneChange> ListToCallOnSceneChange { get; set; }
 
         public static int WaitTime { get; set; } = 0;
+
+        public static Animator[] PnjSkin { get; } = new[]
+        {
+           Resources.Load<Animator>("Animations/Player"),
+        };
     }
 }
