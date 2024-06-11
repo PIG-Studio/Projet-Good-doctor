@@ -1,22 +1,16 @@
 using System.Collections.Generic;
 using CustomScenes;
 using GameCore.Variables;
-using Network.Sync.Variables;
+using Parameters;
 using ScriptableObject;
 using TMPro;
 using UnityEngine;
-using Parameters;
-using UnityEngine.UIElements;
-using static GameCore.Constantes.Constante;
 using Image = UnityEngine.UI.Image;
 using Button = UnityEngine.UI.Button;
 
-namespace InventoryTwo
+namespace InventoryTwo.Desk
 {
-    /// <summary>
-    /// Classe responsable de la gestion de l'inventaire
-    /// </summary>
-    public class InventoryManager : MonoBehaviour
+    public class DeskInventoryManager : MonoBehaviour
     {
         /// <summary>
         /// Liste d'item avec qui on peut interagir
@@ -33,18 +27,18 @@ namespace InventoryTwo
         private GameObject _slot;
         public GameObject prefabs;
         
-        public static InventoryManager Instance; // acceder partout
+        public static DeskInventoryManager InstanceDIM; // acceder partout
         public TextMeshProUGUI title, descriptionObject;
         public Image iconDescription;
         
-        [Header("Description")]
-        public GameObject holderDescription;
+        [Header("Option")]
         private int _amountToUse;
         [SerializeField] private TextMeshProUGUI valuesToUse;
 
         [SerializeField] private Button _plusButton, _minusButton;
-        [SerializeField] private GameObject useButton;
-        [SerializeField] private GameObject removeButton;
+        [SerializeField] private GameObject giveButton;
+        [SerializeField] private GameObject trashButton;
+        [SerializeField] private GameObject addInventoryButton;
         [SerializeField] private GameObject amountToRemove;
             
         /// <summary>
@@ -52,16 +46,16 @@ namespace InventoryTwo
         /// </summary>
         private void Awake()
         {
-            Instance = this;
+            InstanceDIM = this;
         }
         private void Update()
         {
-            if (Input.GetKeyDown(Keys.InventoryKey) && !inventoryPanel.activeInHierarchy && Variable.SceneNameCurrent == Scenes.Map) //quand i est pressé et que l'UI n'est pas activé 
+            if (Variable.SceneNameCurrent == Scenes.DBase) //quand i est pressé et que l'UI n'est pas activé 
             {
                 inventoryPanel.SetActive(true); // ouvre UI
                 RefreshInventory();
             }
-            else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy && Variable.SceneNameCurrent == Scenes.Map)
+            else
             // Si la touche pour fermer l'inventaire est enfoncée et que le panneau d'inventaire est ouvert
             {
                 inventoryPanel.SetActive(false); // Ferme le panneau d'inventaire
@@ -149,7 +143,7 @@ namespace InventoryTwo
             
         }
 
-        public void UseItem(int i) //i l'endroit dans l'inventaire
+        public void GiveItem(int i) //i l'endroit dans l'inventaire
         {
             for (int j = 0; j < _amountToUse; j++)
             {
@@ -171,8 +165,30 @@ namespace InventoryTwo
             RefreshInventory();
             valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
         }
+        
+        public void AddInventoryButton(int i) //i l'endroit dans l'inventaire
+        {
+            for (int j = 0; j < _amountToUse; j++)
+            {
+                //action sur le joueur par l'utilisation de inventory[i].attribut;
 
-        public void RemoveButton(int i)
+                if (inventory[i].amount == 1)
+                {
+                    inventory.Remove(inventory[i]);
+                    holderDescription.SetActive(false);
+
+                    break;
+                }
+                else
+                {
+                    inventory[i].amount--;
+                }
+            }
+            
+            RefreshInventory();
+            valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
+        }
+        public void TrashButton(int i)
         {
             if (_amountToUse > 0)
             {
@@ -191,13 +207,6 @@ namespace InventoryTwo
                         inventory[i].amount--;
                     }
                 }
-
-                ItemsSo droped = inventory[i];
-                droped.amount = _amountToUse;
-
-                Resources.Load<GameObject>("Prefabs/Inventory/Item.prefab");
-                Instantiate(droped);
-
                 RefreshInventory();
                 valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
             }

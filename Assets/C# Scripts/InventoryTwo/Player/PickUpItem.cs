@@ -1,7 +1,7 @@
 ﻿using ScriptableObject;
 using UnityEngine;
 
-namespace InventoryTwo
+namespace InventoryTwo.Player
 {
     public class PickUpItem : MonoBehaviour
     {
