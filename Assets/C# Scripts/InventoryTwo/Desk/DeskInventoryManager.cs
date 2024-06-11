@@ -63,7 +63,7 @@ namespace InventoryTwo.Desk
             }
         }
 
-        private void RefreshInventory()
+        public void RefreshInventory()
         {
             if (hodlerSlot.transform.childCount > 0) // si contient des enfants
             {
