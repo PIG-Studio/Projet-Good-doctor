@@ -102,6 +102,7 @@ namespace InventoryTwo.Player
                     _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
                     _slot.transform.SetParent(hodlerSlot.transform);
                     _slot.GetComponent<SlotItem>().itemSlot = i; 
+                    
                     TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                     Button butt = _slot.transform.Find("icon").GetComponent<Button>();
                     butt.enabled = false;
