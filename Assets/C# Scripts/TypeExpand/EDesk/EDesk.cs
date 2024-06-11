@@ -10,6 +10,7 @@ namespace TypeExpand.EDesk
         [CanBeNull]
         public static IDeskDestination ToDeskDestination(this Desk bureau)
         {
+            // Déterminer le type de bureau et renvoyer la destination correspondante.
             return bureau.SceneName switch
             {
                 "DESK_Base" => Bureau.DESK_Base(bureau),

@@ -27,11 +27,10 @@ namespace Desks
 
         public void Start()
         {
-            //
             GameObject inventoryRender =
                 UIPrefabs.INV_Inventory(Resources.Load<Sprite>("inventory"), "Inventory", 0, 0, 500, 50);
 
-            // On recupere le bureau et l inventaire a afficher, NULL REFERENCE si script pas dans un bureau
+            // On récupere le bureau et l'inventaire à afficher, NULL REFERENCE si script pas dans un bureau
             InventoryToRender = Variable.SceneNameCurrent.ToDesk()!.Inventory;
 
             uint i = 0;

@@ -7,6 +7,9 @@ using UnityEngine.AI;
 
 namespace Personnel
 {
+    /// <summary>
+    /// Représente le pnj Jeanine, un membre du personnel immobilisé.
+    /// </summary>
     public class Jeanine : PNJ.Immobile.Personnel, ISpawnableGo  
     {
         public GameObject Prefab { get; }
@@ -14,19 +17,26 @@ namespace Personnel
         public Animator AnimatorComponent { get; set; }
         public NavMeshAgent Agent { get; private set; }
         
-        public string Id { get; }
+        /// <summary>
+        /// Identifiant unique de Janine
+        /// </summary>
+        public string Id { get; } 
         
-        private string _catchprase;
+        /// <summary>
+        /// Phrase de salutation de Janine
+        /// </summary>
+        private string _catchprase; 
 
         public Jeanine()
         {
+             // Initialisation des propriétés de Janine
             Prefab = Resources.Load<GameObject>("Prefabs/Personnel");
             Skin = Resources.Load <Sprite> ("Sprites/Player/DinoSprites - vita");
             Name = "Janine";
             Position = new Vector2(-6.890f, 5.7358f);
             _catchprase = "Bonjour docteur ! Comment allez-vous ?";
             Id = Name;
-            Spawn();
+            Spawn(); // Appel de la méthode Spawn pour l'instanciation de Janine
         }
 
         /// <summary>
@@ -55,6 +65,10 @@ namespace Personnel
             this.LinkAnimator();
         }
 
+        /// <summary>
+        /// Méthode pour désinstancier Janine
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public void Despawn()
         {
             throw new NotImplementedException();

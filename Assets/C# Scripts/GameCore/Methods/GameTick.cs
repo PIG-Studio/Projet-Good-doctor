@@ -31,6 +31,7 @@ namespace GameCore.Methods
             var guillaume = Instantiate(_patient);
             //Debug.Log(guillaume.Name + " " + guillaume.Depression + " " + guillaume.Sickness + " " +
             //          guillaume.Adn);
+            
             // Affichage d'un message pour signaler l'arrivée du patient à l'entrée de l'hôpital (pour débogage)
             Debug.Log("Patient a l'entrée de l'hôpital !");
         }

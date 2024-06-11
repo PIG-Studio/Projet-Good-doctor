@@ -42,6 +42,10 @@ namespace Personnel
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Méthode pour désinstancier Corentin
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public void Despawn()
         {
             throw new NotImplementedException();

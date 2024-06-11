@@ -65,8 +65,10 @@ namespace GameCore.Constantes
             , "Va t'occuper du patient et arrête de lire" , "THE ONE PIECE IS REAL" , "Benoît Poelvoorde",
             "En vrai c'est bien les films Asterix"
         };
-
-        // Tableau contenant des phrases
+        
+        /// <summary>
+        /// Tableau contenant des phrases
+        /// </summary>
         public static readonly string[] PhraseArray = new[]
         {
             "J'ai faim , t'aurai pas une madelaine ?", "Quoi de neuf docteur",
@@ -79,7 +81,9 @@ namespace GameCore.Constantes
             "Vous saviez que la plus courte n'a durée que 38 minutes ?"
         };
 
-        // Tableau contenant des noms
+        /// <summary>
+        /// Tableau contenant des noms
+        /// </summary>
         public static readonly string[] NameArray = new[]
         {
             "Jean Martin", "Yonas Ali", "John Smith", "Maria Khan", "Anya Ivanova", "Celine Nguyen" ,
@@ -87,8 +91,14 @@ namespace GameCore.Constantes
             "Stefan Schmid" , "Emine Morina"
         };
 
-        public const int MaxPatient = 10; // Nombre max de patients
+        /// <summary>
+        /// Nombre max de patients
+        /// </summary>
+        public const int MaxPatient = 10; 
         
-        public const KeyCode InteractKey = KeyCode.E; // Touche d'intéraction
+        /// <summary>
+        /// Touche d'intéraction
+        /// </summary>
+        public const KeyCode InteractKey = KeyCode.E; 
     }
 }
