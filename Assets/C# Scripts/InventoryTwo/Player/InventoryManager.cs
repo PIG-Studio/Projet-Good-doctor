@@ -65,7 +65,7 @@ namespace InventoryTwo.Player
             }
         }
 
-        private void RefreshInventory()
+        public void RefreshInventory()
         {
             if (hodlerSlot.transform.childCount > 0) // si contient des enfants
             {
