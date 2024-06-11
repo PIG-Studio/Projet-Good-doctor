@@ -14,7 +14,7 @@ namespace Network.Sync
         private readonly NetworkVariable<bool> _movingRight = new(writePerm: NetworkVariableWritePermission.Owner);
        
         // Références aux composants du joueur
-        public Animator anims;
+        private Animator _anims;
         private Func<bool> ConditionAffichage { get; set; }
         
         // Hash des paramètres d'animation de déplacement pour l'Animator
@@ -25,7 +25,7 @@ namespace Network.Sync
 
         private void Start()
         {
-            anims = GetComponent<Animator>();
+            _anims = GetComponent<Animator>();
             ConditionAffichage = GetComponent<IConditionAffichage>().ConditionAffichage;
         }
 
@@ -37,10 +37,10 @@ namespace Network.Sync
                 if (ConditionAffichage())
                 {
                     // Met à jour les données du joueur pour les synchroniser sur le réseau
-                    _movingUp.Value = anims.GetBool(MovingUp);
-                    _movingDown.Value = anims.GetBool(MovingDown);
-                    _movingLeft.Value = anims.GetBool(MovingLeft);
-                    _movingRight.Value = anims.GetBool(MovingRight);
+                    _movingUp.Value = _anims.GetBool(MovingUp);
+                    _movingDown.Value = _anims.GetBool(MovingDown);
+                    _movingLeft.Value = _anims.GetBool(MovingLeft);
+                    _movingRight.Value = _anims.GetBool(MovingRight);
                 }
             }
             else
@@ -48,10 +48,10 @@ namespace Network.Sync
                 // Si le joueur n'est pas propriétaire du réseau, synchronise les données du joueur à partir du réseau
                 if (ConditionAffichage())
                 {
-                    anims.SetBool(MovingUp, _movingUp.Value);
-                    anims.SetBool(MovingDown, _movingDown.Value);
-                    anims.SetBool(MovingLeft, _movingLeft.Value);
-                    anims.SetBool(MovingRight, _movingRight.Value);
+                    _anims.SetBool(MovingUp, _movingUp.Value);
+                    _anims.SetBool(MovingDown, _movingDown.Value);
+                    _anims.SetBool(MovingLeft, _movingLeft.Value);
+                    _anims.SetBool(MovingRight, _movingRight.Value);
                 }
             }
 

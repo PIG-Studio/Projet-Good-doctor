@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameCore.Variables;
 using Interfaces.Bureau;
 using Interfaces.Destination;
 using Interfaces.Entites;
@@ -31,6 +32,7 @@ namespace Desks
             Inventory = new Inventory();
             Debug.Log("ADDED " + sceneName + " DESK"); // Affiche un message de débogage indiquant l'ajout du bureau
             SceneDeskDict.Add(sceneName, this); // Ajoute ce bureau au dict
+            Variable.AllDesks[Variable.DesksNb] = this; // Ajoute ce bureau à la liste des bureaux
         }
         
         [ServerRpc(RequireOwnership = false)]

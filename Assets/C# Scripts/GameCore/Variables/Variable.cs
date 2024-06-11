@@ -56,11 +56,12 @@ namespace GameCore.Variables
         public static Desk DeskUpgraded { get; set; }
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+
         /// <summary>
         /// 
         /// </summary>
-        public static Desk[] Desks { get; set; }
+        public static Desk[] AllDesks { get; set; } = new Desk[5];
+        public static int DesksNb = 0;
         
         public static Desk CurrentlyRenderedDesk { get; set; }
         

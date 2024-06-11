@@ -547,9 +547,11 @@ GameObject:
   - component: {fileID: 8160482453719982201}
   - component: {fileID: 2117130542066014462}
   - component: {fileID: 1747219443038663151}
-  - component: {fileID: 8744703341622405527}
   - component: {fileID: 6525523231160353204}
   - component: {fileID: 1574410834041235583}
+  - component: {fileID: 9034243102146487247}
+  - component: {fileID: 4215270367682844621}
+  - component: {fileID: 1625982974634933953}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -708,21 +710,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8744703341622405527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793422718493585413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b50b11aa4b75ea4a65c1e73c6e5932, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 5948473160762187358}
-  anims: {fileID: 1747219443038663151}
-  rb: {fileID: 8738992393412992031}
 --- !u!114 &6525523231160353204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +757,60 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!114 &9034243102146487247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793422718493585413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bec1f6d0af34bec88fe4154ae0404f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4215270367682844621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793422718493585413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb77e18fe204c1899b7ae250f5586da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1625982974634933953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793422718493585413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &4372085110698424551
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,24 +852,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4372085110698424551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b216dd4f1e30bd045987169cc204c18c, type: 3}
+  m_Script: {fileID: 11500000, guid: 44cb72024669db14aacad36a5710350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
   inventoryLenght: 15
-  inventoryPanel: {fileID: 7859500748636397286}
-  hodlerSlot: {fileID: 5384423838336102579}
-  prefabs: {fileID: 6402957478592555235, guid: 0aaf5cf8a5e6d7245a16d825933ba361, type: 3}
-  title: {fileID: 7103169423480884790}
-  descriptionObject: {fileID: 2414745988264810390}
-  iconDescription: {fileID: 3611928550229761265}
-  holderDescription: {fileID: 3456304147854566924}
-  valuesToUse: {fileID: 1255529389848207842}
-  _plusButton: {fileID: 5483993017204129992}
-  _minusButton: {fileID: 6799416906157011133}
-  useButton: {fileID: 7119110445593822194}
-  removeButton: {fileID: 8242637954353839387}
-  amountToRemove: {fileID: 6698537672365007157}
+  inventoryPanel: {fileID: 0}
+  hodlerSlot: {fileID: 0}
+  prefabs: {fileID: 0}
+  title: {fileID: 0}
+  descriptionObject: {fileID: 0}
+  iconDescription: {fileID: 0}
+  holderDescription: {fileID: 0}
+  valuesToUse: {fileID: 0}
+  _plusButton: {fileID: 0}
+  _minusButton: {fileID: 0}
+  useButton: {fileID: 0}
+  removeButton: {fileID: 0}
+  amountToRemove: {fileID: 0}
 --- !u!1 &4434312971129972190
 GameObject:
   m_ObjectHideFlags: 0
