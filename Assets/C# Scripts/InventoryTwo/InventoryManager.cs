@@ -62,48 +62,7 @@ namespace InventoryTwo
                 RefreshInventory();
             }
             else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy && Variable.SceneNameCurrent == Scenes.Map)
-            // Si la touche pour ouvrir l'inventaire est enfoncée et que le panneau d'inventaire n'est pas déjà ouvert
-            if (Input.GetKeyDown(Keys.InventoryKey) && !inventoryPanel.activeInHierarchy) //quand i est pressé et que l'UI n'est pas activé 
-            {
-                inventoryPanel.SetActive(true); // ouvre UI
-                if (hodlerSlot.transform.childCount > 0) // si contient des enfants
-                {
-                    // Supprime tous les enfants
-                    foreach (Transform item in hodlerSlot.transform)
-                    {
-                        Destroy(item.gameObject);
-                    }
-                }
-
-                for (int i = 0; i < inventoryLenght; i++) //initialise l'inventaire
-                {
-                    if (i < inventory.Count)
-                    {
-                        var transform1 = transform;
-                        _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
-                        _slot.transform.SetParent(hodlerSlot.transform);
-                        
-                        TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>(); 
-                        _slot.transform.Find("icon").GetComponent<Image>(); // met le l'icon de l'objet dans inventaire
-                        _slot.GetComponent<SlotItem>().itemSlot = i; 
-                        
-                        amount.text = inventory[i].amount.ToString(); //remplace la quantité dans le prefab par la quantité du slot actuel
-                    }
-                    else if (i >= inventory.Count) // creer des slots vide dans l'inventaire
-                    {
-                        var transform1 = transform;
-                        _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
-                        _slot.transform.SetParent(hodlerSlot.transform);
-                        _slot.GetComponent<SlotItem>().itemSlot = i;
-                        TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
-                        amount.gameObject.SetActive(false);
-                        _slot.transform.Find("icon").GetComponent<Image>();
-                    }
-                        
-                }
-            }
             // Si la touche pour fermer l'inventaire est enfoncée et que le panneau d'inventaire est ouvert
-            else if (Input.GetKeyDown(KeyCode.I) && inventoryPanel.activeInHierarchy)
             {
                 inventoryPanel.SetActive(false); // Ferme le panneau d'inventaire
             }
