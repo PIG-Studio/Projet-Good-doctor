@@ -443,7 +443,7 @@ MonoBehaviour:
   inventoryLenght: 24
   inventoryPanel: {fileID: 1707041758}
   hodlerSlot: {fileID: 266436076}
-  prefabs: {fileID: 2788331147483296117, guid: 8a1dd5b6041b9b44c987d45dac119a7b, type: 3}
+  prefabs: {fileID: 6402957478592555235, guid: 0aaf5cf8a5e6d7245a16d825933ba361, type: 3}
   title: {fileID: 1091537610}
   valuesToUse: {fileID: 976183823}
   _plusButton: {fileID: 1456068209}

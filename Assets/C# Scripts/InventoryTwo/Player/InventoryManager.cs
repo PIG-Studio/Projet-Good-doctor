@@ -184,7 +184,9 @@ namespace InventoryTwo.Player
         {
             if (_amountToUse > 0)
             {
-
+                ItemsSo newItem = new ItemsSo(inventory[i].title, inventory[i].description, inventory[i].icon, _amountToUse, inventory[i].isStackable,
+                    inventory[i].type);
+                
                 for (int j = 0; j < _amountToUse; j++)
                 {
                     if (inventory[i].amount <= 1)
@@ -200,8 +202,7 @@ namespace InventoryTwo.Player
                     }
                 }
 
-                ItemsSo droped = inventory[i];
-                droped.amount = _amountToUse;
+                ItemsSo droped = newItem;
 
                 Resources.Load<GameObject>("Prefabs/Inventory/Item.prefab");
                 Instantiate(droped);
