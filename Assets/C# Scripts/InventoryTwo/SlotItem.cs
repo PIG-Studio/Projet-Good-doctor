@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using InventoryTwo;
+﻿using InventoryTwo;
 using InventoryTwo.Player;
 using UnityEngine;
 
