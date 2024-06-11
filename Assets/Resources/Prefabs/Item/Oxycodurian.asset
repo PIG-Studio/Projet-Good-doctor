@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515ef2f831636f745acf729e2938829d, type: 3}
+  m_Name: Oxycodurian
+  m_EditorClassIdentifier: 
+  title: 'Oxycodurian '
+  description: "Une forte odeur se d\xE9gage de ce comprim\xE9, pourtant on dit que
+    son go\xFBt est un v\xE9ritable bonheur \xE0 ne pas rater. Oserez-vous tenter
+    l'exp\xE9rience ? "
+  icon: {fileID: 0}
+  amount: 0
+  isStackable: 1
+  type: 1
