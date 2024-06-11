@@ -1,6 +1,7 @@
 using System;
 using CustomScenes;
 using GameCore.Variables;
+using Medicaments;
 using Patient;
 using TypeExpand.String;
 using UnityEngine;

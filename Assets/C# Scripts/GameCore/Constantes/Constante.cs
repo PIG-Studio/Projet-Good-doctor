@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using ScriptableObject;
 using UnityEngine;
 using Vector2 = System.Numerics.Vector2;
 
@@ -90,5 +92,22 @@ namespace GameCore.Constantes
         public const int MaxPatient = 4;// Nombre max de patients
         
         public const KeyCode InteractKey = KeyCode.E; // Touche d'intéraction
+        
+        public static readonly ItemsSo[] Encyclopedies =  new ItemsSo[]
+        { 
+            Resources.Load<ItemsSo>("Prefabs/Item/Adrenalitchi"),
+            Resources.Load<ItemsSo>("Prefabs/Item/Ananadvil"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Banacétamol"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Chlorocoing"),
+            Resources.Load<ItemsSo>("Prefabs/Item/Cyamûre"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Doliprune"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Ibuprofigue"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Lisopoirine"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Mandagnésium"),
+            Resources.Load<ItemsSo>("Prefabs/Item/Opiomelon"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Oxycodurian"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Poudre de perlinpinpin"), 
+            Resources.Load<ItemsSo>("Prefabs/Item/Raicine")
+        };
     }
 }

@@ -53,3 +53,6 @@ TagManager:
   - name: UI
     uniqueID: 3745039327
     locked: 0
+  - name: Encyclopedie
+    uniqueID: 630300855
+    locked: 0
