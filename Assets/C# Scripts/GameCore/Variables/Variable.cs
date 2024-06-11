@@ -82,6 +82,7 @@ namespace GameCore.Variables
         public static Animator[] PnjSkin { get; } = new[]
         {
            Resources.Load<Animator>("Animations/Player"),
+           Resources.Load<Animator>("Animations/Player2")
         };
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using CustomScenes;
 using GameCore.Variables;
+using Maladies.Base.SubTypes.Symptomes;
 using Super.Abstract;
 using UnityEngine;
 using TypeExpand.Animator;
@@ -21,10 +22,7 @@ namespace PNJ.Base
         /// Les phrases de Pnj (ce qu'il disent)
         /// </summary>
         public override string Phrase { get; protected set; }
-        /// <summary>
-        /// Le sprite du Pnj
-        /// </summary>
-        protected override Animation[] Skin { get; set; }
+        
         /// <summary>
         /// La position du Pnj
         /// </summary>
@@ -55,7 +53,7 @@ namespace PNJ.Base
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
             Anims = gameObject.GetComponent<Animator>(); 
             Sprite = gameObject.GetComponent<SpriteRenderer>();
-            Skin = Variable.PnjSkin[Variable.PnjSkin.Length.RandomInt()];
+            Skin = (uint)Variable.PnjSkin.Length.RandomInt();
             
             
             // Si cette instance n'est pas l'hôte return sinon Spawn

@@ -129,15 +129,15 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void SyncOnConnectServerRpc()
         {
             Debug.Log("SyncOnConnectServerRpc");
-            SyncOnConnectClientRpc(Phrase, Anims);
+            SyncOnConnectClientRpc(Phrase, Skin);
         }
         
         [ClientRpc]
-        public void SyncOnConnectClientRpc(string phrase, Animator anims)
+        public void SyncOnConnectClientRpc(string phrase, uint skin)
         {
             Debug.Log("SyncOnConnectClientRpc");
             Phrase = phrase;
-            Anims = anims;
+            Skin = skin;
         }
     }
 }
