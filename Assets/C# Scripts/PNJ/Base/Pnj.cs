@@ -15,7 +15,7 @@ namespace PNJ.Base
         /// Le nom du Pnj
         /// </summary>
         public override NetworkVariable<FixedString64Bytes> Name { get; protected set; }= new(writePerm: NetworkVariableWritePermission.Server);
-        
+
         /// <summary>
         /// Les phrases de Pnj (ce qu'il disent)
         /// </summary>
@@ -69,7 +69,7 @@ namespace PNJ.Base
         /// </summary>
         public void Update()
         { 
-            if (ConditionAffichage())
+            if (ConditionAffichage())// Vérifier si le nom de la scène actuelle est "Map"
             {
                 Sprite.enabled = true; // Activer l'affichage du sprite
                 LastPosition = Position; // Enregistrer la dernière position

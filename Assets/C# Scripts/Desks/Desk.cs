@@ -41,7 +41,7 @@ namespace Desks
             
 
             // Récupère le prochain patient de la destination associée
-
+            
             CurrentPatient = AssociatedDestination.Pop();
             if (!(CurrentPatient is null))
             {

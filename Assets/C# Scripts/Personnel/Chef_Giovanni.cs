@@ -39,7 +39,10 @@ namespace Personnel
             throw new NotImplementedException();
         }
         
-        
+        /// <summary>
+        /// Méthode pour désinstancier ChefGiovanni
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public void Despawn()
         {
             throw new NotImplementedException();

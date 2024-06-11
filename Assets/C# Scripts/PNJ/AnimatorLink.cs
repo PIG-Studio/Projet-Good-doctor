@@ -7,7 +7,9 @@ namespace PNJ
     {
         public static void LinkAnimator(this ISpawnableGo input)
         {
-            Animator anims = input.InstantiatedObject.GetComponent<Animator>();// Récupérer le composant Animator
+            // Récupérer le composant Animator de l'objet instancié
+            Animator anims = input.InstantiatedObject.GetComponent<Animator>();
+            // Lier l'Animator à l'objet instancié
             input.AnimatorComponent = anims; 
         }
     }

@@ -46,7 +46,7 @@ namespace InventoryTwo
         [SerializeField] private GameObject useButton;
         [SerializeField] private GameObject removeButton;
         [SerializeField] private GameObject amountToRemove;
-            
+        
         /// <summary>
         /// Méthode appelée lors du démarrage de l'objet
         /// </summary>

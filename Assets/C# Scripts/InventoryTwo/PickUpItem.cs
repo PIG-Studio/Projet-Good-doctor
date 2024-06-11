@@ -25,7 +25,8 @@ namespace InventoryTwo
                     InventoryManager.Instance.inventory.Remove(InventoryManager.Instance.inventory[i]);
                 }
             }
-            InventoryManager.Instance.inventory.Add(newItem);
+            InventoryManager.Instance.inventory.Add(newItem);// Ajoute l'objet à l'inventaire
+
             Destroy(gameObject); // Détruit l'objet ramassé
         }
     }

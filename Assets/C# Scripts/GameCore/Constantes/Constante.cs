@@ -65,8 +65,9 @@ namespace GameCore.Constantes
             , "Va t'occuper du patient et arrête de lire" , "THE ONE PIECE IS REAL" , "Benoît Poelvoorde",
             "En vrai c'est bien les films Asterix"
         };
-
-        // Tableau contenant des phrases
+        /// <summary>
+        /// Tableau contenant des phrases
+        /// </summary>
         public static readonly string[] PhraseArray = new[]
         {
             "J'ai faim , t'aurai pas une madelaine ?", "Quoi de neuf docteur ?",
@@ -78,17 +79,25 @@ namespace GameCore.Constantes
             "Je me sens vraiment pas bien" , "Après le diagnostic je files voir mon match , ALLEZ L'OL",
             "Vous saviez que la plus courte guerre au monde n'a durée que 38 minutes ?"
         };
-
-        // Tableau contenant des noms
+        /// <summary>
+        /// Tableau contenant des noms
+        /// </summary>
         public static readonly string[] NameArray = new[]
         {
             "Jean Martin", "Yonas Ali", "John Smith", "Maria Khan", "Anya Ivanova", "Celine Nguyen" ,
             "Andrew Bloom" , "Emile Leblanc" , "Grace Kone" , "Valentina Gonzalez" , "Rafi Asham" , "Aleksandr Akmatova",
             "Stefan Schmid" , "Emine Morina" , "Mircalla von Karnstein" ,"Marsha P.Johnson" , "RuPaul Andre Charles"
         };
+
+        /// <summary>
+        /// Nombre max de patients
+        /// </summary>
+        public const int MaxPatient = 4;
         
-        public const int MaxPatient = 4;// Nombre max de patients
         
-        public const KeyCode InteractKey = KeyCode.E; // Touche d'intéraction
+        /// <summary>
+        /// Touche d'intéraction
+        /// </summary>
+        public const KeyCode InteractKey = KeyCode.E; 
     }
 }
