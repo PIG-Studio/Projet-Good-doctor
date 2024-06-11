@@ -10,7 +10,7 @@ namespace Items.Implementation
 
         public PostIt(uint qte) : base("PostIt",
             () => { Console.WriteLine("Un post-it avec ércit \" Tu es viré. \" dessus."); }, qte,
-            Resources.Load<Sprite>("Sprites/Medicaments/mure"))
+            Resources.Load<Sprite>("Sprites/items/postit"))
         {
             Nbr++;
         }

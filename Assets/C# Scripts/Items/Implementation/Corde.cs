@@ -9,7 +9,7 @@ namespace Items.Implementation
         public static int Nbr;
 
         public Corde(uint qte) : base("Corde", () => { Console.WriteLine("Corde"); }, qte,
-            Resources.Load<Sprite>("Sprites/Medicaments/mure"))
+            Resources.Load<Sprite>("Sprites/Items/corde"))
         {
             Nbr++;
         }
