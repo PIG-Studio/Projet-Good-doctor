@@ -44,7 +44,7 @@ namespace Destinations.Implementation
                 if (PtAttente[i].occupe) continue;
                 PtAttente[i].occupe = true;
                 PtAttente[i].occupant = entity;
-                entity.StartWaiting();
+                entity.StartWaitingServerRpc();
                 siege = (uint)i;
                 break;
             }

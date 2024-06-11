@@ -13,6 +13,6 @@ namespace Interfaces.Bureau
         /// <summary>
         /// Passe au patient suivant dans la file d'attente.
         /// </summary>
-        void NextPatient();
+        void NextPatientServerRpc();
     }
 }

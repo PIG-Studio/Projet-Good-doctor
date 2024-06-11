@@ -1,6 +1,4 @@
-using System;
 using CustomScenes;
-using Desks;
 using GameCore.Constantes;
 using GameCore.Variables;
 using Interfaces.Destination;
@@ -10,12 +8,13 @@ using Interfaces.Maladies.Types;
 using Interfaces.Patient;
 using Maladies;
 using Patient.Base;
+using Super.Interfaces;
 using Unity.Netcode;
 using UnityEngine;
 
 namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 {
-    public class Patient : PnjCanGoInDest, ICanGoInDesk, IPatient
+    public class Patient : PnjCanGoInDest, ICanGoInDesk, IPatient, ISyncOnConnectRpc
     {
         // ICanAccessDesk
         public Sprite AltSprite { get; set; }
@@ -45,26 +44,35 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             
             (Sickness, IsLying) = Acces.GenererRandom();
             Adn = Attributs.GenAdn(Sickness.AdnSain);
-            (Phrase, Name.Value, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
-            ChooseDestination();
+            string nameTemp;
+            (Phrase, nameTemp, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
+            if (NetworkManager.Singleton.IsHost)
+            {
+                Name.Value = nameTemp;
+                ChooseDestinationServerRpc();
+            }
+            else
+            {
+                SyncOnConnectServerRpc();
+                Debug.Log("Connected to server " + NetworkManager.Singleton.ConnectedHostname);
+            }
+            
         }
 
-        public void OnConnectedToServer()
-        {
-            Start();
-        }
 
         public new void Update()
         {
             base.Update();
             
-            if (!Unity.Netcode.NetworkManager.Singleton.IsHost) return;
-            if (EnAttente || Navigation.remainingDistance > 2f || Destination is null) return;
+            if (!NetworkManager.Singleton.IsHost) return;
+            if (EnAttente ||
+                Navigation.remainingDistance > 2f ||
+                Destination is null) return;
             
             if (Destination.IsFull)
             {
                 Debug.Log($"Destination {Destination.DeskId} pleine, recherche d'une autre destination...");
-                ChooseDestination();
+                ChooseDestinationServerRpc();
                 return;
             }
             
@@ -89,19 +97,53 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             throw new System.NotImplementedException();
         }
 
-        public void SortirBureau()
+        [ServerRpc]
+        public void SortirBureauServerRpc()
         {
-            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value && Navigation.remainingDistance > 2f ;
-            if (NetworkManager.Singleton.IsHost)
-                ChooseDestination();
+            Rb.simulated = true;
+            ChooseDestinationServerRpc();
+            SortirBureauClientRpc();
         }
-
-        public void EnterBureau()
+        
+        [ClientRpc]
+        public void SortirBureauClientRpc()
         {
+            Rb.simulated = true;
+            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value && Navigation.remainingDistance > 2f ;
+        }
+        
+        [ServerRpc]
+        public void EnterBureauServerRpc()
+        {
+            Rb.simulated = false;
             DansBureau.Value = true;
+            EnterBureauClientRpc();
+        }
+        
+        
+        [ClientRpc]
+        public void EnterBureauClientRpc()
+        {
+            Rb.simulated = false;
             ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
                                        && Navigation.remainingDistance < 2f 
                                        && DansBureau.Value;
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        public void SyncOnConnectServerRpc()
+        {
+            Debug.Log("SyncOnConnectServerRpc");
+            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated);
+        }
+        
+        [ClientRpc]
+        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled)
+        {
+            Debug.Log("SyncOnConnectClientRpc");
+            Phrase = phrase;
+            Skin = skin;
+            Rb.simulated = collisionsEnabled;
         }
     }
 }

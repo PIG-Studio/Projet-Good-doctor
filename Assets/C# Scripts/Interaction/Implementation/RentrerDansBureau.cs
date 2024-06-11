@@ -2,6 +2,7 @@ using GameCore.Variables;
 using CustomScenes;
 using UnityEngine;
 using Parameters;
+using TypeExpand.String;
 
 namespace Interaction.Implementation
 {
@@ -10,6 +11,8 @@ namespace Interaction.Implementation
     /// </summary>
     public class RentrerDansBureau : MonoBehaviour
     {
+        public string bureau;
+        
         /// <summary>
         /// Méthode appelée lorsque le collider reste en collision avec un autre collider 2D
         /// </summary>
@@ -26,7 +29,7 @@ namespace Interaction.Implementation
             if (Input.GetKeyDown(Keys.UseKey) && other.CompareTag("Player"))
             {
                 // Change la scène vers la scène associée au bureau dans Variable.Desk.SceneName
-                Manager.ChangeScene(Variable.Desk.SceneName);
+                Manager.ChangeScene(bureau.ToDesk()!.SceneName);
             }
         }
     }

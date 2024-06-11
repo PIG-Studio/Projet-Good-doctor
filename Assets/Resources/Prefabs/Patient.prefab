@@ -19,10 +19,10 @@ GameObject:
   - component: {fileID: 4411171361143141418}
   - component: {fileID: 4161466247437433640}
   - component: {fileID: 8432133019295711078}
-  - component: {fileID: 3785074726205157443}
   - component: {fileID: -6691154926583562992}
   - component: {fileID: 5001603631466240738}
-  - component: {fileID: 1298325927003654982}
+  - component: {fileID: 6718490747031765708}
+  - component: {fileID: 5443882152110577438}
   m_Layer: 0
   m_Name: Patient
   m_TagString: Patient
@@ -302,20 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3785074726205157443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793422718493585413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TransitionStateInfoList: []
-  m_Animator: {fileID: 1747219443038663151}
 --- !u!114 &-6691154926583562992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +336,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 2
---- !u!114 &1298325927003654982
+--- !u!114 &6718490747031765708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,7 +345,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3793422718493585413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 271d5b99c6eb6164dbc3df88cc7d4d61, type: 3}
+  m_Script: {fileID: 11500000, guid: ffccc7e7faf2bcc328d6d87486cbe555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5443882152110577438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793422718493585413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb77e18fe204c1899b7ae250f5586da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3918680600613842574

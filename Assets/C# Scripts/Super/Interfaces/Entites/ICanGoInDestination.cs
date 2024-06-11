@@ -19,19 +19,11 @@ namespace Interfaces.Entites
         /// </summary>
         uint Siege { get; set; }
         
-        /// <summary>
-        /// Permet à l'entité de choisir une destination.
-        /// </summary>
-        void ChooseDestination();
+        void ChooseDestinationServerRpc();
+        void StartWaitingServerRpc();
+        void StartWaitingClientRpc();
         
-        /// <summary>
-        /// Démarre le processus d'attente pour l'entité.
-        /// </summary>
-        void StartWaiting();
-        
-        /// <summary>
-        /// Termine le processus d'attente pour l'entité.
-        /// </summary>
-        void EndWaiting();
+        void EndWaitingServerRpc();
+        void EndWaitingClientRpc();
     }
 }

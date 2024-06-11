@@ -214,7 +214,7 @@ namespace UI_Scripts.UI_Prefab
             {
                 if (Variable.DeskBase != null)
                 {
-                    Debug.Log(Variable.DeskBase+ " HEYYYYYYYYYYYYYYYYYY");Variable.DeskBase.NextPatient();
+                    Debug.Log(Variable.DeskBase+ " HEYYYYYYYYYYYYYYYYYY");Variable.DeskBase.NextPatientServerRpc();
                     
                 }
             });

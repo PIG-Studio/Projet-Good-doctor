@@ -14,11 +14,15 @@ namespace Interfaces.Entites
         /// Sprite
         /// </summary>
         [CanBeNull] Sprite AltSprite { get; set; }
-        /// <summary>
-        /// Action à effectuer lorsque l'entité entre dans un bureau.
-        /// </summary>
-        void EnterBureau();
-
-        void SortirBureau();
+        
+        [ServerRpc]
+        void EnterBureauServerRpc();
+        [ClientRpc]
+        void EnterBureauClientRpc();
+        
+        [ServerRpc]
+        void SortirBureauServerRpc();
+        [ClientRpc]
+        void SortirBureauClientRpc();
     }
 }

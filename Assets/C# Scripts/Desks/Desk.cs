@@ -1,9 +1,13 @@
 using System.Collections.Generic;
+using GameCore.Variables;
 using Interfaces.Bureau;
 using Interfaces.Destination;
 using Interfaces.Entites;
 using Inventories;
+using Super.Interfaces.Bureau;
+using Super.Interfaces.Joueur;
 using TypeExpand.EDesk;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Desks
@@ -11,14 +15,14 @@ namespace Desks
     /// <summary>
     /// Classe représentant un bureau qui peut recevoir des patients et a une destination associée
     /// </summary>
-    public class Desk : IHasDestination, ICanReceivePatients
+    public class Desk : IHasDestination, ICanReceivePatients, IHasResponsable
     {
         public string SceneName { get; }
         public Inventory Inventory { get; set; }
         public static Dictionary<string, Desk> SceneDeskDict { get; set; }
-        public bool HasChanged { get; set; }
         public ICanGoInDesk CurrentPatient { get; private set; }
         public IDeskDestination AssociatedDestination { get; }
+        public IJoueur Responsable { get; set; }
 
         public Desk(string sceneName)
         {
@@ -28,14 +32,15 @@ namespace Desks
             Inventory = new Inventory();
             Debug.Log("ADDED " + sceneName + " DESK"); // Affiche un message de débogage indiquant l'ajout du bureau
             SceneDeskDict.Add(sceneName, this); // Ajoute ce bureau au dict
-            HasChanged = true;
+            Variable.AllDesks[Variable.DesksNb] = this; // Ajoute ce bureau à la liste des bureaux
         }
         
-        public void NextPatient() // Méthode pour passer au patient suivant
+        [ServerRpc(RequireOwnership = false)]
+        public void NextPatientServerRpc() // Méthode pour passer au patient suivant
         {
             if (!(CurrentPatient is null))
             {
-                CurrentPatient.SortirBureau();
+                CurrentPatient.SortirBureauServerRpc();
                 Debug.Log("Le patient precedent sort du bureau");
             }
             
@@ -46,8 +51,8 @@ namespace Desks
             if (!(CurrentPatient is null))
             {
                 Debug.Log("Le patient suivant entre dans le bureau");
-                CurrentPatient!.EndWaiting();
-                CurrentPatient.EnterBureau();
+                CurrentPatient!.EndWaitingServerRpc();
+                CurrentPatient.EnterBureauServerRpc();
             }
             
         }

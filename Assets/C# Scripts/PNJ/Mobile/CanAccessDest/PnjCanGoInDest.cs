@@ -4,6 +4,7 @@ using GameCore.Variables;
 using Interfaces.Destination;
 using Interfaces.Entites;
 using TypeExpand.Int;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace PNJ.Mobile.CanAccessDest
@@ -21,11 +22,12 @@ namespace PNJ.Mobile.CanAccessDest
             
             if (Unity.Netcode.NetworkManager.Singleton.IsHost)
             {
-                ChooseDestination();
+                ChooseDestinationServerRpc();
             }
         }
         
-        public void ChooseDestination()
+        [ServerRpc]
+        public void ChooseDestinationServerRpc()
         {
             uint i = 0;
             while (true)
@@ -41,16 +43,26 @@ namespace PNJ.Mobile.CanAccessDest
                 break;
             }
         }
-        
-        public void StartWaiting()
+        [ServerRpc]
+        public void StartWaitingServerRpc()
         {
             Navigation.SetDestination(Destination.PtAttente[Siege].coordonees);
+            StartWaitingClientRpc();
+        }
+        [ClientRpc]
+        public void StartWaitingClientRpc()
+        {
             EnAttente = true;
         }
 
-        public void EndWaiting()
+        [ServerRpc]
+        public void EndWaitingServerRpc()
         {
             Navigation.SetDestination(Destination.PtArrivee);
+        }
+        [ClientRpc]
+        public void EndWaitingClientRpc()
+        {
             EnAttente = false;
         }
     }

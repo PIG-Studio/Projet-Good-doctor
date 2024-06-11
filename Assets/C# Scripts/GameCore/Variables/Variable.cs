@@ -3,7 +3,6 @@ using Desks;
 using Interfaces.Destination;
 using Interfaces.GameObjects;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 namespace GameCore.Variables
 {
@@ -57,12 +56,17 @@ namespace GameCore.Variables
         public static Desk DeskUpgraded { get; set; }
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+
         /// <summary>
         /// 
         /// </summary>
-        public static Desk[] Desks { get; set; }
-        
+        public static Desk[] AllDesks { get; set; }
+
+        private static uint _desksNb;
+
+        public static uint DesksNb { get { _desksNb++; return _desksNb - 1; } }
+    
+
         public static Desk CurrentlyRenderedDesk { get; set; }
         
         public static int ScoreJ1 { get; set; }
@@ -78,5 +82,11 @@ namespace GameCore.Variables
         public static List<ICallOnSceneChange> ListToCallOnSceneChange { get; set; }
 
         public static int WaitTime { get; set; } = 0;
+        
+        public static RuntimeAnimatorController[] PnjSkin { get; } = new[]
+        {
+            Resources.Load<RuntimeAnimatorController>("Animations/Player"), 
+            Resources.Load<RuntimeAnimatorController>("Animations/Player2")
+        };
     }
 }

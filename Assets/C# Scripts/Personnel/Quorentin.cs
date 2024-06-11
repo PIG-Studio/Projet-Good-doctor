@@ -1,6 +1,4 @@
 using Interfaces;
-using PNJ.Immobile;
-using UnityEngine;
 
 namespace Personnel
 {

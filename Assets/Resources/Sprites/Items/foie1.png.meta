@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 69523ce1648cebc42ae938b1b81db716
 =======
 guid: 4213939e0c11c41e7ad79dca29e14596
@@ -8,6 +9,9 @@ guid: 4213939e0c11c41e7ad79dca29e14596
 =======
 guid: 136f65cc792f9be438365fd646058661
 >>>>>>> clem/deskInventory
+=======
+guid: e61587dea178b1f5ba92bfa422f1f9b2
+>>>>>>> arthur/RPCS
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
