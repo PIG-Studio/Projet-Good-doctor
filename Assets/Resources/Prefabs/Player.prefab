@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2635429764
+  GlobalObjectIdHash: 2831098933
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
@@ -821,8 +821,8 @@ MonoBehaviour:
   prefabs: {fileID: 6402957478592555235, guid: 0aaf5cf8a5e6d7245a16d825933ba361, type: 3}
   title: {fileID: 7103169423480884790}
   descriptionObject: {fileID: 2414745988264810390}
-  iconDescription: {fileID: 3611928550229761265}
-  holderDescription: {fileID: 3456304147854566924}
+  iconDescription: {fileID: 4652804540131540279}
+  holderDescription: {fileID: 3743956435738372087}
   valuesToUse: {fileID: 1255529389848207842}
   _plusButton: {fileID: 5483993017204129992}
   _minusButton: {fileID: 6799416906157011133}
