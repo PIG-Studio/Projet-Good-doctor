@@ -14,8 +14,14 @@ namespace InventoryTwo.Player
         {
             // Vérifie si l'objet en collision n'a pas le tag "Player"
             if (!other.CompareTag("Player")) return;
-            ItemsSo newItem = new ItemsSo(item.title, item.description, item.icon, item.amount, item.isStackable,
-                item.type);
+            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+            newItem.title = item.title;
+            newItem.description = item.description;
+            newItem.amount = item.amount;
+            newItem.icon = item.icon;
+            newItem.isStackable = item.isStackable;
+            newItem.type = item.type;
+            
             for (int i = 0; i < InventoryManager.Instance.inventory.Count; i++)
             {
                 if (item.title == InventoryManager.Instance.inventory[i].title && item.isStackable &&

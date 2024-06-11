@@ -113,9 +113,10 @@ namespace InventoryTwo.Player
         
         /// <summary>
         /// Méthode pour charger les détails d'un item sélectionné
+        /// et les bons boutons
         /// </summary>
         /// <param name="i"></param>
-        public void ChargeItem(int i)
+        public void ChargeItem(int i) 
         {
             _amountToUse = 0;
             valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
@@ -184,8 +185,13 @@ namespace InventoryTwo.Player
         {
             if (_amountToUse > 0)
             {
-                ItemsSo newItem = new ItemsSo(inventory[i].title, inventory[i].description, inventory[i].icon, _amountToUse, inventory[i].isStackable,
-                    inventory[i].type);
+                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                newItem.title = inventory[i].title;
+                newItem.description = inventory[i].description;
+                newItem.amount = _amountToUse;
+                newItem.icon = inventory[i].icon;
+                newItem.isStackable = inventory[i].isStackable;
+                newItem.type = inventory[i].type;
                 
                 for (int j = 0; j < _amountToUse; j++)
                 {
@@ -218,28 +224,38 @@ namespace InventoryTwo.Player
         /// <param name="i"></param>
         public void AddInventoryButton(int i) //i l'endroit dans l'inventaire
         {
-            ItemsSo newItem = new ItemsSo(inventory[i].title, inventory[i].description, inventory[i].icon, _amountToUse, inventory[i].isStackable,
-                inventory[i].type);
-            
-            for (int j = 0; j < _amountToUse; j++)
+            if (_amountToUse > 0)
             {
-                //action sur le joueur par l'utilisation de inventory[i].attribut;
+                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                newItem.title = inventory[i].title;
+                newItem.description = inventory[i].description;
+                newItem.amount = _amountToUse;
+                newItem.icon = inventory[i].icon;
+                newItem.isStackable = inventory[i].isStackable;
+                newItem.type = inventory[i].type;
 
-                if (inventory[i].amount == 1)
+                for (int j = 0; j < _amountToUse; j++)
                 {
-                    inventory.Remove(inventory[i]);
-                    break;
+                    //action sur le joueur par l'utilisation de inventory[i].attribut;
+
+                    if (inventory[i].amount == 1)
+                    {
+                        inventory.Remove(inventory[i]);
+                        break;
+                    }
+                    else
+                    {
+                        inventory[i].amount--;
+                    }
                 }
-                else
-                {
-                    inventory[i].amount--;
-                }
+
+                InstanceDesk.deskInventory.Add(newItem);
+                InstanceDesk.RefreshInventory();
             }
-            InstanceDesk.deskInventory.Add(newItem);
-            InstanceDesk.RefreshInventory();
-            
+
             RefreshInventory();
             valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
+            
         }
         
         public void PlusButton(int i)

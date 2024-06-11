@@ -26,7 +26,7 @@ namespace InventoryTwo.Desk
         /// </summary>
         public GameObject inventoryPanel, hodlerSlot;
         private GameObject _slot;
-        public GameObject prefabs;
+        public GameObject prefabs; //il y un boutton et un textUiMeshPro dedans normalement
 
         public static InventoryManager instancePlayer;
         public static DeskInventoryManager InstanceDIM; // acceder partout
@@ -65,7 +65,7 @@ namespace InventoryTwo.Desk
 
         public void RefreshInventory()
         {
-            if (hodlerSlot.transform.childCount > 0) // si contient des enfants
+            if (hodlerSlot.transform.childCount > 0) // si holderSlot contient des sous objet
             {
                 foreach (Transform item in hodlerSlot.transform)
                 {
@@ -75,7 +75,7 @@ namespace InventoryTwo.Desk
 
             for (int i = 0; i < inventoryLenght; i++) //initialise l'inventaire
             {
-                if (i < deskInventory.Count )
+                if (i < deskInventory.Count ) // initialise tout les objet qui sont dans l'inventaire
                 {
                     var transform1 = transform;
                     _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
@@ -83,7 +83,7 @@ namespace InventoryTwo.Desk
 
                     TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                     Image img = _slot.transform.Find("icon").GetComponent<Image>(); // met le l'icon de l'objet dans inventaire
-                    _slot.GetComponent<SlotItem>().itemSlot = i; 
+                    _slot.GetComponent<DeskSlotItem>().itemSlot = i; 
 
                     amount.text = deskInventory[i].amount.ToString();
                     img.sprite = deskInventory[i].icon; //remplace la quantité dans le prefab par la quantité du slot actuel
@@ -92,9 +92,10 @@ namespace InventoryTwo.Desk
                 else // creer des slots vide dans l'inventaire
                 {
                     var transform1 = transform;
-                    _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
+                    _slot = Instantiate(prefabs, transform1.position, transform1.rotation); //crée un nouveau slot
                     _slot.transform.SetParent(hodlerSlot.transform);
-                    _slot.GetComponent<SlotItem>().itemSlot = i; 
+                    _slot.GetComponent<DeskSlotItem>().itemSlot = i; 
+                    
                     TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                     Button butt = _slot.transform.Find("icon").GetComponent<Button>();
                     butt.enabled = false;
@@ -169,34 +170,44 @@ namespace InventoryTwo.Desk
         /// <param name="i"></param>
         public void AddInventoryButton(int i) //i l'endroit dans l'inventaire
         {
-            ItemsSo newItem = new ItemsSo(deskInventory[i].title, deskInventory[i].description, deskInventory[i].icon, _amountToUse, deskInventory[i].isStackable,
-                         deskInventory[i].type);
-            
-            for (int j = 0; j < _amountToUse; j++)
+            if (_amountToUse > 0)
             {
-                //action sur le joueur par l'utilisation de inventory[i].attribut;
+                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                newItem.title = deskInventory[i].title;
+                newItem.description = deskInventory[i].description;
+                newItem.amount = _amountToUse;
+                newItem.icon = deskInventory[i].icon;
+                newItem.isStackable = deskInventory[i].isStackable;
+                newItem.type = deskInventory[i].type;
 
-                if (deskInventory[i].amount == 1)
+                for (int j = 0; j < _amountToUse; j++) //enleve de deskInventory
                 {
-                    deskInventory.Remove(deskInventory[i]);
-                    break;
+                    if (deskInventory[i].amount == 1)
+                    {
+                        deskInventory.Remove(deskInventory[i]);
+                        break;
+                    }
+                    else
+                    {
+                        deskInventory[i].amount--;
+                    }
                 }
-                else
+
+                for (int j = 0;
+                     j < instancePlayer.inventory.Count;
+                     j++) // ajoute ce qu'on vient d'enlevr a l'autre inventaire
                 {
-                    deskInventory[i].amount--;
+                    if (newItem.title == instancePlayer.inventory[i].title && deskInventory[i].isStackable &&
+                        instancePlayer.inventory.Count > 0)
+                    {
+                        newItem.amount += instancePlayer.inventory[j].amount;
+                        instancePlayer.inventory.Remove(instancePlayer.inventory[j]);
+                    }
                 }
+
+                instancePlayer.inventory.Add(newItem);
             }
-            
-            for (int j = 0; j < InventoryManager.Instance.inventory.Count; j++)// ??????
-            {
-                if (newItem.title == instancePlayer.inventory[i].title && deskInventory[i].isStackable &&
-                    InventoryManager.Instance.inventory.Count > 0)
-                {
-                    newItem.amount += instancePlayer.inventory[j].amount;
-                    instancePlayer.inventory.Remove(instancePlayer.inventory[j]);
-                }
-            }
-            instancePlayer.inventory.Add(newItem);
+
             instancePlayer.RefreshInventory();
             RefreshInventory();
             valuesToUse.text = _amountToUse + "/" + deskInventory[i].amount;
