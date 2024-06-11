@@ -1084,7 +1084,7 @@ MonoBehaviour:
   _minusButton: {fileID: 6799416906157011133}
   useButton: {fileID: 7119110445593822194}
   removeButton: {fileID: 8242637954353839387}
-  addInventoryButton: {fileID: 0}
+  addInventoryButton: {fileID: 3189649422781578151}
   amountToRemove: {fileID: 6698537672365007157}
 --- !u!1 &4434312971129972190
 GameObject:
