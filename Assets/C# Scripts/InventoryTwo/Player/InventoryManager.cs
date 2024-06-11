@@ -202,7 +202,7 @@ namespace InventoryTwo.Player
                     }
                 }
 
-                ItemsSo droped = newItem;
+                ItemsSo droped = newItem; // ca marche pas mais c'est pour drop sur la map
 
                 Resources.Load<GameObject>("Prefabs/Inventory/Item.prefab");
                 Instantiate(droped);

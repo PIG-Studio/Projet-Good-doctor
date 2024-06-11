@@ -187,13 +187,13 @@ namespace InventoryTwo.Desk
                 }
             }
             
-            for (int j = 0; j < InventoryManager.Instance.inventory.Count; j++)
+            for (int j = 0; j < InventoryManager.Instance.inventory.Count; j++)// ??????
             {
-                if (deskInventory[i].title == InventoryManager.Instance.inventory[i].title && deskInventory[i].isStackable &&
+                if (newItem.title == instancePlayer.inventory[i].title && deskInventory[i].isStackable &&
                     InventoryManager.Instance.inventory.Count > 0)
                 {
-                    newItem.amount += InventoryManager.Instance.inventory[j].amount;
-                    InventoryManager.Instance.inventory.Remove(InventoryManager.Instance.inventory[j]);
+                    newItem.amount += instancePlayer.inventory[j].amount;
+                    instancePlayer.inventory.Remove(instancePlayer.inventory[j]);
                 }
             }
             instancePlayer.inventory.Add(newItem);
