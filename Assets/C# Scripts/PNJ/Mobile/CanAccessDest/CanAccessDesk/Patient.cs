@@ -102,6 +102,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         [ServerRpc]
         public void SortirBureauServerRpc()
         {
+            Rb.simulated = true;
             ChooseDestinationServerRpc();
             SortirBureauClientRpc();
         }
@@ -109,12 +110,14 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         [ClientRpc]
         public void SortirBureauClientRpc()
         {
+            Rb.simulated = true;
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value && Navigation.remainingDistance > 2f ;
         }
         
         [ServerRpc]
         public void EnterBureauServerRpc()
         {
+            Rb.simulated = false;
             DansBureau.Value = true;
             EnterBureauClientRpc();
         }
@@ -122,6 +125,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         [ClientRpc]
         public void EnterBureauClientRpc()
         {
+            Rb.simulated = false;
             ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
                                        && Navigation.remainingDistance < 2f 
                                        && DansBureau.Value;
@@ -131,15 +135,16 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void SyncOnConnectServerRpc()
         {
             Debug.Log("SyncOnConnectServerRpc");
-            SyncOnConnectClientRpc(Phrase, Skin);
+            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated);
         }
         
         [ClientRpc]
-        public void SyncOnConnectClientRpc(string phrase, uint skin)
+        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled)
         {
             Debug.Log("SyncOnConnectClientRpc");
             Phrase = phrase;
             Skin = skin;
+            Rb.simulated = collisionsEnabled;
         }
     }
 }

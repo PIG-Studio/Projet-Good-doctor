@@ -18,5 +18,7 @@ namespace Super.Abstract
         protected abstract NetworkVariable<Vector2> Position { get; set; }
         public abstract string Phrase { get; protected set; }
         
+        protected Rigidbody2D Rb { get; set; }
+        
     }
 }

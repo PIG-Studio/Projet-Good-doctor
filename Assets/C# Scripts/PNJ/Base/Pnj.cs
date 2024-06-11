@@ -42,10 +42,7 @@ namespace PNJ.Base
 
         protected override uint Skin
         {
-            get
-            {
-                return _skin;
-            }
+            get => _skin;
             set
             {
                 _skin = value;
@@ -69,9 +66,8 @@ namespace PNJ.Base
         {
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
             Anims = gameObject.GetComponent<Animator>();
-            Debug.Log("anims: " + Anims);
             Sprite = gameObject.GetComponent<SpriteRenderer>();
-            
+            Rb = gameObject.GetComponent<Rigidbody2D>();
             
             
             // Si cette instance n'est pas l'hôte return sinon Spawn
