@@ -4,6 +4,7 @@ using Interfaces.Bureau;
 using Interfaces.Destination;
 using Interfaces.Entites;
 using Inventories;
+using Inventories.Desk;
 using Super.Interfaces.Bureau;
 using Super.Interfaces.Joueur;
 using TypeExpand.EDesk;
@@ -23,7 +24,8 @@ namespace Desks
         public ICanGoInDesk CurrentPatient { get; private set; }
         public IDeskDestination AssociatedDestination { get; }
         public IJoueur Responsable { get; set; }
-
+        
+        public static DeskInventory Inventory { get; set; }
         public Desk(string sceneName)
         {
             SceneName = sceneName;

@@ -14,6 +14,9 @@ namespace Inventories.Player
         public string NomActuel { get; set; }
         public Sprite ImageActuel { get; set; }
         public string DescActuelle { get; set; }
+        public uint QuantiteAUtiliser { get; set; }
+        public uint QuantiteAct { get; set; }
+
         public uint MaxLenght
         {
             get => 15;
@@ -26,6 +29,8 @@ namespace Inventories.Player
             NomActuel = null;
             ImageActuel = null;
             DescActuelle = null;
+            QuantiteAUtiliser = 0;
+            QuantiteAct = 0;
         }
         
         public void Update()
@@ -49,16 +54,16 @@ namespace Inventories.Player
                 NomActuel = "";
                 ImageActuel = Resources.Load<Sprite>("UI/whiteSquare");
                 DescActuelle = "";
+                QuantiteAUtiliser = 0;
+                QuantiteAct = 0;
             }
             else
             {
                 NomActuel = Inventaire[i].title;
                 ImageActuel = Inventaire[i].icon;
                 DescActuelle = Inventaire[i].description;
+                QuantiteAct = Inventaire[i].amount;
             }
-            // transform.Find("Description").GetComponent<TextMeshProUGUI>().text = DescActuelle;
-            // transform.Find("Image").GetComponent<Image>().sprite = ImageActuel;
-            // transform.Find("NameObject").GetComponent<TextMeshProUGUI>().text = NomActuel;
         }
 
         public void AddItem(ItemsSo item)
@@ -68,7 +73,7 @@ namespace Inventories.Player
             {
                 if (Inventaire[i] is not null)
                 {
-                    if (Inventaire[i].title == item.title)
+                    if (Inventaire[i].title == item.title && Inventaire[i].isStackable)
                     {
                         item.amount += Inventaire[i].amount;
                         Inventaire[i] = null;

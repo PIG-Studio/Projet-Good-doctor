@@ -1,24 +1,22 @@
-﻿using System;
+﻿using Inventories.Player;
 using Super.Interfaces.Inventory;
 using TMPro;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
-using Image = UnityEngine.UI.Image;
 
-namespace Inventories.Player
+namespace Inventories.Desk
 {
-    public class PlayerSlot : MonoBehaviour, ISlot
+    public class DeskSlot : MonoBehaviour, ISlot
     {
         public IInventory Inventory { get; set; }
         public uint Amount { get; set; }
         public Image Image { get; set; }
         public TextMeshProUGUI TextAmount { get; set; }
         public uint index { get; set; }
-        
+
         public void Start()
         {
-            Inventory = Joueur.Base.JoueurFundamentals.Inventory;
+            Inventory = Desks.Desk.Inventory;
             TextAmount = transform.Find("amount").gameObject.GetComponent<TextMeshProUGUI>();
             Image = transform.Find("icon").gameObject.GetComponent<Image>();
             Update();
@@ -41,11 +39,11 @@ namespace Inventories.Player
                 TextAmount.text = Inventory.Inventaire[index].amount.ToString();
             }
         }
-        
+
         public void SetDescriptionValues()
         {
             Debug.Log("click on button to print description");
-            Inventory.UpdateDescription(index); 
+            Inventory.UpdateDescription(index);         
         }
     }
 }

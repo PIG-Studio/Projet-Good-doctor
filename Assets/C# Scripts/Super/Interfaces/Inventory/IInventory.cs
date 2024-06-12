@@ -13,6 +13,8 @@ namespace Inventories.Player
         [CanBeNull] public  string NomActuel { get; set; }
         [CanBeNull] public Sprite ImageActuel { get; set; }
         [CanBeNull] public string DescActuelle { get; set; }
+        public uint QuantiteAUtiliser { get; set; }
+        public uint QuantiteAct { get; set; }
         public uint MaxLenght { get; }
 
         public void Start();

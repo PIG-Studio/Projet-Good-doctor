@@ -12,6 +12,8 @@ namespace Super.Interfaces.Inventory
         Image Image { get; set; }
         TextMeshProUGUI TextAmount { get; set; }
         uint index { get; set; }
+        void Start();
+        void Update();
         void SetDescriptionValues();
     }
 }
