@@ -57,9 +57,9 @@ namespace Inventories.Player
                 DescActuelle = Inventaire[i].description;
             }
 
-            transform.Find("Description").GetComponent<TextMeshPro>().text = DescActuelle;
-            transform.Find("Image").GetComponent<Image>().sprite = ImageActuel;
-            transform.Find("NameObject").GetComponent<TextMeshPro>().text = NomActuel;
+            // transform.Find("Description").GetComponent<TextMeshProUGUI>().text = DescActuelle;
+            // transform.Find("Image").GetComponent<Image>().sprite = ImageActuel;
+            // transform.Find("NameObject").GetComponent<TextMeshProUGUI>().text = NomActuel;
         }
 
         public void AddItem(ItemsSo item)

@@ -1,4 +1,5 @@
-﻿using Super.Interfaces.Inventory;
+﻿using System;
+using Super.Interfaces.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,35 +12,36 @@ namespace Inventories.Player
         public IInventory Inventory { get; set; }
         public uint Amount { get; set; }
         public Sprite Image { get; set; }
-        public TextMeshPro TextAmount { get; set; }
-        private uint _index;
+        public TextMeshProUGUI TextAmount { get; set; }
         public uint index
         {
-            get
-            {
-                return _index;
-            }
-            set
-            {
-                _index = value;
-                if (Inventory.Inventaire[value] is null)
-                {
-                    Amount = 0;
-                    Image = Resources.Load<Sprite>("UI/whiteSquare");
-                    TextAmount.text = "";
-                }
-                else
-                {
-                    Amount = Inventory.Inventaire[value].amount;
-                    Image = Inventory.Inventaire[value].icon;
-                    TextAmount.text = Inventory.Inventaire[value].amount.ToString();
-                }
-            }
+            get;
+            set;
         }
 
         public void SetDescriptionValues()
         {
             Inventory.PrintDescription(index); 
+        }
+
+        private void Start()
+        {
+            Debug.Log("startSlot");
+            TextAmount = transform.Find("amount").gameObject.GetComponent<TextMeshProUGUI>();
+            Image = transform.Find("icon").gameObject.GetComponent<Image>().sprite;
+            
+            if (Inventory.Inventaire[index] is null)
+            {
+                Amount = 0;
+                Image = Resources.Load<Sprite>("UI/whiteSquare");
+                TextAmount.text = " ";
+            }
+            else
+            {
+                Amount = Inventory.Inventaire[index].amount;
+                Image = Inventory.Inventaire[index].icon;
+                TextAmount.text = Inventory.Inventaire[index].amount.ToString();
+            }
         }
     }
 }
