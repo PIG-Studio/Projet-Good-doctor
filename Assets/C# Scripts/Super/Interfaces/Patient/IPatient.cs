@@ -1,6 +1,7 @@
 using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
 using Maladies.Base;
+using Unity.Netcode;
 
 namespace Interfaces.Patient
 {
@@ -9,7 +10,7 @@ namespace Interfaces.Patient
         /// <summary>
         /// Booléens si le patient ment 
         /// </summary>
-        public bool IsLying { get; set; }
+        public NetworkVariable<bool> IsLying { get; set; }
         
         /// <summary>
         /// Définit la maladie du patient.
@@ -41,17 +42,17 @@ namespace Interfaces.Patient
         /// <summary>
         /// Booléens si le patient est en vie 
         /// </summary>
-        public bool IsAlive { get; set; }
+        public NetworkVariable<bool> IsAlive { get; set; }
         
         /// <summary>
         /// Booléens si l'adn du patient a été analysé
         /// </summary>
-        public bool AnalyseAdn { get; set; }
+        public NetworkVariable<bool> AnalyseAdn { get; set; }
         
         /// <summary>
         /// Booléens si la dépression du patient a été analysé
         /// </summary>
-        public bool AnalyseDepression { get; set; }
+        public NetworkVariable<bool> AnalyseDepression { get; set; }
         
 
         /// <summary>
@@ -64,6 +65,6 @@ namespace Interfaces.Patient
         /// <summary>
         /// quand patient est mort , change son skin , enable la fct de bouger son corps , et lance un timer pour degager son corps
         /// </summary>
-        public void Kill();
+        public void Die();
     }
 }

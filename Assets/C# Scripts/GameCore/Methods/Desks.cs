@@ -15,6 +15,7 @@ namespace GameCore.Methods
         
         public void Start()
         {
+            Debug.unityLogger.logEnabled = Debug.isDebugBuild;
             Variable.AllDesks = new Desk[2];
             Variable.AllDestinations = new List<IDestination>();
             Variable.DeskDestinations = new IDeskDestination[] {null, null, null};

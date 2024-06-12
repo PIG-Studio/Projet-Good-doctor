@@ -1,5 +1,4 @@
 using CustomScenes;
-using Destinations.Lieux.Sortie;
 using GameCore.Constantes;
 using GameCore.Variables;
 using Interfaces.Destination;
@@ -8,6 +7,7 @@ using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
 using Interfaces.Patient;
 using Maladies;
+using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
 using Super.Interfaces;
 using Super.Interfaces.Entites;
@@ -27,30 +27,27 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public IValue Depression { get; set; }
         public IMaladie Sickness { get; set; }
         public IValue Temperature { get; set; }
-        public bool AnalyseAdn { get; set; }
-        public bool AnalyseDepression { get; set; }
+        public NetworkVariable<bool> AnalyseAdn { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
+        public NetworkVariable<bool> AnalyseDepression { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public IValue FreqCar { get; set; }
-        public bool IsAlive { get; set; }
-        public bool IsLying { get; set; }
+        public NetworkVariable<bool> IsAlive { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
+        public NetworkVariable<bool> IsLying { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         
         public new void Start()
         {
             base.Start();
-            
-            if (Variable.NbOfPatients > Constante.MaxPatient)
+            if (NetworkManager.Singleton.IsServer)
             {
-                Destroy(gameObject);
-                return;
-            }
-            Variable.NbOfPatients++;
-            
-            (Sickness, IsLying) = Acces.GenererRandom();
-            Adn = Attributs.GenAdn(Sickness.AdnSain);
-            string nameTemp;
-            (Phrase, nameTemp, Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
-            if (NetworkManager.Singleton.IsHost)
-            {
-                Name.Value = nameTemp;
+                if (Variable.NbOfPatients > Constante.MaxPatient)
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+                Variable.NbOfPatients++;
+                
+                (Sickness, IsLying.Value) = Acces.GenererRandom();
+                Adn = Attributs.GenAdn(Sickness.AdnSain);
+                (Phrase, Name.Value , Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
                 ChooseDestinationServerRpc();
             }
             else
@@ -66,7 +63,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         {
             base.Update();
             
-            if (!NetworkManager.Singleton.IsHost) return;
+            if (!NetworkManager.Singleton.IsServer) return;
             if (EnAttente.Value ||
                 DansBureau.Value ||
                 Navigation.remainingDistance > 2f ||
@@ -74,25 +71,25 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             
             if (Destination.IsFull)
             {
-                Debug.Log($"Destination {Destination.DestId} pleine, recherche d'une autre destination...");
+                Debug.Log($"[Server] Destination {Destination.DestId} pleine, recherche d'une autre destination...");
                 ChooseDestinationServerRpc();
                 return;
             }
-            Debug.Log($"Destination {Destination.PtArrivee}, remaining : {Navigation.remainingDistance}");
+            Debug.Log($"[Server] Destination {Destination.PtArrivee}, remaining : {Navigation.remainingDistance}");
             switch (Destination)
             {
                 case IDeskDestination deskDestination:
                     deskDestination.Add(this);
                     break;
                 case INormalDestination normalDestination:
-                    if (normalDestination.PtArrivee == new Vector2(3,4)) {Debug.Log("Je vais mourrir !");LeaveServerRpc(); break;}
-                    Debug.Log("Je vais PAS mourrir FDP !");
+                    if (normalDestination.PtArrivee == new Vector2(3,4)) {Debug.Log("[Server] Je vais mourrir !");LeaveServerRpc(); break;}
+                    Debug.Log("[Server] Je vais PAS mourrir FDP !");
                     normalDestination.Add(this);
                     break;
             }
         }
 
-        public void Kill()
+        public void Die()
         {
             throw new System.NotImplementedException();
         }
@@ -100,7 +97,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         [ServerRpc]
         public void LeaveServerRpc()
         {
-            Debug.Log("LeaveServerRpc");
+            Debug.Log("[Server] LeaveServerRpc");
             LeaveClientRpc();
             Destroy(this);
         }
@@ -142,32 +139,40 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         [ClientRpc]
         public void EnterBureauClientRpc()
         {
+            Debug.Log("[Client] EnterBureauClientRpc() started");
             Rb.simulated = false;
             ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
                                        && Navigation.remainingDistance < 2f 
                                        && DansBureau.Value;
             Destination = null;
+            Debug.Log("[Client] EnterBureauClientRpc() ended");
         }
 
         [ServerRpc(RequireOwnership = false)]
         public void SyncOnConnectServerRpc()
         {
-            Debug.Log("SyncOnConnectServerRpc");
-            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated);
+            Debug.Log("[Server] SyncOnConnectServerRpc() started");
+            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur);
+            Debug.Log("[Server] SyncOnConnectServerRpc() ended");
         }
         
         [ClientRpc]
-        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled)
+        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled, uint temperature, uint depression)
         {
-            Debug.Log("SyncOnConnectClientRpc");
+            
+            Debug.Log("[Client] SyncOnConnectClientRpc() started");
             Phrase = phrase;
             Skin = skin;
             Rb.simulated = collisionsEnabled;
+            Temperature = new Value(temperature);
+            Depression = new Value(depression);
+            Debug.Log("[Client] SyncOnConnectClientRpc() ended");
         }
         
         [ServerRpc(RequireOwnership = false)]
         public void RenvoyerMaisonServerRpc()
         {
+            Debug.Log("[Server] RenvoyerMaisonServerRpc() started");
             Rb.simulated = true;
             DansBureau.Value = false;
             SortirBureauClientRpc();
@@ -177,13 +182,15 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             
             RenvoyerMaisonClientRpc();
             EnAttente.Value = false;
+            Debug.Log("[Server] RenvoyerMaisonServerRpc() ended");
         }
         
         [ClientRpc]
         public void RenvoyerMaisonClientRpc()
         {
+            Debug.Log("[Client] RenvoyerMaisonClientRpc() started");
             Phrase = "Je suis guéri !";
-            Debug.Log(ConditionAffichage() + " affichage, " + EnAttente.Value + " en attente");
+            Debug.Log("[Client] RenvoyerMaisonClientRpc() ended");
         }
     }
 }
