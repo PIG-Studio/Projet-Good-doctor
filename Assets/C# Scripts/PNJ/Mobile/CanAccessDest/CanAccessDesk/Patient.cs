@@ -11,6 +11,7 @@ using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
 using Super.Interfaces;
 using Super.Interfaces.Entites;
+using Super.Interfaces.Patient;
 using Unity.Netcode;
 using UnityEngine;
 

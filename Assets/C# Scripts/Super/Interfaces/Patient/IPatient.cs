@@ -1,8 +1,9 @@
 using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
+using Interfaces.Patient;
 using Unity.Netcode;
 
-namespace Interfaces.Patient
+namespace Super.Interfaces.Patient
 {
     public interface IPatient
     {
