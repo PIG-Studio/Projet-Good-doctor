@@ -1,9 +1,6 @@
 ﻿using JetBrains.Annotations;
-using Parameters;
 using ScriptableObject;
 using UnityEngine;
-using UnityEngine.UI;
-using Image = UnityEngine.UI.Image;
 
 namespace Super.Interfaces.Inventory
 {

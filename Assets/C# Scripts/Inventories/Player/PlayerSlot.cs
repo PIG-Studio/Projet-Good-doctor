@@ -1,9 +1,6 @@
-﻿using System;
-using Super.Interfaces.Inventory;
+﻿using Super.Interfaces.Inventory;
 using TMPro;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 namespace Inventories.Player
@@ -14,11 +11,7 @@ namespace Inventories.Player
         public uint Amount { get; set; }
         public Sprite Image { get; set; }
         public TextMeshProUGUI TextAmount { get; set; }
-        public uint index
-        {
-            get;
-            set;
-        }
+        public uint index { get; set; }
 
         public void SetDescriptionValues()
         {

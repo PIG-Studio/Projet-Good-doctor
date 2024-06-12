@@ -512,7 +512,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.12, y: 6.12}
+  m_Size: {x: 4.5, y: 2.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -527,7 +527,7 @@ Transform:
   m_GameObject: {fileID: 146163237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.3, y: 0.2, z: 0}
+  m_LocalPosition: {x: -15.6, y: 0.3, z: 0}
   m_LocalScale: {x: 4, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 667420693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 921ebf364aa2d79469ef258862c74346, type: 3}
+  m_Script: {fileID: 11500000, guid: b8a07d64bc6ec5e26a8119f61f0932ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1271473151
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278851667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7722522b784b42c5beb0c083304a4175, type: 3}
+  m_Script: {fileID: 11500000, guid: 519c91c0d9fef97919ff076c77a24448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1907938331

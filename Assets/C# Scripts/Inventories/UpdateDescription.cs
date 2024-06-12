@@ -1,24 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using Inventories.Player;
+using Super.Interfaces.Inventory;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class UpdateDescription : MonoBehaviour
+namespace Inventories
 {
-    [SerializeField] public GameObject InventoryTemp;
-    private IInventory Inventory { get; set; }
-    private TextMeshProUGUI desc;
-    // Start is called before the first frame update
-    void Start()
+    public class UpdateDescription : MonoBehaviour
     {
-        desc = GetComponent<TextMeshProUGUI>();
-        Inventory = InventoryTemp.GetComponent<IInventory>();
-    }
+        [FormerlySerializedAs("InventoryTemp")] [SerializeField] public GameObject inventoryTemp;
+        private IInventory Inventory { get; set; }
+        private TextMeshProUGUI _desc;
+        // Start is called before the first frame update
+        void Start()
+        {
+            _desc = GetComponent<TextMeshProUGUI>();
+            Inventory = inventoryTemp.GetComponent<IInventory>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        desc.text = Inventory.DescActuelle??"";
+        // Update is called once per frame
+        void Update()
+        {
+            _desc.text = Inventory.DescActuelle??"";
+        }
     }
 }
