@@ -1,6 +1,6 @@
 using GameCore.Variables;
 using Inventories;
-using Inventories.Slots;
+//using Inventories.Slots;
 using TypeExpand.String;
 using UnityEngine;
 using UI_Scripts.UI_Prefab;
@@ -22,7 +22,7 @@ namespace Desks
         /// <summary>
         /// L inventaire lie au bureau
         /// </summary>
-        private Inventory InventoryToRender { get; set; }
+      // private Inventory InventoryToRender { get; set; }
 
 
         public void Start()
@@ -31,7 +31,7 @@ namespace Desks
                 UIPrefabs.INV_Inventory(Resources.Load<Sprite>("inventory"), "Inventory", 0, 0, 500, 50);
 
             // On récupere le bureau et l'inventaire à afficher, NULL REFERENCE si script pas dans un bureau
-            InventoryToRender = Variable.SceneNameCurrent.ToDesk()!.Inventory;
+            /*InventoryToRender = Variable.SceneNameCurrent.ToDesk()!.Inventory;
 
             uint i = 0;
             foreach (Slot vSlot in InventoryToRender.Slots)
@@ -47,14 +47,14 @@ namespace Desks
 
                 vSlot.Object!.transform.SetParent(inventoryRender.transform);
                 i++;
-            }
+            }*/
         }
 
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Variable.DeskBase.Inventory.AddItem(Medicaments.Acces.Cyamure(1));
+                //Variable.DeskBase.Inventory.AddItem(Medicaments.Acces.Cyamure(1));
                 Debug.Log("Added CYAMURE to desk inventory");
             }
 

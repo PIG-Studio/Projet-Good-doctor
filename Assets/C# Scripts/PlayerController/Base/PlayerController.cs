@@ -4,6 +4,7 @@ using Inventories;
           
 using UnityEngine;
 using GameCore.Constantes;
+using Inventories.Player;
 using Unity.Netcode;
 
 namespace PlayerController.Base
@@ -16,8 +17,6 @@ namespace PlayerController.Base
         private Rigidbody2D _rb; // Reference to the Rigidbody2D component
         private Animator _anims;
         public GameObject vcam;
-        protected Inventory PlayerInventory { get; set; }
-
         public void Start()
         {
             _rb = gameObject.GetComponent<Rigidbody2D>();

@@ -1,31 +1,49 @@
-﻿using Interaction.Base;
+﻿using CustomScenes;
+using Interaction.Base;
 using UnityEngine;
 using GameCore.Constantes;
+using Parameters;
+using ScriptableObject;
 
 
 namespace Interaction.Implementation
 {
     public class Distributeur : ObjectInteraction
-    {    
+    {
         /// <summary>
         /// Méthode appelée pour interagir avec le distributeur
         /// </summary>
-        public void Interagir()
+        
+        public void OnTriggerStay2D(Collider2D other)
         {
-            // Vérifie si la touche définie dans Constante.InteractKey est enfoncée
-            if (Input.GetKeyDown(Constante.InteractKey)) // TODO : CHANGE TO A PARAM VALUE
+            if (Input.GetKeyDown(Keys.UseKey) && other.CompareTag("Player"))
             {
-                // Instancie un objet représentant un paquet de madeleines à partir des ressources
-                Instantiate(Resources.Load<GameObject>("Sprites/Items/sachet-madeleinespng"));
-                // Affiche un message pour indiquer que le joueur a récupéré un paquet de madeleines
-                Debug.Log("Vous venez de récupérer un délicieux paquet de madeleine.");
-            }
-            else
-            {
-                // Si la touche n'est pas enfoncée, affiche un message pour demander si le joueur veut des madeleines
-                Debug.Log("Voulez-vous des madeleines ?");
+                // FAIT POP UNE MADELAINE DANS INVENTAIRE
+                if (!other.CompareTag("Player")) return;
+                ItemsSo item = Resources.Load<ItemsSo>("Prefabs/Item/Madeleine.asset");
+                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                newItem.title = item.title;
+                newItem.description = item.description;
+                newItem.amount = item.amount;
+                newItem.icon = item.icon;
+                newItem.isStackable = item.isStackable;
+                newItem.type = item.type;
+            
+                // for (int i = 0; i < InventoryManager.Instance.inventory.Count; i++)
+                // {
+                //     if (item.title == InventoryManager.Instance.inventory[i].title && item.isStackable &&
+                //         InventoryManager.Instance.inventory.Count > 0)
+                //     {
+                //         newItem.amount += InventoryManager.Instance.inventory[i].amount;
+                //         InventoryManager.Instance.inventory.Remove(InventoryManager.Instance.inventory[i]);
+                //     }
+                // }
+                // InventoryManager.Instance.inventory.Add(newItem);// Ajoute l'objet à l'inventaire
+
+                Destroy(gameObject); // Détruit l'objet ramassé
             }
         }
+    
     }
 }
 

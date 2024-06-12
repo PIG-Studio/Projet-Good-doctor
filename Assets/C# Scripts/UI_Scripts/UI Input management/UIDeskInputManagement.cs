@@ -15,7 +15,7 @@ namespace UI_Scripts.UI_Input_management
                 }
             if (Input.GetKeyDown(KeyCode.E))
             {   
-                Variable.DeskBase.Inventory.AddItem(Medicaments.Acces.Cyamure(1));
+                //Variable.DeskBase.Inventory.AddItem(Medicaments.Acces.Cyamure(1));
             }
         }
     }
