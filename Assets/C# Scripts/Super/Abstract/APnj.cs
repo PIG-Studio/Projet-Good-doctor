@@ -1,8 +1,6 @@
-using GameCore.Variables;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
-using Component = System.ComponentModel.Component;
 
 namespace Super.Abstract
 {
@@ -11,7 +9,7 @@ namespace Super.Abstract
         /// <summary>
         /// Sprite du PNJ.
         /// </summary>
-        protected abstract uint _skin { get; set; }
+        protected abstract uint SkinVal { get; set; }
         protected abstract uint Skin { get; set; }
         
         /// <summary>

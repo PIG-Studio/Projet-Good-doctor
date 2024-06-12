@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using Interfaces;
+using Super.Interfaces;
 
 namespace Parameters
 {

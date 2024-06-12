@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Super.Interfaces
 {
     public interface ISyncOnConnectRpc

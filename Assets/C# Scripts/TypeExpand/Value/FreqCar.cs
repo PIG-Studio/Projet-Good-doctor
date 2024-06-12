@@ -1,5 +1,5 @@
 using TypeExpand.UInt;
-using Interfaces.Maladies.Types;
+using Super.Interfaces.Maladies.Types;
 
 namespace TypeExpand.Value
 {

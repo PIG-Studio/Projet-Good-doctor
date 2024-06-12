@@ -1,8 +1,8 @@
 using Desks;
 using Destinations.Implementation;
 using GameCore.Variables;
-using Interfaces.Destination;
-using Interfaces.Entites;
+using Super.Interfaces.Destination;
+using Super.Interfaces.Entites;
 using UnityEngine;
 
 namespace Destinations.Lieux.Bureaux

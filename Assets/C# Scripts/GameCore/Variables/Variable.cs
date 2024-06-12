@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Desks;
-using Interfaces.Destination;
-using Interfaces.GameObjects;
+using Super.Interfaces.Destination;
+using Super.Interfaces.GameObjects;
 using UnityEngine;
 
 namespace GameCore.Variables

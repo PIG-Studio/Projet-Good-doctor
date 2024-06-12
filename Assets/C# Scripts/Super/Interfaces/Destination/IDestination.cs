@@ -1,7 +1,7 @@
-using Interfaces.Entites;
+using Super.Interfaces.Entites;
 using UnityEngine;
 
-namespace Interfaces.Destination
+namespace Super.Interfaces.Destination
 {
     public interface IDestination
     {

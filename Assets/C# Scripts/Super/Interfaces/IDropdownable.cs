@@ -1,6 +1,6 @@
 using TMPro;
 
-namespace Interfaces
+namespace Super.Interfaces
 {
     public interface IDropdownable
     {

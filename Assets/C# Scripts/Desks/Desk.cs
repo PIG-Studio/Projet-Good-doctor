@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using GameCore.Variables;
-using Interfaces.Bureau;
-using Interfaces.Destination;
-using Interfaces.Entites;
+using Super.Interfaces.Destination;
+using Super.Interfaces.Entites;
 using Inventories;
 using Super.Interfaces.Bureau;
 using Super.Interfaces.Joueur;

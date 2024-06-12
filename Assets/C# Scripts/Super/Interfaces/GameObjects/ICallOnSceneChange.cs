@@ -1,4 +1,4 @@
-namespace Interfaces.GameObjects
+namespace Super.Interfaces.GameObjects
 {
     public interface ICallOnSceneChange
     {

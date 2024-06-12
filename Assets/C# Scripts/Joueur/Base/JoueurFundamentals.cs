@@ -18,7 +18,7 @@ namespace Joueur.Base
         public uint? BureauActuel { get; protected set; }
         public Func<bool> ConditionAffichage { get; } = () => true;
 
-        private NetworkVariable<UnityEngine.Vector2> Position { get; } = new(writePerm: NetworkVariableWritePermission.Server);
+        private NetworkVariable<Vector2> Position { get; } = new(writePerm: NetworkVariableWritePermission.Server);
 
         private void Start()
         {
@@ -42,7 +42,7 @@ namespace Joueur.Base
             
         }
         [ServerRpc]
-        public void UpdatePositionServerRpc(UnityEngine.Vector2 position)
+        public void UpdatePositionServerRpc(Vector2 position)
         {
             Position.Value = position;
         }

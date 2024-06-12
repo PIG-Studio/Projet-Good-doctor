@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UI_Scripts.UI_Prefab.UI_Base;
-using Interfaces;
+using Super.Interfaces;
 
 namespace UI_Scripts.UI_Prefab.UI_Objects.UI_Dropdown
 {

@@ -1,6 +1,6 @@
 using CustomScenes;
 using GameCore.Variables;
-using Interfaces.GameObjects;
+using Super.Interfaces.GameObjects;
 using UnityEngine;
 
 public class DontDestroyOnLoad : MonoBehaviour, ICallOnSceneChange

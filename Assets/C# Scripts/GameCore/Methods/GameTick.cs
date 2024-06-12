@@ -10,17 +10,17 @@ namespace GameCore.Methods
     
     public class GameTick : MonoBehaviour
     {
-        private GameObject _patient { get; set; }
+        private GameObject Patient { get; set; }
         
-        private float _tempsEcoulee { get; set; }
+        private float TempsEcoulee { get; set; }
         
-        private float _tempsDernierPatient { get; set; }
+        private float TempsDernierPatient { get; set; }
 
         public void Start()
         {
-            _patient = Resources.Load<GameObject>("Prefabs/Patient");
-            _tempsEcoulee = 0f;
-            Variable.WaitTime = new Random().Next(1,3);
+            Patient = Resources.Load<GameObject>("Prefabs/Patient");
+            TempsEcoulee = 0f;
+            Variable.WaitTime = new Random().Next(15,30);
             Debug.Log(Variable.WaitTime);
 
         }
@@ -29,18 +29,18 @@ namespace GameCore.Methods
         {
             if (!NetworkManager.Singleton.IsHost) return;
             if (!(Variable.SceneNameCurrent == Scenes.Map)) return;
-            _tempsEcoulee = Time.time;
-            if (_tempsEcoulee - _tempsDernierPatient > Variable.WaitTime &&  
+            TempsEcoulee = Time.time;
+            if (TempsEcoulee - TempsDernierPatient > Variable.WaitTime &&  
                 Variable.NbOfPatients < Constantes.Constante.MaxPatient)
             {
-                var patient = Instantiate(_patient);
-                _tempsDernierPatient = _tempsEcoulee;
+                Instantiate(Patient);
+                TempsDernierPatient = TempsEcoulee;
             }
             //if (!Input.GetKeyDown(KeyCode.P)) return;
             //var guillaume = Instantiate(_patient);
             //Debug.Log(guillaume.Name + " " + guillaume.Depression + " " + guillaume.Sickness + " " +
             //          guillaume.Adn);
-            Debug.Log(_patient); // Affichage du GameObject représentant le patient (pour débogage)
+            Debug.Log(Patient); // Affichage du GameObject représentant le patient (pour débogage)
             // Vérification si l'instance actuelle n'est pas l'hôte dans le réseau
             if (!NetworkManager.Singleton.IsHost) return;
             

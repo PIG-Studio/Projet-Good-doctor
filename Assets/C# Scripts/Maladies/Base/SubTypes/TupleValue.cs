@@ -1,4 +1,4 @@
-using Interfaces.Maladies.Types;
+using Super.Interfaces.Maladies.Types;
 
 namespace Maladies.Base.SubTypes
 {

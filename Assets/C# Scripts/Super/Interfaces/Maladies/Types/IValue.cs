@@ -1,4 +1,4 @@
-namespace Interfaces.Maladies.Types
+namespace Super.Interfaces.Maladies.Types
 {
     public interface IValue
     {

@@ -1,7 +1,7 @@
-using Interfaces.Entites;
+using Super.Interfaces.Entites;
 using JetBrains.Annotations;
 
-namespace Interfaces.Bureau
+namespace Super.Interfaces.Bureau
 {
     public interface ICanReceivePatients
     {

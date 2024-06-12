@@ -1,6 +1,5 @@
-using Interfaces.Maladies;
-using Interfaces.Maladies.Types;
-using Interfaces.Patient;
+using Super.Interfaces.Maladies;
+using Super.Interfaces.Maladies.Types;
 using Unity.Netcode;
 
 namespace Super.Interfaces.Patient

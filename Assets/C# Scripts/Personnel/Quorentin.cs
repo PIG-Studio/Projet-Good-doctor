@@ -1,4 +1,4 @@
-using Interfaces;
+using Super.Interfaces;
 
 namespace Personnel
 {

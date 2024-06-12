@@ -1,5 +1,5 @@
-using Interfaces;
-using Interfaces.Objects;
+using Super.Interfaces;
+using Super.Interfaces.Objects;
 using JetBrains.Annotations;
 using UnityEngine;
 using GameCore.Constantes;

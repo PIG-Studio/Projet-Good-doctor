@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 
-namespace Interfaces
+namespace Super.Interfaces
 {
     public interface IGoHasId
     {

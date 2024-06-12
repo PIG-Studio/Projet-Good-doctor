@@ -1,4 +1,4 @@
-﻿using Interfaces.Maladies;
+﻿using Super.Interfaces.Maladies;
 using Maladies.Implementation;
 using TypeExpand.Int;
 

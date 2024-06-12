@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Interfaces
+namespace Super.Interfaces
 {
     /// <summary>
     /// Interface pour les classes qui creent des objets UI

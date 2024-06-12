@@ -1,5 +1,3 @@
-using Desks;
-
 namespace Super.Interfaces.Joueur
 {
     public interface IJoueur

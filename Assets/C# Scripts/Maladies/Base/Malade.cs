@@ -1,5 +1,5 @@
-using Interfaces.Maladies;
-using Interfaces.Maladies.Types;
+using Super.Interfaces.Maladies;
+using Super.Interfaces.Maladies.Types;
 using JetBrains.Annotations;
 using Maladies.Base.SubTypes;
 

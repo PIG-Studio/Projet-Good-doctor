@@ -3,7 +3,7 @@ using UnityEngine;
 using GameCore.Variables;
 using Desks;
 using Destinations.Lieux.Sortie;
-using Interfaces.Destination;
+using Super.Interfaces.Destination;
 
 namespace GameCore.Methods
 {

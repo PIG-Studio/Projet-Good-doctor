@@ -1,4 +1,4 @@
-namespace Interfaces
+namespace Super.Interfaces
 {
     public interface IValidString
     {

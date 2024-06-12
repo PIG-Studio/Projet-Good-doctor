@@ -3,7 +3,7 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
-using Interfaces;
+using Super.Interfaces;
 using Parameters;
 using SaveScripts;
 

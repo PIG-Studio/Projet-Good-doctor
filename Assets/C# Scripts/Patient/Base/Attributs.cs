@@ -1,7 +1,7 @@
 using GameCore.Constantes;
-using Interfaces.Maladies;
-using Interfaces.Maladies.Types;
-using Interfaces.Patient;
+using Super.Interfaces.Maladies;
+using Super.Interfaces.Maladies.Types;
+using Super.Interfaces.Patient;
 using Maladies.Base.SubTypes;
 using Maladies.Base.SubTypes.Symptomes;
 using TypeExpand.Int;

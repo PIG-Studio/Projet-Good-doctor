@@ -1,7 +1,7 @@
-using Interfaces.Destination;
+using Super.Interfaces.Destination;
 using Unity.Netcode;
 
-namespace Interfaces.Entites
+namespace Super.Interfaces.Entites
 {
     public interface ICanGoInDestination
     {

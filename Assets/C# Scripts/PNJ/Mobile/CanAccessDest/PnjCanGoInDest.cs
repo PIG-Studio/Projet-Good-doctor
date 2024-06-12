@@ -1,8 +1,7 @@
-using System;
 using Exceptions;
 using GameCore.Variables;
-using Interfaces.Destination;
-using Interfaces.Entites;
+using Super.Interfaces.Destination;
+using Super.Interfaces.Entites;
 using TypeExpand.Int;
 using Unity.Netcode;
 using UnityEngine;

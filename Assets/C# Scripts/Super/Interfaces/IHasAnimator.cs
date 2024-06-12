@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Interfaces
+namespace Super.Interfaces
 {
     public interface IHasAnimator
     {

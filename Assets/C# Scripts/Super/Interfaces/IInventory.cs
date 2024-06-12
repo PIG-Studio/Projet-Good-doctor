@@ -1,7 +1,7 @@
 using UnityEngine;
-using Interfaces.Objects;
+using Super.Interfaces.Objects;
 
-namespace Interfaces
+namespace Super.Interfaces
 {
     public interface IInventory
     {

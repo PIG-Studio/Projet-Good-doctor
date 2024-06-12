@@ -1,6 +1,6 @@
-﻿using Interfaces.Maladies.Types;
+﻿using Super.Interfaces.Maladies.Types;
 
-namespace Interfaces.Maladies
+namespace Super.Interfaces.Maladies
 {
     public interface IMaladie
     {

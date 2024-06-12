@@ -1,4 +1,4 @@
-using Interfaces;
+using Super.Interfaces;
 using UI_Scripts.UI_Prefab.UI_Base;
 using UnityEngine;
 using GameCore.Constantes;

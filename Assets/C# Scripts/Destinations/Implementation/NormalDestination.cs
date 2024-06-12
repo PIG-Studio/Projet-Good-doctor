@@ -1,6 +1,6 @@
 using Exceptions;
-using Interfaces.Destination;
-using Interfaces.Entites;
+using Super.Interfaces.Destination;
+using Super.Interfaces.Entites;
 using UnityEngine;
 
 namespace Destinations.Implementation

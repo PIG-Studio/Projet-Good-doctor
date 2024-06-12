@@ -1,7 +1,7 @@
-using Interfaces.Destination;
 using JetBrains.Annotations;
+using Super.Interfaces.Destination;
 
-namespace Interfaces.Bureau
+namespace Super.Interfaces.Bureau
 {
     public interface IHasDestination
     {

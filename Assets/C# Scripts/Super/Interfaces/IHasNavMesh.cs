@@ -1,6 +1,6 @@
 using UnityEngine.AI;
 
-namespace Interfaces
+namespace Super.Interfaces
 {
     public interface IHasNavMesh
     {

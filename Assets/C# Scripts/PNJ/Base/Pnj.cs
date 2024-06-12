@@ -37,15 +37,15 @@ namespace PNJ.Base
         private Vector2 Velocity { get; set; }
         
         
-        protected override uint _skin { get; set; }
+        protected override uint SkinVal { get; set; }
 
         protected override uint Skin
         {
-            get => _skin;
+            get => SkinVal;
             set
             {
-                _skin = value;
-                Anims.runtimeAnimatorController = Variable.PnjSkin[_skin];
+                SkinVal = value;
+                Anims.runtimeAnimatorController = Variable.PnjSkin[SkinVal];
             } 
         }
         

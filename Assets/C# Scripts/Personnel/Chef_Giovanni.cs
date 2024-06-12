@@ -1,5 +1,5 @@
 using System;
-using Interfaces;
+using Super.Interfaces;
 using PNJ.Immobile;
 
 namespace Personnel

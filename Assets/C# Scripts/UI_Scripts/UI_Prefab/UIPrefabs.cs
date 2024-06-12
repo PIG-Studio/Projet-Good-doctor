@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UI_Scripts.UI_Prefab.UI_Objects;
 using GameCore.Variables;
 using static CustomScenes.Manager;
-using Interfaces;
+using Super.Interfaces;
 using SaveScripts;
 using Super.Interfaces.Entites;
 using TypeExpand.String;

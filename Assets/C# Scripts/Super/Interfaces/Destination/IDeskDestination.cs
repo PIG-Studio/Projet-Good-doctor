@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Desks;
-using Interfaces.Entites;
+using Super.Interfaces.Entites;
 
-namespace Interfaces.Destination
+namespace Super.Interfaces.Destination
 {
     public interface IDeskDestination : IDestination
     {

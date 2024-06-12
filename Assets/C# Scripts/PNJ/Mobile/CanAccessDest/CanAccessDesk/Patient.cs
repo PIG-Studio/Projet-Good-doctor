@@ -1,11 +1,9 @@
 using CustomScenes;
 using GameCore.Constantes;
 using GameCore.Variables;
-using Interfaces.Destination;
-using Interfaces.Entites;
-using Interfaces.Maladies;
-using Interfaces.Maladies.Types;
-using Interfaces.Patient;
+using Super.Interfaces.Destination;
+using Super.Interfaces.Maladies;
+using Super.Interfaces.Maladies.Types;
 using Maladies;
 using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
