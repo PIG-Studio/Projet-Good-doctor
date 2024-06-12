@@ -23,10 +23,17 @@ namespace Inventories.Player
             {
                 _index = value;
                 if (Inventory.Inventaire[value] is null)
-                    return;
-                Amount = Inventory.Inventaire[value].amount;
-                Image = Inventory.Inventaire[value].icon;
-                TextAmount.text = Inventory.Inventaire[value].amount.ToString();
+                {
+                    Amount = 0;
+                    Image = Resources.Load<Sprite>("UI/whiteSquare");
+                    TextAmount.text = "";
+                }
+                else
+                {
+                    Amount = Inventory.Inventaire[value].amount;
+                    Image = Inventory.Inventaire[value].icon;
+                    TextAmount.text = Inventory.Inventaire[value].amount.ToString();
+                }
             }
         }
 

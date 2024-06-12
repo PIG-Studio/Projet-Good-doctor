@@ -40,8 +40,8 @@ namespace Inventories.Player
                 _slot.transform.SetParent(transform);
                 slotItem.Inventory = Inventory; 
                 slotItem.index = i;
-                _slot.transform.GetComponent<Image>().sprite = slotItem.Image;
-                _slot.transform.GetComponent<TextMeshPro>().text = slotItem.Amount.ToString();
+                // _slot.transform.GetComponent<Image>().sprite = slotItem.Image;
+                // _slot.transform.GetComponent<TextMeshPro>().text = slotItem.Amount.ToString();
             }
         }
     }
