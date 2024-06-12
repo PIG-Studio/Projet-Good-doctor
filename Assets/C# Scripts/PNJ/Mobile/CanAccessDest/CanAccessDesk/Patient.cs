@@ -68,6 +68,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             
             if (!NetworkManager.Singleton.IsHost) return;
             if (EnAttente.Value ||
+                DansBureau.Value ||
                 Navigation.remainingDistance > 2f ||
                 Destination is null) return;
             
@@ -181,11 +182,8 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         [ClientRpc]
         public void RenvoyerMaisonClientRpc()
         {
-            Navigation.SetDestination(Variable.Sortie.PtArrivee); //NE PAS CHANGE L ORDRE DES DEUX LIGNES
-            Destination = Variable.Sortie;
-            
             Phrase = "Je suis guéri !";
-            Debug.Log(ConditionAffichage + " affichage, " + EnAttente + " en attente");
+            Debug.Log(ConditionAffichage() + " affichage, " + EnAttente.Value + " en attente");
         }
     }
 }
