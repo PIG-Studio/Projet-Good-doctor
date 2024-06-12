@@ -145,6 +145,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -152,12 +165,12 @@ TextureImporter:
       name: VendingMachines_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 109
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 66
+        y: 77
+        width: 28
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +186,12 @@ TextureImporter:
       name: VendingMachines_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 109
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 98
+        y: 77
+        width: 28
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,99 +204,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VendingMachines_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 93
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0be06f7a1628c6f4e8ef6125e9e9a1d6
-      internalID: 1259781161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VendingMachines_11
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 93
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3e68eee4b4f9fe429016b3764ca0fbd
-      internalID: 95138419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VendingMachines_18
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 77
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fb635022fb2c864c83cc4a8626f6319
-      internalID: -1321738548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VendingMachines_19
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 77
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 090889c0f126c284f8a49363f1543de2
-      internalID: -88190333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: VendingMachines_0
       rect:
         serializedVersion: 2
-        x: 33
+        x: 2
         y: 77
-        width: 30
-        height: 41
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 28
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,6 +220,111 @@ TextureImporter:
       bones: []
       spriteID: 49aafb2050fd17f4ab0e6e3edb5426d9
       internalID: -569508138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VendingMachines_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 77
+        width: 28
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c62dae429e195205a8ea266e279a6cd
+      internalID: 1389175677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VendingMachines_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 13
+        width: 24
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e79fe7912cbc1c2eeb4b799b6442b4e5
+      internalID: 2041073217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VendingMachines_5
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 13
+        width: 24
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16820794da9fd0ec795b8ec1ab50f194
+      internalID: -1404613049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VendingMachines_6
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 13
+        width: 24
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f92bb0367f0af256893542d9bf1445c1
+      internalID: -830443590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VendingMachines_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 13
+        width: 24
+        height: 40
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cab14bc75581c79cc89baf9892f45345
+      internalID: 588797427
       vertices: []
       indices: 
       edges: []
@@ -308,68 +342,12 @@ TextureImporter:
     nameFileIdTable:
       VendingMachines_0: -569508138
       VendingMachines_1: 1389175677
-      VendingMachines_10: 1259781161
-      VendingMachines_11: 95138419
-      VendingMachines_12: 1281203714
-      VendingMachines_13: -1555091585
-      VendingMachines_14: 1991221893
-      VendingMachines_15: 1717212299
-      VendingMachines_16: -1399091021
-      VendingMachines_17: 222439302
-      VendingMachines_18: -1321738548
-      VendingMachines_19: -88190333
       VendingMachines_2: 91745656
-      VendingMachines_20: 1890178466
-      VendingMachines_21: 1741698574
-      VendingMachines_22: 1944111798
-      VendingMachines_23: -383620098
-      VendingMachines_24: 491504875
-      VendingMachines_25: -1570191332
-      VendingMachines_26: -83696327
-      VendingMachines_27: 979107859
-      VendingMachines_28: -149962418
-      VendingMachines_29: 1542499537
       VendingMachines_3: 63758263
-      VendingMachines_30: 344210880
-      VendingMachines_31: -20097598
-      VendingMachines_32: -1866634128
-      VendingMachines_33: -501846980
-      VendingMachines_34: 268700137
-      VendingMachines_35: 281652583
-      VendingMachines_36: -1483846722
-      VendingMachines_37: 1422506953
-      VendingMachines_38: 1361814950
-      VendingMachines_39: -1048603054
       VendingMachines_4: 2041073217
-      VendingMachines_40: 1140875385
-      VendingMachines_41: -2114642049
-      VendingMachines_42: 236744045
-      VendingMachines_43: 2034891063
-      VendingMachines_44: 1046869947
-      VendingMachines_45: -1063664850
-      VendingMachines_46: 1934209116
-      VendingMachines_47: -871697699
-      VendingMachines_48: 1273418090
-      VendingMachines_49: 1740651982
       VendingMachines_5: -1404613049
-      VendingMachines_50: 1313943549
-      VendingMachines_51: 2136385160
-      VendingMachines_52: 255800821
-      VendingMachines_53: 1714005881
-      VendingMachines_54: 1716540800
-      VendingMachines_55: 1714811833
-      VendingMachines_56: 370712136
-      VendingMachines_57: 993570709
-      VendingMachines_58: 2063966560
-      VendingMachines_59: 1967828026
       VendingMachines_6: -830443590
-      VendingMachines_60: 1913988238
-      VendingMachines_61: -1424780316
-      VendingMachines_62: -742946276
-      VendingMachines_63: 684218813
       VendingMachines_7: 588797427
-      VendingMachines_8: -508082411
-      VendingMachines_9: 538471410
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

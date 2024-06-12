@@ -220,9 +220,9 @@ TextureImporter:
       name: front_2
       rect:
         serializedVersion: 2
-        x: 114
+        x: 113
         y: 184
-        width: 21
+        width: 23
         height: 54
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -241,9 +241,9 @@ TextureImporter:
       name: front_3
       rect:
         serializedVersion: 2
-        x: 164
+        x: 162
         y: 181
-        width: 20
+        width: 23
         height: 56
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -262,9 +262,9 @@ TextureImporter:
       name: front_4
       rect:
         serializedVersion: 2
-        x: 214
+        x: 213
         y: 182
-        width: 21
+        width: 23
         height: 55
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -304,9 +304,9 @@ TextureImporter:
       name: front_6
       rect:
         serializedVersion: 2
-        x: 314
+        x: 313
         y: 184
-        width: 21
+        width: 23
         height: 54
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -325,9 +325,9 @@ TextureImporter:
       name: front_7
       rect:
         serializedVersion: 2
-        x: 365
+        x: 363
         y: 181
-        width: 20
+        width: 23
         height: 56
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -346,9 +346,9 @@ TextureImporter:
       name: front_8
       rect:
         serializedVersion: 2
-        x: 414
+        x: 413
         y: 182
-        width: 21
+        width: 23
         height: 55
       alignment: 6
       pivot: {x: 0, y: 0}
