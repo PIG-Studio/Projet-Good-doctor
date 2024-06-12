@@ -132,6 +132,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         {
             Rb.simulated = false;
             DansBureau.Value = true;
+            Destination = null;
             EndWaitingServerRpc();
             EnterBureauClientRpc();
         }
@@ -144,6 +145,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
                                        && Navigation.remainingDistance < 2f 
                                        && DansBureau.Value;
+            Destination = null;
         }
 
         [ServerRpc(RequireOwnership = false)]
