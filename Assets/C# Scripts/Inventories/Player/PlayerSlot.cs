@@ -30,7 +30,7 @@ namespace Inventories.Player
             {
                 Debug.Log("create empty slot");
                 Amount = 0;
-                Image.sprite = Resources.Load<Sprite>("UI/whiteSquare");
+                Image.sprite = Resources.Load<Sprite>("UI/SquareGD");
                 TextAmount.text = " ";
             }
             else
@@ -44,7 +44,8 @@ namespace Inventories.Player
         
         public void SetDescriptionValues()
         {
-            Inventory.PrintDescription(index); 
+            Debug.Log("click on button to print description");
+            Inventory.UpdateDescription(index); 
         }
     }
 }

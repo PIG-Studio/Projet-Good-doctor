@@ -18,7 +18,7 @@ namespace Inventories.Player
         public void Start();
         public void Update();
 
-        void PrintDescription(uint i);
+        void UpdateDescription(uint i);
         void AddItem(ItemsSo item);
         void RemoveItem(ItemsSo item);
         void GiveItem(ItemsSo item, IInventory inventory);

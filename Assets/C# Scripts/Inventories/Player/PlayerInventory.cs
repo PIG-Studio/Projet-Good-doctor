@@ -42,7 +42,7 @@ namespace Inventories.Player
             }
         }
 
-        public void PrintDescription(uint i)
+        public void UpdateDescription(uint i)
         {
             if (Inventaire[i] is null)
             {
@@ -56,7 +56,6 @@ namespace Inventories.Player
                 ImageActuel = Inventaire[i].icon;
                 DescActuelle = Inventaire[i].description;
             }
-
             // transform.Find("Description").GetComponent<TextMeshProUGUI>().text = DescActuelle;
             // transform.Find("Image").GetComponent<Image>().sprite = ImageActuel;
             // transform.Find("NameObject").GetComponent<TextMeshProUGUI>().text = NomActuel;
