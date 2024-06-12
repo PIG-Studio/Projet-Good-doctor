@@ -2,6 +2,7 @@
 using UnityEngine;
 using PlayerController.Base;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Inventories.Player
 {
@@ -17,7 +18,7 @@ namespace Inventories.Player
         
         public void Start()
         {
-            PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/PlayerSlotItem");
+            PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/SlotItem");
             Inventory = Inventorytemp.GetComponent<IInventory>();
         }
         
@@ -39,6 +40,8 @@ namespace Inventories.Player
                 _slot.transform.SetParent(transform);
                 slotItem.Inventory = Inventory; 
                 slotItem.index = i;
+                _slot.transform.GetComponent<Image>().sprite = slotItem.Image;
+                _slot.transform.GetComponent<TextMeshPro>().text = slotItem.Amount.ToString();
             }
         }
     }

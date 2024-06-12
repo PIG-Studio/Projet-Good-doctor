@@ -33,6 +33,7 @@ namespace Inventories.Player
             if (Input.GetKeyDown(Keys.InventoryKey) && !transform.GetChild(0).gameObject.activeInHierarchy ) //quand i est pressé et que l'UI n'est pas activé 
             {
                transform.GetChild(0).gameObject.SetActive(true);
+               
             }
             else if (Input.GetKeyDown(KeyCode.I) && transform.GetChild(0).gameObject.activeInHierarchy )
                 // Si la touche pour fermer l'inventaire est enfoncée et que le panneau d'inventaire est ouvert
@@ -65,10 +66,13 @@ namespace Inventories.Player
         {
             for (uint i = 0; i < Inventaire.Length; i++)
             {
-                if (Inventaire[i] is not null && Inventaire[i].title == item.title)
+                if (Inventaire[i] is not null)
                 {
-                    item.amount += Inventaire[i].amount;
-                    Inventaire[i] = null;
+                    if (Inventaire[i].title == item.title)
+                    {
+                        item.amount += Inventaire[i].amount;
+                        Inventaire[i] = null;
+                    }
                 }
             }
             for (uint i = 0; i < Inventaire.Length; i++)
