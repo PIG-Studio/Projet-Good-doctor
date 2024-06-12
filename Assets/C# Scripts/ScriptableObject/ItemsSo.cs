@@ -1,5 +1,6 @@
     using System.Reflection;
-using UnityEngine;
+    using Image = UnityEngine.UI.Image;
+    using UnityEngine;
 
 namespace ScriptableObject
 {
@@ -9,7 +10,7 @@ namespace ScriptableObject
         public string title; 
         public string description;
         public Sprite icon;
-        public int amount; 
+        public uint amount; 
         public bool isStackable;
 
         [System.Serializable] // pour afficher dans le script

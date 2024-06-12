@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SlotItem : MonoBehaviour // va dans dans un componenet de prefab de slotItem
 {
-    public int itemSlot;// l'indice du slot dans l'inventaire
-    public InventoryManager instance;
+    /*public int itemSlot;// l'indice du slot dans l'inventaire
+    public Inventory instance;
     public GameObject amount;
 
     private void Start()
@@ -16,5 +16,5 @@ public class SlotItem : MonoBehaviour // va dans dans un componenet de prefab de
     public void AfficherDesc()
     {
        instance.AfficherDesc(itemSlot);
-    }
+    }*/
 }

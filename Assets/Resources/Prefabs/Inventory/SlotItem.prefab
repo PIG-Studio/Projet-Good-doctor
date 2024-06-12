@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2836585246588379445}
   - component: {fileID: 7967040167558309282}
   - component: {fileID: 7694958397344027477}
-  - component: {fileID: 8017320837754206243}
+  - component: {fileID: 5173591316900324020}
   m_Layer: 5
-  m_Name: PlayerSlotItem
+  m_Name: SlotItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8017320837754206243
+--- !u!114 &5173591316900324020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +87,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 538635413655585039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63bb409862d3d6648b7be894ece69be3, type: 3}
+  m_Script: {fileID: 11500000, guid: 784b1b5f9f5b49cd92b29a305f068aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSlot: 0
-  instance: {fileID: 0}
-  amount: {fileID: 0}
 --- !u!1 &3392390575697864522
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 99
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -185,7 +182,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.65
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -347,9 +344,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8017320837754206243}
-        m_TargetAssemblyTypeName: SlotItem, Assembly-CSharp
-        m_MethodName: AfficherDesc
+      - m_Target: {fileID: 5173591316900324020}
+        m_TargetAssemblyTypeName: Inventories.Player.PlayerSlot, Assembly-CSharp
+        m_MethodName: SetDescriptionValues
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

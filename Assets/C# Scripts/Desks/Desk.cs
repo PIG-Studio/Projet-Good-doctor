@@ -18,7 +18,7 @@ namespace Desks
     public class Desk : IHasDestination, ICanReceivePatients, IHasResponsable
     {
         public string SceneName { get; }
-        public Inventory Inventory { get; set; }
+       // public Inventory Inventory { get; set; }
         public static Dictionary<string, Desk> SceneDeskDict { get; set; }
         public ICanGoInDesk CurrentPatient { get; private set; }
         public IDeskDestination AssociatedDestination { get; }
@@ -29,7 +29,7 @@ namespace Desks
             SceneName = sceneName;
             CurrentPatient = null;
             AssociatedDestination = this.ToDeskDestination()!;
-            Inventory = new Inventory();
+            //Inventory = new Inventory();
             Debug.Log("ADDED " + sceneName + " DESK"); // Affiche un message de débogage indiquant l'ajout du bureau
             SceneDeskDict.Add(sceneName, this); // Ajoute ce bureau au dict
             Variable.AllDesks[Variable.DesksNb] = this; // Ajoute ce bureau à la liste des bureaux
