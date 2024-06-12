@@ -7,6 +7,7 @@ using Parameters;
 using ScriptableObject;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Image = UnityEngine.UI.Image;
 using Button = UnityEngine.UI.Button;
 
@@ -25,14 +26,19 @@ namespace InventoryTwo.Player
         /// Longueur maximale de l'inventaire
         /// </summary>
         public int inventoryLenght = 15;
+
         /// <summary>
         /// pour l'UI
         /// </summary>
-        public GameObject inventoryPanel, hodlerSlot;
+        public GameObject inventoryPanel;
+
+        /// <summary>
+        /// pour l'UI
+        /// </summary>
+        private GameObject _holderSlot;
         private GameObject _slot;
         public GameObject prefabs;
         
-        public static InventoryManager Instance;
         public static DeskInventoryManager InstanceDesk; // acceder partout
         public TextMeshProUGUI title, descriptionObject;
         public Image iconDescription;
@@ -47,6 +53,8 @@ namespace InventoryTwo.Player
         [SerializeField] private GameObject removeButton;
         [SerializeField] private GameObject addInventoryButton;
         [SerializeField] private GameObject amountToRemove;
+
+        public Transform holderTransform;
         
         /// <summary>
         /// Méthode appelée lors du démarrage de l'objet
@@ -55,6 +63,7 @@ namespace InventoryTwo.Player
         {
             Instance = this;
             InstanceDesk = DeskInventoryManager.InstanceDIM;
+            holderTransform = _holderSlot.transform;
         }
         private void Update()
         {
@@ -72,41 +81,35 @@ namespace InventoryTwo.Player
 
         public void RefreshInventory()
         {
-            if (hodlerSlot.transform.childCount > 0) // si contient des enfants
+            
+            if (holderTransform.childCount > 0) // si contient des enfants
             {
-                foreach (Transform item in hodlerSlot.transform)
+                for (int i = holderTransform.childCount; i > 0; i--)
                 {
-                    Destroy(item.gameObject);
+                    Destroy(holderTransform.GetChild(i).gameObject);
                 }
             }
 
             for (int i = 0; i < inventoryLenght; i++) //initialise l'inventaire
             {
+                _slot = Instantiate(prefabs, holderTransform.position, holderTransform.rotation);
+                SlotItem slotItem = _slot.GetComponent<SlotItem>();
+                _slot.transform.SetParent(_holderSlot.transform);
+                TextMeshProUGUI amountText = slotItem.amount.GetComponent<TextMeshProUGUI>();
+                slotItem.itemSlot = i;
+                slotItem.instance = this;
+                
                 if (i < inventory.Count )
                 {
-                    var transform1 = transform;
-                    _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
-                    _slot.transform.SetParent(hodlerSlot.transform);
-
-                    TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                     Image img = _slot.transform.Find("icon").GetComponent<Image>(); // met le l'icon de l'objet dans inventaire
-                    _slot.GetComponent<SlotItem>().itemSlot = i; 
-
-                    amount.text = inventory[i].amount.ToString();
+                    amountText.text = inventory[i].amount.ToString();
                     img.sprite = inventory[i].icon; //remplace la quantité dans le prefab par la quantité du slot actuel
-                    
                 }
                 else // creer des slots vide dans l'inventaire
                 {
-                    var transform1 = transform;
-                    _slot = Instantiate(prefabs, transform1.position, transform1.rotation);
-                    _slot.transform.SetParent(hodlerSlot.transform);
-                    _slot.GetComponent<SlotItem>().itemSlot = i; 
-                    
-                    TextMeshProUGUI amount = _slot.transform.Find("amount").GetComponent<TextMeshProUGUI>();
                     Button butt = _slot.transform.Find("icon").GetComponent<Button>();
                     butt.enabled = false;
-                    amount.gameObject.SetActive(false);
+                    amountText.gameObject.SetActive(false);
                     _slot.transform.Find("icon").GetComponent<Sprite>();
                 }
             }
@@ -117,7 +120,7 @@ namespace InventoryTwo.Player
         /// et les bons boutons
         /// </summary>
         /// <param name="i"></param>
-        public void ChargeItem(int i) 
+        public void AfficherDesc(int i) 
         {
             _amountToUse = 0;
             valuesToUse.text = _amountToUse + "/" + inventory[i].amount;
@@ -127,17 +130,15 @@ namespace InventoryTwo.Player
                 removeButton.SetActive(true);
                 amountToRemove.SetActive(true);
             }
-            if (inventory[i].type == ItemsSo.Type.Quete)
+            else if (inventory[i].type == ItemsSo.Type.Quete)
             {
                 useButton.SetActive(false);
                 removeButton.SetActive(true);
                 amountToRemove.SetActive(true);
             }
-            if (Variable.SceneNameCurrent == Scenes.DBase)
-                addInventoryButton.SetActive(true);
-            else
-                addInventoryButton.SetActive(false);
-            
+
+            addInventoryButton.SetActive(Variable.SceneNameCurrent == Scenes.DBase);
+
             holderDescription.SetActive(true);
             title.text = inventory[i].title;
             descriptionObject.text = inventory[i].description;

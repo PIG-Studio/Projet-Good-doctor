@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 6525523231160353204}
   - component: {fileID: 1574410834041235583}
   - component: {fileID: 9034243102146487247}
-  - component: {fileID: 3419647921947850763}
+  - component: {fileID: 455817232665073111}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4e24055b3a31b45a435e7670c76424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3419647921947850763
+--- !u!114 &455817232665073111
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1033,10 +1033,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3793422718493585413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efa77e7b1d5d23b429ec51f2778c6198, type: 3}
+  m_Script: {fileID: 11500000, guid: 51b965c30bc0c9b4cbca4313b9f4387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vcam: {fileID: 0}
 --- !u!1 &4372085110698424551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1083,6 @@ MonoBehaviour:
   inventory: []
   inventoryLenght: 15
   inventoryPanel: {fileID: 7859500748636397286}
-  hodlerSlot: {fileID: 5384423838336102579}
   prefabs: {fileID: 538635413655585039, guid: 077fce16c96043941b3ec5a11543fc10, type: 3}
   title: {fileID: 7103169423480884790}
   descriptionObject: {fileID: 2414745988264810390}
@@ -1097,6 +1095,7 @@ MonoBehaviour:
   removeButton: {fileID: 8242637954353839387}
   addInventoryButton: {fileID: 3189649422781578151}
   amountToRemove: {fileID: 6698537672365007157}
+  holderTransform: {fileID: 0}
 --- !u!1 &4434312971129972190
 GameObject:
   m_ObjectHideFlags: 0

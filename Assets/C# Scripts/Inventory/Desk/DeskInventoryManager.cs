@@ -65,7 +65,7 @@ namespace InventoryTwo.Desk
 
         public void RefreshInventory()
         {
-            if (hodlerSlot.transform.childCount > 0) // si holderSlot contient des sous objet
+            if (hodlerSlot.transform.childCount > 0) // si holderSlot contient des sous objet on detruit les gameobject
             {
                 foreach (Transform item in hodlerSlot.transform)
                 {
