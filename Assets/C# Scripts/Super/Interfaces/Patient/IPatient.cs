@@ -57,7 +57,7 @@ namespace Interfaces.Patient
         /// <summary>
         /// Quand finit de s'occuper du patient va jusqu'à la sortie
         /// </summary>
-        public void Leave();
+        public void LeaveServerRpc();
 
         
         

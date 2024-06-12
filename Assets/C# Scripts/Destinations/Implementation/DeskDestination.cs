@@ -15,7 +15,7 @@ namespace Destinations.Implementation
         public uint Capacite { get; }
         public bool IsFull { get; private set; }
         public uint NbEntites { get; private set; }
-        public uint DeskId { get; }
+        public uint DestId { get; }
         
         /// <summary>
         /// Position d'arrivée des entités à la destination
@@ -39,7 +39,7 @@ namespace Destinations.Implementation
             NbEntites = 0;
             Bureau = bureau;
             DeskQueue = new Queue<ICanGoInDesk>();
-            DeskId = listId;
+            DestId = listId;
         }
         
         

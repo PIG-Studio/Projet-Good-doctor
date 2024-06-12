@@ -27,9 +27,9 @@ namespace UI_Scripts.UI_Scenes
             dicoRender["Parametres"] =
                 UIPrefabs.BTN_ChangeScene("Parameters", "Parametres", -300f, 100f, 150f, 50f, Scenes.Param);
             dicoRender["Menu"] = UIPrefabs.BTN_ChangeScene("Menu", "Menu", -300f, -100f, 150f, 50f, Scenes.Menu);
-            dicoRender["SaveGame"] = UIPrefabs.BTN_Save("SaveGame", "Save Game", 300f, 100f, 150f, 50f);
             dicoRender["Map"] = UIPrefabs.BTN_ChangeScene("Map", "Map", 300f, -100f, 150f, 50f, Scenes.Map);
             dicoRender["NextPatient"] = UIPrefabs.BTN_NextPatient("NextPat", "Patient suivant", 300f, 100f, 150f, 50f);
+            dicoRender["RenvoyerPatient"] = UIPrefabs.BTN_RenvoyerPatientMaison("returnPat", "Renvoyer a la maison", 300f, 200f, 150f, 50f);
             
             // Affichage des elements
             UIPrefabs.Render("UI_DESK_BaseCanvas", dicoRender);

@@ -13,7 +13,7 @@ namespace Destinations.Implementation
         public uint Capacite { get; }
         public bool IsFull { get; private set; }
         public uint NbEntites { get; private set; }
-        public uint DeskId { get; }
+        public uint DestId { get; }
         
         public Vector2 PtArrivee { get; set; }
         public (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[] PtAttente { get; }
@@ -25,7 +25,7 @@ namespace Destinations.Implementation
             PtAttente = ptAttente;
             IsFull = false;
             NbEntites = 0;
-            DeskId = listId;
+            DestId = listId;
         }
         
         /// <summary>

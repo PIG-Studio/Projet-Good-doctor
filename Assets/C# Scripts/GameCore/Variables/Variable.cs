@@ -88,5 +88,7 @@ namespace GameCore.Variables
             Resources.Load<RuntimeAnimatorController>("Animations/Player"), 
             Resources.Load<RuntimeAnimatorController>("Animations/Player2")
         };
+        
+        public static INormalDestination Sortie { get; set; }
     }
 }

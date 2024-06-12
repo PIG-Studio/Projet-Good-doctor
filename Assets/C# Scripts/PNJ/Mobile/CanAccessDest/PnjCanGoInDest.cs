@@ -12,16 +12,16 @@ namespace PNJ.Mobile.CanAccessDest
     public class PnjCanGoInDest : PnjMobile, ICanGoInDestination
     {
         public IDestination Destination { get; protected set; }
-        public bool EnAttente { get; protected set; }
+        public NetworkVariable<bool> EnAttente { get; protected set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public uint Siege { get; set; }
         
         protected new void Start()
         {
             base.Start();
-            EnAttente = false;
             
-            if (Unity.Netcode.NetworkManager.Singleton.IsHost)
+            if (NetworkManager.Singleton.IsHost)
             {
+                EnAttente.Value = false;
                 ChooseDestinationServerRpc();
             }
         }
@@ -47,23 +47,28 @@ namespace PNJ.Mobile.CanAccessDest
         public void StartWaitingServerRpc()
         {
             Navigation.SetDestination(Destination.PtAttente[Siege].coordonees);
+            EnAttente.Value = true;
+            Debug.Log("Patient commence a attendre");
             StartWaitingClientRpc();
         }
         [ClientRpc]
         public void StartWaitingClientRpc()
         {
-            EnAttente = true;
+            Debug.Log("Patient commence a attendre");
         }
 
         [ServerRpc]
         public void EndWaitingServerRpc()
         {
             Navigation.SetDestination(Destination.PtArrivee);
+            EnAttente.Value = false;
+            EndWaitingClientRpc();
+            Debug.Log("Patient arrete d attendre");
         }
         [ClientRpc]
         public void EndWaitingClientRpc()
         {
-            EnAttente = false;
+            Debug.Log("Patient arrete d attendre");
         }
     }
 }

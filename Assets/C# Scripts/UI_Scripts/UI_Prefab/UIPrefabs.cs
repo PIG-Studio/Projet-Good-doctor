@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CustomScenes;
 using GameCore.Methods;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,10 @@ using UI_Scripts.UI_Prefab.UI_Objects;
 using GameCore.Variables;
 using static CustomScenes.Manager;
 using Interfaces;
+using Interfaces.Entites;
 using SaveScripts;
+using Super.Interfaces.Entites;
+using TypeExpand.String;
 using UI_Scripts.UI_Prefab.UI_Objects.UI_Dropdown;
 
 namespace UI_Scripts.UI_Prefab
@@ -210,14 +214,40 @@ namespace UI_Scripts.UI_Prefab
         /// <returns></returns>
         public static GameObject BTN_NextPatient(string id,string text, float posX, float posY, float width, float height)
         {
-            return UIButton.Create(id, text, posX, posY, width, height, () =>
-            {
-                if (Variable.DeskBase != null)
+            return 
+                UIButton.Create
+                (id, text, posX, posY, width, height, () =>
                 {
-                    Debug.Log(Variable.DeskBase+ " HEYYYYYYYYYYYYYYYYYY");Variable.DeskBase.NextPatientServerRpc();
-                    
+                    if (Variable.DeskBase != null)
+                    {
+                        Debug.Log(Variable.DeskBase+ " HEYYYYYYYYYYYYYYYYYY");
+                        Variable.DeskBase.NextPatientServerRpc();
+                    }
                 }
-            });
+                );
+        }
+        
+        /// <summary>
+        /// <value>WIP</value>
+        /// Cree un bouton qui charge une sauvegarde specifique.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="text"></param>
+        /// <param name="posX"></param>
+        /// <param name="posY"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        public static GameObject BTN_RenvoyerPatientMaison(string id,string text, float posX, float posY, float width, float height)
+        {
+            return UIButton.Create(id, text, posX, posY, width, height, () =>
+                    {
+                        if ((Variable.SceneNameCurrent.ToDesk()!.CurrentPatient) is ICanExit patient)
+                            patient.RenvoyerMaisonServerRpc();
+                        else
+                            Debug.Log("Patient n'est pas un ICanExitBureau");
+                    }
+                );
         }
         
         

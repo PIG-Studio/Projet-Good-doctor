@@ -1,4 +1,5 @@
 using Interfaces.Destination;
+using Unity.Netcode;
 
 namespace Interfaces.Entites
 {
@@ -12,7 +13,7 @@ namespace Interfaces.Entites
         /// <summary>
         /// Indique si l'entité est actuellement en attente.
         /// </summary>
-        bool EnAttente { get; }
+        NetworkVariable<bool> EnAttente { get; }
         
         /// <summary>
         /// Obtient ou définit le numéro du siège de l'entité.

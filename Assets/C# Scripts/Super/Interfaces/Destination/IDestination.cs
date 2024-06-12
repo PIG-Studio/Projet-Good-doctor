@@ -23,7 +23,7 @@ namespace Interfaces.Destination
         /// <summary>
         /// Identifiant de la destination.
         /// </summary>
-        public uint DeskId { get; }
+        public uint DestId { get; }
         
         /// <summary>
         /// Position d'arrivée des entités à la destination.

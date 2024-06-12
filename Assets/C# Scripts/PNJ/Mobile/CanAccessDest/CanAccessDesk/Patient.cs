@@ -1,4 +1,5 @@
 using CustomScenes;
+using Destinations.Lieux.Sortie;
 using GameCore.Constantes;
 using GameCore.Variables;
 using Interfaces.Destination;
@@ -9,12 +10,13 @@ using Interfaces.Patient;
 using Maladies;
 using Patient.Base;
 using Super.Interfaces;
+using Super.Interfaces.Entites;
 using Unity.Netcode;
 using UnityEngine;
 
 namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 {
-    public class Patient : PnjCanGoInDest, ICanGoInDesk, IPatient, ISyncOnConnectRpc
+    public class Patient : PnjCanGoInDest, ICanGoInDesk, IPatient, ISyncOnConnectRpc, ICanExit
     {
         // ICanAccessDesk
         public Sprite AltSprite { get; set; }
@@ -65,23 +67,25 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             base.Update();
             
             if (!NetworkManager.Singleton.IsHost) return;
-            if (EnAttente ||
+            if (EnAttente.Value ||
                 Navigation.remainingDistance > 2f ||
                 Destination is null) return;
             
             if (Destination.IsFull)
             {
-                Debug.Log($"Destination {Destination.DeskId} pleine, recherche d'une autre destination...");
+                Debug.Log($"Destination {Destination.DestId} pleine, recherche d'une autre destination...");
                 ChooseDestinationServerRpc();
                 return;
             }
-            
+            Debug.Log($"Destination {Destination.PtArrivee}, remaining : {Navigation.remainingDistance}");
             switch (Destination)
             {
                 case IDeskDestination deskDestination:
                     deskDestination.Add(this);
                     break;
                 case INormalDestination normalDestination:
+                    if (normalDestination.PtArrivee == new Vector2(3,4)) {Debug.Log("Je vais mourrir !");LeaveServerRpc(); break;}
+                    Debug.Log("Je vais PAS mourrir FDP !");
                     normalDestination.Add(this);
                     break;
             }
@@ -92,15 +96,25 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             throw new System.NotImplementedException();
         }
 
-        public void Leave()
+        [ServerRpc]
+        public void LeaveServerRpc()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("LeaveServerRpc");
+            LeaveClientRpc();
+            Destroy(this);
+        }
+        [ClientRpc]
+        public void LeaveClientRpc()
+        {
+            Debug.Log("LeaveClientRpc");
+            Destroy(this);
         }
 
         [ServerRpc]
         public void SortirBureauServerRpc()
         {
             Rb.simulated = true;
+            DansBureau.Value = false;
             ChooseDestinationServerRpc();
             SortirBureauClientRpc();
         }
@@ -109,7 +123,8 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void SortirBureauClientRpc()
         {
             Rb.simulated = true;
-            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value && Navigation.remainingDistance > 2f ;
+            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value;
+            Debug.Log(ConditionAffichage);
         }
         
         [ServerRpc]
@@ -117,6 +132,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         {
             Rb.simulated = false;
             DansBureau.Value = true;
+            EndWaitingServerRpc();
             EnterBureauClientRpc();
         }
         
@@ -144,6 +160,30 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             Phrase = phrase;
             Skin = skin;
             Rb.simulated = collisionsEnabled;
+        }
+        
+        [ServerRpc(RequireOwnership = false)]
+        public void RenvoyerMaisonServerRpc()
+        {
+            Rb.simulated = true;
+            DansBureau.Value = false;
+            SortirBureauClientRpc();
+            
+            Navigation.SetDestination(Variable.Sortie.PtArrivee); //NE PAS CHANGE L ORDRE DES DEUX LIGNES
+            Destination = Variable.Sortie;
+            
+            RenvoyerMaisonClientRpc();
+            EnAttente.Value = false;
+        }
+        
+        [ClientRpc]
+        public void RenvoyerMaisonClientRpc()
+        {
+            Navigation.SetDestination(Variable.Sortie.PtArrivee); //NE PAS CHANGE L ORDRE DES DEUX LIGNES
+            Destination = Variable.Sortie;
+            
+            Phrase = "Je suis guéri !";
+            Debug.Log(ConditionAffichage + " affichage, " + EnAttente + " en attente");
         }
     }
 }

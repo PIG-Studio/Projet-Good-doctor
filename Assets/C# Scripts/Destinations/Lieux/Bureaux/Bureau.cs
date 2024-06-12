@@ -17,8 +17,8 @@ namespace Destinations.Lieux.Bureaux
         {
             Variable.AllDestinations.Add(bureauCree);// Ajout de la destination à la liste de toutes les destinations
             // Ajout de la destination au dictionnaire des destinations de bureau
-            Variable.DeskDestinations[bureauCree.DeskId] = bureauCree;
-            Debug.Log($"destination {bureauCree.DeskId} initialisée ({bureauCree.Bureau.SceneName})"); // Affichage d'un message de débogage 
+            Variable.DeskDestinations[bureauCree.DestId] = bureauCree;
+            Debug.Log($"destination {bureauCree.DestId} initialisée ({bureauCree.Bureau.SceneName})"); // Affichage d'un message de débogage 
         }
         
         /// <summary>

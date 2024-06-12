@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameCore.Variables;
 using Desks;
+using Destinations.Lieux.Sortie;
 using Interfaces.Destination;
 
 namespace GameCore.Methods
@@ -21,7 +22,8 @@ namespace GameCore.Methods
             Desk.SceneDeskDict = new Dictionary<string, Desk>();
             Variable.DeskBase = new Desk("DESK_Base");
             Variable.DeskUpgraded = new Desk("DESK_Upgraded");
-            
+            Variable.Sortie = Sortie.Dest_Sortie();
+
         }
     }
 }
