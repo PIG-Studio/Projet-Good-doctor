@@ -2,6 +2,7 @@
 using Super.Interfaces.Inventory;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
@@ -29,7 +30,10 @@ namespace Inventories.Player
             Debug.Log("startSlot");
             TextAmount = transform.Find("amount").gameObject.GetComponent<TextMeshProUGUI>();
             Image = transform.Find("icon").gameObject.GetComponent<Image>().sprite;
-            
+        }
+
+        void Update()
+        {
             if (Inventory.Inventaire[index] is null)
             {
                 Amount = 0;
