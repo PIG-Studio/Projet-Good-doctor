@@ -2,7 +2,6 @@
 using Interaction.Base;
 using UnityEngine;
 using GameCore.Constantes;
-using InventoryTwo.Player;
 using Parameters;
 using ScriptableObject;
 

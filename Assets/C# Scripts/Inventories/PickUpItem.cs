@@ -1,7 +1,7 @@
 ﻿using ScriptableObject;
 using UnityEngine;
 
-namespace InventoryTwo.Player
+namespace Inventories
 {
     public class PickUpItem : MonoBehaviour
     {
@@ -21,8 +21,8 @@ namespace InventoryTwo.Player
             newItem.icon = item.icon;
             newItem.isStackable = item.isStackable;
             newItem.type = item.type;
-            
-            
+
+            Joueur.Base.JoueurFundamentals.Inventory.AddItem(newItem);
 
             Destroy(gameObject); // Détruit l'objet ramassé
         }

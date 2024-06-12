@@ -1,6 +1,7 @@
 using System;
 using Desks;
 using GameCore.Variables;
+using Inventories.Player;
 using Super.Interfaces.Entites;
 using Super.Interfaces.GameObjects;
 using Super.Interfaces.Joueur;
@@ -16,8 +17,9 @@ namespace Joueur.Base
         public uint Money { get; protected set; }
         public int Reputation { get; protected set; }
         public uint? BureauActuel { get; protected set; }
+        public static PlayerInventory Inventory { get; set; }
         public Func<bool> ConditionAffichage { get; } = () => true;
-
+    
         private NetworkVariable<UnityEngine.Vector2> Position { get; } = new(writePerm: NetworkVariableWritePermission.Server);
 
         private void Start()
@@ -26,6 +28,8 @@ namespace Joueur.Base
             {
                 AssignerBureauLibreServerRpc();
             }
+
+            Inventory = new PlayerInventory();
         }
 
         

@@ -80,5 +80,15 @@ namespace Inventories.Player
                 }
             }
         }
+
+        public void RemoveItem(ItemsSo item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void GiveItem(ItemsSo item, IInventory inventory)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
