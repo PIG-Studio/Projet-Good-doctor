@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using CustomScenes;
 using GameCore.Methods;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +6,6 @@ using UI_Scripts.UI_Prefab.UI_Objects;
 using GameCore.Variables;
 using static CustomScenes.Manager;
 using Interfaces;
-using Interfaces.Entites;
 using SaveScripts;
 using Super.Interfaces.Entites;
 using TypeExpand.String;

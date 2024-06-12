@@ -1,7 +1,6 @@
 using Desks;
 using Exceptions;
 using JetBrains.Annotations;
-using Super.Interfaces.Joueur;
 using Unity.Netcode;
 using UnityEngine;
 

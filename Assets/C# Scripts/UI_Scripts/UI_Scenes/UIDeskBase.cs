@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using CustomScenes;
-using GameCore.Constantes;
-using GameCore.Variables;
 using UI_Scripts.UI_Prefab;
 using UnityEngine;
 

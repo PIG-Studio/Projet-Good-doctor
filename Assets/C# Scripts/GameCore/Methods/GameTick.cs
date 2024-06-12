@@ -1,14 +1,8 @@
-using System;
 using CustomScenes;
 using GameCore.Variables;
-using Medicaments;
-using Patient;
 using TypeExpand.String;
 using UnityEngine;
-using Patient.Base;
 using Unity.Netcode;
-using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 using Random = System.Random;
 
 namespace GameCore.Methods
