@@ -64,6 +64,7 @@ namespace Inventories.Player
 
         public void AddItem(ItemsSo item)
         {
+            Debug.Log("addItem Inventory");
             for (uint i = 0; i < Inventaire.Length; i++)
             {
                 if (Inventaire[i] is not null)

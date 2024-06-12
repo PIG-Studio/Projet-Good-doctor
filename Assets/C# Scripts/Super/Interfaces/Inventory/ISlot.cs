@@ -9,7 +9,7 @@ namespace Super.Interfaces.Inventory
     {
         IInventory Inventory { get; set; }
         uint Amount { get; set; }
-        Sprite Image { get; set; }
+        Image Image { get; set; }
         TextMeshProUGUI TextAmount { get; set; }
         uint index { get; set; }
         void SetDescriptionValues();
