@@ -21,7 +21,7 @@ namespace Interfaces.Entites
         void EnterBureauClientRpc();
         
         [ServerRpc]
-        void SortirBureauServerRpc();
+        void SortirBureauServerRpc(bool chercherNouvDest = true);
         [ClientRpc]
         void SortirBureauClientRpc();
     }

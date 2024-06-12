@@ -86,7 +86,7 @@ namespace PNJ.Base
         /// </summary>
         public void Update()
         { 
-            if (ConditionAffichage())// Vérifier si le nom de la scène actuelle est "Map"
+            if (ConditionAffichage())
             {
                 Sprite.enabled = true; // Activer l'affichage du sprite
                 
@@ -96,9 +96,11 @@ namespace PNJ.Base
                 Velocity = (Vector2)(transform.position) - LastPosition;
                 
                 LastPosition = Position.Value; // Enregistrer la dernière position
-                if (NetworkManager.Singleton.IsHost)
+                if (IsOwner)
                     // Mettre à jour la position actuelle
                     Position.Value = transform.position;
+                else 
+                    transform.position = Position.Value;
                 
                 Anims.UpdateAnim(Velocity); //Mettre à jour l'animation en fonction de la vélocité
             }

@@ -63,11 +63,14 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         {
             base.Update();
             
+            // Si on est sur le serveur on continue
             if (!NetworkManager.Singleton.IsServer) return;
+            
             if (EnAttente.Value ||
                 DansBureau.Value ||
                 Navigation.remainingDistance > 2f ||
-                Destination is null) return;
+                Destination is null ||
+                Navigation.pathPending) return;
             
             if (Destination.IsFull)
             {
@@ -75,7 +78,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                 ChooseDestinationServerRpc();
                 return;
             }
-            Debug.Log($"[Server] Destination {Destination.PtArrivee}, remaining : {Navigation.remainingDistance}");
+            Debug.Log($"[Server] Destination : {Destination.PtArrivee}, remaining : {Navigation.remainingDistance}, NavStatus : {Navigation.pathStatus}");
             switch (Destination)
             {
                 case IDeskDestination deskDestination:
@@ -88,66 +91,8 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                     break;
             }
         }
-
-        public void Die()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        [ServerRpc]
-        public void LeaveServerRpc()
-        {
-            Debug.Log("[Server] LeaveServerRpc");
-            LeaveClientRpc();
-            Destroy(this);
-        }
-        [ClientRpc]
-        public void LeaveClientRpc()
-        {
-            Debug.Log("LeaveClientRpc");
-            Destroy(this);
-        }
-
-        [ServerRpc]
-        public void SortirBureauServerRpc()
-        {
-            Rb.simulated = true;
-            DansBureau.Value = false;
-            ChooseDestinationServerRpc();
-            SortirBureauClientRpc();
-        }
-        
-        [ClientRpc]
-        public void SortirBureauClientRpc()
-        {
-            Rb.simulated = true;
-            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map && !DansBureau.Value;
-            Debug.Log(ConditionAffichage);
-        }
-        
-        [ServerRpc]
-        public void EnterBureauServerRpc()
-        {
-            Rb.simulated = false;
-            DansBureau.Value = true;
-            EndWaitingServerRpc();
-            Destination = null;
-            EnterBureauClientRpc();
-        }
         
         
-        [ClientRpc]
-        public void EnterBureauClientRpc()
-        {
-            Debug.Log("[Client] EnterBureauClientRpc() started");
-            Rb.simulated = false;
-            ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
-                                       && Navigation.remainingDistance < 2f 
-                                       && DansBureau.Value;
-            Destination = null;
-            Debug.Log("[Client] EnterBureauClientRpc() ended");
-        }
-
         [ServerRpc(RequireOwnership = false)]
         public void SyncOnConnectServerRpc()
         {
@@ -169,21 +114,78 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             Debug.Log("[Client] SyncOnConnectClientRpc() ended");
         }
         
+        
+        [ServerRpc]
+        public void EnterBureauServerRpc()
+        {
+            Debug.Log("[Server] EnterBureauServerRpc() started");
+            
+            Rb.simulated = false;
+            DansBureau.Value = true;
+            
+            EndWaitingServerRpc();
+            EnterBureauClientRpc();
+            
+            Debug.Log("[Server] EnterBureauServerRpc() ended");
+        }
+        
+        
+        [ClientRpc]
+        public void EnterBureauClientRpc()
+        {
+            Debug.Log("[Client] EnterBureauClientRpc() started");
+            Rb.simulated = false;
+            ConditionAffichage = () => Variable.SceneNameCurrent == Variable.Desk.SceneName 
+                                       && Navigation.remainingDistance < 2f 
+                                       && DansBureau.Value;
+            Destination = null;
+            Debug.Log("[Client] EnterBureauClientRpc() ended");
+        }
+
+        
+        [ServerRpc]
+        public void SortirBureauServerRpc(bool chercherNouvDest = true)
+        {
+            Debug.Log("[Server] SortirBureauServerRpc() started");
+            
+            Rb.simulated = true;
+            DansBureau.Value = false;
+            
+            if (chercherNouvDest) ChooseDestinationServerRpc();
+            SortirBureauClientRpc();
+            
+            Debug.Log("[Server] SortirBureauServerRpc() ended");
+        }
+        
+        
+        [ClientRpc]
+        public void SortirBureauClientRpc()
+        {
+            Debug.Log("[Client] SortirBureauClientRpc() started");
+            
+            ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
+            
+            Debug.Log("[Client] SortirBureauClientRpc() ended");
+        }
+        
+        
+        /// <summary>
+        /// Gere la destination du patient et appelle les methodes necessaires, lorsqu'il va a la sortie de l'hopital 
+        /// </summary>
         [ServerRpc(RequireOwnership = false)]
         public void RenvoyerMaisonServerRpc()
         {
             Debug.Log("[Server] RenvoyerMaisonServerRpc() started");
-            Rb.simulated = true;
-            DansBureau.Value = false;
-            SortirBureauClientRpc();
             
-            Navigation.SetDestination(Variable.Sortie.PtArrivee); //NE PAS CHANGE L ORDRE DES DEUX LIGNES
             Destination = Variable.Sortie;
+            Navigation.SetDestination(Destination.PtArrivee);
             
+            SortirBureauServerRpc(false);
             RenvoyerMaisonClientRpc();
-            EnAttente.Value = false;
+            
             Debug.Log("[Server] RenvoyerMaisonServerRpc() ended");
         }
+        
         
         [ClientRpc]
         public void RenvoyerMaisonClientRpc()
@@ -191,6 +193,30 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             Debug.Log("[Client] RenvoyerMaisonClientRpc() started");
             Phrase = "Je suis guéri !";
             Debug.Log("[Client] RenvoyerMaisonClientRpc() ended");
+        }
+        
+        
+        [ServerRpc]
+        public void LeaveServerRpc()
+        {
+            Debug.Log("[Server] LeaveServerRpc() started");
+            
+            Destroy(gameObject);
+            
+            Debug.Log("[Server] LeaveServerRpc() ended");
+        }
+        
+        
+        [ClientRpc]
+        public void LeaveClientRpc()
+        {
+            Debug.Log("[Client] LeaveClientRpc() started");
+            Debug.Log("[Client] LeaveClientRpc() ended");
+        }
+        
+        public void Die()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

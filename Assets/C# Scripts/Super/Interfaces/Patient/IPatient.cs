@@ -1,6 +1,5 @@
 using Interfaces.Maladies;
 using Interfaces.Maladies.Types;
-using Maladies.Base;
 using Unity.Netcode;
 
 namespace Interfaces.Patient
@@ -59,6 +58,8 @@ namespace Interfaces.Patient
         /// Quand finit de s'occuper du patient va jusqu'à la sortie
         /// </summary>
         public void LeaveServerRpc();
+        
+        public void LeaveClientRpc();
 
         
         
