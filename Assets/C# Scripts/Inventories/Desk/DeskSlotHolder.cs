@@ -1,42 +1,39 @@
-﻿using Super.Interfaces.Inventory;
+﻿using CustomScenes;
+using GameCore.Variables;
+using Inventories.Player;
+using Super.Interfaces.Inventory;
+using TypeExpand.String;
 using UnityEngine;
-using PlayerController.Base;
-using TMPro;
-using UnityEngine.UI;
 
-namespace Inventories.Player
+namespace Inventories.Desk
 {
-    public class PlayerSlotHolder : MonoBehaviour, ISlotHolder
+    public class DeskSlotHolder : MonoBehaviour, ISlotHolder
     {
-        public uint Col
-        {
-            get => 5;
-        }
+        public uint Col { get; }
         public GameObject PrefabSlot { get; set; }
         public IInventory Inventory { get; set; }
-        [SerializeField] public GameObject Inventorytemp;
-        
+        //[SerializeField] public GameObject Inventorytemp;
         public void Start()
         {
-            PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/SlotItem");
-            Inventory = Inventorytemp.GetComponent<IInventory>();
+            PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/DeskInventory");
+            Inventory =  Variable.SceneNameCurrent.ToDesk()!.Inventory;
         }
-        
+
         public void Update()
         {
             if (transform.childCount > 0) // si contient des enfants
             {
-                for (int i = transform.childCount - 1 ; i >= 0; i--)
+                for (int i = transform.childCount - 1; i >= 0; i--)
                 {
                     Destroy(transform.GetChild(i).gameObject);
                 }
             }
 
             int n = Inventory.Inventaire.Length;
-            for (uint i = 0; i < n ; i++) //initialise l'inventaire
+            for (uint i = 0; i < n; i++) //initialise l'inventaire
             {
                 GameObject _slot = Instantiate(PrefabSlot);
-                PlayerSlot slotItem = _slot.GetComponent<PlayerSlot>();
+                DeskSlot slotItem = _slot.GetComponent<DeskSlot>();
                 _slot.transform.SetParent(transform);
                 slotItem.Inventory = Inventory;
                 slotItem.index = i;

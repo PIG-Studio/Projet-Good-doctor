@@ -995,22 +995,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 338730040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b85906e27fd7b4d8d0b8acd084821a, type: 3}
+  m_Script: {fileID: 11500000, guid: f9b0d01b7f2fb882593848f33b06282b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deskInventory: []
-  inventoryLenght: 24
-  inventoryPanel: {fileID: 1707041758}
-  hodlerSlot: {fileID: 0}
-  prefabs: {fileID: 6402957478592555235, guid: 0aaf5cf8a5e6d7245a16d825933ba361, type: 3}
-  title: {fileID: 1091537610}
-  valuesToUse: {fileID: 976183823}
-  _plusButton: {fileID: 1456068209}
-  _minusButton: {fileID: 1508721974}
-  giveButton: {fileID: 1736305857}
-  trashButton: {fileID: 2021699022}
-  addInventoryButton: {fileID: 1985542182}
-  amountToRemove: {fileID: 976183821}
 --- !u!4 &338730042
 Transform:
   m_ObjectHideFlags: 0
@@ -2373,11 +2360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e9fb3214c5d4c7cba2b0c0d319bb632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Photographie: {fileID: 1043227151}
-  Nom: {fileID: 1720404784}
-  Description: {fileID: 149916296}
-  Next: {fileID: 1164192669}
-  Before: {fileID: 222682429}
 --- !u!114 &850177327
 MonoBehaviour:
   m_ObjectHideFlags: 0

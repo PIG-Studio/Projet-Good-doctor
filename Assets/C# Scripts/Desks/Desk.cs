@@ -3,6 +3,8 @@ using GameCore.Variables;
 using Super.Interfaces.Destination;
 using Super.Interfaces.Entites;
 using Inventories;
+using Inventories.Desk;
+using ScriptableObject;
 using Super.Interfaces.Bureau;
 using Super.Interfaces.Joueur;
 using TypeExpand.EDesk;
@@ -22,9 +24,15 @@ namespace Desks
         public ICanGoInDesk CurrentPatient { get; private set; }
         public IDeskDestination AssociatedDestination { get; }
         public IJoueur Responsable { get; set; }
-
+        
+        public ItemsSo[] Inventaire { get; set; }
+        
+        public DeskInventory Inventory { get; set; }
+        public uint MaxLenght { get => 24 ; }
+        
         public Desk(string sceneName)
         {
+            Inventaire = new ItemsSo[MaxLenght];
             SceneName = sceneName;
             CurrentPatient = null;
             AssociatedDestination = this.ToDeskDestination()!;

@@ -17,7 +17,7 @@ namespace Joueur.Base
         public uint Money { get; protected set; }
         public int Reputation { get; protected set; }
         public uint? BureauActuel { get; protected set; }
-        public static PlayerInventory Inventory { get; set; }
+        public PlayerInventory Inventory { get; set; }
         public Func<bool> ConditionAffichage { get; } = () => true;
         private NetworkVariable<Vector2> Position { get; } = new(writePerm: NetworkVariableWritePermission.Server);
 

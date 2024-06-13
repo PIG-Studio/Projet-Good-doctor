@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4297505309380384179}
   - component: {fileID: 4745567440825382260}
+  - component: {fileID: 3142893448051010407}
   m_Layer: 5
   m_Name: DeskInventory
   m_TagString: Untagged
@@ -45,6 +46,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644272293996429911}
   m_CullTransparentMesh: 1
+--- !u!114 &3142893448051010407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644272293996429911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b0d01b7f2fb882593848f33b06282b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8914341239979846328
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +146,7 @@ GameObject:
   - component: {fileID: 2640671817411195207}
   - component: {fileID: 6552350244910694533}
   - component: {fileID: 869103625886760161}
+  - component: {fileID: 1981943323411027237}
   m_Layer: 5
   m_Name: SlotHolder
   m_TagString: Untagged
@@ -191,6 +205,18 @@ MonoBehaviour:
   m_Spacing: {x: 20, y: 50}
   m_Constraint: 1
   m_ConstraintCount: 6
+--- !u!114 &1981943323411027237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037492168297520207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26575b93094c5b8eb6735d92b755191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2394142672439616406
 PrefabInstance:
   m_ObjectHideFlags: 0

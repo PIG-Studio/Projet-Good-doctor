@@ -10,12 +10,14 @@ namespace Super.Interfaces.Inventory
         [CanBeNull] public  string NomActuel { get; set; }
         [CanBeNull] public Sprite ImageActuel { get; set; }
         [CanBeNull] public string DescActuelle { get; set; }
+        public uint QuantiteAUtiliser { get; set; }
+        public uint QuantiteAct { get; set; }
         public uint MaxLenght { get; }
 
         public void Start();
         public void Update();
 
-        void PrintDescription(uint i);
+        void UpdateDescription(uint i);
         void AddItem(ItemsSo item);
         void RemoveItem(ItemsSo item);
         void GiveItem(ItemsSo item, IInventory inventory);

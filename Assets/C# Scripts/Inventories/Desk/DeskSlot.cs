@@ -1,11 +1,13 @@
-﻿using Super.Interfaces.Inventory;
+﻿using GameCore.Variables;
+using Super.Interfaces.Inventory;
 using TMPro;
+using TypeExpand.String;
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
-namespace Inventories.Player
+namespace Inventories.Desk
 {
-    public class PlayerSlot : MonoBehaviour, ISlot
+    public class DeskSlot : MonoBehaviour, ISlot
     {
         public IInventory Inventory { get; set; }
         public uint Amount { get; set; }
@@ -15,10 +17,8 @@ namespace Inventories.Player
 
         public void Start()
         {
-            Debug.Log("startSlot");
             TextAmount = transform.Find("amount").gameObject.GetComponent<TextMeshProUGUI>();
             Image = transform.Find("icon").gameObject.GetComponent<Image>();
-            Update();
         }
 
         public void Update()
@@ -38,11 +38,11 @@ namespace Inventories.Player
                 TextAmount.text = Inventory.Inventaire[index].amount.ToString();
             }
         }
-        
+
         public void SetDescriptionValues()
         {
             Debug.Log("click on button to print description");
-            Inventory.UpdateDescription(index); 
+            Inventory.UpdateDescription(index);         
         }
     }
 }

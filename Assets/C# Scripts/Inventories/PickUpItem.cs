@@ -1,4 +1,5 @@
-﻿using ScriptableObject;
+﻿using Inventories.Player;
+using ScriptableObject;
 using UnityEngine;
 
 namespace Inventories
@@ -21,8 +22,7 @@ namespace Inventories
             newItem.icon = item.icon;
             newItem.isStackable = item.isStackable;
             newItem.type = item.type;
-
-            Joueur.Base.JoueurFundamentals.Inventory.AddItem(newItem);
+            other.transform.Find("InventoryManager").GetComponent<PlayerInventory>().AddItem(newItem);
 
             Destroy(gameObject); // Détruit l'objet ramassé
         }
