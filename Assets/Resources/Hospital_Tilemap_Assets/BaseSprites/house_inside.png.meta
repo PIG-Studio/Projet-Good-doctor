@@ -1296,12 +1296,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_inside_51
+      name: chair_front
       rect:
         serializedVersion: 2
-        x: 387
+        x: 384
         y: 80
-        width: 26
+        width: 32
         height: 32
       alignment: 8
       pivot: {x: 1, y: 0}
@@ -1317,7 +1317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_inside_52
+      name: chair_back
       rect:
         serializedVersion: 2
         x: 419
@@ -1605,6 +1605,8 @@ TextureImporter:
       biblio_empty: -1640521331
       biblio_full: -1777797538
       biblio_half: 2008742753
+      chair_back: 1416687502
+      chair_front: 535582109
       chair_left: 871653946
       chair_left2: -1873485610
       chair_right: -929465220
@@ -1654,8 +1656,6 @@ TextureImporter:
       house_inside_49: 7238683
       house_inside_5: 2045321853
       house_inside_50: -2062012111
-      house_inside_51: 535582109
-      house_inside_52: 1416687502
       house_inside_53: -1898180409
       house_inside_55: -1991659067
       house_inside_56: 1124408780
