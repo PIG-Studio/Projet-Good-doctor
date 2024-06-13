@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2836585246588379445}
   - component: {fileID: 7967040167558309282}
   - component: {fileID: 7694958397344027477}
-  - component: {fileID: 5173591316900324020}
+  - component: {fileID: 2578627878652330500}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5173591316900324020
+--- !u!114 &2578627878652330500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 538635413655585039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784b1b5f9f5b49cd92b29a305f068aaa, type: 3}
+  m_Script: {fileID: 11500000, guid: 61798f34ed83c30bf959b45b0f89e786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3392390575697864522
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5173591316900324020}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Inventories.Player.PlayerSlot, Assembly-CSharp
         m_MethodName: SetDescriptionValues
         m_Mode: 1
