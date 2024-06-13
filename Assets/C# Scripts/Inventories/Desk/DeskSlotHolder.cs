@@ -15,7 +15,7 @@ namespace Inventories.Desk
         //[SerializeField] public GameObject Inventorytemp;
         public void Start()
         {
-            PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/DeskInventory");
+            PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/DeskSlotItem");
             Inventory =  Variable.SceneNameCurrent.ToDesk()!.Inventory;
         }
 
@@ -32,10 +32,12 @@ namespace Inventories.Desk
             int n = Inventory.Inventaire.Length;
             for (uint i = 0; i < n; i++) //initialise l'inventaire
             {
-                GameObject _slot = Instantiate(PrefabSlot);
-                DeskSlot slotItem = _slot.GetComponent<DeskSlot>();
-                _slot.transform.SetParent(transform);
-                slotItem.Inventory = Inventory;
+                GameObject slot = Instantiate(PrefabSlot);
+                DeskSlot slotItem = slot.GetComponent<DeskSlot>();
+                slot.transform.SetParent(transform);
+                slotItem.
+                    Inventory =
+                    Inventory;
                 slotItem.index = i;
             }
         }

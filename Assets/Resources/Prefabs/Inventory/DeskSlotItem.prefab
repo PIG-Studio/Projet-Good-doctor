@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5506953329127566276}
   - component: {fileID: 7205853836451664718}
   - component: {fileID: 7836437615320802714}
-  - component: {fileID: 1657749062625522445}
+  - component: {fileID: 4851454710512878809}
   m_Layer: 5
   m_Name: DeskSlotItem
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1657749062625522445
+--- !u!114 &4851454710512878809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 790782105415981421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cf1fe90f03448cb9ad115ec5563e09f, type: 3}
+  m_Script: {fileID: 11500000, guid: f84da0b635f816c11af32e706d044c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2669314108935074005
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1657749062625522445}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Inventories.Desk.DeskSlot, Assembly-CSharp
         m_MethodName: SetDescriptionValues
         m_Mode: 1

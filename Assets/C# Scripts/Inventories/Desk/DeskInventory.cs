@@ -25,13 +25,14 @@ namespace Inventories.Desk
         
         public void Start()
         {
+            Inventaire = Variable.SceneNameCurrent.ToDesk()!.Inventaire;
+            Variable.SceneNameCurrent.ToDesk()!.Inventory = this;
             NomActuel = null;
             ImageActuel = null;
             DescActuelle = null;
             QuantiteAct = 0;
             QuantiteAUtiliser = 0;
             transform.GetChild(0).gameObject.SetActive(true);
-            Inventaire = Variable.SceneNameCurrent.ToDesk()!.Inventaire;
         }
 
         public void Update()
