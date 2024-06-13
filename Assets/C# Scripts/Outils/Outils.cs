@@ -1,38 +1,33 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace Outils
 {
     public class Outils : MonoBehaviour
     {
-        private static Button StethoscopeButton;
-        
-        private static Button ThermoButton;
-        
-        private static Button LaboButton;
-        
-        private static Button ScanMentalButton;
+        private static Object Stethoscope;
+        private  static Object Thermometer;
+        private  static Object Labo;
+        private  static Object Scan;
 
+        public TextMeshProUGUI Freq;
+        
+
+        void StethoOnClick()
+        { 
+            Debug.Log("Clique !");
+            Freq.text = 120 + "BPM";
+        }
         public void Start()
         {
-            Instantiate(Resources.Load("Prefabs/Outils/Stethoscope"));
-            Instantiate(Resources.Load("Prefabs/Outils/Labo"));
-            Instantiate(Resources.Load("Prefabs/Outils/Thermometer"));
-            Instantiate(Resources.Load("Prefabs/Outils/ScanMentalHealth"));
+            Stethoscope = Resources.Load("Prefabs/Outils/Stethoscope");
+            Instantiate(Stethoscope); 
+            FindObjectOfType<Button>(Stethoscope).onClick.AddListener(StethoOnClick);
         }
-
-        /*
-         void HandleClick()
-         {
-            desactive les boutons si leur val est different de client suivant
-        }
-        */
         
-        void StethoOnClick()
-        {
-            //set freq de fiche patient a celle du patient et desactive le button(?)
-        }
         void ThermoOnClick()
         {
             //set temp de fiche patient a celle du patient et desactive le button(?)
@@ -47,5 +42,6 @@ namespace Outils
         {
             //set Depression de fiche patient a celle du patient et desactive le button(?)
         }
+        
     }
 }
