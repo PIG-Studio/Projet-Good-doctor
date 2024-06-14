@@ -1569,90 +1569,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_166
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 138e2ccdf2f7eda44a0e753c964e3a82
-      internalID: 20252323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_167
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea4121b14d7c5f643a015de7913d2f20
-      internalID: 1192469835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_168
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 534a3613c55a9f643b5bafd7e025c4c8
-      internalID: -815312918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_169
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 973d388f02c5e5b498a2b92e74a894a2
-      internalID: 1291041293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: inside_170
       rect:
         serializedVersion: 2
@@ -1795,90 +1711,6 @@ TextureImporter:
       bones: []
       spriteID: 5f0761dbdf69a6743a4f2b3eac6450fe
       internalID: -1782484359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_178
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7aeb2c790ea76104ba37185529989c2c
-      internalID: -1651271867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_179
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdeb97fda28402c419bfdebda3744aad
-      internalID: -2123939055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_180
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa5c5140522977647af02767663eb67f
-      internalID: 271379897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_181
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06b974e668b67da4cac3a9a2b8cd612d
-      internalID: -2041801729
       vertices: []
       indices: 
       edges: []
@@ -2661,15 +2493,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door
+      name: porte
       rect:
         serializedVersion: 2
         x: 192
         y: 208
         width: 32
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2682,15 +2514,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_273
+      name: pot_fleur
       rect:
         serializedVersion: 2
-        x: 33
-        y: 95
-        width: 32
-        height: 37
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 34
+        y: 96
+        width: 30
+        height: 35
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2703,15 +2535,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_274
+      name: pot_plante
       rect:
         serializedVersion: 2
         x: 1
         y: 95
         width: 32
         height: 35
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3142,7 +2974,6 @@ TextureImporter:
       bureau_droit: -1303145863
       bureau_gauche: 191554420
       bureau_grand: 1213945917
-      door: 1985229809
       evier: 1698578870
       ground_1: -1783192218
       ground_2: -1944080721
@@ -3319,8 +3150,6 @@ TextureImporter:
       inside_268: 2112842632
       inside_269: -1602116252
       inside_27: 1985229809
-      inside_273: -1192550816
-      inside_274: -1413403619
       inside_275: -1151643998
       inside_276: -116326816
       inside_277: 1683979694
@@ -3407,6 +3236,9 @@ TextureImporter:
       momie: -1392448294
       ombre: -841482901
       pied_perfusion: -1721975312
+      porte: 1985229809
+      pot_fleur: 1106646231
+      pot_plante: -1192550816
       vents: -877915869
       wall_1: -1512795340
       wall_2: 1245510367
