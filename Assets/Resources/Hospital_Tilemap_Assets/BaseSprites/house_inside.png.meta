@@ -166,7 +166,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 69
+        y: 88
         width: 224
         height: 205
       alignment: 8
@@ -1589,6 +1589,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: table_bois
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 192
+        width: 50
+        height: 80
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9f0de619d92722ba57b855bceb95a5
+      internalID: -397157829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: four_outils
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 65
+        width: 32
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e4f76eade712fcead60fbe751d817f
+      internalID: 696821552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: four_seul
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 65
+        width: 32
+        height: 32
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a5b80be0b1db1f20a65ce74365af467
+      internalID: -862433286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1610,6 +1673,8 @@ TextureImporter:
       chair_left: 871653946
       chair_left2: -1873485610
       chair_right: -929465220
+      four_outils: 696821552
+      four_seul: -862433286
       house_inside_0: -1204694071
       house_inside_1: -2089384248
       house_inside_10: -2117782068
@@ -1671,6 +1736,7 @@ TextureImporter:
       house_inside_7: 1763781997
       house_inside_8: -1967009050
       house_inside_9: -774648953
+      table_bois: -397157829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
