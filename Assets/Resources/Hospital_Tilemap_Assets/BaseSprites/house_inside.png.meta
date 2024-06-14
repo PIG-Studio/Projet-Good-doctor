@@ -351,7 +351,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_inside_8
+      name: fenetre_grande
       rect:
         serializedVersion: 2
         x: 482
@@ -456,7 +456,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_inside_17
+      name: porte_fenetre
       rect:
         serializedVersion: 2
         x: 450
@@ -876,12 +876,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: house_inside_30
+      name: tabouret
       rect:
         serializedVersion: 2
         x: 196
         y: 256
-        width: 27
+        width: 24
         height: 32
       alignment: 8
       pivot: {x: 1, y: 0}
@@ -1673,6 +1673,7 @@ TextureImporter:
       chair_left: 871653946
       chair_left2: -1873485610
       chair_right: -929465220
+      fenetre_grande: -1967009050
       four_outils: 696821552
       four_seul: -862433286
       house_inside_0: -1204694071
@@ -1684,7 +1685,6 @@ TextureImporter:
       house_inside_14: -2091388450
       house_inside_15: -338269176
       house_inside_16: -516872710
-      house_inside_17: -1365018272
       house_inside_18: -1466911769
       house_inside_19: 594257814
       house_inside_2: 1839817878
@@ -1698,7 +1698,6 @@ TextureImporter:
       house_inside_28: 952532244
       house_inside_29: -706362769
       house_inside_3: -16739612
-      house_inside_30: -1319505004
       house_inside_31: -1214285315
       house_inside_32: 706899399
       house_inside_33: 708821076
@@ -1734,9 +1733,10 @@ TextureImporter:
       house_inside_65: 1286395836
       house_inside_66: -856576509
       house_inside_7: 1763781997
-      house_inside_8: -1967009050
       house_inside_9: -774648953
+      porte_fenetre: -1365018272
       table_bois: -397157829
+      tabouret: -1319505004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

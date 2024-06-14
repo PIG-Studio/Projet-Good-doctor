@@ -393,48 +393,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_72
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80db59aeda3651f458f241792c24154f
-      internalID: -1240288717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_73
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c7a931f04ff5944c8724533391f60d9
-      internalID: 1053026543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: inside_78
       rect:
         serializedVersion: 2
@@ -514,48 +472,6 @@ TextureImporter:
       bones: []
       spriteID: 099683984a960604985f013a77898307
       internalID: 1409583642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_82
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 240
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4dbb27818777db745a94348a8702277a
-      internalID: 1978906850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_83
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 240
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76d169454bf37ee4988ce4e24d142394
-      internalID: -1057583007
       vertices: []
       indices: 
       edges: []
@@ -708,7 +624,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_103
+      name: evier
       rect:
         serializedVersion: 2
         x: 160
@@ -729,7 +645,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_104
+      name: vents
       rect:
         serializedVersion: 2
         x: 176
@@ -745,69 +661,6 @@ TextureImporter:
       bones: []
       spriteID: 70417016290b257489f9c421cab24e0d
       internalID: -877915869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_105
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 224
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71847188cf53dba46ac61bcc3a7337c7
-      internalID: -415351687
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_106
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 224
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 796320cd344bb0249afff06fae66d485
-      internalID: -349010640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_107
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b318fb45bb579834ebacfdd00db407ed
-      internalID: 1457323545
       vertices: []
       indices: 
       edges: []
@@ -850,48 +703,6 @@ TextureImporter:
       bones: []
       spriteID: c2d9eeef1c326e240aa5b77188d101ce
       internalID: 1213945917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_115
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2710da9e247baad40b2dd97b9596ab16
-      internalID: -2039103711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: inside_116
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89b49dd94ab48df4c8b3b7f1a4eece66
-      internalID: 971830507
       vertices: []
       indices: 
       edges: []
@@ -2850,7 +2661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inside_272
+      name: door
       rect:
         serializedVersion: 2
         x: 192
@@ -3331,6 +3142,8 @@ TextureImporter:
       bureau_droit: -1303145863
       bureau_gauche: 191554420
       bureau_grand: 1213945917
+      door: 1985229809
+      evier: 1698578870
       ground_1: -1783192218
       ground_2: -1944080721
       ground_3: 479941802
@@ -3340,8 +3153,6 @@ TextureImporter:
       inside_100: -1145726328
       inside_101: 2124657179
       inside_102: 1698578870
-      inside_103: -877915869
-      inside_104: -415351687
       inside_105: -349010640
       inside_106: 1457323545
       inside_107: -1742396501
@@ -3508,7 +3319,6 @@ TextureImporter:
       inside_268: 2112842632
       inside_269: -1602116252
       inside_27: 1985229809
-      inside_272: 1106646231
       inside_273: -1192550816
       inside_274: -1413403619
       inside_275: -1151643998
@@ -3597,6 +3407,7 @@ TextureImporter:
       momie: -1392448294
       ombre: -841482901
       pied_perfusion: -1721975312
+      vents: -877915869
       wall_1: -1512795340
       wall_2: 1245510367
       wall_border2_down: 584138665
