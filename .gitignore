@@ -80,4 +80,5 @@ crashlytics-build.properties
 *.meta
 !/Assets/Resources/**
 !/Assets/Scenes/**
+!/Assets/C# Scripts/**
 **.DS_Store
