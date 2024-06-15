@@ -14,8 +14,8 @@ namespace Joueur.Base
     public class JoueurFundamentals : NetworkBehaviour, IHasHp, IJoueur, IConditionAffichage
     {
         public uint Pv { get; protected set; }
-        public uint Money { get; protected set; }
-        public int Reputation { get; protected set; }
+        public static uint Money { get; protected set; }
+        public static int Reputation { get; protected set; }
         public uint? BureauActuel { get; protected set; }
         public PlayerInventory Inventory { get; set; }
         public Func<bool> ConditionAffichage { get; } = () => true;
@@ -29,6 +29,8 @@ namespace Joueur.Base
                 AssignerBureauLibreServerRpc();
             }
 
+            Money = 100;
+            Reputation = 60;
             Inventory = gameObject.AddComponent<PlayerInventory>();
         }
 
