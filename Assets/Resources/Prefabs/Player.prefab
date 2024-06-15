@@ -452,7 +452,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1836595021186907092}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
         m_MethodName: minusB
         m_Mode: 1
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1836595021186907092}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
         m_MethodName: GiveItem
         m_Mode: 1
@@ -843,8 +843,8 @@ GameObject:
   - component: {fileID: 1747219443038663151}
   - component: {fileID: 6525523231160353204}
   - component: {fileID: 1574410834041235583}
-  - component: {fileID: 2572434402624113326}
   - component: {fileID: 1127372272944699282}
+  - component: {fileID: 4215270367682844621}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1049,30 +1049,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.6}
   serializedVersion: 2
   m_Radius: 0.2
---- !u!114 &9034243102146487247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793422718493585413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4e24055b3a31b45a435e7670c76424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4215270367682844621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793422718493585413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51b965c30bc0c9b4cbca4313b9f4387d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1127372272944699282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,6 +1061,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bec1f6d0af34bec88fe4154ae0404f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4215270367682844621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793422718493585413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb77e18fe204c1899b7ae250f5586da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4372085110698424551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1082,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4634800333942319676}
-  - component: {fileID: 1836595021186907092}
+  - component: {fileID: 544893203713062122}
   m_Layer: 0
   m_Name: InventoryManager
   m_TagString: Untagged
@@ -1118,7 +1106,7 @@ Transform:
   - {fileID: 6909009355073242228}
   m_Father: {fileID: 4236725184770609968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1836595021186907092
+--- !u!114 &544893203713062122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1127,7 +1115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4372085110698424551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f387a9b7ad79d5e49a7ab43254b0476f, type: 3}
+  m_Script: {fileID: 11500000, guid: e7bc2a22728a6764f81baf0d5bb55377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4434312971129972190
@@ -1846,7 +1834,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1836595021186907092}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
         m_MethodName: UseItem
         m_Mode: 1
@@ -2394,7 +2382,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1836595021186907092}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
         m_MethodName: RemoveItem
         m_Mode: 1
@@ -2527,7 +2515,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1836595021186907092}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
         m_MethodName: plusB
         m_Mode: 1

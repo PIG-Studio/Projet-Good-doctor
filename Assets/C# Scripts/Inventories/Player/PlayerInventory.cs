@@ -54,6 +54,7 @@ namespace Inventories.Player
 
         public void UpdateDescription(uint i)
         {
+            Debug.Log("ca update vraimenr la description");
             if (Inventaire[i] is null)
             {
                 NomActuel = "";
@@ -61,7 +62,7 @@ namespace Inventories.Player
                 DescActuelle = "";
                 QuantiteAUtiliser = 0;
                 QuantiteAct = 0;
-                IndexActuel = 0;
+                IndexActuel = i;
             }
             else
             {
