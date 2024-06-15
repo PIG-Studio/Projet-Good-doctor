@@ -12,6 +12,7 @@ namespace Super.Interfaces.Inventory
         [CanBeNull] public string DescActuelle { get; set; }
         public uint QuantiteAUtiliser { get; set; }
         public uint QuantiteAct { get; set; }
+        public uint IndexActuel { get; set; }
         public uint MaxLenght { get; }
 
         public void Start();
@@ -19,7 +20,11 @@ namespace Super.Interfaces.Inventory
 
         void UpdateDescription(uint i);
         void AddItem(ItemsSo item);
-        void RemoveItem(ItemsSo item);
-        void GiveItem(ItemsSo item, IInventory inventory);
+        void RemoveItem();
+        void GiveItem();
+        void UseItem();
+
+        void minusB();
+        void plusB();
     }
 }

@@ -20,5 +20,11 @@ namespace ScriptableObject
         }
 
         public Type type;
+
+        public bool AdnToNormal;
+        public int ModifyFreqCar;
+        public int ModifyTemp;
+        public int ModifyEmotion;
+        public bool Deadly;
     }
 }

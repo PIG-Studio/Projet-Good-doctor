@@ -35,9 +35,7 @@ namespace Inventories.Desk
                 GameObject slot = Instantiate(PrefabSlot);
                 DeskSlot slotItem = slot.GetComponent<DeskSlot>();
                 slot.transform.SetParent(transform);
-                slotItem.
-                    Inventory =
-                    Inventory;
+                slotItem.Inventory = Inventory;
                 slotItem.index = i;
             }
         }

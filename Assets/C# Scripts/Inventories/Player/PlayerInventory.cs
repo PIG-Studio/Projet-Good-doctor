@@ -1,4 +1,6 @@
 ﻿using System.Net.Mime;
+using CustomScenes;
+using GameCore.Variables;
 using Parameters;
 using ScriptableObject;
 using Super.Interfaces.Inventory;
@@ -17,6 +19,7 @@ namespace Inventories.Player
         public string DescActuelle { get; set; }
         public uint QuantiteAUtiliser { get; set; }
         public uint QuantiteAct { get; set; }
+        public uint IndexActuel { get; set; }
 
         public uint MaxLenght
         {
@@ -32,6 +35,7 @@ namespace Inventories.Player
             DescActuelle = null;
             QuantiteAUtiliser = 0;
             QuantiteAct = 0;
+            IndexActuel = 0;
         }
         
         public void Update()
@@ -57,6 +61,7 @@ namespace Inventories.Player
                 DescActuelle = "";
                 QuantiteAUtiliser = 0;
                 QuantiteAct = 0;
+                IndexActuel = 0;
             }
             else
             {
@@ -64,6 +69,7 @@ namespace Inventories.Player
                 ImageActuel = Inventaire[i].icon;
                 DescActuelle = Inventaire[i].description;
                 QuantiteAct = Inventaire[i].amount;
+                IndexActuel = i;
             }
         }
 
@@ -91,14 +97,75 @@ namespace Inventories.Player
             }
         }
 
-        public void RemoveItem(ItemsSo item)
+        public void RemoveItem()
         {
-            throw new System.NotImplementedException();
+            if (QuantiteAUtiliser > 0)
+            {
+                //Debug.Log("RemoveItem inventory");
+                if (QuantiteAUtiliser == QuantiteAct)
+                {
+                    Inventaire[IndexActuel] = null;
+                }
+                else
+                {
+                    ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                    newItem.title = Inventaire[IndexActuel].title;
+                    newItem.description = Inventaire[IndexActuel].description;
+                    newItem.amount = QuantiteAct - QuantiteAUtiliser;
+                    newItem.icon = Inventaire[IndexActuel].icon;
+                    newItem.isStackable = Inventaire[IndexActuel].isStackable;
+                    newItem.type = Inventaire[IndexActuel].type;
+
+                    Inventaire[IndexActuel] = newItem;
+                }
+
+                UpdateDescription(IndexActuel);
+            }
         }
 
-        public void GiveItem(ItemsSo item, IInventory inventory)
+        public void GiveItem()
+        { 
+            if (QuantiteAUtiliser > 0){
+            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+            newItem.title = Inventaire[IndexActuel].title;
+            newItem.description = Inventaire[IndexActuel].description;
+            newItem.amount = QuantiteAUtiliser;
+            newItem.icon = Inventaire[IndexActuel].icon;
+            newItem.isStackable = Inventaire[IndexActuel].isStackable;
+            newItem.type = Inventaire[IndexActuel].type;
+
+            RemoveItem();
+            //inventorybureau .AddItem(newItem);
+            }
+        }
+
+        public void UseItem()
         {
-            throw new System.NotImplementedException();
+            if (QuantiteAUtiliser > 0)
+            {
+                if (Variable.SceneNameCurrent == Scenes.DBase)
+                {
+                    //utiliser objet dur patient.
+                }
+                else
+                {
+                    //utiliser objet sur joueur.
+                }
+
+                RemoveItem();
+            }
+        }
+
+        public void minusB()
+        {
+            if (QuantiteAUtiliser < QuantiteAct)
+                QuantiteAUtiliser++;
+        }
+
+        public void plusB()
+        {
+            if (QuantiteAUtiliser != 0)
+                QuantiteAUtiliser--;
         }
     }
 }

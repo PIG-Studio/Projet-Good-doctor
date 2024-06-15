@@ -15,7 +15,8 @@ namespace Inventories.Desk
         public string DescActuelle { get; set; }
         public uint QuantiteAUtiliser { get; set; }
         public uint QuantiteAct { get; set; }
-        
+        public uint IndexActuel { get; set; }
+
         public ItemsSo[] Inventaire { get; set; }
         
         public uint MaxLenght
@@ -54,28 +55,100 @@ namespace Inventories.Desk
             if (Inventaire[i] is null)
             {
                 NomActuel = "";
+                ImageActuel = null;
                 QuantiteAct = 0;
+                IndexActuel = 0;
             }
             else
             {
                 NomActuel = Inventaire[i].title;
+                ImageActuel = Inventaire[i].icon;
                 QuantiteAct = Inventaire[i].amount;
+                IndexActuel = i;
             }
         }
 
         public void AddItem(ItemsSo item)
         {
-            throw new System.NotImplementedException();
+            Debug.Log("addItem Desk Inventory");
+            for (uint i = 0; i < Inventaire.Length; i++)
+            {
+                if (Inventaire[i] is not null)
+                {
+                    if (Inventaire[i].title == item.title && Inventaire[i].isStackable)
+                    {
+                        item.amount += Inventaire[i].amount;
+                        Inventaire[i] = null;
+                    }
+                }
+            }
+            for (uint i = 0; i < Inventaire.Length; i++)
+            {
+                if (Inventaire[i] is null)
+                {
+                    Inventaire[i] = item;
+                    break;
+                }
+            }
         }
 
-        public void RemoveItem(ItemsSo item)
+        public void RemoveItem()
         {
-            throw new System.NotImplementedException();
+            //Debug.Log("RemoveItem Desk");
+            if (QuantiteAUtiliser == QuantiteAct)
+            {
+                Inventaire[IndexActuel] = null;
+            }
+            else
+            {
+                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                newItem.title = Inventaire[IndexActuel].title;
+                newItem.description = Inventaire[IndexActuel].description;
+                newItem.amount = QuantiteAct - QuantiteAUtiliser;
+                newItem.icon = Inventaire[IndexActuel].icon;
+                newItem.isStackable = Inventaire[IndexActuel].isStackable;
+                newItem.type = Inventaire[IndexActuel].type;
+                
+                Inventaire[IndexActuel] = newItem;
+            }
+            UpdateDescription(IndexActuel);
         }
 
-        public void GiveItem(ItemsSo item, IInventory inventory)
+        public void GiveItem()
         {
-            throw new System.NotImplementedException();
+            if (QuantiteAUtiliser > 0){
+            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+            newItem.title = Inventaire[IndexActuel].title;
+            newItem.description = Inventaire[IndexActuel].description;
+            newItem.amount = QuantiteAUtiliser;
+            newItem.icon = Inventaire[IndexActuel].icon;
+            newItem.isStackable = Inventaire[IndexActuel].isStackable;
+            newItem.type = Inventaire[IndexActuel].type;
+            
+            RemoveItem();
+           // inventaaire joueur AddItem(newItem);
+           }
+        }
+
+        public void UseItem()
+        {
+            if (QuantiteAUtiliser > 0)
+            {
+                //utiliser objet sur patient
+                RemoveItem();
+            }
+        }
+
+        public void minusB()
+        {
+            if (QuantiteAUtiliser < QuantiteAct)
+                QuantiteAUtiliser++;
+        }
+
+        public void plusB()
+        {
+            if (QuantiteAUtiliser != 0)
+                QuantiteAUtiliser--;
         }
     }
 }
