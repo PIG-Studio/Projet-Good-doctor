@@ -16,10 +16,10 @@ namespace GameCore.Methods
         public void Start()
         {
             Debug.unityLogger.logEnabled = Debug.isDebugBuild;
-            Variable.AllDesks = new Desk[2];
+            Variable.AllDesks = new Desk[4];
             Variable.AllDestinations = new List<IDestination>();
-            Variable.DeskDestinations = new IDeskDestination[] {null, null, null};
-            Variable.NormalDestinations = new INormalDestination[] {null, null, null};
+            Variable.DeskDestinations = new IDeskDestination[] {null, null, null, null};
+            Variable.NormalDestinations = new INormalDestination[] {null, null};
             Desk.SceneDeskDict = new Dictionary<string, Desk>();
             Variable.DeskBase = new Desk("DESK_Base");
             Variable.Desk2 = new Desk("DESK_2");
