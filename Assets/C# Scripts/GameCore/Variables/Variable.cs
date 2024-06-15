@@ -53,7 +53,10 @@ namespace GameCore.Variables
         /// 
         /// </summary>
         public static Desk DeskBase { get; set; }
-        public static Desk DeskUpgraded { get; set; }
+        public static Desk Desk2 { get; set; }
+        public static Desk Desk3 { get; set; }
+        public static Desk Desk4 { get; set; }
+        
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

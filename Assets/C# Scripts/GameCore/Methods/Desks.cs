@@ -22,7 +22,9 @@ namespace GameCore.Methods
             Variable.NormalDestinations = new INormalDestination[] {null, null, null};
             Desk.SceneDeskDict = new Dictionary<string, Desk>();
             Variable.DeskBase = new Desk("DESK_Base");
-            Variable.DeskUpgraded = new Desk("DESK_Upgraded");
+            Variable.Desk2 = new Desk("DESK_2");
+            Variable.Desk3= new Desk("DESK_3");
+            Variable.Desk4 = new Desk("DESK_4");
             Variable.Sortie = Sortie.Dest_Sortie();
 
         }

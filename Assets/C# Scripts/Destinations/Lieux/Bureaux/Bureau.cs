@@ -48,7 +48,45 @@ namespace Destinations.Lieux.Bureaux
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static IDeskDestination DESK_Upgraded(Desk input)
+        public static IDeskDestination DESK_2(Desk input)
+        {
+            // Création de la destination avec des paramètres spécifiques
+            DeskDestination retour = new DeskDestination(1, Vector2.zero,
+                new (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[3], input, 1);
+            
+            // Ajout des différentes coordonnées
+            retour.PtArrivee = new Vector2(-7, 0);
+            retour.PtAttente[0].coordonees = new Vector2(-8, 0);
+            
+            AjustementVariables(retour); // Appel de la méthode pour ajuster les variables
+            
+            return retour;
+        }
+        /// <summary>
+        /// Méthode pour créer une destination de bureau améliorée
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static IDeskDestination DESK_3(Desk input)
+        {
+            // Création de la destination avec des paramètres spécifiques
+            DeskDestination retour = new DeskDestination(1, Vector2.zero,
+                new (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[3], input, 1);
+            
+            // Ajout des différentes coordonnées
+            retour.PtArrivee = new Vector2(-7, 0);
+            retour.PtAttente[0].coordonees = new Vector2(-8, 0);
+            
+            AjustementVariables(retour); // Appel de la méthode pour ajuster les variables
+            
+            return retour;
+        }
+        /// <summary>
+        /// Méthode pour créer une destination de bureau améliorée
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static IDeskDestination DESK_4(Desk input)
         {
             // Création de la destination avec des paramètres spécifiques
             DeskDestination retour = new DeskDestination(1, Vector2.zero,
