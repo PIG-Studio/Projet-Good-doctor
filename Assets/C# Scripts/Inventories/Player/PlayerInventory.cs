@@ -91,14 +91,40 @@ namespace Inventories.Player
             }
         }
 
-        public void RemoveItem(ItemsSo item)
+        public void RemoveItem(uint index)
         {
-            throw new System.NotImplementedException();
+            //Debug.Log("RemoveItem inventory");
+            if (QuantiteAUtiliser == QuantiteAct)
+            {
+                Inventaire[index] = null;
+            }
+            else
+            {
+                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                newItem.title = Inventaire[index].title;
+                newItem.description = Inventaire[index].description;
+                newItem.amount = QuantiteAct - QuantiteAUtiliser;
+                newItem.icon = Inventaire[index].icon;
+                newItem.isStackable = Inventaire[index].isStackable;
+                newItem.type = Inventaire[index].type;
+                
+                Inventaire[index] = newItem;
+            }
+            UpdateDescription(index);
         }
 
-        public void GiveItem(ItemsSo item, IInventory inventory)
+        public void GiveItem(uint index, IInventory inventory)
         {
-            throw new System.NotImplementedException();
+            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+            newItem.title = Inventaire[index].title;
+            newItem.description = Inventaire[index].description;
+            newItem.amount = QuantiteAUtiliser;
+            newItem.icon = Inventaire[index].icon;
+            newItem.isStackable = Inventaire[index].isStackable;
+            newItem.type = Inventaire[index].type;
+            
+            RemoveItem(index);
+            inventory.AddItem(newItem);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Super.Interfaces.Inventory
 
         void UpdateDescription(uint i);
         void AddItem(ItemsSo item);
-        void RemoveItem(ItemsSo item);
-        void GiveItem(ItemsSo item, IInventory inventory);
+        void RemoveItem(uint index);
+        void GiveItem(uint index, IInventory inventory);
     }
 }

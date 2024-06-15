@@ -3,13 +3,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Inventories.Player
+namespace Inventories.Desk
 {
-    public class PlayerUpdateDescription : MonoBehaviour
+    public class DeskUpdateDescription : MonoBehaviour
     {
         //[SerializeField] public GameObject InventoryTemp;
         
-        public PlayerInventory Inventory { get; set; }
+        public DeskInventory Inventory { get; set; }
         [SerializeField] public GameObject Inventorytemp;
         public TextMeshProUGUI desc { get; set; }
         public Image Icon { get; set; }
@@ -19,18 +19,16 @@ namespace Inventories.Player
         // Start is called before the first frame update
         public void Start()
         {
-            desc = transform.Find("Description").GetComponent<TextMeshProUGUI>();
             Icon = transform.Find("Image").GetComponent<Image>();
             Title = transform.Find("NameObject").GetComponent<TextMeshProUGUI>();
             Amount = transform.Find("AmountToUse").GetComponent<TextMeshProUGUI>();
-            Inventory = Inventorytemp.GetComponent<PlayerInventory>();
+            Inventory = Inventorytemp.GetComponent<DeskInventory>();
         }
 
         // Update is called once per frame
         public void Update()
         { 
-            Debug.Log("update description");
-            desc.text = Inventory.DescActuelle ?? "";
+            Debug.Log("update desk description");
             Icon.sprite = Inventory.ImageActuel ?? Resources.Load<Sprite>("UI/SquareGD");
             Title.text = Inventory.NomActuel ?? "";
             Amount.text = Inventory.QuantiteAUtiliser.ToString() + " / " + Inventory.QuantiteAct.ToString();

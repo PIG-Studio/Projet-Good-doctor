@@ -54,28 +54,75 @@ namespace Inventories.Desk
             if (Inventaire[i] is null)
             {
                 NomActuel = "";
+                ImageActuel = null;
                 QuantiteAct = 0;
             }
             else
             {
                 NomActuel = Inventaire[i].title;
+                ImageActuel = Inventaire[i].icon;
                 QuantiteAct = Inventaire[i].amount;
             }
         }
 
         public void AddItem(ItemsSo item)
         {
-            throw new System.NotImplementedException();
+            Debug.Log("addItem Desk Inventory");
+            for (uint i = 0; i < Inventaire.Length; i++)
+            {
+                if (Inventaire[i] is not null)
+                {
+                    if (Inventaire[i].title == item.title && Inventaire[i].isStackable)
+                    {
+                        item.amount += Inventaire[i].amount;
+                        Inventaire[i] = null;
+                    }
+                }
+            }
+            for (uint i = 0; i < Inventaire.Length; i++)
+            {
+                if (Inventaire[i] is null)
+                {
+                    Inventaire[i] = item;
+                    break;
+                }
+            }
         }
 
-        public void RemoveItem(ItemsSo item)
+        public void RemoveItem(uint index)
         {
-            throw new System.NotImplementedException();
+            //Debug.Log("RemoveItem Desk");
+            if (QuantiteAUtiliser == QuantiteAct)
+            {
+                Inventaire[index] = null;
+            }
+            else
+            {
+                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                newItem.title = Inventaire[index].title;
+                newItem.description = Inventaire[index].description;
+                newItem.amount = QuantiteAct - QuantiteAUtiliser;
+                newItem.icon = Inventaire[index].icon;
+                newItem.isStackable = Inventaire[index].isStackable;
+                newItem.type = Inventaire[index].type;
+                
+                Inventaire[index] = newItem;
+            }
+            UpdateDescription(index);
         }
 
-        public void GiveItem(ItemsSo item, IInventory inventory)
+        public void GiveItem(uint index, IInventory inventory)
         {
-            throw new System.NotImplementedException();
+            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+            newItem.title = Inventaire[index].title;
+            newItem.description = Inventaire[index].description;
+            newItem.amount = QuantiteAUtiliser;
+            newItem.icon = Inventaire[index].icon;
+            newItem.isStackable = Inventaire[index].isStackable;
+            newItem.type = Inventaire[index].type;
+            
+            RemoveItem(index);
+            inventory.AddItem(newItem);
         }
     }
 }
