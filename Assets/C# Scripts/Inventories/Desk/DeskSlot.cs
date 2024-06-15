@@ -37,6 +37,7 @@ namespace Inventories.Desk
                 Image.sprite = Inventory.Inventaire[index].icon;
                 TextAmount.text = Inventory.Inventaire[index].amount.ToString();
             }
+            transform.Find("icon").GetComponent<Button>().onClick.AddListener(SetDescriptionValues);
         }
 
         public void SetDescriptionValues()

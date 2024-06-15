@@ -451,7 +451,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1808563892213112942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1836595021186907092}
+        m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
+        m_MethodName: minusB
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &3189649422781578151
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +584,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7572777308961058199}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1836595021186907092}
+        m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
+        m_MethodName: GiveItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &3456304147854566924
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +608,7 @@ GameObject:
   - component: {fileID: 4740128800439832598}
   - component: {fileID: 1017914779358539543}
   - component: {fileID: 4652804540131540279}
+  - component: {fileID: 6320305986815080837}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -655,6 +680,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6320305986815080837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3456304147854566924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c82d83bcecfa15680ab475ad5c054e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventorytemp: {fileID: 4372085110698424551}
 --- !u!1 &3743956435738372087
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,7 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2723109243
+  GlobalObjectIdHash: 2635429764
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
@@ -1795,7 +1833,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7157088398405675790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1836595021186907092}
+        m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &7527260887366977557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,7 +2381,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6660601502846121782}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1836595021186907092}
+        m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
+        m_MethodName: RemoveItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &8391047902060062632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2514,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4825835435907633985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1836595021186907092}
+        m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
+        m_MethodName: plusB
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &8732064547120581711
 GameObject:
   m_ObjectHideFlags: 0
