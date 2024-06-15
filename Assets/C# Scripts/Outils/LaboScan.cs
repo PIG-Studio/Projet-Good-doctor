@@ -11,8 +11,10 @@ namespace Outils
 
         void LaboOnClick()
         { 
-            Debug.Log("Clique !");
-            ADN.GetComponent<TextMeshProUGUI>().text = "cgattagc";
+            if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
+            Debug.Log("Clique");
+            PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
+            ADN.GetComponent<TextMeshProUGUI>().text  = patient.Adn.ToString();
         }
 
         public void Start()

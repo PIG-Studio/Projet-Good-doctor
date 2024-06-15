@@ -26,6 +26,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public IValue Depression { get; set; }
         public IMaladie Sickness { get; set; }
         public IValue Temperature { get; set; }
+        public IValue Age { get; set; }
         public NetworkVariable<bool> AnalyseAdn { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public NetworkVariable<bool> AnalyseDepression { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public IValue FreqCar { get; set; }

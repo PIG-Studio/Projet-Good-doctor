@@ -13,8 +13,10 @@ namespace Outils
 
         void StethoOnClick()
         { 
+            if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
             Debug.Log("Clique !");
-            Freq.GetComponent<TextMeshProUGUI>().text = 120 + " BPM";
+            PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
+            Freq.GetComponent<TextMeshProUGUI>().text  = patient.FreqCar + " BPM";
         }
 
         public void Start()
