@@ -59,19 +59,12 @@ namespace UI_Scripts.UI_Scenes
 
         public void Update()
         {
-            if (!(Passe))
-            {
                 Milliseconde++;
                 CheckMilliseconde();
                 CheckSeconde();
                 CheckDizaine();
                 Text.text = Minute.ToString() + ':' + Dizaine + Seconde;
                 Passe = true;
-            }
-            else
-            {
-                Passe = false;
-            }
 
         }
     }

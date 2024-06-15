@@ -21,10 +21,10 @@ namespace Desks
             }
             else
             {
-                PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as 
+                PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as
                     PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
                 transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = patient.name;
-                transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = patient.age;
+                transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = patient.Age.ToString();
 
             }
         }

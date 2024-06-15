@@ -13,7 +13,7 @@ namespace Patient.Base
     {
         // Méthodes pour générer aléatoirement des phrases, des noms et des valeurs de dépression, température et fréquence cardiaque
         private static string PhraseRandom => Constante.PhraseArray[Constante.PhraseArray.Length.RandomInt()];
-        private static string NameRandom => Constante.NameArray[Constante.NameArray.Length.RandomInt()]
+        private static string NameRandom => Constante.NameArray[Constante.NameArray.Length.RandomInt()];
         private static IValue DepressRandom(IMaladie maladie) => new Value(maladie.Depression.RandomUint());
         private static IValue TempRandom(IMaladie maladie) => new Value(maladie.Temperature.RandomUint());
         private static IValue FreqRandom(IMaladie maladie) => new Value(maladie.FreqCar.RandomUint());
