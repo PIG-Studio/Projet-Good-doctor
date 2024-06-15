@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 6739978516079831344}
   - component: {fileID: 7889624926722172676}
   m_Layer: 5
-  m_Name: LaboButton
+  m_Name: MoodButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f693857181289b74a97cbfa01bd4e6d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20f70412843ae564f9b8a034933dbc30, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -367,7 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6762436721284975920}
   m_Layer: 0
-  m_Name: Labo
+  m_Name: Depression
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
