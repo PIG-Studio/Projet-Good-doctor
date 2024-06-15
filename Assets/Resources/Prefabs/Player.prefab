@@ -1049,7 +1049,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.6}
   serializedVersion: 2
   m_Radius: 0.2
---- !u!114 &2572434402624113326
+--- !u!114 &9034243102146487247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1058,7 +1058,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3793422718493585413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb77e18fe204c1899b7ae250f5586da, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e4e24055b3a31b45a435e7670c76424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4215270367682844621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793422718493585413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b965c30bc0c9b4cbca4313b9f4387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1127372272944699282
@@ -1115,7 +1127,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4372085110698424551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7bc2a22728a6764f81baf0d5bb55377, type: 3}
+  m_Script: {fileID: 11500000, guid: f387a9b7ad79d5e49a7ab43254b0476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4434312971129972190
