@@ -30,9 +30,9 @@ namespace Inventories.Player
         public void Update()
         { 
             Debug.Log("update description");
-            desc.text = Inventory.DescActuelle ?? "";
-            Icon.sprite = Inventory.ImageActuel ? Inventory.ImageActuel : Resources.Load<Sprite>("UI/SquareGD");
-            Title.text = Inventory.NomActuel ?? "";
+            desc.text = Inventory.DescActuelle ;//?? "";
+            Icon.sprite = Inventory.ImageActuel ;//? Inventory.ImageActuel : Resources.Load<Sprite>("UI/SquareGD");
+            Title.text = Inventory.NomActuel;// ?? "";
             Amount.text = Inventory.QuantiteAUtiliser.ToString() + " / " + Inventory.QuantiteAct.ToString();
         }
         

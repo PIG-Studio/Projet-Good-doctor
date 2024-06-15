@@ -35,9 +35,8 @@ namespace Inventories.Player
             int n = Inventory.Inventaire.Length;
             for (uint i = 0; i < n ; i++) //initialise l'inventaire
             {
-                GameObject _slot = Instantiate(PrefabSlot);
+                GameObject _slot = Instantiate(PrefabSlot, transform, true);
                 PlayerSlot slotItem = _slot.GetComponent<PlayerSlot>();
-                _slot.transform.SetParent(transform);
                 slotItem.Inventory = Inventory;
                 slotItem.index = i;
             }

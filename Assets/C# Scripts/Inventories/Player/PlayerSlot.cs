@@ -19,7 +19,7 @@ namespace Inventories.Player
             Debug.Log("startSlot");
             TextAmount = transform.Find("amount").gameObject.GetComponent<TextMeshProUGUI>();
             Image = transform.Find("icon").gameObject.GetComponent<Image>();
-            Debug.Log("update slot");
+            
             if (Inventory.Inventaire[index] is null)
             {
                 Debug.Log("create empty slot");
@@ -36,9 +36,9 @@ namespace Inventories.Player
             }
         }
 
-        /*public void Update()
+        public void Update()
         {
-            Debug.Log("update slot");
+           /* Debug.Log("update slot");
             if (Inventory.Inventaire[index] is null)
             {
                 Debug.Log("create empty slot");
@@ -52,8 +52,9 @@ namespace Inventories.Player
                 Amount = Inventory.Inventaire[index].amount;
                 Image.sprite = Inventory.Inventaire[index].icon;
                 TextAmount.text = Inventory.Inventaire[index].amount.ToString();
-            }
-        }*/
+            }*/
+           
+        }
         
         public void SetDescriptionValues()
         {
