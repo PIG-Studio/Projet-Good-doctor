@@ -19,7 +19,7 @@ namespace Inventories.Desk
             Inventory =  Variable.SceneNameCurrent.ToDesk()!.Inventory;
         }
 
-        public void Update()
+        public void UpdateSlot()
         {
             if (transform.childCount > 0) // si contient des enfants
             {

@@ -20,10 +20,12 @@ namespace Inventories.Player
         {
             PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/SlotItem");
             Inventory = Inventorytemp.GetComponent<IInventory>();
+            UpdateSlot();
         }
         
-        public void Update()
+        public void UpdateSlot()
         {
+            Debug.Log("update slor holder");
             if (transform.childCount > 0) // si contient des enfants
             {
                 for (int i = transform.childCount - 1 ; i >= 0; i--)

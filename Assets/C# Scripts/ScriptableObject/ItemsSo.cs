@@ -26,5 +26,7 @@ namespace ScriptableObject
         public int ModifyTemp;
         public int ModifyEmotion;
         public bool Deadly;
+
+        public uint Price;
     }
 }

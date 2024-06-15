@@ -11,6 +11,6 @@ namespace Super.Interfaces.Inventory
         public IInventory Inventory { get; set; }
         
         void Start();
-        void Update();
+        void UpdateSlot();
     }
 }

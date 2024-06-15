@@ -21,6 +21,7 @@ namespace Inventories.Player
         public uint QuantiteAct { get; set; }
         public uint IndexActuel { get; set; }
 
+        public PlayerSlotHolder PSH { get; set; }
         public uint MaxLenght
         {
             get => 15;
@@ -36,6 +37,8 @@ namespace Inventories.Player
             QuantiteAUtiliser = 0;
             QuantiteAct = 0;
             IndexActuel = 0;
+
+            PSH = transform.Find("Canvas").Find("Inventory").Find("HolderSlot").GetComponent<PlayerSlotHolder>();
         }
         
         public void Update()
@@ -43,7 +46,6 @@ namespace Inventories.Player
             if (Input.GetKeyDown(Keys.InventoryKey) && !transform.GetChild(0).gameObject.activeInHierarchy ) //quand i est pressé et que l'UI n'est pas activé 
             {
                transform.GetChild(0).gameObject.SetActive(true);
-               
             }
             else if (Input.GetKeyDown(KeyCode.I) && transform.GetChild(0).gameObject.activeInHierarchy )
                 // Si la touche pour fermer l'inventaire est enfoncée et que le panneau d'inventaire est ouvert
@@ -54,7 +56,7 @@ namespace Inventories.Player
 
         public void UpdateDescription(uint i)
         {
-            Debug.Log("ca update vraimenr la description");
+            Debug.Log("update valeur description");
             if (Inventaire[i] is null)
             {
                 NomActuel = "";
@@ -96,6 +98,7 @@ namespace Inventories.Player
                     break;
                 }
             }
+            PSH.UpdateSlot();
         }
 
         public void RemoveItem()
@@ -122,22 +125,25 @@ namespace Inventories.Player
 
                 UpdateDescription(IndexActuel);
             }
+            PSH.UpdateSlot();
         }
 
         public void GiveItem()
         { 
-            if (QuantiteAUtiliser > 0){
-            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
-            newItem.title = Inventaire[IndexActuel].title;
-            newItem.description = Inventaire[IndexActuel].description;
-            newItem.amount = QuantiteAUtiliser;
-            newItem.icon = Inventaire[IndexActuel].icon;
-            newItem.isStackable = Inventaire[IndexActuel].isStackable;
-            newItem.type = Inventaire[IndexActuel].type;
+            if (QuantiteAUtiliser > 0)
+            {
+                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+                newItem.title = Inventaire[IndexActuel].title;
+                newItem.description = Inventaire[IndexActuel].description;
+                newItem.amount = QuantiteAUtiliser;
+                newItem.icon = Inventaire[IndexActuel].icon;
+                newItem.isStackable = Inventaire[IndexActuel].isStackable;
+                newItem.type = Inventaire[IndexActuel].type;
 
-            RemoveItem();
-            //inventorybureau .AddItem(newItem);
+                RemoveItem();
+                //inventorybureau .AddItem(newItem);
             }
+            PSH.UpdateSlot();
         }
 
         public void UseItem()
@@ -155,6 +161,7 @@ namespace Inventories.Player
 
                 RemoveItem();
             }
+            PSH.UpdateSlot();
         }
 
         public void minusB()
