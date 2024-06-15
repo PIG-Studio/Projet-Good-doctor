@@ -13,7 +13,7 @@ namespace Inventories.Player
         public Image Image { get; set; }
         public TextMeshProUGUI TextAmount { get; set; }
         public uint index { get; set; }
-
+        
         public void Start()
         {
             Debug.Log("startSlot");
