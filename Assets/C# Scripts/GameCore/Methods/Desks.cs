@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameCore.Variables;
 using Desks;
+using Destinations.Lieux.Cafet;
 using Destinations.Lieux.Sortie;
 using Super.Interfaces.Destination;
 
@@ -26,6 +27,7 @@ namespace GameCore.Methods
             Variable.Desk3= new Desk("DESK_3");
             Variable.Desk4 = new Desk("DESK_4");
             Variable.Sortie = Sortie.Dest_Sortie();
+            Variable.Cafet = Cafet.Dest_Cafet();
 
         }
     }

@@ -93,5 +93,6 @@ namespace GameCore.Variables
         };
         
         public static INormalDestination Sortie { get; set; }
+        public static INormalDestination Cafet { get; set; }
     }
 }
