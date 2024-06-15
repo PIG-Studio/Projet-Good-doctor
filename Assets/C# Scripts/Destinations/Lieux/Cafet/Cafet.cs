@@ -28,18 +28,17 @@ namespace Destinations.Lieux.Cafet
         public static INormalDestination Dest_Cafet()
         {
             // Création de la destination avec des paramètres spécifiques
-            NormalDestination retour = new NormalDestination(7, Vector2.zero,
-                new (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[7], 0);
+            NormalDestination retour = new NormalDestination(6, Vector2.zero,
+                new (bool occupe, Vector2 coordonees, ICanGoInDestination occupant)[6], 1);
             
             // Ajout des differentes coordonnées
-            retour.PtArrivee = new Vector2(-12f, -33f);
-            retour.PtAttente[0].coordonees = new Vector2(-23.5f, -53f);
-            retour.PtAttente[1].coordonees = new Vector2(-26.5f, -53f);
-            retour.PtAttente[2].coordonees = new Vector2(-30.5f, -53f);
-            retour.PtAttente[3].coordonees = new Vector2(-31f, -56f);
-            retour.PtAttente[4].coordonees = new Vector2(-28f, -56f);
-            retour.PtAttente[5].coordonees = new Vector2(-25f, -56f);
-            retour.PtAttente[6].coordonees = new Vector2(-22f, -56f);
+            retour.PtArrivee = new Vector2(35f, -12f);
+            retour.PtAttente[0].coordonees = new Vector2(40f, -4.5f);
+            retour.PtAttente[1].coordonees = new Vector2(46f, -4.5f);
+            retour.PtAttente[2].coordonees = new Vector2(48f, -4.5f);
+            retour.PtAttente[3].coordonees = new Vector2(51f, -4.5f);
+            retour.PtAttente[4].coordonees = new Vector2(46.5f, -8f);
+            retour.PtAttente[5].coordonees = new Vector2(41f, -9f);
             
             
             AjustementVariables(retour); // Appel de la méthode pour ajuster les variables
