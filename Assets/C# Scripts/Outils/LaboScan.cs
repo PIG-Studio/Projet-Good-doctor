@@ -1,3 +1,5 @@
+using Maladies.Base.SubTypes;
+using Super.Interfaces.Patient;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +15,10 @@ namespace Outils
         { 
             if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
             Debug.Log("Clique");
-            PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
-            ADN.GetComponent<TextMeshProUGUI>().text  = patient.Adn.ToString();
+            PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as 
+                PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
+            Adn adn = patient.Adn as Adn;
+            ADN.GetComponent<TextMeshProUGUI>().text  = adn.AdnValue;
         }
 
         public void Start()

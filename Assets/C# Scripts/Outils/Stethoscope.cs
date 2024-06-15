@@ -16,7 +16,7 @@ namespace Outils
             if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
             Debug.Log("Clique !");
             PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
-            Freq.GetComponent<TextMeshProUGUI>().text  = patient.FreqCar + " BPM";
+            Freq.GetComponent<TextMeshProUGUI>().text  = patient.FreqCar.Valeur + " BPM";
         }
 
         public void Start()

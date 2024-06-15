@@ -49,7 +49,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                 
                 (Sickness, IsLying.Value) = Acces.GenererRandom();
                 Adn = Attributs.GenAdn(Sickness.AdnSain);
-                Age = new Random().Next().RandomInt();
+                Age = 70.RandomInt() + 18;
                 (Phrase, Name.Value , Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
                 ChooseDestinationServerRpc();
             }

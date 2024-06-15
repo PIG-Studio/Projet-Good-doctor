@@ -15,7 +15,7 @@ namespace Outils
 
                 Debug.Log("Clique");
                 PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
-                Mood.GetComponent<TextMeshProUGUI>().text  = patient + " BPM";
+                Mood.GetComponent<TextMeshProUGUI>().text  = patient.Depression.Valeur.ToString();
         }
 
         public void Start()
