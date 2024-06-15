@@ -4,6 +4,7 @@ using ScriptableObject;
 using Super.Interfaces.Inventory;
 using TypeExpand.String;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Inventories.Desk
 {

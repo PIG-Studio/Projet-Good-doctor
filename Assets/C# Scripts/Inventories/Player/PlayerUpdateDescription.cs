@@ -31,7 +31,7 @@ namespace Inventories.Player
         { 
             Debug.Log("update description");
             desc.text = Inventory.DescActuelle ?? "";
-            Icon.sprite = Inventory.ImageActuel ?? Resources.Load<Sprite>("UI/SquareGD");
+            Icon.sprite = Inventory.ImageActuel ? Inventory.ImageActuel : Resources.Load<Sprite>("UI/SquareGD");
             Title.text = Inventory.NomActuel ?? "";
             Amount.text = Inventory.QuantiteAUtiliser.ToString() + " / " + Inventory.QuantiteAct.ToString();
         }

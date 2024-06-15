@@ -29,7 +29,7 @@ namespace Inventories.Desk
         public void Update()
         { 
             Debug.Log("update desk description");
-            Icon.sprite = Inventory.ImageActuel ?? Resources.Load<Sprite>("UI/SquareGD");
+            Icon.sprite = Inventory.ImageActuel ? Inventory.ImageActuel : Resources.Load<Sprite>("UI/SquareGD");
             Title.text = Inventory.NomActuel ?? "";
             Amount.text = Inventory.QuantiteAUtiliser.ToString() + " / " + Inventory.QuantiteAct.ToString();
         }

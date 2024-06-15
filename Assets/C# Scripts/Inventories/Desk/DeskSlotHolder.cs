@@ -29,7 +29,7 @@ namespace Inventories.Desk
                 }
             }
 
-            int n = Inventory.Inventaire.Length;
+            uint n = Inventory.MaxLenght;
             for (uint i = 0; i < n; i++) //initialise l'inventaire
             {
                 GameObject slot = Instantiate(PrefabSlot);
