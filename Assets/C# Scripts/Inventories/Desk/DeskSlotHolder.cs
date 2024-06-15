@@ -32,9 +32,8 @@ namespace Inventories.Desk
             uint n = Inventory.MaxLenght;
             for (uint i = 0; i < n; i++) //initialise l'inventaire
             {
-                GameObject slot = Instantiate(PrefabSlot);
+                GameObject slot = Instantiate(PrefabSlot, transform, true);
                 DeskSlot slotItem = slot.GetComponent<DeskSlot>();
-                slot.transform.SetParent(transform);
                 slotItem.Inventory = Inventory;
                 slotItem.index = i;
             }
