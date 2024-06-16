@@ -174,5 +174,16 @@ namespace Inventories.Player
             if (QuantiteAUtiliser < QuantiteAct )
                 QuantiteAUtiliser++;
         }
+
+        public bool Contain(string otherName)
+        {
+            foreach (ItemsSo item in Inventaire)
+            {
+                if (item.name == otherName)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

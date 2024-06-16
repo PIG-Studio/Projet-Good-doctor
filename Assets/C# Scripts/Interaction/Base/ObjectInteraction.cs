@@ -2,8 +2,8 @@
 
 namespace Interaction.Base
 {
-    public abstract class ObjectInteraction : MonoBehaviour
+    public class ObjectInteraction : MonoBehaviour
     {
-        public void Interact() { }
+        public string TextAct { get; set; }
     }
 }

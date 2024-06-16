@@ -1,21 +1,18 @@
-﻿using System;
-using Interaction.Base;
-using UnityEngine;
-using GameCore.Variables;
+﻿using GameCore.Variables;
 using Parameters;
 using ScriptableObject;
-
+using UnityEngine;
 
 namespace Interaction.Implementation
 {
-    public class Distributeur : ObjectInteraction
+    public class MeubleDonneObjet : MonoBehaviour
     {
         /// <summary>
         /// Méthode appelée pour interagir avec le distributeur
         /// </summary>
         public PrintBubbleDescription Bubble { get; set; }
         [SerializeField] public GameObject BubbleTemp;
-
+        [SerializeField] public ItemsSo item;
         public void Start()
         {
             Bubble = BubbleTemp.GetComponent<PrintBubbleDescription>();
@@ -25,17 +22,16 @@ namespace Interaction.Implementation
         {
             if (Input.GetKeyDown(Keys.UseKey) && other.CompareTag("Player"))
             {
-                // FAIT POP UNE MADELAINE DANS INVENTAIRE
+                // FAIT POP UN objet choisit dans l'inventaire
                 if (!other.CompareTag("Player")) return;
-                ItemsSo newItem = Resources.Load<ItemsSo>("Prefabs/Item/Madeleine").CopyItem();
-                newItem.amount = 5;
-                Variable.CurrentlyRenderedDesk.Responsable.Inventory.AddItem(newItem);
+                ItemsSo newitem = item.CopyItem();
+                Variable.CurrentlyRenderedDesk.Responsable.Inventory.AddItem(newitem);
 
-                Bubble.DescAct = "Vous venez de récupérer 5 madeleines du distributeur de madeleine";
+                Bubble.DescAct = "Vous venez de trouver un nouvel objet !";
                 Bubble.SetActive();
+                
+                Destroy(gameObject);
             }
         }
-    
     }
 }
-
