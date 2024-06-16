@@ -7,10 +7,12 @@ using Super.Interfaces.Maladies.Types;
 using Maladies;
 using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
+using ScriptableObject;
 using Super.Interfaces;
 using Super.Interfaces.Entites;
 using Super.Interfaces.Patient;
 using Unity.Netcode;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
@@ -216,6 +218,30 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void Die()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void AddReputation()
+        {
+            int rep = Variable.CurrentlyRenderedDesk.Responsable.Reputation;
+            if (/* adn  &&*/ FreqCar.Valeur <= 80 && FreqCar.Valeur >= 60 && Temperature.Valeur <= 37 && Temperature.Valeur >= 35 && Depression.Valeur >= 0 &&
+                Depression.Valeur <= 2)
+            {
+                if (rep + 10 > 100)
+                    Variable.CurrentlyRenderedDesk.Responsable.Reputation = 100;
+                else
+                {
+                    Variable.CurrentlyRenderedDesk.Responsable.Reputation += 10;
+                }
+            }
+            else
+            {
+                if (rep - 10 < 100)
+                    Variable.CurrentlyRenderedDesk.Responsable.Reputation = 0;
+                else
+                {
+                    Variable.CurrentlyRenderedDesk.Responsable.Reputation -= 10;
+                }
+            }
         }
     }
 }

@@ -44,6 +44,7 @@ namespace ScriptableObject
             newItem.ModifyEmotion = ModifyEmotion;
             newItem.ModifyTemp = ModifyTemp;
             newItem.ModifyFreqCar = ModifyFreqCar;
+            newItem.Price = Price;
 
             return newItem;
         }

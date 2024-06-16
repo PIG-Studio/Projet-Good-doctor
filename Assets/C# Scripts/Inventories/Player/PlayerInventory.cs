@@ -76,8 +76,9 @@ namespace Inventories.Player
                 ImageActuel = Inventaire[i].icon;
                 DescActuelle = Inventaire[i].description;
                 QuantiteAct = Inventaire[i].amount;
-                IndexActuel = i;
                 PrixActuel = Inventaire[i].Price;
+                IndexActuel = i;
+                
             }
         }
 
@@ -149,10 +150,13 @@ namespace Inventories.Player
                 {
                     //utiliser objet dur patient.
                     Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].Price;
+                    if (Inventaire[IndexActuel].Deadly && Variable.CurrentlyRenderedDesk.Responsable.Reputation > 0)
+                        Variable.CurrentlyRenderedDesk.Responsable.Reputation -= 20;
                 }
                 else
                 {
                     //utiliser objet sur joueur.
+                    //si medicament est mortel dire que c'est la fin du jeu.
                 }
 
                 RemoveItem();
