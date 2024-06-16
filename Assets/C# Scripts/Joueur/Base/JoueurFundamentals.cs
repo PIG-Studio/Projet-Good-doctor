@@ -30,6 +30,8 @@ namespace Joueur.Base
             }
             
             Inventory = transform.Find("InventoryManager").GetComponent<PlayerInventory>();
+            Inventory.Start();
+            Inventory.Update();
             Money = 100;
             Reputation = 60;
         }

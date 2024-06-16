@@ -19,7 +19,7 @@ namespace Inventories.Desk
         public uint PrixActuel { get; set; }
 
         public ItemsSo[] Inventaire { get; set; }
-        
+        public DeskSlotHolder Psh { get; set; }
         public uint MaxLenght
         {
             get => 24;
@@ -35,7 +35,10 @@ namespace Inventories.Desk
             QuantiteAct = 0;
             QuantiteAUtiliser = 0;
             PrixActuel = 0;
-            transform.GetChild(0).gameObject.SetActive(true);
+            
+            Psh = transform.Find("SlotHolder").GetComponent<DeskSlotHolder>();
+            Psh.Start();
+            Psh.UpdateSlot();
         }
 
         public void Update()
@@ -54,6 +57,7 @@ namespace Inventories.Desk
 
         public void UpdateDescription(uint i)
         {
+            Debug.Log("desk description values being refresh");
             if (Inventaire[i] is null)
             {
                 NomActuel = "";
@@ -94,16 +98,17 @@ namespace Inventories.Desk
                     break;
                 }
             }
+            Psh.UpdateSlot();
         }
 
         public void RemoveItem()
         {
             //Debug.Log("RemoveItem Desk");
-            if (QuantiteAUtiliser == QuantiteAct)
+            if (QuantiteAUtiliser == QuantiteAct && QuantiteAct == 0)
             {
                 Inventaire[IndexActuel] = null;
             }
-            else
+            else if (QuantiteAUtiliser > 0)
             {
                 ItemsSo newItem = Inventaire[IndexActuel].CopyItem();
                 newItem.amount = QuantiteAct - QuantiteAUtiliser;
@@ -111,6 +116,7 @@ namespace Inventories.Desk
                 Inventaire[IndexActuel] = newItem;
             }
             UpdateDescription(IndexActuel);
+            Psh.UpdateSlot();
         }
 
         public void SwitchInventory()
@@ -122,7 +128,10 @@ namespace Inventories.Desk
                 
                 RemoveItem();
                 Variable.CurrentlyRenderedDesk.Responsable.Inventory.AddItem(newItem);
+                UpdateDescription(IndexActuel);
+                
             }
+            Psh.UpdateSlot();
         }
 
         public void UseItem()
@@ -132,7 +141,9 @@ namespace Inventories.Desk
                 //utiliser objet sur patient 
                 Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].price;
                 RemoveItem();
+                UpdateDescription(IndexActuel);
             }
+            Psh.UpdateSlot();
         }
 
         public void MinusB()

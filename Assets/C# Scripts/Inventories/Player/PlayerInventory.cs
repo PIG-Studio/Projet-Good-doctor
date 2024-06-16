@@ -38,6 +38,8 @@ namespace Inventories.Player
             PrixActuel = 0;
             
             Psh = transform.Find("Canvas").Find("Inventory").Find("HolderSlot").GetComponent<PlayerSlotHolder>();
+            Psh.Start();
+            Psh.UpdateSlot();
         }
         
         public void Update()
@@ -108,11 +110,11 @@ namespace Inventories.Player
             if (QuantiteAUtiliser > 0)
             {
                 //Debug.Log("RemoveItem inventory");
-                if (QuantiteAUtiliser == QuantiteAct)
+                if (QuantiteAUtiliser == QuantiteAct && QuantiteAct == 0)
                 {
                     Inventaire[IndexActuel] = null;
                 }
-                else
+                else if (QuantiteAUtiliser > 0)
                 {
                     ItemsSo newItem = Inventaire[IndexActuel].CopyItem();
                     newItem.amount = QuantiteAct - QuantiteAUtiliser;
@@ -134,6 +136,7 @@ namespace Inventories.Player
                 
                 RemoveItem();
                 Variable.SceneNameCurrent.ToDesk()!.Inventory.AddItem(newItem);
+                UpdateDescription(IndexActuel);
             }
             Psh.UpdateSlot();
         }
@@ -154,7 +157,7 @@ namespace Inventories.Player
                     //utiliser objet sur joueur.
                     //si medicament est mortel dire que c'est la fin du jeu.
                 }
-
+                UpdateDescription(IndexActuel);
                 RemoveItem();
             }
             Psh.UpdateSlot();

@@ -15,6 +15,7 @@ namespace Inventories.Desk
 
         public void Start()
         {
+            Debug.Log("start slot desk");
             TextAmount = transform.Find("amount").gameObject.GetComponent<TextMeshProUGUI>();
             Image = transform.Find("icon").gameObject.GetComponent<Image>();
         }
@@ -35,12 +36,11 @@ namespace Inventories.Desk
                 Image.sprite = Inventory.Inventaire[Index].icon;
                 TextAmount.text = Inventory.Inventaire[Index].amount.ToString();
             }
-            SetDescriptionValues();
         }
 
         public void SetDescriptionValues()
         {
-            Debug.Log("click on button to print description");
+            Debug.Log("click on button to print desk description");
             Inventory.UpdateDescription(Index);         
         }
     }

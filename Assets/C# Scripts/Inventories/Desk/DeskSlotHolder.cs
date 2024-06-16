@@ -13,8 +13,10 @@ namespace Inventories.Desk
         //[SerializeField] public GameObject Inventorytemp;
         public void Start()
         {
+            Debug.Log("start desk inventory");
             PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/DeskSlotItem");
             Inventory =  Variable.SceneNameCurrent.ToDesk()!.Inventory;
+            UpdateSlot();
         }
 
         public void UpdateSlot()
@@ -27,7 +29,7 @@ namespace Inventories.Desk
                 }
             }
 
-            uint n = Inventory.MaxLenght;
+            int n = Inventory.Inventaire.Length;
             for (uint i = 0; i < n; i++) //initialise l'inventaire
             {
                 GameObject slot = Instantiate(PrefabSlot, transform, true);

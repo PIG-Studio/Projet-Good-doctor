@@ -32,6 +32,7 @@ namespace Desks
         public Desk(string sceneName)
         {
             Inventaire = new ItemsSo[MaxLenght];
+            
             SceneName = sceneName;
             CurrentPatient = null;
             AssociatedDestination = this.ToDeskDestination()!;

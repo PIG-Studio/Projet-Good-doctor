@@ -20,7 +20,7 @@ namespace Inventories.Desk
         public void Start()
         {
             Icon = transform.Find("Image").GetComponent<Image>();
-            Title = transform.Find("NameObject").GetComponent<TextMeshProUGUI>();
+            Title = transform.Find("Tittle").GetComponent<TextMeshProUGUI>();
             Amount = transform.Find("AmountToUse").GetComponent<TextMeshProUGUI>();
             Price = transform.Find("Price").GetComponent<TextMeshProUGUI>();
             Inventory = inventoryTemp.GetComponent<DeskInventory>();
@@ -29,9 +29,9 @@ namespace Inventories.Desk
         // Update is called once per frame
         public void Update()
         { 
-            Debug.Log("update desk description");
-            Icon.sprite = Inventory.ImageActuel ? Inventory.ImageActuel : Resources.Load<Sprite>("UI/SquareGD");
-            Title.text = Inventory.NomActuel ?? "";
+            Debug.Log("update desk UI description");
+            Icon.sprite = Inventory.ImageActuel;// ? Inventory.ImageActuel : Resources.Load<Sprite>("UI/SquareGD");
+            Title.text = Inventory.NomActuel;// ?? "";
             Amount.text = Inventory.QuantiteAUtiliser.ToString() + " / " + Inventory.QuantiteAct.ToString();
             Price.text = Inventory.PrixActuel.ToString();
         }

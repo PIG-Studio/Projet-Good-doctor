@@ -1,4 +1,5 @@
-﻿using Inventories.Player;
+﻿using GameCore.Variables;
+using Inventories.Player;
 using ScriptableObject;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Inventories
             if (!other.CompareTag("Player")) return;
             ItemsSo newItem = item.CopyItem();
             
-            other.transform.Find("InventoryManager").GetComponent<PlayerInventory>().AddItem(newItem);
+            Variable.CurrentlyRenderedDesk.Responsable.Inventory.AddItem(newItem);
 
             Destroy(gameObject); // Détruit l'objet ramassé
         }
