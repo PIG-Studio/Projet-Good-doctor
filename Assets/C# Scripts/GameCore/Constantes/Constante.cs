@@ -124,7 +124,7 @@ namespace GameCore.Constantes
         public static string[] TutoImages = new string[]
         {
             "Images/ReputMoney", "Images/ReputMoney", "Sprites/Medicaments/Doliprune" , "Sprites/Medicaments/Doliprune",
-            "Images/Fiche"
+            "Images/Fiche", "Images/LesOutils", "Images/InventaireDesk", "Images/Diagno"
             
         };
 
@@ -141,7 +141,16 @@ namespace GameCore.Constantes
             new []{"Médicaments" , "Chaque médicaments prescrit rapporte de l'argent au joueur cependant faites attention, " +
                                    "si le patient est mal soigné le joueur perdra de la reputation"},
             new []{"Fiche Patient" , "Le Joueur peut consulter et intéragir avec la fiche patient lui permettant " +
-                                     "d'en savoir plus sur les symptômes du patient grâce aux outils"}
+                                     "d'en savoir plus sur les symptômes du patient grâce aux outils"},
+            new []{"Les Outils" , "Le joueur possède différents outils qu'il peut utiliser pour connaître la température " +
+                                  ", la fréquence cardiaque, l'ADN ainsi que l'humeur du patient"},
+            new []{"Inventaire" , "Le joueur possède un inventaire avec lequel il peut intéragir et savoir " +
+                                  "quel médicament il possède et en quel quantité. Le joueur devra " +
+                                  "aller chercher les médicaments dont il a besoin pour ensuite les donner au pa " +
+                                  "tient"},
+            new []{"Diagnostic" , "Pour préscrire un diagnostic, le joueur devra sélectionner quel " +
+                                  "médicament il souhaite donner au patient et en quel quantité. " +
+                                  "Si le joueur estime que le patient est soigné alors il pourra le faire partir."}
         };
     }
 }
