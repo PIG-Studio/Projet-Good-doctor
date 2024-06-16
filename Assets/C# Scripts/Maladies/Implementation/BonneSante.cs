@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
-using Maladies.Base;
-using GameCore.Constantes;
+﻿using Maladies.Base;
+using Super.Interfaces.Patient;
 
 namespace Maladies.Implementation
 {
@@ -9,10 +7,10 @@ namespace Maladies.Implementation
     {
         public BonneSante() : base("En Bonne Santé") { }
 
-        public bool EstEnBonneSante(PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient Test)
+        public bool EstEnBonneSante(IPatient patientTest)
         {
-            return (FreqCar == Test.Adn) && (Temperature == Test.Temperature) &&
-                   (Depression == Test.Depression);
+            return (FreqCar == patientTest.FreqCar) && (Temperature == patientTest.Temperature) &&
+                   (Depression == patientTest.Depression);
         }
     }
 }

@@ -1,5 +1,9 @@
+using GameCore.Variables;
+using Super.Interfaces.Patient;
 using TMPro;
+using TypeExpand.String;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Outils
@@ -7,14 +11,15 @@ namespace Outils
     public class Thermometer : MonoBehaviour
     {
         private static Object _thermometer;
-        public GameObject Temp;
+        [FormerlySerializedAs("Temp")] public GameObject temp;
 
         void ThermhoOnClick()
         { 
-            if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
+            if(Variable.SceneNameCurrent.ToDesk()!.CurrentPatient == null) return;
             Debug.Log("Clique");
-            PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
-            Temp.GetComponent<TextMeshProUGUI>().text  = patient.Temperature.Valeur + " °c";
+            IPatient patient = Variable.SceneNameCurrent.ToDesk()!.CurrentPatient as IPatient;
+            if (patient is null) return;
+            temp.GetComponent<TextMeshProUGUI>().text  = patient!.Temperature.Valeur + " °c";
         }
 
         public void Start()

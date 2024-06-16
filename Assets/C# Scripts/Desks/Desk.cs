@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using GameCore.Variables;
 using Super.Interfaces.Destination;
 using Super.Interfaces.Entites;
-using Inventories;
 using Inventories.Desk;
 using ScriptableObject;
 using Super.Interfaces.Bureau;

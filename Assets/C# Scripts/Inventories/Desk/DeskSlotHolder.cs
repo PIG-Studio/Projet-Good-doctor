@@ -1,6 +1,4 @@
-﻿using CustomScenes;
-using GameCore.Variables;
-using Inventories.Player;
+﻿using GameCore.Variables;
 using Super.Interfaces.Inventory;
 using TypeExpand.String;
 using UnityEngine;
@@ -35,7 +33,7 @@ namespace Inventories.Desk
                 GameObject slot = Instantiate(PrefabSlot, transform, true);
                 DeskSlot slotItem = slot.GetComponent<DeskSlot>();
                 slotItem.Inventory = Inventory;
-                slotItem.index = i;
+                slotItem.Index = i;
             }
         }
     }

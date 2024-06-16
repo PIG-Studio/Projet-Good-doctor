@@ -1,6 +1,6 @@
-using Super.Interfaces.Inventory;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Inventories.Desk
@@ -10,8 +10,8 @@ namespace Inventories.Desk
         //[SerializeField] public GameObject InventoryTemp;
         
         public DeskInventory Inventory { get; set; }
-        [SerializeField] public GameObject Inventorytemp;
-        public TextMeshProUGUI desc { get; set; }
+        [FormerlySerializedAs("Inventorytemp")] [SerializeField] public GameObject inventoryTemp;
+        public TextMeshProUGUI Desc { get; set; }
         public Image Icon { get; set; }
         public TextMeshProUGUI Title { get; set; }
         public TextMeshProUGUI Amount { get; set; }
@@ -23,7 +23,7 @@ namespace Inventories.Desk
             Title = transform.Find("NameObject").GetComponent<TextMeshProUGUI>();
             Amount = transform.Find("AmountToUse").GetComponent<TextMeshProUGUI>();
             Price = transform.Find("Price").GetComponent<TextMeshProUGUI>();
-            Inventory = Inventorytemp.GetComponent<DeskInventory>();
+            Inventory = inventoryTemp.GetComponent<DeskInventory>();
         }
 
         // Update is called once per frame

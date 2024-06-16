@@ -1,6 +1,5 @@
 using CustomScenes;
 using GameCore.Variables;
-using TypeExpand.String;
 using UnityEngine;
 using Unity.Netcode;
 using Random = System.Random;
@@ -41,12 +40,10 @@ namespace GameCore.Methods
             //Debug.Log(guillaume.Name + " " + guillaume.Depression + " " + guillaume.Sickness + " " +
             //          guillaume.Adn);
             Debug.Log(Patient); // Affichage du GameObject représentant le patient (pour débogage)
-            // Vérification si l'instance actuelle n'est pas l'hôte dans le réseau
-            if (!NetworkManager.Singleton.IsHost) return;
             
             // Vérification si la scène actuelle n'est pas un bureau ou la carte
-            if (!Variable.SceneNameCurrent.IsDesk() && Variable.SceneNameCurrent != Scenes.Map) return;
-            if (!Input.GetKeyDown(KeyCode.P)) return;
+            /*if (!Variable.SceneNameCurrent.IsDesk() && Variable.SceneNameCurrent != Scenes.Map) return;
+            if (!Input.GetKeyDown(KeyCode.P)) return;*/
         }
     }
 }       

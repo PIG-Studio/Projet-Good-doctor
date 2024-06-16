@@ -14,7 +14,9 @@ namespace TypeExpand.EDesk
             return bureau.SceneName switch
             {
                 "DESK_Base" => Bureau.DESK_Base(bureau),
-                "DESK_Upgraded" => Bureau.DESK_Upgraded(bureau),
+                "DESK_2" => Bureau.DESK_2(bureau),
+                "DESK_3" => Bureau.DESK_3(bureau),
+                "DESK_4" => Bureau.DESK_4(bureau),
                 _ => null
             };
         }

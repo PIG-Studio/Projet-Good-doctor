@@ -1,10 +1,7 @@
 using System;
 using TypeExpand.Animator;
-using Inventories;
-          
 using UnityEngine;
 using GameCore.Constantes;
-using Inventories.Player;
 using Unity.Netcode;
 
 namespace PlayerController.Base

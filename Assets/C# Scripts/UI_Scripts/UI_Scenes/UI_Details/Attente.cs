@@ -1,11 +1,9 @@
-using System;
-using Desks;
 using GameCore.Variables;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI_Scripts.UI_Scenes.UIDetails
+namespace UI_Scripts.UI_Scenes.UI_Details
 {
     public class Attente : MonoBehaviour
     {

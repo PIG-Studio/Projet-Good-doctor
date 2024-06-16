@@ -1,7 +1,6 @@
 ﻿using Super.Interfaces.Inventory;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 namespace Inventories.Player
@@ -12,7 +11,7 @@ namespace Inventories.Player
         public uint Amount { get; set; }
         public Image Image { get; set; }
         public TextMeshProUGUI TextAmount { get; set; }
-        public uint index { get; set; }
+        public uint Index { get; set; }
         
         public void Start()
         {
@@ -20,7 +19,7 @@ namespace Inventories.Player
             TextAmount = transform.Find("amount").gameObject.GetComponent<TextMeshProUGUI>();
             Image = transform.Find("icon").gameObject.GetComponent<Image>();
             
-            if (Inventory.Inventaire[index] is null)
+            if (Inventory.Inventaire[Index] is null)
             {
                 Debug.Log("create empty slot");
                 Amount = 0;
@@ -30,9 +29,9 @@ namespace Inventories.Player
             else
             {
                 Debug.Log("create item slot");
-                Amount = Inventory.Inventaire[index].amount;
-                Image.sprite = Inventory.Inventaire[index].icon;
-                TextAmount.text = Inventory.Inventaire[index].amount.ToString();
+                Amount = Inventory.Inventaire[Index].amount;
+                Image.sprite = Inventory.Inventaire[Index].icon;
+                TextAmount.text = Inventory.Inventaire[Index].amount.ToString();
             }
         }
 
@@ -59,7 +58,7 @@ namespace Inventories.Player
         public void SetDescriptionValues()
         {
             Debug.Log("click on button SetDescriptionValues");
-            Inventory.UpdateDescription(index); 
+            Inventory.UpdateDescription(Index); 
         }
     }
 }

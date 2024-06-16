@@ -26,7 +26,7 @@ namespace Super.Interfaces.Inventory
         void SwitchInventory();
         void UseItem();
 
-        void minusB();
-        void plusB();
+        void MinusB();
+        void PlusB();
     }
 }

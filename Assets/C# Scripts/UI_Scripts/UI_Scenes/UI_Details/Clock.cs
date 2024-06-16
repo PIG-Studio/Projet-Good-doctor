@@ -1,8 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-namespace UI_Scripts.UI_Scenes
+namespace UI_Scripts.UI_Scenes.UI_Details
 {
     public class Clock : MonoBehaviour
     {

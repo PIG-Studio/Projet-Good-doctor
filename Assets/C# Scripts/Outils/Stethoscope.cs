@@ -1,6 +1,9 @@
-using System;
+using GameCore.Variables;
+using Super.Interfaces.Patient;
 using TMPro;
+using TypeExpand.String;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
@@ -9,14 +12,15 @@ namespace Outils
     public class Stethoscope : MonoBehaviour
     {
         private static Object _stethoscope;
-        public GameObject Freq;
+        [FormerlySerializedAs("Freq")] public GameObject freq;
 
         void StethoOnClick()
         { 
-            if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
+            if(Variable.SceneNameCurrent.ToDesk()!.CurrentPatient == null) return;
             Debug.Log("Clique !");
-            PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
-            Freq.GetComponent<TextMeshProUGUI>().text  = patient.FreqCar.Valeur + " BPM";
+            IPatient patient = Variable.SceneNameCurrent.ToDesk()!.CurrentPatient as IPatient;
+            if (patient is null) return;
+            freq.GetComponent<TextMeshProUGUI>().text  = patient.FreqCar.Valeur + " BPM";
         }
 
         public void Start()

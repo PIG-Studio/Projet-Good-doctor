@@ -1,11 +1,9 @@
 ﻿using CustomScenes;
 using GameCore.Variables;
-using Joueur.Base;
 using ScriptableObject;
 using Super.Interfaces.Inventory;
 using TypeExpand.String;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Inventories.Desk
 {
@@ -70,7 +68,7 @@ namespace Inventories.Desk
                 ImageActuel = Inventaire[i].icon;
                 QuantiteAct = Inventaire[i].amount;
                 IndexActuel = i;
-                PrixActuel = Inventaire[i].Price;
+                PrixActuel = Inventaire[i].price;
             }
         }
 
@@ -132,18 +130,18 @@ namespace Inventories.Desk
             if (QuantiteAUtiliser > 0)
             {
                 //utiliser objet sur patient 
-                Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].Price;
+                Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].price;
                 RemoveItem();
             }
         }
 
-        public void minusB()
+        public void MinusB()
         {
             if (QuantiteAUtiliser != 0)
                 QuantiteAUtiliser--;
         }
 
-        public void plusB()
+        public void PlusB()
         {
             if (QuantiteAUtiliser < QuantiteAct)
                 QuantiteAUtiliser++;

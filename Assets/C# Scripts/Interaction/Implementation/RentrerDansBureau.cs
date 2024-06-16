@@ -1,4 +1,3 @@
-using GameCore.Variables;
 using CustomScenes;
 using UnityEngine;
 using Parameters;

@@ -1,8 +1,6 @@
 ﻿using Super.Interfaces.Inventory;
 using UnityEngine;
-using PlayerController.Base;
-using TMPro;
-using UnityEngine.UI;
+using UnityEngine.Serialization;
 
 namespace Inventories.Player
 {
@@ -14,12 +12,12 @@ namespace Inventories.Player
         }
         public GameObject PrefabSlot { get; set; }
         public IInventory Inventory { get; set; }
-        [SerializeField] public GameObject Inventorytemp;
+        [FormerlySerializedAs("Inventorytemp")] [SerializeField] public GameObject inventoryTemp;
         
         public void Start()
         {
             PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/SlotItem");
-            Inventory = Inventorytemp.GetComponent<IInventory>();
+            Inventory = inventoryTemp.GetComponent<IInventory>();
             UpdateSlot();
         }
         
@@ -37,10 +35,10 @@ namespace Inventories.Player
             uint n = Inventory.MaxLenght;
             for (uint i = 0; i < n ; i++) //initialise l'inventaire
             {
-                GameObject _slot = Instantiate(PrefabSlot, transform, true);
-                PlayerSlot slotItem = _slot.GetComponent<PlayerSlot>();
+                GameObject slot = Instantiate(PrefabSlot, transform, true);
+                PlayerSlot slotItem = slot.GetComponent<PlayerSlot>();
                 slotItem.Inventory = Inventory;
-                slotItem.index = i;
+                slotItem.Index = i;
             }
         }
     }

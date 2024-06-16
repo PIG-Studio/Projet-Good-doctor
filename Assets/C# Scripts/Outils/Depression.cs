@@ -1,5 +1,9 @@
+using GameCore.Variables;
+using Super.Interfaces.Patient;
 using TMPro;
+using TypeExpand.String;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Outils
@@ -7,15 +11,16 @@ namespace Outils
     public class Depression : MonoBehaviour
     {
         private static Object _mood;
-        public GameObject Mood;
+        [FormerlySerializedAs("Mood")] public GameObject mood;
 
         void MoodOnClick()
         {
-            if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
+            if(Variable.Desk.CurrentPatient == null) return;
 
                 Debug.Log("Clique");
-                PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
-                Mood.GetComponent<TextMeshProUGUI>().text  = patient.Depression.Valeur.ToString();
+                IPatient patient = Variable.SceneNameCurrent.ToDesk()!.CurrentPatient as IPatient;
+                if (patient is null) return;
+                mood.GetComponent<TextMeshProUGUI>().text  = patient.Depression.Valeur.ToString();
         }
 
         public void Start()

@@ -1,3 +1,5 @@
+using System;
+
 namespace TypeExpand.Int
 {
     public static class EInt
@@ -16,7 +18,7 @@ namespace TypeExpand.Int
         /// <returns></returns>
         public static int RandomInt(this int value)
         {
-            return UnityEngine.Random.Range(0, value);
+            return  new Random().Next(0, value);
         }
     }
 }

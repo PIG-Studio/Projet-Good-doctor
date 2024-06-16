@@ -1,6 +1,5 @@
-    using System.Reflection;
-    using Image = UnityEngine.UI.Image;
-    using UnityEngine;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScriptableObject
 {
@@ -21,17 +20,17 @@ namespace ScriptableObject
 
         public Type type;
 
-        public bool AdnToNormal;
-        public int ModifyFreqCar;
-        public int ModifyTemp;
-        public int ModifyEmotion;
-        public bool Deadly;
+        [FormerlySerializedAs("AdnToNormal")] public bool adnToNormal;
+        [FormerlySerializedAs("ModifyFreqCar")] public int modifyFreqCar;
+        [FormerlySerializedAs("ModifyTemp")] public int m;
+        [FormerlySerializedAs("ModifyEmotion")] public int modifyEmotion;
+        [FormerlySerializedAs("Deadly")] public bool deadly;
 
-        public uint Price;
+        [FormerlySerializedAs("Price")] public uint price;
 
         public ItemsSo CopyItem()
         {
-            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+            ItemsSo newItem = CreateInstance<ItemsSo>();
             
             newItem.title = title;
             newItem.description = description;
@@ -39,12 +38,12 @@ namespace ScriptableObject
             newItem.icon = icon;
             newItem.isStackable = isStackable;
             newItem.type = type;
-            newItem.Deadly = Deadly;
-            newItem.AdnToNormal = AdnToNormal;
-            newItem.ModifyEmotion = ModifyEmotion;
-            newItem.ModifyTemp = ModifyTemp;
-            newItem.ModifyFreqCar = ModifyFreqCar;
-            newItem.Price = Price;
+            newItem.deadly = deadly;
+            newItem.adnToNormal = adnToNormal;
+            newItem.modifyEmotion = modifyEmotion;
+            newItem.m = m;
+            newItem.modifyFreqCar = modifyFreqCar;
+            newItem.price = price;
 
             return newItem;
         }

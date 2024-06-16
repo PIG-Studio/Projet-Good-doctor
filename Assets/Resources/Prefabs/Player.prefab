@@ -454,7 +454,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 544893203713062122}
         m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
-        m_MethodName: minusB
+        m_MethodName: MinusB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2653,7 +2653,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 544893203713062122}
         m_TargetAssemblyTypeName: Inventories.Player.PlayerInventory, Assembly-CSharp
-        m_MethodName: plusB
+        m_MethodName: PlusB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using ScriptableObject;
 using UnityEngine;
-using UnityEngine.UI;
-using Image = Microsoft.Unity.VisualStudio.Editor.Image;
 using Vector2 = System.Numerics.Vector2;
 
 namespace GameCore.Constantes
@@ -96,7 +94,7 @@ namespace GameCore.Constantes
         /// <summary>
         /// Nombre max de patients
         /// </summary>
-        public const int MaxPatient = 4;
+        public const int MaxPatient = 25;
         /// <summary>
         /// Touche d'intéraction
         /// </summary>
@@ -116,7 +114,7 @@ namespace GameCore.Constantes
             Resources.Load<ItemsSo>("Prefabs/Item/Opiomelon"), 
             Resources.Load<ItemsSo>("Prefabs/Item/Oxycodurian"), 
             Resources.Load<ItemsSo>("Prefabs/Item/Poudre de perlinpinpin"), 
-            Resources.Load<ItemsSo>("Prefabs/Item/Raicine")
+            Resources.Load<ItemsSo>("Prefabs/Item/Boite sus")
         };
         
         ///////////////////// Constantes Du Livre Tuto//////////////////////

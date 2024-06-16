@@ -2,6 +2,7 @@ using Maladies.Base.SubTypes;
 using Super.Interfaces.Patient;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Outils
@@ -9,16 +10,17 @@ namespace Outils
     public class LaboScan : MonoBehaviour
     {
         private static Object _labo;
-        public GameObject ADN;
+        [FormerlySerializedAs("Adn")] [FormerlySerializedAs("ADdn")] [FormerlySerializedAs("ADN")] public GameObject adn;
 
         void LaboOnClick()
         { 
             if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
             Debug.Log("Clique");
-            PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as 
-                PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
-            Adn adn = patient.Adn as Adn;
-            ADN.GetComponent<TextMeshProUGUI>().text  = adn.AdnValue;
+            IPatient patient = GameCore.Variables.Variable.Desk.CurrentPatient as 
+                IPatient;
+            if (patient == null) return;
+            Adn adn2 = patient.Adn as Adn;
+            adn.GetComponent<TextMeshProUGUI>().text  = adn2!.AdnValue;
         }
 
         public void Start()

@@ -1,14 +1,10 @@
-﻿using System.Net.Mime;
-using CustomScenes;
+﻿using CustomScenes;
 using GameCore.Variables;
 using Parameters;
 using ScriptableObject;
 using Super.Interfaces.Inventory;
-using TMPro;
 using TypeExpand.String;
 using UnityEngine;
-using UnityEngine.UI;
-using Image = UnityEngine.UI.Image;
 
 namespace Inventories.Player
 {
@@ -23,7 +19,7 @@ namespace Inventories.Player
         public uint IndexActuel { get; set; }
         public uint PrixActuel { get; set; }
 
-        public PlayerSlotHolder PSH { get; set; }
+        public PlayerSlotHolder Psh { get; set; }
         public uint MaxLenght
         {
             get => 15;
@@ -41,7 +37,7 @@ namespace Inventories.Player
             IndexActuel = 0;
             PrixActuel = 0;
             
-            PSH = transform.Find("Canvas").Find("Inventory").Find("HolderSlot").GetComponent<PlayerSlotHolder>();
+            Psh = transform.Find("Canvas").Find("Inventory").Find("HolderSlot").GetComponent<PlayerSlotHolder>();
         }
         
         public void Update()
@@ -63,7 +59,7 @@ namespace Inventories.Player
             if (Inventaire[i] is null)
             {
                 NomActuel = "";
-                ImageActuel = Resources.Load<Sprite>("UI/whiteSquare");
+                ImageActuel = Resources.Load<Sprite>("UI/SquareGD");
                 DescActuelle = "";
                 QuantiteAUtiliser = 0;
                 QuantiteAct = 0;
@@ -76,7 +72,7 @@ namespace Inventories.Player
                 ImageActuel = Inventaire[i].icon;
                 DescActuelle = Inventaire[i].description;
                 QuantiteAct = Inventaire[i].amount;
-                PrixActuel = Inventaire[i].Price;
+                PrixActuel = Inventaire[i].price;
                 IndexActuel = i;
                 
             }
@@ -104,7 +100,7 @@ namespace Inventories.Player
                     break;
                 }
             }
-            PSH.UpdateSlot();
+            Psh.UpdateSlot();
         }
 
         public void RemoveItem()
@@ -126,7 +122,7 @@ namespace Inventories.Player
 
                 UpdateDescription(IndexActuel);
             }
-            PSH.UpdateSlot();
+            Psh.UpdateSlot();
         }
 
         public void SwitchInventory()
@@ -137,9 +133,9 @@ namespace Inventories.Player
                 newItem.amount = QuantiteAUtiliser;
                 
                 RemoveItem();
-                Variable.SceneNameCurrent.ToDesk().Inventory.AddItem(newItem);
+                Variable.SceneNameCurrent.ToDesk()!.Inventory.AddItem(newItem);
             }
-            PSH.UpdateSlot();
+            Psh.UpdateSlot();
         }
 
         public void UseItem()
@@ -149,8 +145,8 @@ namespace Inventories.Player
                 if (Variable.SceneNameCurrent == Scenes.DBase)
                 {
                     //utiliser objet dur patient.
-                    Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].Price;
-                    if (Inventaire[IndexActuel].Deadly && Variable.CurrentlyRenderedDesk.Responsable.Reputation > 0)
+                    Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].price;
+                    if (Inventaire[IndexActuel].deadly && Variable.CurrentlyRenderedDesk.Responsable.Reputation > 0)
                         Variable.CurrentlyRenderedDesk.Responsable.Reputation -= 20;
                 }
                 else
@@ -161,16 +157,16 @@ namespace Inventories.Player
 
                 RemoveItem();
             }
-            PSH.UpdateSlot();
+            Psh.UpdateSlot();
         }
 
-        public void minusB()
+        public void MinusB()
         {
             if (QuantiteAUtiliser != 0)
                 QuantiteAUtiliser--;
         }
 
-        public void plusB()
+        public void PlusB()
         {
             if (QuantiteAUtiliser < QuantiteAct )
                 QuantiteAUtiliser++;

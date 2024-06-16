@@ -1,7 +1,5 @@
-﻿using GameCore.Variables;
-using Super.Interfaces.Inventory;
+﻿using Super.Interfaces.Inventory;
 using TMPro;
-using TypeExpand.String;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +11,7 @@ namespace Inventories.Desk
         public uint Amount { get; set; }
         public Image Image { get; set; }
         public TextMeshProUGUI TextAmount { get; set; }
-        public uint index { get; set; }
+        public uint Index { get; set; }
 
         public void Start()
         {
@@ -23,7 +21,7 @@ namespace Inventories.Desk
 
         public void Update()
         {
-            if (Inventory.Inventaire[index] is null)
+            if (Inventory.Inventaire[Index] is null)
             {
                 Debug.Log("create empty slot");
                 Amount = 0;
@@ -33,9 +31,9 @@ namespace Inventories.Desk
             else
             {
                 Debug.Log("create item slot");
-                Amount = Inventory.Inventaire[index].amount;
-                Image.sprite = Inventory.Inventaire[index].icon;
-                TextAmount.text = Inventory.Inventaire[index].amount.ToString();
+                Amount = Inventory.Inventaire[Index].amount;
+                Image.sprite = Inventory.Inventaire[Index].icon;
+                TextAmount.text = Inventory.Inventaire[Index].amount.ToString();
             }
             SetDescriptionValues();
         }
@@ -43,7 +41,7 @@ namespace Inventories.Desk
         public void SetDescriptionValues()
         {
             Debug.Log("click on button to print description");
-            Inventory.UpdateDescription(index);         
+            Inventory.UpdateDescription(Index);         
         }
     }
 }

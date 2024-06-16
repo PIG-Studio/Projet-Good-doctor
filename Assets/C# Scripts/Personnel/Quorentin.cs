@@ -44,7 +44,6 @@ namespace Personnel
         /// <summary>
         /// Méthode pour désinstancier Quorentin
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         public void Despawn()
         {
             throw new System.NotImplementedException();

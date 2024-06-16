@@ -5,17 +5,16 @@ using Super.Interfaces.Destination;
 using Super.Interfaces.Maladies;
 using Super.Interfaces.Maladies.Types;
 using Maladies;
+using Maladies.Base.SubTypes;
 using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
-using ScriptableObject;
 using Super.Interfaces;
 using Super.Interfaces.Entites;
 using Super.Interfaces.Patient;
 using TypeExpand.Int;
+using TypeExpand.String;
 using Unity.Netcode;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using Random = System.Random;
 
 namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 {
@@ -102,12 +101,13 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void SyncOnConnectServerRpc()
         {
             Debug.Log("[Server] SyncOnConnectServerRpc() started");
-            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur);
+            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur, Adn.AdnValue);
             Debug.Log("[Server] SyncOnConnectServerRpc() ended");
         }
         
+
         [ClientRpc]
-        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled, uint temperature, uint depression)
+        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled, uint temperature, uint depression, string adnValue)
         {
             
             Debug.Log("[Client] SyncOnConnectClientRpc() started");
@@ -116,6 +116,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             Rb.simulated = collisionsEnabled;
             Temperature = new Value(temperature);
             Depression = new Value(depression);
+            Adn = new Adn(adnValue);
             Debug.Log("[Client] SyncOnConnectClientRpc() ended");
         }
         
@@ -231,19 +232,19 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                 Depression.Valeur <= 2)
             {
                 if (rep + 10 > 100)
-                    Variable.CurrentlyRenderedDesk.Responsable.Reputation = 100;
+                    Variable.SceneNameCurrent.ToDesk()!.Responsable.Reputation = 100;
                 else
                 {
-                    Variable.CurrentlyRenderedDesk.Responsable.Reputation += 10;
+                    Variable.SceneNameCurrent.ToDesk()!.Responsable.Reputation += 10;
                 }
             }
             else
             {
                 if (rep - 10 < 100)
-                    Variable.CurrentlyRenderedDesk.Responsable.Reputation = 0;
+                    Variable.SceneNameCurrent.ToDesk()!.Responsable.Reputation = 0;
                 else
                 {
-                    Variable.CurrentlyRenderedDesk.Responsable.Reputation -= 10;
+                    Variable.SceneNameCurrent.ToDesk()!.Responsable.Reputation -= 10;
                 }
             }
         }

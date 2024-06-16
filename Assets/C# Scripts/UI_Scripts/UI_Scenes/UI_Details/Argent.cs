@@ -1,23 +1,22 @@
-using System;
 using GameCore.Variables;
 using TMPro;
 using UnityEngine;
 
-namespace UI_Scripts.UI_Scenes
+namespace UI_Scripts.UI_Scenes.UI_Details
 {
     public class Argent : MonoBehaviour
     {
-        private uint money;
+        private uint _money;
 
         public void Start()
         {
-            money = Variable.CurrentlyRenderedDesk.Responsable.Money;
-            transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = money +  "\u20ac ";
+            _money = Variable.CurrentlyRenderedDesk.Responsable.Money;
+            transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = _money +  "\u20ac ";
         }
 
         public void Update()
         {
-            transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = money +  "\u20ac ";
+            transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = _money +  "\u20ac ";
 
         }
     }

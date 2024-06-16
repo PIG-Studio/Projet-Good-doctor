@@ -1,9 +1,4 @@
-using GameCore.Variables;
-using Inventories;
-//using Inventories.Slots;
-using TypeExpand.String;
 using UnityEngine;
-using UI_Scripts.UI_Prefab;
 
 namespace Desks
 {
@@ -27,8 +22,8 @@ namespace Desks
 
         public void Start()
         {
-            GameObject inventoryRender =
-                UIPrefabs.INV_Inventory(Resources.Load<Sprite>("inventory"), "Inventory", 0, 0, 500, 50);
+            //GameObject inventoryRender =
+                //UIPrefabs.INV_Inventory(Resources.Load<Sprite>("inventory"), "Inventory", 0, 0, 500, 50);
 
             // On récupere le bureau et l'inventaire à afficher, NULL REFERENCE si script pas dans un bureau
             /*InventoryToRender = Variable.SceneNameCurrent.ToDesk()!.Inventory;

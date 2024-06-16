@@ -1,6 +1,3 @@
-using System;
-using Destinations.Lieux.Sortie;
-using Unity.Netcode;
 using UnityEngine;
 
 namespace Destinations.Implementation

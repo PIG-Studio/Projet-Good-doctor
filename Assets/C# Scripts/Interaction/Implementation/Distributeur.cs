@@ -1,7 +1,5 @@
-﻿using CustomScenes;
-using Interaction.Base;
+﻿using Interaction.Base;
 using UnityEngine;
-using GameCore.Constantes;
 using GameCore.Variables;
 using Parameters;
 using ScriptableObject;
@@ -21,7 +19,7 @@ namespace Interaction.Implementation
             {
                 // FAIT POP UNE MADELAINE DANS INVENTAIRE
                 if (!other.CompareTag("Player")) return;
-                ItemsSo item = Resources.Load<ItemsSo>("Prefabs/Item/Madeleine.asset");
+                ItemsSo item = Resources.Load<ItemsSo>("Prefabs/Item/Madeleine");
                 ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
                 newItem.title = item.title;
                 newItem.description = item.description;
