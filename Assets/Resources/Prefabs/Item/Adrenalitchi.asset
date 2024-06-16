@@ -16,6 +16,12 @@ MonoBehaviour:
   description: "Petit mais tr\xE8s riche , l'Adrenalitchi est la solution pour redonner
     du peps \xE0 votre coeur !"
   icon: {fileID: 0}
-  amount: 0
+  amount: 6
   isStackable: 1
   type: 1
+  AdnToNormal: 0
+  ModifyFreqCar: 10
+  ModifyTemp: 0
+  ModifyEmotion: 0
+  Deadly: 0
+  Price: 15

@@ -19,3 +19,9 @@ MonoBehaviour:
   amount: 1
   isStackable: 1
   type: 0
+  AdnToNormal: 0
+  ModifyFreqCar: 0
+  ModifyTemp: 0
+  ModifyEmotion: -5
+  Deadly: 0
+  Price: 3

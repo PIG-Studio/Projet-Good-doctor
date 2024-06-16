@@ -23,3 +23,4 @@ MonoBehaviour:
   ModifyTemp: 0
   ModifyEmotion: 0
   Deadly: 1
+  Price: 25

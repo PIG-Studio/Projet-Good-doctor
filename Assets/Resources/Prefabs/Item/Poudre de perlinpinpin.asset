@@ -16,6 +16,12 @@ MonoBehaviour:
   description: "Une poudre aux propr\xE9t\xE9s magiques capable de soigner les maux
     de tous types."
   icon: {fileID: 0}
-  amount: 0
+  amount: 6
   isStackable: 1
   type: 1
+  AdnToNormal: 1
+  ModifyFreqCar: 0
+  ModifyTemp: 0
+  ModifyEmotion: 0
+  Deadly: 0
+  Price: 25

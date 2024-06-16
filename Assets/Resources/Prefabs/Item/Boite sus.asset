@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 515ef2f831636f745acf729e2938829d, type: 3}
-  m_Name: "Mandagn\xE9sium"
+  m_Name: Boite sus
   m_EditorClassIdentifier: 
-  title: "Mandagn\xE9sium"
-  description: "Pour une utilisation optimale de ce m\xE9dicament, prenez-le et \xE9pluchez
-    une mandarine, rien de mieux pour se d\xE9tendre."
+  title: "Bo\xEEte suspicieuse"
+  description: On ne sait pas vraiment ce que soigne la racine, tout ce que l'on
+    sait, c'est qu'aucun patient n'est revenu s'en plaindre.
   icon: {fileID: 0}
-  amount: 0
+  amount: 3
   isStackable: 1
   type: 1
   AdnToNormal: 0
-  ModifyFreqCar: -10
+  ModifyFreqCar: 0
   ModifyTemp: 0
-  ModifyEmotion: -10
-  Deadly: 0
-  Price: 10
+  ModifyEmotion: 0
+  Deadly: 1
+  Price: 25

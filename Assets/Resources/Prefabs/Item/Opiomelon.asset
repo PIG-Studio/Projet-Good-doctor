@@ -22,5 +22,6 @@ MonoBehaviour:
   AdnToNormal: 0
   ModifyFreqCar: 0
   ModifyTemp: 0
-  ModifyEmotion: 0
+  ModifyEmotion: -20
   Deadly: 1
+  Price: 15

@@ -10,12 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 515ef2f831636f745acf729e2938829d, type: 3}
-  m_Name: Raicine
+  m_Name: Champix
   m_EditorClassIdentifier: 
-  title: Raicine
-  description: On ne sait pas vraiment ce que soigne la racine, tout ce que l'on
-    sait, c'est qu'aucun patient n'est revenu s'en plaindre.
+  title: Champix
+  description: "Apres avoir pris un de ces comprim\xE9s le monde devient subitement
+    color\xE9. Le sol bouge. De la musique resonne dans svotre t\xEAte. Mais que
+    ce passe t-il ?"
   icon: {fileID: 0}
-  amount: 0
+  amount: 10
   isStackable: 1
   type: 1
+  AdnToNormal: 1
+  ModifyFreqCar: 20
+  ModifyTemp: 2
+  ModifyEmotion: -30
+  Deadly: 0
+  Price: 20

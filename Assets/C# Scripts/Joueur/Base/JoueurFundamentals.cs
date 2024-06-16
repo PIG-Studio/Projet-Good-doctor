@@ -29,7 +29,7 @@ namespace Joueur.Base
                 AssignerBureauLibreServerRpc();
             }
 
-            Inventory = gameObject.AddComponent<PlayerInventory>();
+            Inventory = transform.Find("InventoryManager").GetComponent<PlayerInventory>();
         }
 
         

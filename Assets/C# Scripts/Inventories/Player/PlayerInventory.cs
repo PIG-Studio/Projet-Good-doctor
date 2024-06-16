@@ -5,6 +5,7 @@ using Parameters;
 using ScriptableObject;
 using Super.Interfaces.Inventory;
 using TMPro;
+using TypeExpand.String;
 using UnityEngine;
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
@@ -141,7 +142,7 @@ namespace Inventories.Player
                 newItem.type = Inventaire[IndexActuel].type;
 
                 RemoveItem();
-                //inventorybureau .AddItem(newItem);
+                Variable.SceneNameCurrent.ToDesk().Inventory.AddItem(newItem);
             }
             PSH.UpdateSlot();
         }
@@ -166,14 +167,14 @@ namespace Inventories.Player
 
         public void minusB()
         {
-            if (QuantiteAUtiliser < QuantiteAct)
-                QuantiteAUtiliser++;
+            if (QuantiteAUtiliser != 0)
+                QuantiteAUtiliser--;
         }
 
         public void plusB()
         {
-            if (QuantiteAUtiliser != 0)
-                QuantiteAUtiliser--;
+            if (QuantiteAUtiliser < QuantiteAct )
+                QuantiteAUtiliser++;
         }
     }
 }

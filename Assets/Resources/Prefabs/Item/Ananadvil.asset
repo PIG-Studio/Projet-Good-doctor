@@ -16,6 +16,12 @@ MonoBehaviour:
   description: "Rien de mieux qu'un bon m\xE9dicament \xE0 l'ananas pour agir fortement
     sur la fi\xE8vre et la douleur ! Un cocktail riche en bien-\xEAtre."
   icon: {fileID: 21300000, guid: 8faf2bd2ecce38f40ac1c9f35d2d1e8e, type: 3}
-  amount: 0
+  amount: 6
   isStackable: 1
   type: 1
+  AdnToNormal: 0
+  ModifyFreqCar: 0
+  ModifyTemp: -1
+  ModifyEmotion: 0
+  Deadly: 0
+  Price: 10

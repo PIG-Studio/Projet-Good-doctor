@@ -1,5 +1,6 @@
 ﻿using CustomScenes;
 using GameCore.Variables;
+using Joueur.Base;
 using ScriptableObject;
 using Super.Interfaces.Inventory;
 using TypeExpand.String;
@@ -117,7 +118,7 @@ namespace Inventories.Desk
 
         public void GiveItem()
         {
-            if (QuantiteAUtiliser > 0){
+            if (QuantiteAUtiliser > 0 && Variable.SceneNameCurrent == Scenes.DBase){
             ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
             newItem.title = Inventaire[IndexActuel].title;
             newItem.description = Inventaire[IndexActuel].description;
@@ -127,7 +128,7 @@ namespace Inventories.Desk
             newItem.type = Inventaire[IndexActuel].type;
             
             RemoveItem();
-           // inventaaire joueur AddItem(newItem);
+            JoueurFundamentals.Inventory.AddItem(newItem);
            }
         }
 
@@ -142,14 +143,14 @@ namespace Inventories.Desk
 
         public void minusB()
         {
-            if (QuantiteAUtiliser < QuantiteAct)
-                QuantiteAUtiliser++;
+            if (QuantiteAUtiliser != 0)
+                QuantiteAUtiliser--;
         }
 
         public void plusB()
         {
-            if (QuantiteAUtiliser != 0)
-                QuantiteAUtiliser--;
+            if (QuantiteAUtiliser < QuantiteAct)
+                QuantiteAUtiliser++;
         }
     }
 }
