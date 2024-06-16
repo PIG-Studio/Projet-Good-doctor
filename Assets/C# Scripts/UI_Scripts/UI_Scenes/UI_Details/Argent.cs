@@ -1,4 +1,5 @@
 using System;
+using GameCore.Variables;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace UI_Scripts.UI_Scenes
 
         public void Start()
         {
-            money = Joueur.Base.JoueurFundamentals.Money;
+            money = Variable.CurrentlyRenderedDesk.Responsable.Money;
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = money +  "\u20ac ";
         }
 

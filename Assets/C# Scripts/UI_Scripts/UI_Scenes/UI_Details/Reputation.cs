@@ -1,4 +1,5 @@
 using System;
+using GameCore.Variables;
 using Joueur.Base;
 using TMPro;
 using UnityEngine;
@@ -13,15 +14,15 @@ namespace UI_Scripts.UI_Scenes
         private int Rep;
         public void Start()
         {
-            Rep = JoueurFundamentals.Reputation;
+            Rep = Variable.CurrentlyRenderedDesk.Responsable.Reputation;
             transform.GetChild(4).GetComponent<TextMeshProUGUI>().text =
-                "Reputation : " + JoueurFundamentals.Reputation.ToString(); 
+                "Reputation : " + Rep.ToString(); 
         }
 
         public void Update()
         {
             transform.GetChild(4).GetComponent<TextMeshProUGUI>().text =
-                "Reputation : " + JoueurFundamentals.Reputation.ToString();
+                "Reputation : " + Variable.CurrentlyRenderedDesk.Responsable.Reputation.ToString();
             transform.GetChild(0).GetComponent<Image>().enabled = Rep >= 75;
             transform.GetChild(1).GetComponent<Image>().enabled = Rep >= 50 &&  Rep < 75;
             transform.GetChild(2).GetComponent<Image>().enabled = Rep >= 25 && Rep < 50;
