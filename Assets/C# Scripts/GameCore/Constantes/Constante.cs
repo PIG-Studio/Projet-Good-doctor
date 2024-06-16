@@ -122,7 +122,8 @@ namespace GameCore.Constantes
         public static string[] TutoImages = new string[]
         {
             "Images/ReputMoney", "Images/ReputMoney", "Sprites/Medicaments/Doliprune" , "Sprites/Medicaments/Doliprune",
-            "Images/Fiche", "Images/LesOutils", "Images/InventaireDesk", "Images/Diagno"
+            "Images/Fiche", "Images/LesOutils", "Images/InventaireDesk", "Images/Diagno", "Images/LaMap", "Images/Parler",
+            "Images/AuSol"
             
         };
 
@@ -148,7 +149,19 @@ namespace GameCore.Constantes
                                   "tient"},
             new []{"Diagnostic" , "Pour préscrire un diagnostic, le joueur devra sélectionner quel " +
                                   "médicament il souhaite donner au patient et en quel quantité. " +
-                                  "Si le joueur estime que le patient est soigné alors il pourra le faire partir."}
+                                  "Si le joueur estime que le patient est soigné alors il pourra le faire partir."},
+            new []{"Votre Hôpital" , "Bien evidemment vous n'êtes pas obliger de rester dans votre bureau, " +
+                                     "en cliquant sur map vous pourrez aller explorer votre hôpital, " +
+                                     "voir vos patients, trouvez des objets et bien plus !"},
+            new []{"Les Patients" , "Dans la map, vous allez pouvoir intéragir avec de nombreuses choses, " +
+                                    "par exemple en vous approchant d'un patient et en appuyant sur la " +
+                                    "touche E, vous allez pouvoir parler avec lui et savoir son nom" }
+            ,
+            new []{"Des Items" , "Aussi, vous pourrez ramasser des items avec la même touche E " +
+                                 "ils peuvent être par terre, a des distributeurs, a vous de " +
+                                 "découvrir ce que cache l'hôpital"},
+            new []{"Alerte" , "Rassurez vous, pendant vos excursions une alerte s'affichera " +
+                              "quand vos patient on besoin de vous, foncez accomplir votre devoir !"}
         };
     }
 }
