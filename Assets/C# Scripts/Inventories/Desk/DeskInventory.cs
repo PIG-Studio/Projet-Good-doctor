@@ -128,8 +128,8 @@ namespace Inventories.Desk
             newItem.type = Inventaire[IndexActuel].type;
             
             RemoveItem();
-            JoueurFundamentals.Inventory.AddItem(newItem);
-           }
+            Variable.CurrentlyRenderedDesk.Responsable.Inventory.AddItem(newItem);
+            }
         }
 
         public void UseItem()

@@ -2,6 +2,7 @@
 using Interaction.Base;
 using UnityEngine;
 using GameCore.Constantes;
+using GameCore.Variables;
 using Parameters;
 using ScriptableObject;
 
@@ -28,17 +29,8 @@ namespace Interaction.Implementation
                 newItem.icon = item.icon;
                 newItem.isStackable = item.isStackable;
                 newItem.type = item.type;
-            
-                // for (int i = 0; i < InventoryManager.Instance.inventory.Count; i++)
-                // {
-                //     if (item.title == InventoryManager.Instance.inventory[i].title && item.isStackable &&
-                //         InventoryManager.Instance.inventory.Count > 0)
-                //     {
-                //         newItem.amount += InventoryManager.Instance.inventory[i].amount;
-                //         InventoryManager.Instance.inventory.Remove(InventoryManager.Instance.inventory[i]);
-                //     }
-                // }
-                // InventoryManager.Instance.inventory.Add(newItem);// Ajoute l'objet à l'inventaire
+                
+                Variable.CurrentlyRenderedDesk.Responsable.Inventory.AddItem(newItem);
 
                 Destroy(gameObject); // Détruit l'objet ramassé
             }

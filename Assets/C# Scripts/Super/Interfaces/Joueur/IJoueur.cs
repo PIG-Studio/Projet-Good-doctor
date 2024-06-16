@@ -1,3 +1,5 @@
+using Inventories.Player;
+
 namespace Super.Interfaces.Joueur
 {
     public interface IJoueur
@@ -5,6 +7,6 @@ namespace Super.Interfaces.Joueur
         uint Money { get; }
         int Reputation { get; }
         uint? BureauActuel { get; }
-        
+        PlayerInventory Inventory { get; set; }
     }
 }
