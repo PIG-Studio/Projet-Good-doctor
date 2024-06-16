@@ -11,9 +11,11 @@ using ScriptableObject;
 using Super.Interfaces;
 using Super.Interfaces.Entites;
 using Super.Interfaces.Patient;
+using TypeExpand.Int;
 using Unity.Netcode;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using Random = System.Random;
 
 namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
 {
@@ -28,6 +30,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public IValue Depression { get; set; }
         public IMaladie Sickness { get; set; }
         public IValue Temperature { get; set; }
+        public int Age { get; set; }
         public NetworkVariable<bool> AnalyseAdn { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public NetworkVariable<bool> AnalyseDepression { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public IValue FreqCar { get; set; }
@@ -48,6 +51,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                 
                 (Sickness, IsLying.Value) = Acces.GenererRandom();
                 Adn = Attributs.GenAdn(Sickness.AdnSain);
+                Age = 70.RandomInt() + 18;
                 (Phrase, Name.Value , Depression, Temperature, FreqCar)  = Attributs.Generer(Sickness);
                 ChooseDestinationServerRpc();
             }

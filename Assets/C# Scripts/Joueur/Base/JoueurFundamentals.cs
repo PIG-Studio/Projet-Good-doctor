@@ -28,8 +28,10 @@ namespace Joueur.Base
             {
                 AssignerBureauLibreServerRpc();
             }
-
+            
             Inventory = transform.Find("InventoryManager").GetComponent<PlayerInventory>();
+            Money = 100;
+            Reputation = 60;
         }
 
         

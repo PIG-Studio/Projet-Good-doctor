@@ -11,8 +11,10 @@ namespace Outils
 
         void ThermhoOnClick()
         { 
-            Debug.Log("Clique !");
-            Temp.GetComponent<TextMeshProUGUI>().text = 35 + " °c";
+            if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
+            Debug.Log("Clique");
+            PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
+            Temp.GetComponent<TextMeshProUGUI>().text  = patient.Temperature.Valeur + " °c";
         }
 
         public void Start()

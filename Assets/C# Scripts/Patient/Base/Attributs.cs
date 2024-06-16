@@ -17,6 +17,7 @@ namespace Patient.Base
         private static IValue DepressRandom(IMaladie maladie) => new Value(maladie.Depression.RandomUint());
         private static IValue TempRandom(IMaladie maladie) => new Value(maladie.Temperature.RandomUint());
         private static IValue FreqRandom(IMaladie maladie) => new Value(maladie.FreqCar.RandomUint());
+        
 
         /// <summary>
         /// Méthode pour générer aléatoirement un ensemble de phrases, nom, dépression, température et fréquence cardiaque

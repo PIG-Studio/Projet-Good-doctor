@@ -10,9 +10,12 @@ namespace Outils
         public GameObject Mood;
 
         void MoodOnClick()
-        { 
-            Debug.Log("Clique !");
-            Mood.GetComponent<TextMeshProUGUI>().text = "70";
+        {
+            if(GameCore.Variables.Variable.Desk.CurrentPatient == null) return;
+
+                Debug.Log("Clique");
+                PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient = GameCore.Variables.Variable.Desk.CurrentPatient as PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient;
+                Mood.GetComponent<TextMeshProUGUI>().text  = patient.Depression.Valeur.ToString();
         }
 
         public void Start()

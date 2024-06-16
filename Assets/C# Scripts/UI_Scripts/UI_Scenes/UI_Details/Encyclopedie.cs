@@ -19,34 +19,24 @@ using Image = UnityEngine.UIElements.Image;
 using Object = UnityEngine.Object;
 using GameCore.Constantes;
 
-namespace Interaction
+namespace UI_Scripts.UI_Scenes.UI_Details
 {
     public class Encyclopedie : MonoBehaviour
     {
-        public SpriteRenderer Photographie;
-
-        public TextMeshProUGUI Nom;
-
-        public TextMeshProUGUI Description;
-
-        public Button Next;
-
-        public Button Before;
-
         private int Index { get; set; }
         
         public void Start()
         {
-            Before.enabled = false;
-            Index = 0;
-            Next.onClick.AddListener(NextClick);
-            Before.onClick.AddListener(BeforeClick);
+            Index = -1;
+            transform.GetChild(1).GetComponent<Button>().enabled = false;
+            transform.GetChild(0).GetComponent<Button>().onClick.AddListener(NextClick);
+            transform.GetChild(1).GetComponent<Button>().onClick.AddListener(BeforeClick);
         }
 
         void HandleClick()
         {
-            Next.enabled = Index != Constante.Encyclopedies.Length - 1;
-            Before.enabled = Index != 0;
+            transform.GetChild(0).GetComponent<Button>().enabled = Index != Constante.Encyclopedies.Length - 1;
+            transform.GetChild(1).GetComponent<Button>().enabled = Index != 0;
         }
 
         void NextClick()
@@ -54,9 +44,9 @@ namespace Interaction
             if (Index >= Constante.Encyclopedies.Length - 1) return;
             Index++;
             ItemsSo aux = Constante.Encyclopedies[Index];
-            Photographie.sprite = aux.icon;
-            Nom.text = aux.title;
-            Description.text = aux.description;
+            transform.GetChild(4).GetComponent<UnityEngine.UI.Image>().sprite = aux.icon;
+            transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = aux.title;
+            transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = aux.description;
             HandleClick();
         }
 
@@ -65,9 +55,9 @@ namespace Interaction
             if (Index <= 0) return;
             Index--;
             ItemsSo aux = Constante.Encyclopedies[Index];
-            Photographie.sprite = aux.icon;
-            Nom.text = aux.title;
-            Description.text = aux.description;
+            transform.GetChild(4).GetComponent<UnityEngine.UI.Image>().sprite = aux.icon;
+            transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = aux.title;
+            transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = aux.description;
             HandleClick();
         }
     }

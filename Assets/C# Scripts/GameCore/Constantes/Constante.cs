@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using ScriptableObject;
 using UnityEngine;
+using UnityEngine.UI;
 using Vector2 = System.Numerics.Vector2;
 
 namespace GameCore.Constantes
@@ -114,6 +116,21 @@ namespace GameCore.Constantes
             Resources.Load<ItemsSo>("Prefabs/Item/Oxycodurian"), 
             Resources.Load<ItemsSo>("Prefabs/Item/Poudre de perlinpinpin"), 
             Resources.Load<ItemsSo>("Prefabs/Item/Raicine")
+        };
+        
+        ///////////////////// Constantes Du Livre Tuto//////////////////////
+
+        public static string[] TutoImages = new string[]
+        {
+            "Images/ReputMoney"
+        };
+
+        public static List<string[]> TexteTuto = new List<string[]>()
+        {
+            new string[]{"But Du Jeu" , 
+                "Le but de Good Doctor est de gérer un hôpital et de soigner des patients" +
+                "tout en faisant attention à son argent et a sa barre de reputation qui varie" +
+                "en fonction du traitement que l'on donne au patients"}
         };
     }
 }
