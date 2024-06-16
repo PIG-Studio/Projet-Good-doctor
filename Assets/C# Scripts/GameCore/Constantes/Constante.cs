@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ScriptableObject;
 using UnityEngine;
 using UnityEngine.UI;
+using Image = Microsoft.Unity.VisualStudio.Editor.Image;
 using Vector2 = System.Numerics.Vector2;
 
 namespace GameCore.Constantes
@@ -122,7 +123,8 @@ namespace GameCore.Constantes
 
         public static string[] TutoImages = new string[]
         {
-            "Images/ReputMoney", "Images/ReputMoney", "Sprites/Medicaments/Doliprune" , "Sprites/Medicaments/Doliprune"
+            "Images/ReputMoney", "Images/ReputMoney", "Sprites/Medicaments/Doliprune" , "Sprites/Medicaments/Doliprune",
+            "Images/Fiche"
             
         };
 
@@ -137,7 +139,9 @@ namespace GameCore.Constantes
             new []{"Médicaments" , "Le joueur a accès a différents médicaments chacun avec leur nom et leur spécifités que " +
                                    "le joueur peut consulter dans l'encyclopédie"},
             new []{"Médicaments" , "Chaque médicaments prescrit rapporte de l'argent au joueur cependant faites attention, " +
-                                   "si le patient est mal soigné le joueur perdra de la reputation"}
+                                   "si le patient est mal soigné le joueur perdra de la reputation"},
+            new []{"Fiche Patient" , "Le Joueur peut consulter et intéragir avec la fiche patient lui permettant " +
+                                     "d'en savoir plus sur les symptômes du patient grâce aux outils"}
         };
     }
 }
