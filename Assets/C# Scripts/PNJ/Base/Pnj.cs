@@ -70,7 +70,7 @@ namespace PNJ.Base
             
             
             // Si cette instance n'est pas l'hôte return sinon Spawn
-            if (!NetworkManager.Singleton.IsHost) return;
+            if (!NetworkManager.Singleton.IsServer) return;
             
             Skin = (uint)Variable.PnjSkin.Length.RandomInt();
             // Enregistrer la position actuelle de l'objet
