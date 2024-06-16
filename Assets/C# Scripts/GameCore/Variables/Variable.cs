@@ -88,8 +88,8 @@ namespace GameCore.Variables
         
         public static RuntimeAnimatorController[] PnjSkin { get; } = new[]
         {
-            Resources.Load<RuntimeAnimatorController>("Animations/Player"), 
-            Resources.Load<RuntimeAnimatorController>("Animations/Player2")
+            Resources.Load<RuntimeAnimatorController>("Animations/Patient/jumeau/Player"), 
+            Resources.Load<RuntimeAnimatorController>("Animations/Patient/rougeau/Player2")
         };
         
         public static INormalDestination Sortie { get; set; }
