@@ -1,6 +1,5 @@
 ﻿using Super.Interfaces.Inventory;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Inventories.Player
 {
@@ -12,12 +11,14 @@ namespace Inventories.Player
         }
         public GameObject PrefabSlot { get; set; }
         public IInventory Inventory { get; set; }
-        [FormerlySerializedAs("Inventorytemp")] [SerializeField] public GameObject inventoryTemp;
+        [SerializeField] public GameObject inventoryTemp;
         
         public void Start()
         {
             PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/SlotItem");
-            Inventory = inventoryTemp.GetComponent<IInventory>();
+            Inventory = inventoryTemp.
+                GetComponent<IInventory>();
+            Debug.Log($"start slot holder {Inventory}");
             UpdateSlot();
         }
         

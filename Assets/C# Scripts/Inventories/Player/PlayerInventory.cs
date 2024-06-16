@@ -44,12 +44,12 @@ namespace Inventories.Player
         {
             if (Input.GetKeyDown(Keys.InventoryKey) && !transform.GetChild(0).gameObject.activeInHierarchy ) //quand i est pressé et que l'UI n'est pas activé 
             {
-               transform.GetChild(0).gameObject.SetActive(true);
+               transform.Find("Canvas").gameObject.SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.I) && transform.GetChild(0).gameObject.activeInHierarchy )
                 // Si la touche pour fermer l'inventaire est enfoncée et que le panneau d'inventaire est ouvert
             {
-                transform.GetChild(0).gameObject.SetActive(false);
+                transform.Find("Canvas").gameObject.SetActive(false);
             }
         }
 

@@ -26,7 +26,7 @@ namespace GameCore.Methods
 
         public void Update()
         {
-            if (!NetworkManager.Singleton.IsHost) return;
+            if (!NetworkManager.Singleton.IsServer) return;
             if (!(Variable.SceneNameCurrent == Scenes.Map)) return;
             TempsEcoulee = Time.time;
             if (TempsEcoulee - TempsDernierPatient > Variable.WaitTime &&  

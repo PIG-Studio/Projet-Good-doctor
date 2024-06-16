@@ -15,6 +15,7 @@ namespace UI_Scripts.UI_Scenes.UI_Details
 
         public void Update()
         {
+            if (!Variable.SceneNameCurrent.IsDesk()) return;
             if (Variable.SceneNameCurrent.ToDesk()!.CurrentPatient == null)
             {
                 transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Client suivant";
