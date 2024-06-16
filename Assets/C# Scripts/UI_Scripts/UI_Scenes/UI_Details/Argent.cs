@@ -16,6 +16,7 @@ namespace UI_Scripts.UI_Scenes.UI_Details
 
         public void Update()
         {
+            _money = Variable.CurrentlyRenderedDesk.Responsable.Money;
             transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = _money +  "\u20ac ";
 
         }

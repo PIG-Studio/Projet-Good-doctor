@@ -122,8 +122,8 @@ namespace GameCore.Constantes
         public static string[] TutoImages = new string[]
         {
             "Images/ReputMoney", "Images/ReputMoney", "Sprites/Medicaments/Doliprune" , "Sprites/Medicaments/Doliprune",
-            "Images/Fiche", "Images/LesOutils", "Images/InventaireDesk", "Images/Diagno", "Images/LaMap", "Images/Parler",
-            "Images/AuSol"
+            "Images/Fiche", "Images/LesOutils", "Images/InventaireDesk", "Images/Diagno", "Images/NextPatient" ,"Images/LaMap", "Images/Parler",
+            "Images/AuSol","Images/Inventaire","Images/Alerte"
             
         };
 
@@ -150,6 +150,11 @@ namespace GameCore.Constantes
             new []{"Diagnostic" , "Pour préscrire un diagnostic, le joueur devra sélectionner quel " +
                                   "médicament il souhaite donner au patient et en quel quantité. " +
                                   "Si le joueur estime que le patient est soigné alors il pourra le faire partir."},
+            
+            new []{"Appeler Un Patient" , "Dès qu'un patient attendra à votre porte, appuyez sur le " +
+                                          "bouton patient suivant pour le faire rentrer et commencer" +
+                                          " le diagnostic"},
+            
             new []{"Votre Hôpital" , "Bien evidemment vous n'êtes pas obliger de rester dans votre bureau, " +
                                      "en cliquant sur map vous pourrez aller explorer votre hôpital, " +
                                      "voir vos patients, trouvez des objets et bien plus !"},
@@ -160,6 +165,9 @@ namespace GameCore.Constantes
             new []{"Des Items" , "Aussi, vous pourrez ramasser des items avec la même touche E " +
                                  "ils peuvent être par terre, a des distributeurs, a vous de " +
                                  "découvrir ce que cache l'hôpital"},
+            new []{"Votre Inventaire" , "Tout les items que vous trouvez sont stockées dans votre " +
+                                        "inventaire, appuyer sur la touche I et accédez " +
+                                        "a toute vos trouvailles !"},
             new []{"Alerte" , "Rassurez vous, pendant vos excursions une alerte s'affichera " +
                               "quand vos patient on besoin de vous, foncez accomplir votre devoir !"}
         };
