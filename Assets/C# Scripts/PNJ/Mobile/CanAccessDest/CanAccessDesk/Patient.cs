@@ -5,6 +5,7 @@ using Super.Interfaces.Destination;
 using Super.Interfaces.Maladies;
 using Super.Interfaces.Maladies.Types;
 using Maladies;
+using Maladies.Base.SubTypes;
 using Maladies.Base.SubTypes.Symptomes;
 using Patient.Base;
 using Super.Interfaces;
@@ -96,12 +97,13 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void SyncOnConnectServerRpc()
         {
             Debug.Log("[Server] SyncOnConnectServerRpc() started");
-            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur);
+            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur, Adn.AdnValue);
             Debug.Log("[Server] SyncOnConnectServerRpc() ended");
         }
         
+
         [ClientRpc]
-        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled, uint temperature, uint depression)
+        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled, uint temperature, uint depression, string adnValue)
         {
             
             Debug.Log("[Client] SyncOnConnectClientRpc() started");
@@ -110,6 +112,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             Rb.simulated = collisionsEnabled;
             Temperature = new Value(temperature);
             Depression = new Value(depression);
+            Adn = new Adn(adnValue);
             Debug.Log("[Client] SyncOnConnectClientRpc() ended");
         }
         
