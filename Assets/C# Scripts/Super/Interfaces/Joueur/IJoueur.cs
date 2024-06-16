@@ -4,8 +4,8 @@ namespace Super.Interfaces.Joueur
 {
     public interface IJoueur
     {
-        uint Money { get; }
-        int Reputation { get; }
+        uint Money { get; set; }
+        int Reputation { get; set; }
         uint? BureauActuel { get; }
         PlayerInventory Inventory { get; set; }
     }

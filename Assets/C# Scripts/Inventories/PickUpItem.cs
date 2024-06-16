@@ -15,13 +15,8 @@ namespace Inventories
         {
             // Vérifie si l'objet en collision n'a pas le tag "Player"
             if (!other.CompareTag("Player")) return;
-            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
-            newItem.title = item.title;
-            newItem.description = item.description;
-            newItem.amount = item.amount;
-            newItem.icon = item.icon;
-            newItem.isStackable = item.isStackable;
-            newItem.type = item.type;
+            ItemsSo newItem = item.CopyItem();
+            
             other.transform.Find("InventoryManager").GetComponent<PlayerInventory>().AddItem(newItem);
 
             Destroy(gameObject); // Détruit l'objet ramassé

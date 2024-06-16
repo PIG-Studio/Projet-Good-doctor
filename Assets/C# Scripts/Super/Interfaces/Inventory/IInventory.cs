@@ -13,6 +13,8 @@ namespace Super.Interfaces.Inventory
         public uint QuantiteAUtiliser { get; set; }
         public uint QuantiteAct { get; set; }
         public uint IndexActuel { get; set; }
+        
+        public uint PrixActuel { get; set; }
         public uint MaxLenght { get; }
 
         public void Start();
@@ -21,7 +23,7 @@ namespace Super.Interfaces.Inventory
         void UpdateDescription(uint i);
         void AddItem(ItemsSo item);
         void RemoveItem();
-        void GiveItem();
+        void SwitchInventory();
         void UseItem();
 
         void minusB();

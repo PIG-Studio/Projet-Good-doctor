@@ -21,6 +21,7 @@ namespace Inventories.Player
         public uint QuantiteAUtiliser { get; set; }
         public uint QuantiteAct { get; set; }
         public uint IndexActuel { get; set; }
+        public uint PrixActuel { get; set; }
 
         public PlayerSlotHolder PSH { get; set; }
         public uint MaxLenght
@@ -38,7 +39,8 @@ namespace Inventories.Player
             QuantiteAUtiliser = 0;
             QuantiteAct = 0;
             IndexActuel = 0;
-
+            PrixActuel = 0;
+            
             PSH = transform.Find("Canvas").Find("Inventory").Find("HolderSlot").GetComponent<PlayerSlotHolder>();
         }
         
@@ -66,6 +68,7 @@ namespace Inventories.Player
                 QuantiteAUtiliser = 0;
                 QuantiteAct = 0;
                 IndexActuel = i;
+                PrixActuel = 0;
             }
             else
             {
@@ -74,6 +77,7 @@ namespace Inventories.Player
                 DescActuelle = Inventaire[i].description;
                 QuantiteAct = Inventaire[i].amount;
                 IndexActuel = i;
+                PrixActuel = Inventaire[i].Price;
             }
         }
 
@@ -113,13 +117,8 @@ namespace Inventories.Player
                 }
                 else
                 {
-                    ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
-                    newItem.title = Inventaire[IndexActuel].title;
-                    newItem.description = Inventaire[IndexActuel].description;
+                    ItemsSo newItem = Inventaire[IndexActuel].CopyItem();
                     newItem.amount = QuantiteAct - QuantiteAUtiliser;
-                    newItem.icon = Inventaire[IndexActuel].icon;
-                    newItem.isStackable = Inventaire[IndexActuel].isStackable;
-                    newItem.type = Inventaire[IndexActuel].type;
 
                     Inventaire[IndexActuel] = newItem;
                 }
@@ -129,18 +128,13 @@ namespace Inventories.Player
             PSH.UpdateSlot();
         }
 
-        public void GiveItem()
+        public void SwitchInventory()
         { 
             if (QuantiteAUtiliser > 0)
             {
-                ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
-                newItem.title = Inventaire[IndexActuel].title;
-                newItem.description = Inventaire[IndexActuel].description;
+                ItemsSo newItem = Inventaire[IndexActuel].CopyItem();
                 newItem.amount = QuantiteAUtiliser;
-                newItem.icon = Inventaire[IndexActuel].icon;
-                newItem.isStackable = Inventaire[IndexActuel].isStackable;
-                newItem.type = Inventaire[IndexActuel].type;
-
+                
                 RemoveItem();
                 Variable.SceneNameCurrent.ToDesk().Inventory.AddItem(newItem);
             }
@@ -154,6 +148,7 @@ namespace Inventories.Player
                 if (Variable.SceneNameCurrent == Scenes.DBase)
                 {
                     //utiliser objet dur patient.
+                    Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].Price;
                 }
                 else
                 {

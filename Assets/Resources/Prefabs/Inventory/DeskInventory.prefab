@@ -267,6 +267,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Option
       objectReference: {fileID: 0}
+    - target: {fileID: 2903124148541815584, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50.261
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903124148541815584, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 21.4181
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903124148541815584, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 57.078983
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903124148541815584, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.9084
+      objectReference: {fileID: 0}
     - target: {fileID: 3064991387661960451, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 52
@@ -302,6 +318,54 @@ PrefabInstance:
     - target: {fileID: 3413366847499683037, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277492041690568665, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 25.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277492041690568665, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 24.2833
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277492041690568665, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -43.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277492041690568665, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000012577
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327088474708415704, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_text
+      value: 2222
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327088474708415704, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_fontSize
+      value: 19.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327088474708415704, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327088474708415704, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327088474708415704, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327088474708415704, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327088474708415704, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 68e73dde3fe4d044bb7768d16d5c5212, type: 2}
+    - target: {fileID: 5327088474708415704, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281874488
       objectReference: {fileID: 0}
     - target: {fileID: 5763509446173953329, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -357,7 +421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8095134576872306951, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GiveItem
+      value: SwitchInventory
       objectReference: {fileID: 0}
     - target: {fileID: 8095134576872306951, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -501,11 +565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8822299825196069374, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00095844
+      value: -41.7
       objectReference: {fileID: 0}
     - target: {fileID: 8822299825196069374, guid: 6cc4fba33cd8d85448a4c4660b306162, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 53.35
+      value: 57.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

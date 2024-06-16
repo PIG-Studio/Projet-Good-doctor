@@ -28,5 +28,24 @@ namespace ScriptableObject
         public bool Deadly;
 
         public uint Price;
+
+        public ItemsSo CopyItem()
+        {
+            ItemsSo newItem = UnityEngine.ScriptableObject.CreateInstance<ItemsSo>();
+            
+            newItem.title = title;
+            newItem.description = description;
+            newItem.amount = amount;
+            newItem.icon = icon;
+            newItem.isStackable = isStackable;
+            newItem.type = type;
+            newItem.Deadly = Deadly;
+            newItem.AdnToNormal = AdnToNormal;
+            newItem.ModifyEmotion = ModifyEmotion;
+            newItem.ModifyTemp = ModifyTemp;
+            newItem.ModifyFreqCar = ModifyFreqCar;
+
+            return newItem;
+        }
     }
 }

@@ -15,13 +15,14 @@ namespace Inventories.Desk
         public Image Icon { get; set; }
         public TextMeshProUGUI Title { get; set; }
         public TextMeshProUGUI Amount { get; set; }
-        
+        public TextMeshProUGUI Price { get; set; }
         // Start is called before the first frame update
         public void Start()
         {
             Icon = transform.Find("Image").GetComponent<Image>();
             Title = transform.Find("NameObject").GetComponent<TextMeshProUGUI>();
             Amount = transform.Find("AmountToUse").GetComponent<TextMeshProUGUI>();
+            Price = transform.Find("Price").GetComponent<TextMeshProUGUI>();
             Inventory = Inventorytemp.GetComponent<DeskInventory>();
         }
 
@@ -32,6 +33,7 @@ namespace Inventories.Desk
             Icon.sprite = Inventory.ImageActuel ? Inventory.ImageActuel : Resources.Load<Sprite>("UI/SquareGD");
             Title.text = Inventory.NomActuel ?? "";
             Amount.text = Inventory.QuantiteAUtiliser.ToString() + " / " + Inventory.QuantiteAct.ToString();
+            Price.text = Inventory.PrixActuel.ToString();
         }
         
     }
