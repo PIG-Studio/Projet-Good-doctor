@@ -26,6 +26,7 @@ namespace Destinations.Implementation
             IsFull = false;
             NbEntites = 0;
             DestId = listId;
+            Debug.Log($"destination {DestId} initialisée ({Capacite})");
         }
         
         /// <summary>
@@ -44,8 +45,10 @@ namespace Destinations.Implementation
                 if (PtAttente[i].occupe) continue;
                 PtAttente[i].occupe = true;
                 PtAttente[i].occupant = entity;
+                entity.Siege = (uint)i;
+                NbEntites++;
+                IsFull = NbEntites == Capacite;
                 entity.StartWaitingServerRpc();
-                siege = (uint)i;
                 break;
             }
             

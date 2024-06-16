@@ -93,7 +93,7 @@ namespace GameCore.Constantes
         /// <summary>
         /// Nombre max de patients
         /// </summary>
-        public const int MaxPatient = 24;
+        public const int MaxPatient = 25;
         /// <summary>
         /// Touche d'intéraction
         /// </summary>
