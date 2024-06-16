@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Poudre de perlinpinpin
   description: "Une poudre aux propr\xE9t\xE9s magiques capable de soigner les maux
     de tous types."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7f4fb59ae62357548be9acae6cd5be21, type: 3}
   amount: 6
   isStackable: 1
   type: 1

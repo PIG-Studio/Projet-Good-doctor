@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "Doux , fruit\xE9 et rafra\xEEchissant , voil\xE0 de quoi \xE9gayer
     la vie de n'importe qui."
   icon: {fileID: 21300000, guid: da68757a3cae5cf448ab78f1640f54b9, type: 3}
-  amount: 0
+  amount: 10
   isStackable: 1
   type: 1
   AdnToNormal: 0

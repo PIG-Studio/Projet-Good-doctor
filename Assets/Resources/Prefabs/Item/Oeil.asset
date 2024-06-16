@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Oeil gauche de papi George
   description: "Papi George a perdu ses yeux . Ce globe oculaire regarde au plus
     profond de votre \xE2me.."
-  icon: {fileID: 21300000, guid: fe655e95b9904fc478f620de53e19fe1, type: 3}
+  icon: {fileID: 21300000, guid: 8bc01ba6f6f66824284995e244f75b0b, type: 3}
   amount: 1
   isStackable: 0
   type: 0

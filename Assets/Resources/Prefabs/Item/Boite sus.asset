@@ -15,7 +15,7 @@ MonoBehaviour:
   title: "Bo\xEEte suspicieuse"
   description: On ne sait pas vraiment ce que soigne la racine, tout ce que l'on
     sait, c'est qu'aucun patient n'est revenu s'en plaindre.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d23f8dd6f0aa88f43b1015e9d1dd4b1c, type: 3}
   amount: 3
   isStackable: 1
   type: 1

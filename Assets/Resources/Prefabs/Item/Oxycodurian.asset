@@ -16,8 +16,8 @@ MonoBehaviour:
   description: "Une forte odeur se d\xE9gage de ce comprim\xE9, pourtant on dit que
     son go\xFBt est un v\xE9ritable bonheur \xE0 ne pas rater. Oserez-vous tenter
     l'exp\xE9rience ? "
-  icon: {fileID: 0}
-  amount: 0
+  icon: {fileID: 21300000, guid: 4dac7062bc3e35641902a27d5c893d40, type: 3}
+  amount: 10
   isStackable: 1
   type: 1
   AdnToNormal: 0

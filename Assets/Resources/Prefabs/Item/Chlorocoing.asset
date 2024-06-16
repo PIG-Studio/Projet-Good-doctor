@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Chlorocoing
   description: Que dit un canard qui rentre dans une salle ovale ? "Coin(g)"
-  icon: {fileID: 0}
-  amount: 0
+  icon: {fileID: 21300000, guid: 8f312ef8b1a14e7489d9bdb52f091758, type: 3}
+  amount: 10
   isStackable: 1
   type: 1
   AdnToNormal: 0

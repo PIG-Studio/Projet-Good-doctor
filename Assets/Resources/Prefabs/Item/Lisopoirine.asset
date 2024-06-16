@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Lisopoirine
   description: On ne se sent pas bien ? Un petit lisopoirine et ca repart !
   icon: {fileID: 21300000, guid: a651348f56de05f459de87e670344ee5, type: 3}
-  amount: 3
+  amount: 10
   isStackable: 1
   type: 1
   AdnToNormal: 0

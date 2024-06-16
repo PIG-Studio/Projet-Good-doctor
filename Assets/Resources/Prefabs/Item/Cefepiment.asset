@@ -17,7 +17,7 @@ MonoBehaviour:
     sucre, 70g beurre, 2 oeufs, 1cc piment espelette, faire fondre le beurre, ajouter
     le sucre, incorporer les oeufs 1 \xE0 1, ajouter la farine, ajouter le piment,
     remplir les moules a madeleine, cuire 10 min au four a 170\xB0."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5f75d7562e52cd74387c66251388beb9, type: 3}
   amount: 10
   isStackable: 1
   type: 1

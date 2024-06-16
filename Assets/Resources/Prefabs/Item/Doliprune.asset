@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "Un bon m\xE9dicament aux etraits de prune qui apaise la douleur du
     patient."
   icon: {fileID: 21300000, guid: 12e4703ec7cee0d49beb9e7265f798cc, type: 3}
-  amount: 0
+  amount: 10
   isStackable: 1
   type: 1
   AdnToNormal: 0
