@@ -4,6 +4,7 @@ using Parameters;
 using ScriptableObject;
 using Super.Interfaces.Inventory;
 using TypeExpand.String;
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Inventories.Player
@@ -44,11 +45,11 @@ namespace Inventories.Player
         
         public void Update()
         {
-            if (Input.GetKeyDown(Keys.InventoryKey) && !transform.GetChild(0).gameObject.activeInHierarchy ) //quand i est pressé et que l'UI n'est pas activé 
+            if (transform.parent.gameObject.GetComponent<NetworkObject>().IsOwner && Input.GetKeyDown(Keys.InventoryKey) && !transform.GetChild(0).gameObject.activeInHierarchy ) //quand i est pressé et que l'UI n'est pas activé 
             {
                transform.Find("Canvas").gameObject.SetActive(true);
             }
-            else if (Input.GetKeyDown(KeyCode.I) && transform.GetChild(0).gameObject.activeInHierarchy )
+            else if (transform.parent.gameObject.GetComponent<NetworkObject>().IsOwner && Input.GetKeyDown(KeyCode.I) && transform.GetChild(0).gameObject.activeInHierarchy )
                 // Si la touche pour fermer l'inventaire est enfoncée et que le panneau d'inventaire est ouvert
             {
                 transform.Find("Canvas").gameObject.SetActive(false);

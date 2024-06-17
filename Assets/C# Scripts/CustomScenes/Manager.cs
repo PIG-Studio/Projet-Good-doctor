@@ -28,7 +28,7 @@ namespace CustomScenes
             Variable.SceneNameLast = SceneManager.GetActiveScene().name;
             Variable.SceneNameCurrent = newScene;
             Debug.Log($"CustomSceneManager.ChangeScene() : STARTING {Variable.SceneNameLast} -> {Variable.SceneNameCurrent}");
-            
+            SceneManager.LoadScene("Chargement");            
             int len = Variable.ListToCallOnSceneChange.Count;
             for (int i = len - 1; i >= 0; i--)
             {

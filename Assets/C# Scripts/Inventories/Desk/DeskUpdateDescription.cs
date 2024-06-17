@@ -29,7 +29,6 @@ namespace Inventories.Desk
         // Update is called once per frame
         public void Update()
         { 
-            Debug.Log("update desk UI description");
             Icon.sprite = Inventory.ImageActuel;// ? Inventory.ImageActuel : Resources.Load<Sprite>("UI/SquareGD");
             Title.text = Inventory.NomActuel;// ?? "";
             Amount.text = Inventory.QuantiteAUtiliser.ToString() + " / " + Inventory.QuantiteAct.ToString();

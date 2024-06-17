@@ -58,7 +58,6 @@ namespace Inventories.Desk
 
         public void UpdateDescription(uint i)
         {
-            Debug.Log("desk description values being refresh");
             if (Inventaire[i] is null)
             {
                 NomActuel = "";
@@ -79,7 +78,6 @@ namespace Inventories.Desk
 
         public void AddItem(ItemsSo item)
         {
-            Debug.Log("addItem Desk Inventory");
             for (uint i = 0; i < Inventaire.Length; i++)
             {
                 if (Inventaire[i] is not null)
