@@ -19,7 +19,7 @@ namespace Desks
         /// </summary>
       // private Inventory InventoryToRender { get; set; }
 
-
+/*
         public void Start()
         {
             //GameObject inventoryRender =
@@ -42,8 +42,8 @@ namespace Desks
 
                 vSlot.Object!.transform.SetParent(inventoryRender.transform);
                 i++;
-            }*/
-        }
+            }
+        }*/
 
         public void Update()
         {

@@ -55,7 +55,7 @@ namespace ScriptableObject
         {
             patient.Depression.Valeur += (uint)modifyEmotion;
             patient.Temperature.Valeur += (uint)modifyTemp;
-            patient.Adn.isHealthy = adnToNormal;
+            patient.Adn.IsHealthy = adnToNormal;
             patient.FreqCar.Valeur += (uint)modifyFreqCar;
         }
 

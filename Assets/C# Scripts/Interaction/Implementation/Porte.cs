@@ -1,7 +1,6 @@
-﻿using GameCore.Variables;
-using Parameters;
-using ScriptableObject;
+﻿using Parameters;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Interaction.Implementation
 {
@@ -11,10 +10,10 @@ namespace Interaction.Implementation
         /// Méthode appelée pour interagir avec le distributeur
         /// </summary>
         public PrintBubbleDescription Bubble { get; set; }
-        [SerializeField] public GameObject BubbleTemp;
+        [FormerlySerializedAs("BubbleTemp")] [SerializeField] public GameObject bubbleTemp;
         public void Start()
         {
-            Bubble = BubbleTemp.GetComponent<PrintBubbleDescription>();
+            Bubble = bubbleTemp.GetComponent<PrintBubbleDescription>();
         }
 
         public void OnTriggerStay2D(Collider2D other)

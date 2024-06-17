@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Joueur
 {
-    public class ifOwnerKeep : MonoBehaviour
+    public class IfOwnerKeep : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()

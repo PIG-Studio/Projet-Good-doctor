@@ -1,5 +1,5 @@
-﻿using Parameters;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Interaction.Implementation
 {
@@ -9,11 +9,11 @@ namespace Interaction.Implementation
         /// Méthode appelée pour interagir avec le distributeur
         /// </summary>
         public PrintBubbleDescription Bubble { get; set; }
-        [SerializeField] public GameObject BubbleTemp;
+        [FormerlySerializedAs("BubbleTemp")] [SerializeField] public GameObject bubbleTemp;
         [SerializeField] public string number;
         public void Start()
         {
-            Bubble = BubbleTemp.GetComponent<PrintBubbleDescription>();
+            Bubble = bubbleTemp.GetComponent<PrintBubbleDescription>();
         }
 
         public void OnTriggerStay2D(Collider2D other)

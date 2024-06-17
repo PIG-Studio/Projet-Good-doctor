@@ -1,7 +1,7 @@
 ﻿using GameCore.Variables;
 using Parameters;
-using ScriptableObject;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Interaction.Implementation
 {
@@ -11,11 +11,11 @@ namespace Interaction.Implementation
         /// Méthode appelée pour interagir avec la chaise quand on a une corde
         /// </summary>
         public PrintBubbleDescription Bubble { get; set; }
-        [SerializeField] public GameObject BubbleTemp;
+        [FormerlySerializedAs("BubbleTemp")] [SerializeField] public GameObject bubbleTemp;
 
         public void Start()
         {
-            Bubble = BubbleTemp.GetComponent<PrintBubbleDescription>();
+            Bubble = bubbleTemp.GetComponent<PrintBubbleDescription>();
         }
 
         public void OnTriggerStay2D(Collider2D other)

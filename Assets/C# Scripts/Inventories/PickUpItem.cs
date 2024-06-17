@@ -1,6 +1,4 @@
-﻿using GameCore.Variables;
-using Inventories.Player;
-using Joueur.Base;
+﻿using Joueur.Base;
 using ScriptableObject;
 using UnityEngine;
 

@@ -1,5 +1,4 @@
 using CustomScenes;
-using Destinations.Implementation;
 using GameCore.Constantes;
 using GameCore.Variables;
 using Super.Interfaces.Destination;
@@ -30,7 +29,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public IValue Depression { get; set; }
         public IMaladie Sickness { get; set; }
         public IValue Temperature { get; set; }
-        public bool poisoned { get; set; }
+        public bool Poisoned { get; set; }
         public int Age { get; set; }
         public NetworkVariable<bool> AnalyseAdn { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public NetworkVariable<bool> AnalyseDepression { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
@@ -120,7 +119,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void SyncOnConnectServerRpc()
         {
             Debug.Log("[Server] SyncOnConnectServerRpc() started");
-            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur, Adn.AdnValue, Adn.isHealthy);
+            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur, Adn.AdnValue, Adn.IsHealthy);
             Debug.Log("[Server] SyncOnConnectServerRpc() ended");
         }
         
@@ -249,7 +248,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void AddReputation()//fonction a utiliser quand patient quitte hôpital
         {
             int rep = Variable.CurrentlyRenderedDesk.Responsable.Reputation;
-            if (/* adn  &&*/ FreqCar.Valeur <= 80 && FreqCar.Valeur >= 60 && Temperature.Valeur <= 37 && Temperature.Valeur >= 35 && Depression.Valeur >= 0 &&
+            if (/* adn  &&*/ FreqCar.Valeur <= 80 && FreqCar.Valeur >= 60 && Temperature.Valeur <= 37 && Temperature.Valeur >= 35 &&
                 Depression.Valeur <= 2)
             {
                 if (rep + 10 > 100)
@@ -259,7 +258,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                     Variable.SceneNameCurrent.ToDesk()!.Responsable.Reputation += 10;
                 }
             }
-            else if (poisoned)
+            else if (Poisoned)
             {
                 Variable.CurrentlyRenderedDesk.Responsable.Reputation -= 20;
             }

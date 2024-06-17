@@ -129,13 +129,13 @@ namespace GameCore.Constantes
 
         public static List<string[]> TexteTuto = new List<string[]>()
         {
-            new string[]{"But Du Jeu" , 
+            new []{"But Du Jeu" , 
                 "Le but de Good Doctor est de gérer un hôpital et de soigner des patients " +
                 "tout en faisant attention à son argent et a sa barre de reputation qui varie " +
                 "en fonction du traitement que l'on donne au patients"},
-            new string[]{"But Du Jeu" ,"Pour gagner une partie le joueur a besoin de maintenir sa barre de reputation " +
+            new []{"But Du Jeu" ,"Pour gagner une partie le joueur a besoin de maintenir sa barre de reputation " +
                                        "ainisi que son argent au plus haut au quel cas il perd la partie"},
-            new string[]{"Sain" ,"Un patient est considéré en bonne santé quand ces attributs sont égaux à : " +
+            new []{"Sain" ,"Un patient est considéré en bonne santé quand ces attributs sont égaux à : " +
                                  "-Fréquence Cardiaque : 60-80 BPM, -Température : 35-37°c, " +
                                  "-ADN : une suite de lettres avec des c g a t, -Humeur : 0-2"},
             new []{"Médicaments" , "Le joueur a accès a différents médicaments chacun avec leur nom et leur spécifités que " +

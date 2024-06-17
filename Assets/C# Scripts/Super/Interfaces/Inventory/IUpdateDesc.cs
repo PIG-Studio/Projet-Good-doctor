@@ -6,7 +6,7 @@ namespace Super.Interfaces.Inventory
     public interface IUpdateDesc
     {
         public IInventory Inventory { get; set; }
-        public TextMeshProUGUI desc { get; set; }
+        public TextMeshProUGUI Desc { get; set; }
         public Image Icon { get; set; }
         public TextMeshProUGUI Title { get; set; }
         public TextMeshProUGUI Amount { get; set; }

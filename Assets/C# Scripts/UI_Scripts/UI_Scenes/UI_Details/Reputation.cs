@@ -1,6 +1,5 @@
 using GameCore.Variables;
 using Joueur.Base;
-using Super.Interfaces.Joueur;
 using TMPro;
 using TypeExpand.String;
 using UnityEngine;

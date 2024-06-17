@@ -1,37 +1,38 @@
+using GameCore.Constantes;
 using ScriptableObject;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
-using GameCore.Constantes;
 
-namespace Interaction
+namespace Interaction.Implementation
 {
     public class Encyclopedie : MonoBehaviour
     {
-        public SpriteRenderer Photographie;
+        [FormerlySerializedAs("Photographie")] public SpriteRenderer photographie;
 
-        public TextMeshProUGUI Nom;
+        [FormerlySerializedAs("Nom")] public TextMeshProUGUI nom;
 
-        public TextMeshProUGUI Description;
+        [FormerlySerializedAs("Description")] public TextMeshProUGUI description;
 
-        public Button Next;
+        [FormerlySerializedAs("Next")] public Button next;
 
-        public Button Before;
+        [FormerlySerializedAs("Before")] public Button before;
 
         private int Index { get; set; }
         
         public void Start()
         {
-            Before.enabled = false;
+            before.enabled = false;
             Index = 0;
-            Next.onClick.AddListener(NextClick);
-            Before.onClick.AddListener(BeforeClick);
+            next.onClick.AddListener(NextClick);
+            before.onClick.AddListener(BeforeClick);
         }
 
         void HandleClick()
         {
-            Next.enabled = Index != Constante.Encyclopedies.Length - 1;
-            Before.enabled = Index != 0;
+            next.enabled = Index != Constante.Encyclopedies.Length - 1;
+            before.enabled = Index != 0;
         }
 
         void NextClick()
@@ -39,9 +40,9 @@ namespace Interaction
             if (Index >= Constante.Encyclopedies.Length - 1) return;
             Index++;
             ItemsSo aux = Constante.Encyclopedies[Index];
-            Photographie.sprite = aux.icon;
-            Nom.text = aux.title;
-            Description.text = aux.description;
+            photographie.sprite = aux.icon;
+            nom.text = aux.title;
+            description.text = aux.description;
             HandleClick();
         }
 
@@ -50,9 +51,9 @@ namespace Interaction
             if (Index <= 0) return;
             Index--;
             ItemsSo aux = Constante.Encyclopedies[Index];
-            Photographie.sprite = aux.icon;
-            Nom.text = aux.title;
-            Description.text = aux.description;
+            photographie.sprite = aux.icon;
+            nom.text = aux.title;
+            description.text = aux.description;
             HandleClick();
         }
     }

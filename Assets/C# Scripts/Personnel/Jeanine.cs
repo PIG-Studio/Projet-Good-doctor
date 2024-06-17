@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using Super.Interfaces;
 using PNJ;
 using UnityEngine;
@@ -14,7 +14,7 @@ namespace Personnel
         public GameObject Prefab { get; }
         public GameObject InstantiatedObject { get; set; }
         public Animator AnimatorComponent { get; set; }
-        public NavMeshAgent Agent { get; private set; }
+        public NavMeshAgent Agent { get; }
         
         /// <summary>
         /// Identifiant unique de Janine
@@ -74,4 +74,4 @@ namespace Personnel
             throw new NotImplementedException();
         }
     }
-}
+}*/ 

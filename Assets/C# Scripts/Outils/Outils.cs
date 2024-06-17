@@ -1,6 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
@@ -8,24 +8,24 @@ namespace Outils
 {
     public class Outils : MonoBehaviour
     {
-        private static Object Stethoscope;
-        private  static Object Thermometer;
-        private  static Object Labo;
-        private  static Object Scan;
+        private static Object _stethoscope;
+        private  static Object _thermometer;
+        private  static Object _labo;
+        private  static Object _scan;
 
-        public TextMeshProUGUI Freq;
+        [FormerlySerializedAs("Freq")] public TextMeshProUGUI freq;
         
 
         void StethoOnClick()
         { 
             Debug.Log("Clique !");
-            Freq.text = 120 + "BPM";
+            freq.text = 120 + "BPM";
         }
         public void Start()
         {
-            Stethoscope = Resources.Load("Prefabs/Outils/Stethoscope");
-            Instantiate(Stethoscope); 
-            FindObjectOfType<Button>(Stethoscope).onClick.AddListener(StethoOnClick);
+            _stethoscope = Resources.Load("Prefabs/Outils/Stethoscope");
+            Instantiate(_stethoscope); 
+            FindObjectOfType<Button>(_stethoscope).onClick.AddListener(StethoOnClick);
         }
         
         void ThermoOnClick()

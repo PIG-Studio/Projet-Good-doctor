@@ -1,5 +1,4 @@
 using GameCore.Constantes;
-using Joueur;
 using Super.Interfaces.Maladies;
 using Super.Interfaces.Maladies.Types;
 using Super.Interfaces.Patient;
@@ -37,7 +36,7 @@ namespace Patient.Base
         /// <returns></returns>
         public static IAdn GenAdn(bool adnValid)
         {
-            return adnValid ? new Adn(Constante.AdnArray[Constante.AdnArray.Length.RandomInt()], adnValid) : new Adn(Constante.AnormalAdnArray[Constante.AnormalAdnArray.Length.RandomInt()], adnValid);
+            return adnValid ? new Adn(Constante.AdnArray[Constante.AdnArray.Length.RandomInt()], true) : new Adn(Constante.AnormalAdnArray[Constante.AnormalAdnArray.Length.RandomInt()], false);
         }
     }
 }

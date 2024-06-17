@@ -1,4 +1,4 @@
-﻿namespace Interaction.Base
+﻿/*namespace Interaction.Base
 {
     /*public class PlayerInteraction : MonoBehaviour
     {
@@ -28,5 +28,6 @@
                 }
             }
         }
-    }*/
+    }
 }
+*/
