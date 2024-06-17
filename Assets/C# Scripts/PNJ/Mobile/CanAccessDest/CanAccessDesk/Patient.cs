@@ -102,13 +102,13 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public void SyncOnConnectServerRpc()
         {
             Debug.Log("[Server] SyncOnConnectServerRpc() started");
-            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur, Adn.AdnValue);
+            SyncOnConnectClientRpc(Phrase, Skin, Rb.simulated, Temperature.Valeur, Depression.Valeur, Adn.AdnValue, Adn.isHealthy);
             Debug.Log("[Server] SyncOnConnectServerRpc() ended");
         }
         
 
         [ClientRpc]
-        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled, uint temperature, uint depression, string adnValue)
+        public void SyncOnConnectClientRpc(string phrase, uint skin, bool collisionsEnabled, uint temperature, uint depression, string adnValue, bool isV) 
         {
             
             Debug.Log("[Client] SyncOnConnectClientRpc() started");
@@ -117,7 +117,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             Rb.simulated = collisionsEnabled;
             Temperature = new Value(temperature);
             Depression = new Value(depression);
-            Adn = new Adn(adnValue);
+            Adn = new Adn(adnValue, isV);
             Debug.Log("[Client] SyncOnConnectClientRpc() ended");
         }
         

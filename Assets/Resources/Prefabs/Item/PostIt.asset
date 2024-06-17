@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515ef2f831636f745acf729e2938829d, type: 3}
+  m_Name: PostIt
+  m_EditorClassIdentifier: 
+  title: Post-it
+  description: "C'est  \xE9crit : \"<3 06 44 64 90 21\". La secr\xE9taire a peut-\xEAtre
+    un admirateur secret. "
+  icon: {fileID: 21300000, guid: 02a5605e6e6de28478cc537c2efd13a1, type: 3}
+  amount: 1
+  isStackable: 0
+  type: 0
+  adnToNormal: 0
+  modifyFreqCar: 0
+  modifyTemp: 0
+  modifyEmotion: 0
+  deadly: 0
+  price: 42
