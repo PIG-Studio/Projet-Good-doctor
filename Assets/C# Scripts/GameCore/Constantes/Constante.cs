@@ -121,7 +121,7 @@ namespace GameCore.Constantes
 
         public static string[] TutoImages = new string[]
         {
-            "Images/ReputMoney", "Images/ReputMoney", "Sprites/Medicaments/Doliprune" , "Sprites/Medicaments/Doliprune",
+            "Images/ReputMoney", "Images/ReputMoney", "Images/Sain",  "Sprites/Medicaments/Doliprune" , "Sprites/Medicaments/Doliprune",
             "Images/Fiche", "Images/LesOutils", "Images/InventaireDesk", "Images/Diagno", "Images/NextPatient" ,"Images/LaMap", "Images/Parler",
             "Images/AuSol","Images/Inventaire","Images/Alerte"
             
@@ -135,6 +135,9 @@ namespace GameCore.Constantes
                 "en fonction du traitement que l'on donne au patients"},
             new string[]{"But Du Jeu" ,"Pour gagner une partie le joueur a besoin de maintenir sa barre de reputation " +
                                        "ainisi que son argent au plus haut au quel cas il perd la partie"},
+            new string[]{"Sain" ,"Un patient est considéré en bonne santé quand ces attributs sont égaux à : " +
+                                 "-Fréquence Cardiaque : 60-80 BPM, -Température : 35-37°c, " +
+                                 "-ADN : une suite de lettres avec des c g a t, -Humeur : 0-2"},
             new []{"Médicaments" , "Le joueur a accès a différents médicaments chacun avec leur nom et leur spécifités que " +
                                    "le joueur peut consulter dans l'encyclopédie"},
             new []{"Médicaments" , "Chaque médicaments prescrit rapporte de l'argent au joueur cependant faites attention, " +

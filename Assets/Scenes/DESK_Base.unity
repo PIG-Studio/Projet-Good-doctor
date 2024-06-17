@@ -406,6 +406,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 850177325}
     m_Modifications:
+    - target: {fileID: 17412087980190250, guid: 6fedba08c4df43941bc7305062cbd1c6, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 17412087980190250, guid: 6fedba08c4df43941bc7305062cbd1c6, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 341424484804412849, guid: 6fedba08c4df43941bc7305062cbd1c6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 125
