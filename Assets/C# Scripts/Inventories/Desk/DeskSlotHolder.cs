@@ -13,7 +13,6 @@ namespace Inventories.Desk
         //[SerializeField] public GameObject Inventorytemp;
         public void Start()
         {
-            Debug.Log("start desk inventory");
             PrefabSlot = Resources.Load<GameObject>("Prefabs/Inventory/DeskSlotItem");
             Inventory =  Variable.SceneNameCurrent.ToDesk()!.Inventory;
             UpdateSlot();
