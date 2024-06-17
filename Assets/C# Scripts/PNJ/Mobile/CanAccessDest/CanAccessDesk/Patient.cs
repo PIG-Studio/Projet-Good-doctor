@@ -1,4 +1,5 @@
 using CustomScenes;
+using Destinations.Implementation;
 using GameCore.Constantes;
 using GameCore.Variables;
 using Super.Interfaces.Destination;
@@ -36,8 +37,15 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public NetworkVariable<bool> IsAlive { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public NetworkVariable<bool> IsLying { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         
+        private float TempsEcoulee { get; set; }
+        
+        private float TempsDernierPatient { get; set; }
+        
+        private float Wait { get; set; }
         public new void Start()
         {
+            TempsDernierPatient = 0;
+            Wait = 30f;
             base.Start();
             if (NetworkManager.Singleton.IsServer)
             {
@@ -66,9 +74,16 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public new void Update()
         {
             base.Update();
-            
+            TempsEcoulee = Time.time;
             // Si on est sur le serveur on continue
             if (!NetworkManager.Singleton.IsServer) return;
+            
+            if (TempsEcoulee - TempsDernierPatient > Wait)
+            {
+                Debug.Log("Twist !");
+                TempsDernierPatient = TempsEcoulee;
+                ChooseDestinationServerRpc();
+            }
             
             if (EnAttente.Value ||
                 DansBureau.Value ||
