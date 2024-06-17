@@ -93,6 +93,13 @@ namespace GameCore.Variables
             Resources.Load<RuntimeAnimatorController>("Animations/Patient/violette/Anim")
         };
         
+        public static Sprite[] AltSkin { get; } = new[]
+        {
+            Resources.Load<Sprite>("Animations/Patient/jumeau/DeskSprite"), 
+            Resources.Load<Sprite>("Animations/Patient/rougeau/DeskSprite"),
+            Resources.Load<Sprite>("Animations/Patient/violette/DeskSprite")
+        };
+        
         public static INormalDestination Sortie { get; set; }
         public static INormalDestination Cafet { get; set; }
     }

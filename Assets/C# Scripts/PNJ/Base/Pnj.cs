@@ -6,8 +6,10 @@ using Super.Interfaces.GameObjects;
 using UnityEngine;
 using TypeExpand.Animator;
 using TypeExpand.Int;
+using TypeExpand.String;
 using Unity.Collections;
 using Unity.Netcode;
+using UnityEngine.UI;
 
 namespace PNJ.Base
 {
@@ -46,6 +48,19 @@ namespace PNJ.Base
             {
                 SkinVal = value;
                 Anims.runtimeAnimatorController = Variable.PnjSkin[SkinVal];
+                transform.Find("CanvasDesk").gameObject.SetActive(false);
+            } 
+        }
+        
+        protected uint SkinDesk
+        {
+            get => SkinVal;
+            set
+            {
+                SkinVal = value;
+                transform.Find("CanvasDesk").Find("DeskSprite").gameObject.GetComponent<Image>().sprite =
+                    Variable.AltSkin[SkinVal];
+                transform.Find("CanvasDesk").gameObject.SetActive(true);
             } 
         }
         
@@ -59,6 +74,8 @@ namespace PNJ.Base
         protected override SpriteRenderer Sprite { get; set; }
 
         public Func<bool> ConditionAffichage { get; protected set; }
+
+        private GameObject _go;
         
         
         public void Start()
@@ -67,6 +84,7 @@ namespace PNJ.Base
             Anims = gameObject.GetComponent<Animator>();
             Sprite = gameObject.GetComponent<SpriteRenderer>();
             Rb = gameObject.GetComponent<Rigidbody2D>();
+            _go = transform.Find("CanvasDesk").gameObject;
             
             
             // Si cette instance n'est pas l'hôte return sinon Spawn
@@ -88,7 +106,16 @@ namespace PNJ.Base
         { 
             if (ConditionAffichage())
             {
-                Sprite.enabled = true; // Activer l'affichage du sprite
+                Sprite.enabled = true;
+                if (Variable.SceneNameCurrent.IsDesk())
+                {
+                    _go.SetActive(true);
+                }
+                else
+                {
+                    _go.SetActive(false);
+                }
+                 // Activer l'affichage du sprite
                 
                  // Mettre à jour la position actuelle
                 
@@ -104,8 +131,11 @@ namespace PNJ.Base
                 
                 Anims.UpdateAnim(Velocity); //Mettre à jour l'animation en fonction de la vélocité
             }
-            else 
+            else
+            {
                 Sprite.enabled = false;
+                _go.SetActive(false);
+            }
         }
     }
 }

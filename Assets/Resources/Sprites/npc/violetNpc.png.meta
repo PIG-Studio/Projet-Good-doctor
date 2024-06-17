@@ -497,6 +497,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: DeskSprite
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 165
+        width: 25
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0764a24e755e72662ab36c7405fb7cf3
+      internalID: -475945195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -508,6 +529,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      DeskSprite: -475945195
       violetNpc_0: -600486396
       violetNpc_1: 999474281
       violetNpc_10: 725683720

@@ -930,6 +930,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: DeskSprite
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 210
+        width: 23
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510c15eb183d4f94dadb096d11adb8d1
+      internalID: -275516984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -969,6 +990,7 @@ TextureImporter:
       60aI3qK_35: 607956100
       60aI3qK_36: -1819628806
       60aI3qK_9: -1099077907
+      DeskSprite: -275516984
       front_0: 233519780
       front_1: -829044238
       front_2: -932744540
