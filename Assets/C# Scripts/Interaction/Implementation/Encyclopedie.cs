@@ -1,22 +1,7 @@
-using System;
-using System.Collections.Generic;
-using CustomScenes;
-using GameCore.Variables;
-using Medicaments.Base;
-using Medicaments.Implemtation;
 using ScriptableObject;
 using TMPro;
-using UI_Scripts.UI_Prefab.UI_Base;
-using UI_Scripts.UI_Prefab.UI_Objects;
-using UnityEditor.VersionControl;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
-using UnityEngine.Analytics;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Windows;
-using Image = UnityEngine.UIElements.Image;
-using Object = UnityEngine.Object;
 using GameCore.Constantes;
 
 namespace Interaction
