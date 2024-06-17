@@ -67,13 +67,13 @@ namespace UI_Scripts.UI_Prefab.UI_Objects.UI_Dropdown
             viewport.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
             viewport.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
             viewport.GetComponent<RectTransform>().pivot = new Vector2(0f, 1f);
-            viewport.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Blue gradient");
+            viewport.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/SquareGD");
             viewport.GetComponent<RectTransform>().right = new Vector3(0, 0, 0);
             //viewport.AddComponent<Image>().sprite = Resources.GetBuiltinResource<Sprite>("UI/Skin/UIMask.psd");
 
             GameObject arrow = UIBaseObject.Create("Arrow", 0, 0, width / 4, width / 4);
 
-            arrow.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Green gradient");
+            arrow.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/SquareGD");
             arrow.GetComponent<Image>().type = Image.Type.Simple;
             arrow.transform.SetParent(ddw.transform);
             arrow.GetComponent<RectTransform>().transform.localPosition = new Vector3(-width / 8f, 0);
@@ -122,7 +122,7 @@ namespace UI_Scripts.UI_Prefab.UI_Objects.UI_Dropdown
             itemCheckmark.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0.5f);
             itemCheckmark.GetComponent<RectTransform>().anchorMax = new Vector2(0, 0.5f);
             itemCheckmark.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-            itemCheckmark.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Orange gradient");
+            itemCheckmark.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/SquareGD");
             itemCheckmark.GetComponent<Image>().type = Image.Type.Simple;
             itemCheckmark.GetComponent<RectTransform>().offsetMax = new Vector2(width / 10f, width / 5f);
             itemCheckmark.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
@@ -151,7 +151,7 @@ namespace UI_Scripts.UI_Prefab.UI_Objects.UI_Dropdown
             scrollbar.GetComponent<Scrollbar>().direction = Scrollbar.Direction.BottomToTop;
             scrollbar.GetComponent<Scrollbar>().value = 1;
             scrollbar.GetComponent<Scrollbar>().size = 1f;
-            scrollbar.GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/Orange gradient");
+            scrollbar.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/SquareGD");
             scrollbar.GetComponent<RectTransform>().anchorMin = new Vector2(1, 0);
             scrollbar.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
             scrollbar.GetComponent<RectTransform>().pivot = new Vector2(1f, 1f);
