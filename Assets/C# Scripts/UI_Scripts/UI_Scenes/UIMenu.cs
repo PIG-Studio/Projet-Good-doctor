@@ -4,6 +4,7 @@ using UI_Scripts.UI_Prefab;
 using CustomScenes;
 using GameCore.Variables;
 using Menu;
+using UnityEngine.UI;
 
 namespace UI_Scripts.UI_Scenes
 {
