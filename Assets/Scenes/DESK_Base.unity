@@ -1183,6 +1183,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 850177325}
     m_Modifications:
+    - target: {fileID: 63195007933273978, guid: 31de158113dfc24489112abb2c34078a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 350893768122722206, guid: 31de158113dfc24489112abb2c34078a, type: 3}
       propertyPath: m_text
       value: Voici un Tutoriel qui vous permettra d'en apprendre plus sur les bases
@@ -1398,11 +1402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2021933934619352840, guid: 31de158113dfc24489112abb2c34078a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 451.2
+      value: 751
       objectReference: {fileID: 0}
     - target: {fileID: 2021933934619352840, guid: 31de158113dfc24489112abb2c34078a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -434.6
+      value: -436
       objectReference: {fileID: 0}
     - target: {fileID: 2180797229088337110, guid: 31de158113dfc24489112abb2c34078a, type: 3}
       propertyPath: m_LocalScale.x
@@ -1518,15 +1522,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3574351009171330148, guid: 31de158113dfc24489112abb2c34078a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3574351009171330148, guid: 31de158113dfc24489112abb2c34078a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 452
+      value: 751
       objectReference: {fileID: 0}
     - target: {fileID: 3574351009171330148, guid: 31de158113dfc24489112abb2c34078a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -435
+      value: -436
       objectReference: {fileID: 0}
     - target: {fileID: 3940706953904739271, guid: 31de158113dfc24489112abb2c34078a, type: 3}
       propertyPath: m_LocalScale.x
