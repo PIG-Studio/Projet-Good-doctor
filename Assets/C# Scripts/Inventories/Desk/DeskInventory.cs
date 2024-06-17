@@ -103,6 +103,11 @@ namespace Inventories.Desk
         public void RemoveItem()
         {
             //Debug.Log("RemoveItem Desk");
+            if (QuantiteAUtiliser > QuantiteAct)
+            {
+                QuantiteAUtiliser = 0;
+                return;
+            }
             if (QuantiteAUtiliser == QuantiteAct && QuantiteAct == 0)
             {
                 Inventaire[IndexActuel] = null;
@@ -120,6 +125,11 @@ namespace Inventories.Desk
 
         public void SwitchInventory()
         {
+            if (QuantiteAUtiliser > QuantiteAct)
+            {
+                QuantiteAUtiliser = 0;
+                return;
+            }
             if (QuantiteAUtiliser > 0 && Variable.SceneNameCurrent == Scenes.DBase)
             {
                 ItemsSo newItem = Inventaire[IndexActuel].CopyItem();
@@ -130,17 +140,30 @@ namespace Inventories.Desk
                 UpdateDescription(IndexActuel);
                 
             }
+            if (QuantiteAct == 0)
+            {
+                Inventaire[IndexActuel] = null;
+            }
             Psh.UpdateSlot();
         }
 
         public void UseItem()
         {
+            if (QuantiteAUtiliser > QuantiteAct)
+            {
+                QuantiteAUtiliser = 0;
+                return;
+            }
             if (QuantiteAUtiliser > 0  && Variable.CurrentlyRenderedDesk.CurrentPatient is not null)
             {
                 Inventaire[IndexActuel].ModifyStat((IPatient)Variable.SceneNameCurrent.ToDesk().CurrentPatient); 
                 Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].price;
                 RemoveItem();
                 UpdateDescription(IndexActuel);
+            }
+            if (QuantiteAct == 0)
+            {
+                Inventaire[IndexActuel] = null;
             }
             Psh.UpdateSlot();
         }

@@ -108,6 +108,11 @@ namespace Inventories.Player
 
         public void RemoveItem()
         {
+            if (QuantiteAUtiliser > QuantiteAct)
+            {
+                QuantiteAUtiliser = 0;
+                return;
+            }
             if (QuantiteAUtiliser > 0)
             {
                 //Debug.Log("RemoveItem inventory");
@@ -130,6 +135,11 @@ namespace Inventories.Player
 
         public void SwitchInventory()
         { 
+            if (QuantiteAUtiliser > QuantiteAct)
+            {
+                QuantiteAUtiliser = 0;
+                return;
+            }
             if (QuantiteAUtiliser > 0)
             {
                 ItemsSo newItem = Inventaire[IndexActuel].CopyItem();
@@ -139,11 +149,21 @@ namespace Inventories.Player
                 Variable.SceneNameCurrent.ToDesk()!.Inventory.AddItem(newItem);
                 UpdateDescription(IndexActuel);
             }
+            if (QuantiteAct == 0)
+            {
+                Inventaire[IndexActuel] = null;
+            }
             Psh.UpdateSlot();
         }
 
         public void UseItem()
         {
+            
+            if (QuantiteAUtiliser > QuantiteAct)
+            {
+                QuantiteAUtiliser = 0;
+                return;
+            }
             if (QuantiteAUtiliser > 0)
             {
                 if (Variable.SceneNameCurrent == Scenes.DBase && Variable.CurrentlyRenderedDesk.CurrentPatient is not null)
@@ -161,7 +181,11 @@ namespace Inventories.Player
                     RemoveItem();
                 }
                 UpdateDescription(IndexActuel);
-                
+            }
+
+            if (QuantiteAct == 0)
+            {
+                Inventaire[IndexActuel] = null;
             }
             Psh.UpdateSlot();
         }
