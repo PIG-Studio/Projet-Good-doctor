@@ -147,7 +147,7 @@ namespace Inventories.Player
             {
                 if (Variable.SceneNameCurrent == Scenes.DBase && Variable.CurrentlyRenderedDesk.CurrentPatient is not null)
                 {
-                    //utiliser objet dur patient.
+                    //utiliser objet dur patient. avec ModifyStat(patient)
                     Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].price;
                     // if (Inventaire[IndexActuel].deadly && Variable.CurrentlyRenderedDesk.Responsable.Reputation > 0)
                     //     Variable.CurrentlyRenderedDesk.Responsable.Reputation -= 20;
@@ -155,8 +155,8 @@ namespace Inventories.Player
                 }
                 else
                 {
-                    //utiliser objet sur joueur.
-                    //si medicament est mortel dire que c'est la fin du jeu.
+                    Inventaire[IndexActuel].ModifyStat(Variable.SceneNameCurrent.ToDesk().Responsable);
+                    //si medicament est mortel dire que c'est la fin du jeu. voir ModifyStat
                     RemoveItem();
                 }
                 UpdateDescription(IndexActuel);

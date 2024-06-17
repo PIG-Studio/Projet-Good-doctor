@@ -51,12 +51,12 @@ namespace ScriptableObject
             return newItem;
         }
 
-        public void ModifyStat(PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient)
+        public void ModifyStat(IPatient patient)
         {
-            // patient.Depression += modifyEmotion;
-            // patient.Temperature += modifyTemp;
-            // patient.Adn = adnToNormal;
-            // patient.FreqCar += modifyFreqCar;
+            patient.Depression.Valeur += (uint)modifyEmotion;
+            patient.Temperature.Valeur += (uint)modifyTemp;
+            patient.Adn.isHealthy = adnToNormal;
+            patient.FreqCar.Valeur += (uint)modifyFreqCar;
         }
 
         public void ModifyStat(IJoueur joueur)

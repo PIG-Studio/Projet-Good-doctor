@@ -5,10 +5,11 @@ namespace Maladies.Base.SubTypes
     public class Adn : IAdn
     {
         public string AdnValue { get; }
-
-        public Adn(string sequence)
+        public bool isHealthy { get; set; }
+        public Adn(string sequence, bool isV)
         {
             AdnValue = sequence;
+            isHealthy = isV;
         }
     }
 }

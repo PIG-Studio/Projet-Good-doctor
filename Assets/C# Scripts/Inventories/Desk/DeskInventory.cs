@@ -2,6 +2,7 @@
 using GameCore.Variables;
 using ScriptableObject;
 using Super.Interfaces.Inventory;
+using Super.Interfaces.Patient;
 using TypeExpand.String;
 using UnityEngine;
 
@@ -138,7 +139,7 @@ namespace Inventories.Desk
         {
             if (QuantiteAUtiliser > 0  && Variable.CurrentlyRenderedDesk.CurrentPatient is not null)
             {
-                //Inventaire[IndexActuel].ModifyStat(Variable.SceneNameCurrent.ToDesk().CurrentPatient); 
+                Inventaire[IndexActuel].ModifyStat((IPatient)Variable.SceneNameCurrent.ToDesk().CurrentPatient); 
                 Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].price;
                 RemoveItem();
                 UpdateDescription(IndexActuel);
