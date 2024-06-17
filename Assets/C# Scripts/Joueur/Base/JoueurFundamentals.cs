@@ -1,4 +1,5 @@
 using System;
+using CustomScenes;
 using Desks;
 using GameCore.Variables;
 using Inventories.Player;
@@ -18,7 +19,7 @@ namespace Joueur.Base
         public int Reputation { get; set; }
         public uint? BureauActuel { get; protected set; }
         public PlayerInventory Inventory { get; set; }
-        public Func<bool> ConditionAffichage { get; } = () => true;
+        public Func<bool> ConditionAffichage { get; } = () => Variable.SceneNameCurrent == Scenes.Map;
         private NetworkVariable<Vector2> Position { get; } = new(writePerm: NetworkVariableWritePermission.Server);
 
 

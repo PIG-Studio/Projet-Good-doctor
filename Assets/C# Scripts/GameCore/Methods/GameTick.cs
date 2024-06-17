@@ -19,7 +19,7 @@ namespace GameCore.Methods
         {
             Patient = Resources.Load<GameObject>("Prefabs/Patient");
             TempsEcoulee = 0f;
-            Variable.WaitTime = new Random().Next(15,30);
+            Variable.WaitTime = new Random().Next(1,3);
             Debug.Log(Variable.WaitTime);
 
         }

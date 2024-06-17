@@ -146,6 +146,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                                        && Navigation.remainingDistance < 2f 
                                        && DansBureau.Value;
             Destination = null;
+            SkinDesk = Skin;
             Debug.Log("[Client] EnterBureauClientRpc() ended");
         }
 
@@ -171,6 +172,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             Debug.Log("[Client] SortirBureauClientRpc() started");
             
             ConditionAffichage = () => Variable.SceneNameCurrent == Scenes.Map;
+            Skin = SkinDesk;
             
             Debug.Log("[Client] SortirBureauClientRpc() ended");
         }
