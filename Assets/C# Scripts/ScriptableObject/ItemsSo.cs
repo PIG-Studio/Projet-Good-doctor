@@ -1,3 +1,5 @@
+using Super.Interfaces.Joueur;
+using Super.Interfaces.Patient;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -22,7 +24,7 @@ namespace ScriptableObject
 
         [FormerlySerializedAs("AdnToNormal")] public bool adnToNormal;
         [FormerlySerializedAs("ModifyFreqCar")] public int modifyFreqCar;
-        [FormerlySerializedAs("ModifyTemp")] public int m;
+        [FormerlySerializedAs("ModifyTemp")] public int modifyTemp;
         [FormerlySerializedAs("ModifyEmotion")] public int modifyEmotion;
         [FormerlySerializedAs("Deadly")] public bool deadly;
 
@@ -38,14 +40,34 @@ namespace ScriptableObject
             newItem.icon = icon;
             newItem.isStackable = isStackable;
             newItem.type = type;
+            
             newItem.deadly = deadly;
             newItem.adnToNormal = adnToNormal;
             newItem.modifyEmotion = modifyEmotion;
-            newItem.m = m;
+            newItem.modifyTemp = modifyTemp;
             newItem.modifyFreqCar = modifyFreqCar;
             newItem.price = price;
 
             return newItem;
+        }
+
+        public void ModifyStat(PNJ.Mobile.CanAccessDest.CanAccessDesk.Patient patient)
+        {
+            // patient.Depression += modifyEmotion;
+            // patient.Temperature += modifyTemp;
+            // patient.Adn = adnToNormal;
+            // patient.FreqCar += modifyFreqCar;
+        }
+
+        public void ModifyStat(IJoueur joueur)
+        {
+            if (deadly)
+                joueur.Pv -= 20;
+            
+            if (joueur.Pv <= 0)
+            {
+               //tuer joueur, fin de partie 
+            }
         }
     }
 }

@@ -29,6 +29,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
         public IValue Depression { get; set; }
         public IMaladie Sickness { get; set; }
         public IValue Temperature { get; set; }
+        public bool poisoned { get; set; }
         public int Age { get; set; }
         public NetworkVariable<bool> AnalyseAdn { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
         public NetworkVariable<bool> AnalyseDepression { get; set; } = new(writePerm: NetworkVariableWritePermission.Server);
@@ -225,7 +226,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             throw new System.NotImplementedException();
         }
 
-        public void AddReputation()
+        public void AddReputation()//fonction a utiliser quand patient quitte hôpital
         {
             int rep = Variable.CurrentlyRenderedDesk.Responsable.Reputation;
             if (/* adn  &&*/ FreqCar.Valeur <= 80 && FreqCar.Valeur >= 60 && Temperature.Valeur <= 37 && Temperature.Valeur >= 35 && Depression.Valeur >= 0 &&
@@ -237,6 +238,10 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
                 {
                     Variable.SceneNameCurrent.ToDesk()!.Responsable.Reputation += 10;
                 }
+            }
+            else if (poisoned)
+            {
+                Variable.CurrentlyRenderedDesk.Responsable.Reputation -= 20;
             }
             else
             {

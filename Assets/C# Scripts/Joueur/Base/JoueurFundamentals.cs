@@ -13,7 +13,7 @@ namespace Joueur.Base
 {
     public class JoueurFundamentals : NetworkBehaviour, IHasHp, IJoueur, IConditionAffichage
     {
-        public uint Pv { get; protected set; }
+        public uint Pv { get; set; }
         public uint Money { get; set; }
         public int Reputation { get; set; }
         public uint? BureauActuel { get; protected set; }
@@ -34,6 +34,7 @@ namespace Joueur.Base
             Inventory.Update();
             Money = 100;
             Reputation = 60;
+            Pv = 50;
         }
 
         

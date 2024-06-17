@@ -136,9 +136,9 @@ namespace Inventories.Desk
 
         public void UseItem()
         {
-            if (QuantiteAUtiliser > 0)
+            if (QuantiteAUtiliser > 0  && Variable.CurrentlyRenderedDesk.CurrentPatient is not null)
             {
-                //utiliser objet sur patient 
+                //Inventaire[IndexActuel].ModifyStat(Variable.SceneNameCurrent.ToDesk().CurrentPatient); 
                 Variable.CurrentlyRenderedDesk.Responsable.Money += QuantiteAUtiliser * Inventaire[IndexActuel].price;
                 RemoveItem();
                 UpdateDescription(IndexActuel);
