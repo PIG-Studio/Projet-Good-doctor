@@ -51,7 +51,6 @@ namespace Destinations.Implementation
                 entity.StartWaitingServerRpc();
                 break;
             }
-            
             NbEntites++;
             IsFull = NbEntites == Capacite;
 

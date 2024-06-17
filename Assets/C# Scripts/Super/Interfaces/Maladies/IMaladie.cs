@@ -22,7 +22,7 @@ namespace Super.Interfaces.Maladies
         /// <summary>
         /// Indique si l'ADN est sain.
         /// </summary>
-        bool AdnSain { get;  }
+        bool AdnSain { get; }
         
         /// <summary>
         /// Le niveau de dépression associé à la maladie.

@@ -18,9 +18,8 @@ namespace GameCore.Methods
         public void Start()
         {
             Patient = Resources.Load<GameObject>("Prefabs/Patient");
-            TempsEcoulee = 0f;
-            Variable.WaitTime = new Random().Next(1,3);
-            Debug.Log(Variable.WaitTime);
+            TempsEcoulee = 0f; 
+            Variable.WaitTime = new Random().Next(15,30);
 
         }
 
@@ -39,7 +38,7 @@ namespace GameCore.Methods
             //var guillaume = Instantiate(_patient);
             //Debug.Log(guillaume.Name + " " + guillaume.Depression + " " + guillaume.Sickness + " " +
             //          guillaume.Adn);
-            Debug.Log(Patient); // Affichage du GameObject représentant le patient (pour débogage)
+            //Debug.Log(Patient); // Affichage du GameObject représentant le patient (pour débogage)
             
             // Vérification si la scène actuelle n'est pas un bureau ou la carte
             /*if (!Variable.SceneNameCurrent.IsDesk() && Variable.SceneNameCurrent != Scenes.Map) return;
