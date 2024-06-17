@@ -83,12 +83,12 @@ namespace Network.UI.Buttons
                     GUILayout.Label($"Connected : {NetworkManager.Singleton.ConnectedClients.Count}");
 
                     // Bouton pour arreter le serveur
-                    if (GUILayout.Button("Menu"))
+                    /*if (GUILayout.Button("Menu"))
                     {
                         NetworkManager.Singleton.Shutdown();
                         // TODO : savegame
                         ChangeScene("Menu");
-                    }
+                    }*/
                 }
                 // Si on est client
                 else if (NetworkManager.Singleton.IsClient)
