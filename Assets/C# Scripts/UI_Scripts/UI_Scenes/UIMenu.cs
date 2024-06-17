@@ -24,7 +24,7 @@ namespace UI_Scripts.UI_Scenes
                     () ;
 
             // Ajout des elements a afficher
-            dicoRender["Parametres"] = UIPrefabs.BTN_ChangeScene("Parameters", "", -700f, 400f, 100f, 80f,
+            dicoRender["Parametres"] = UIPrefabs.BTN_ChangeScene("Parameters", "", -700f, -400f, 100f, 80f,
                 Scenes.Param, "Button/prettyButton/Gear-Default");
             dicoRender["Quit"] = UIPrefabs.BTN_Quit("Quit", "Quit", 0f, -350f, 225f, 75f);
             dicoRender["Quit"].GetComponent<Image>().sprite = Resources.Load<Sprite>("Button/prettyButton/Blue-Square-Default");
