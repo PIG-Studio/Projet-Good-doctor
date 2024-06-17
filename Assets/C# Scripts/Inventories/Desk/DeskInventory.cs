@@ -149,7 +149,7 @@ namespace Inventories.Desk
 
         public void MinusB()
         {
-            if (QuantiteAUtiliser != 0)
+            if (QuantiteAUtiliser > 0)
                 QuantiteAUtiliser--;
         }
 

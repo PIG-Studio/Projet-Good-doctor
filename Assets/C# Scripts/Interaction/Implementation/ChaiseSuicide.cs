@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Interaction.Implementation
 {
-    public class ChaiseSuicide
+    public class ChaiseSuicide : MonoBehaviour
     {
         /// <summary>
         /// Méthode appelée pour interagir avec la chaise quand on a une corde
