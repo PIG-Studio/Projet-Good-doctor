@@ -41,7 +41,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             base.Start();
             if (NetworkManager.Singleton.IsServer)
             {
-                if (Variable.NbOfPatients > Constante.MaxPatient)
+                if (Variable.NbOfPatients > Constante.MaxPatient)   
                 {
                     Destroy(gameObject);
                     return;

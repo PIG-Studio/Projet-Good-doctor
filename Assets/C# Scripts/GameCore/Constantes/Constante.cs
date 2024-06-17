@@ -157,7 +157,9 @@ namespace GameCore.Constantes
             
             new []{"Votre Hôpital" , "Bien evidemment vous n'êtes pas obliger de rester dans votre bureau, " +
                                      "en cliquant sur map vous pourrez aller explorer votre hôpital, " +
-                                     "voir vos patients, trouvez des objets et bien plus !"},
+                                     "voir vos patients, trouvez des objets et bien plus ! " +
+                                     "Mais si jamais votre bureau vous manque vous pouvez retourner " +
+                                     " a ce dernier et appuyer sur la touche E pour rentre dedans"},
             new []{"Les Patients" , "Dans la map, vous allez pouvoir intéragir avec de nombreuses choses, " +
                                     "par exemple en vous approchant d'un patient et en appuyant sur la " +
                                     "touche E, vous allez pouvoir parler avec lui et savoir son nom" }
@@ -169,7 +171,9 @@ namespace GameCore.Constantes
                                         "inventaire, appuyer sur la touche I et accédez " +
                                         "a toute vos trouvailles !"},
             new []{"Alerte" , "Rassurez vous, pendant vos excursions une alerte s'affichera " +
-                              "quand vos patient on besoin de vous, foncez accomplir votre devoir !"}
+                              "quand vos patient on besoin de vous, " +
+                              "rentrez dans votre bureau en appuyant sur E à côté " +
+                              " de la porte de votre bureau. foncez accomplir votre devoir !"}
         };
     }
 }
