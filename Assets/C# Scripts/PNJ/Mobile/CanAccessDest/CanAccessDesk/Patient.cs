@@ -79,7 +79,7 @@ namespace PNJ.Mobile.CanAccessDest.CanAccessDesk
             // Si on est sur le serveur on continue
             if (!NetworkManager.Singleton.IsServer) return;
             
-            if (TempsEcoulee - TempsDernierPatient > Wait)
+            if (TempsEcoulee - TempsDernierPatient > Wait && Destination is INormalDestination)
             {
                 Debug.Log("Twist !");
                 TempsDernierPatient = TempsEcoulee;
