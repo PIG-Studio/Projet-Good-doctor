@@ -1,11 +1,20 @@
-<mxfile host="app.diagrams.net" modified="2024-06-22T16:16:11.627Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0" etag="O-EbvSeuFMf-Z1aTi_eV" version="24.6.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-22T16:22:55.753Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0" etag="rS4G704sWz690bUFbnoQ" version="24.6.2" type="github">
   <diagram name="Page-1" id="XFIx7qS9XGdZtA_PtzUi">
     <mxGraphModel dx="1418" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="MnJkxvYRlAvm6v2MHJkW-1" value="AIAIAIAA" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="40" y="40" width="40" height="40" as="geometry" />
+        <mxCell id="ig1n-ymVNB9o0xp7LxkO-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ig1n-ymVNB9o0xp7LxkO-2" target="ig1n-ymVNB9o0xp7LxkO-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ig1n-ymVNB9o0xp7LxkO-2" value="NewGame()" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=60;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ig1n-ymVNB9o0xp7LxkO-3" value="Desks.Initialiser()" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="10" y="80" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ig1n-ymVNB9o0xp7LxkO-4" value="Initialize one desk" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="ig1n-ymVNB9o0xp7LxkO-3">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
